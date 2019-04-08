@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VisorFacturas.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DirectorioTablasCNZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\Contabilidad-CNZF\Sisintfi\CxC\CZF</Value>
+    </Setting>
+    <Setting Name="DirectorioFacturasCNZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\VFactCNZF\Facturas</Value>
+    </Setting>
+    <Setting Name="DirectorioTablasRemisionCNZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\Contabilidad-CNZF\Sisintfi\CxC\CZF\TempRemision</Value>
+    </Setting>
+    <Setting Name="DirectorioActivosFijosCNZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\Contabilidad-CNZF\SISINTFI\AF\ZFM</Value>
+    </Setting>
+    <Setting Name="DirectorioTablasCZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\INVENT\CZF</Value>
+    </Setting>
+    <Setting Name="DirectorioFacturasCZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\VFactCZF\Facturas</Value>
+    </Setting>
+    <Setting Name="DirectorioTablasRemisionCZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\INVENT\CZF\TempRemision</Value>
+    </Setting>
+    <Setting Name="DirectorioActivosFijosCZF" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\AF\ZFM</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

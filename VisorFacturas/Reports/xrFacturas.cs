@@ -1,0 +1,89 @@
+﻿using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using DevExpress.XtraReports.UI;
+using System.Collections.Generic;
+using VisorFacturas.Clases;
+using System.Linq;
+using VisorFacturas.Enums;
+using DevExpress.XtraPrinting.Drawing;
+
+namespace VisorFacturas.Reports
+{
+    public partial class xrFacturas : DevExpress.XtraReports.UI.XtraReport
+    {
+        List<viewRemision> ListRem;    // Estos son todos los datos de Remision de todas las Facturas
+        List<viewRemision> ListRemDet; // Estos son todos los datos de Remision de una Factura (iteración)
+        String ord_num;
+        String FacturacionMes;
+        clsAppEnum moclsAppEnum = new clsAppEnum();
+        String FormatoNumerico;
+        
+        public xrFacturas(List<viewRemision> List, String MesFacturado)
+        {
+            InitializeComponent();
+            //mdetail_bndsrc.DataSource = List;
+            this.ListRem = List;
+            mdetail_bndsrc.DataSource = List;
+            FacturacionMes = "Facturación del Mes de " + MesFacturado;
+            xrTableCell_FacturacionMes.Text = FacturacionMes;
+            
+        }
+
+        private void GroupHeader1_AfterPrint(object sender, EventArgs e)
+        {
+            // Obtengo el ord_numero actual
+            ord_num = this.GetCurrentColumnValue("ord_numero").ToString();
+            // Filtro la Remision de esa Factura
+            ListRemDet = ListRem.Where(s => s.rem_numero == ord_num).ToList();
+            // Lleno el binding source de Detail (Remision)
+            mdetail_bndsrc.DataSource = ListRemDet.ToList();
+
+            // Si tiene descuento muestro el campo de descuento, en caso contrario, se oculta
+            if (ListRemDet.AsEnumerable().Sum(o => o.rem_descue) > 0)
+                xrtable_descuento.Visible = true;
+            else
+                xrtable_descuento.Visible = false;
+
+            // Obtenemos el total de la factura
+            String TotalFact = this.GetCurrentColumnValue("fac_amo_do").ToString();
+            // Obtenemos la moneda de la factura
+            String MonedaFact = this.GetCurrentColumnValue("fac_dolcor").ToString();
+            // Obtenemos el valor en letras del monto total de la factura (Params: Monto Total, Moneda)
+            xrlabel_ValorEnLetras.Text = moclsAppEnum.enletras(TotalFact, MonedaFact);
+
+            // Si en el remision_descripcion abarca Directorio Industrial, entonces cambia el campo REVISADO
+            if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
+                xrlab_Revisado.Text = "Mauricio Abarca";
+            else
+                xrlab_Revisado.Text = "Ramiro Moreno";
+
+            // Obtenemos el formato numérico conforme la moneda de la factura
+            if (MonedaFact.Substring(0, 1).ToUpper() == "D")
+                FormatoNumerico = "{0:U$  #,0.00}";
+            else
+                FormatoNumerico = "{0:C$  #,0.00}";
+
+            xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
+            xrlab_fac_total_2.DataBindings["Text"].FormatString = FormatoNumerico;            
+        }
+
+        public void SetPictureWatermark(XtraReport report)
+        {
+            // Adjust image watermark settings.
+            report.Watermark.Image = VisorFacturas.Properties.Resources.Watermark_Comisión_Nacional_de_Zonas_Francas;
+            report.Watermark.ImageAlign = ContentAlignment.MiddleCenter;
+            report.Watermark.ImageTiling = false;
+            report.Watermark.ImageViewMode = ImageViewMode.Clip;
+            report.Watermark.ImageTransparency = 210;
+            report.Watermark.ShowBehind = false;            
+            //report.Watermark.PageRange = "2,4";
+        }
+
+        private void xrFacturas_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            SetPictureWatermark((XtraReport)sender);
+        }
+    }
+}

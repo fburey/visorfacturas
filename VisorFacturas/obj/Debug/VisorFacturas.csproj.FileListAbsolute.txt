@@ -1,0 +1,1191 @@
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.config
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.pdb
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.BonusSkins.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Charts.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.CodeParser.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Export.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Extensions.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.Cache
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojResolveAssemblyReference.cache
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturasMasivas.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturasMasivasSoloDatos.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.config
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.manifest
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.application
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.pdb
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.BonusSkins.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Charts.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.CodeParser.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Export.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Extensions.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Data.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Data.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Data.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Data.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Office.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Office.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Office.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Office.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraBars.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraBars.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraBars.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraBars.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Xpo.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Xpo.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Xpo.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Xpo.v17.1.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojResolveAssemblyReference.cache
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmConsulta1.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes01.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptEmpleadoLst.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.Cache
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CoreCompileInputs.cache
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.TrustInfo.xml
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.manifest
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
+C:\Red\Proyectos - Ariel Dávila\Proy - Visor Factura\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.config
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.manifest
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.application
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.pdb
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.BonusSkins.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Charts.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.CodeParser.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Export.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Extensions.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Data.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Data.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Data.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Data.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojResolveAssemblyReference.cache
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptEmpleadoLst.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.Cache
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CoreCompileInputs.cache
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.TrustInfo.xml
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.manifest
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmActivoFijo.resources
+C:\Users\wmejia\Documents\Visual Studio 2017\Projects\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesAll.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.config
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.manifest
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.application
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.pdb
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.BonusSkins.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Charts.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.CodeParser.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Export.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Extensions.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v17.1.UI.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v17.1.Extensions.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v17.1.UI.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v17.1.Core.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v17.1.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Data.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Office.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.PivotGrid.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.RichEdit.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v17.1.Wizard.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGauges.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraLayout.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPrinting.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v17.1.Extensions.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraTreeList.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraRichEdit.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraVerticalGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraNavBar.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v17.1.UI.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPivotGrid.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Xpo.v17.1.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmActivoFijo.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesAll.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptEmpleadoLst.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.Cache
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.TrustInfo.xml
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.manifest
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
+C:\Users\adavila\Documents\Visual Studio 2017\Projects\CZF\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.config
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.manifest
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.application
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.pdb
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.BonusSkins.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Charts.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.CodeParser.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v18.1.Export.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.UI.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Images.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.UI.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.Extensions.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v18.1.Core.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v18.1.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.UI.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.UI.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v18.1.Core.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v18.1.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Xpo.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojResolveAssemblyReference.cache
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmActivoFijo.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesAll.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesconMontos.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptEmpleadoLst.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.cache
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CoreCompileInputs.cache
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.TrustInfo.xml
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.manifest
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CopyComplete
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
+C:\Users\adavila\Desktop\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptFacturasCZF.resources
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.config
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe.manifest
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.application
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.exe
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\VisorFacturas.pdb
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.BonusSkins.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Charts.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.CodeParser.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v18.1.Export.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.UI.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Images.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.UI.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.Extensions.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v18.1.Core.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v18.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Data.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Office.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.PivotGrid.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Utils.v18.1.UI.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraBars.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGauges.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraGrid.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Xpo.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.DataAccess.v18.1.UI.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPivotGrid.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Diagram.v18.1.Core.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraDiagram.v18.1.xml
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Utils.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Utils.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Utils.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Utils.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGauges.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraRichEdit.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraVerticalGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Xpo.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Xpo.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Xpo.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Xpo.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.DataAccess.v18.1.UI.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v18.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojResolveAssemblyReference.cache
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmActivoFijo.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesAll.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesconMontos.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptEmpleadoLst.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptFacturasCZF.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.cache
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CoreCompileInputs.cache
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.TrustInfo.xml
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.manifest
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CopyComplete
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
