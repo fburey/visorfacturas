@@ -57,7 +57,7 @@ namespace VisorFacturas.Reports
             if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
                 xrlab_Revisado.Text = "Mauricio Abarca";
             else
-                xrlab_Revisado.Text = "Ramiro Moreno";
+                xrlab_Revisado.Text = "Estrellita Blanco";
 
             // Obtenemos el formato numérico conforme la moneda de la factura
             if (MonedaFact.Substring(0, 1).ToUpper() == "D")

@@ -1073,7 +1073,7 @@
             this.xrlab_Revisado.StylePriority.UseFont = false;
             this.xrlab_Revisado.StylePriority.UsePadding = false;
             this.xrlab_Revisado.StylePriority.UseTextAlignment = false;
-            this.xrlab_Revisado.Text = "Ramiro Moreno";
+            this.xrlab_Revisado.Text = "Estrellita Blanco";
             this.xrlab_Revisado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // xrLabel47
@@ -1521,7 +1521,7 @@
             this.calcfield_fac_total});
             this.DataSource = this.mhead_bndsrc;
             this.Margins = new System.Drawing.Printing.Margins(0, 134, 32, 87);
-            this.Version = "17.1";
+            this.Version = "19.1";
             ((System.ComponentModel.ISupportInitialize)(this.mhead_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();

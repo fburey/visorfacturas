@@ -71,7 +71,7 @@ namespace VisorFacturas.Reports
             if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
                 xrlab_Revisado.Text = "Mauricio Abarca";
             else
-                xrlab_Revisado.Text = "Ramiro Moreno";
+                xrlab_Revisado.Text = "Estrellita Blanco";
 
             ////Formateamos los campos de totales, descuento e IVA
             //xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
