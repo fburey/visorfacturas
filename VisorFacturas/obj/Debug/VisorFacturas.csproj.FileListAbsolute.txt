@@ -1167,7 +1167,7 @@ C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v19.1.Core.re
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v19.1.Core.resources.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v19.1.Core.resources.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v19.1.Core.resources.dll
-C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojResolveAssemblyReference.cache
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojAssemblyReference.cache
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmActivoFijo.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
@@ -1181,7 +1181,6 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptFacturasCZ
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.cache
-C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CoreCompileInputs.cache
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.TrustInfo.xml
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.manifest
@@ -1189,3 +1188,4 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CopyComplete
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
