@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnexportar = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnviarCorreo = new DevExpress.XtraEditors.SimpleButton();
             this.chkSinFormat = new DevExpress.XtraEditors.CheckEdit();
             this.chkImpresionMasiva = new DevExpress.XtraEditors.CheckEdit();
@@ -138,6 +139,7 @@
             // 
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupControl2.Controls.Add(this.btnexportar);
             this.groupControl2.Controls.Add(this.btnEnviarCorreo);
             this.groupControl2.Controls.Add(this.chkSinFormat);
             this.groupControl2.Controls.Add(this.chkImpresionMasiva);
@@ -145,9 +147,23 @@
             this.groupControl2.Controls.Add(this.btnImprimir);
             this.groupControl2.Location = new System.Drawing.Point(3, 154);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(205, 335);
+            this.groupControl2.Size = new System.Drawing.Size(205, 458);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Acciones";
+            // 
+            // btnexportar
+            // 
+            this.btnexportar.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnexportar.Appearance.Options.UseFont = true;
+            this.btnexportar.Appearance.Options.UseTextOptions = true;
+            this.btnexportar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnexportar.ImageOptions.Image = global::VisorFacturas.Properties.Resources.export_spreadsheet_32x32;
+            this.btnexportar.Location = new System.Drawing.Point(18, 210);
+            this.btnexportar.Name = "btnexportar";
+            this.btnexportar.Size = new System.Drawing.Size(160, 54);
+            this.btnexportar.TabIndex = 11;
+            this.btnexportar.Text = "Exportar";
+            this.btnexportar.Click += new System.EventHandler(this.btnexportar_Click);
             // 
             // btnEnviarCorreo
             // 
@@ -190,7 +206,7 @@
             this.btnSalir.Appearance.Options.UseTextOptions = true;
             this.btnSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnSalir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.TraExt_btn;
-            this.btnSalir.Location = new System.Drawing.Point(18, 210);
+            this.btnSalir.Location = new System.Drawing.Point(18, 270);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(160, 54);
             this.btnSalir.TabIndex = 5;
@@ -223,7 +239,7 @@
             this.gcFacturas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.tipomoneda_ricmb,
             this.tipofactura_ricmb});
-            this.gcFacturas.Size = new System.Drawing.Size(904, 442);
+            this.gcFacturas.Size = new System.Drawing.Size(904, 565);
             this.gcFacturas.TabIndex = 10;
             this.gcFacturas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFacturas});
@@ -523,7 +539,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 1);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtpFacturas;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1127, 493);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1127, 616);
             this.xtraTabControl1.TabIndex = 12;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpFacturas,
@@ -535,7 +551,7 @@
             this.xtpFacturas.Controls.Add(this.groupControl2);
             this.xtpFacturas.Controls.Add(this.groupControl1);
             this.xtpFacturas.Name = "xtpFacturas";
-            this.xtpFacturas.Size = new System.Drawing.Size(1121, 453);
+            this.xtpFacturas.Size = new System.Drawing.Size(1121, 576);
             this.xtpFacturas.Text = "Facturas";
             // 
             // xtpCorreos
@@ -544,7 +560,7 @@
             this.xtpCorreos.Controls.Add(this.splitterControl1);
             this.xtpCorreos.Controls.Add(this.panelControl2);
             this.xtpCorreos.Name = "xtpCorreos";
-            this.xtpCorreos.Size = new System.Drawing.Size(1121, 453);
+            this.xtpCorreos.Size = new System.Drawing.Size(1121, 576);
             this.xtpCorreos.Text = "Correos";
             // 
             // panelControl3
@@ -553,7 +569,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(660, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(461, 453);
+            this.panelControl3.Size = new System.Drawing.Size(461, 576);
             this.panelControl3.TabIndex = 0;
             // 
             // groupControl4
@@ -566,7 +582,7 @@
             this.groupControl4.Controls.Add(this.xtcTipoEnvio);
             this.groupControl4.Location = new System.Drawing.Point(6, 5);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(452, 440);
+            this.groupControl4.Size = new System.Drawing.Size(452, 563);
             this.groupControl4.TabIndex = 13;
             this.groupControl4.Text = "Listado de Correos";
             // 
@@ -578,7 +594,7 @@
             this.xtcTipoEnvio.Location = new System.Drawing.Point(5, 29);
             this.xtcTipoEnvio.Name = "xtcTipoEnvio";
             this.xtcTipoEnvio.SelectedTabPage = this.xtpEnvioMasivo;
-            this.xtcTipoEnvio.Size = new System.Drawing.Size(443, 406);
+            this.xtcTipoEnvio.Size = new System.Drawing.Size(443, 529);
             this.xtcTipoEnvio.TabIndex = 12;
             this.xtcTipoEnvio.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpEnvioMasivo,
@@ -588,7 +604,7 @@
             // 
             this.xtpEnvioMasivo.Controls.Add(this.gcCorreos);
             this.xtpEnvioMasivo.Name = "xtpEnvioMasivo";
-            this.xtpEnvioMasivo.Size = new System.Drawing.Size(437, 378);
+            this.xtpEnvioMasivo.Size = new System.Drawing.Size(437, 501);
             this.xtpEnvioMasivo.Text = "Envío Masivo";
             // 
             // gcCorreos
@@ -598,7 +614,7 @@
             this.gcCorreos.Location = new System.Drawing.Point(0, 0);
             this.gcCorreos.MainView = this.gvCorreos;
             this.gcCorreos.Name = "gcCorreos";
-            this.gcCorreos.Size = new System.Drawing.Size(437, 378);
+            this.gcCorreos.Size = new System.Drawing.Size(437, 501);
             this.gcCorreos.TabIndex = 11;
             this.gcCorreos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCorreos});
@@ -676,7 +692,7 @@
             this.xtpEnvioIndividual.Controls.Add(this.txtEnvioIndividual);
             this.xtpEnvioIndividual.Controls.Add(this.labelControl8);
             this.xtpEnvioIndividual.Name = "xtpEnvioIndividual";
-            this.xtpEnvioIndividual.Size = new System.Drawing.Size(437, 378);
+            this.xtpEnvioIndividual.Size = new System.Drawing.Size(437, 501);
             this.xtpEnvioIndividual.Text = "Envío Individual";
             // 
             // LstCorreosIndiv
@@ -728,7 +744,7 @@
             // 
             this.splitterControl1.Location = new System.Drawing.Point(655, 0);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 453);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 576);
             this.splitterControl1.TabIndex = 1;
             this.splitterControl1.TabStop = false;
             // 
@@ -738,7 +754,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(655, 453);
+            this.panelControl2.Size = new System.Drawing.Size(655, 576);
             this.panelControl2.TabIndex = 0;
             // 
             // groupctl_datos_correo
@@ -907,7 +923,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 493);
+            this.ClientSize = new System.Drawing.Size(1127, 616);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "frmFacturas";
             this.Text = "Visor de Facturas";
@@ -1025,5 +1041,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcli_email1;
         private DevExpress.XtraGrid.Columns.GridColumn colcli_email2;
         private DevExpress.XtraGrid.Columns.GridColumn colfac_amount;
+        private DevExpress.XtraEditors.SimpleButton btnexportar;
     }
 }

@@ -181,4 +181,7 @@
   <data name="Watermark_CZF_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Watermark-CZF-Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="export_spreadsheet_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export_spreadsheet_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

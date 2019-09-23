@@ -15,6 +15,7 @@ using VisorFacturas.Clases;
 using System.Net.Mail;
 using VisorFacturas.Enums;
 using DevExpress.XtraGrid.Views.Grid;
+using System.IO;
 
 namespace VisorFacturas.Forms
 {
@@ -465,6 +466,42 @@ namespace VisorFacturas.Forms
             txtAsunto.Text = TituloMensaje;
         }
 
+        private void mpxExport()
+        {
+            try
+            {
+                var aoSavcat = new SaveFileDialog { Filter = "Excel (2007) (*.xlsx)|*.xlsx|Excel (*.xls)|*.xls" };
+                aoSavcat.ShowDialog();
+                if (!String.IsNullOrEmpty(aoSavcat.FileName))
+                {
+                    string acFileName = aoSavcat.FileName;
+                    string acFileExtension = new FileInfo(acFileName).Extension;
+
+                    switch (acFileExtension)
+                    {
+                        case ".xls":
+                            gcFacturas.ExportToXls(acFileName);
+                            break;
+                        case ".xlsx":
+                            gcFacturas.ExportToXlsx(acFileName);
+                            break;
+                        default:
+                            break;
+                    }
+                    if (XtraMessageBox.Show("¿Desea abrir el archivo exportado?", "Abrir", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(aoSavcat.FileName);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+        }
+
         #endregion
 
         #region "EVENTOS"
@@ -898,6 +935,13 @@ namespace VisorFacturas.Forms
             }
         }
 
+        private void btnexportar_Click(object sender, EventArgs e)
+        {
+            mpxExport();
+        }
+
         #endregion
+
+
     }
 }

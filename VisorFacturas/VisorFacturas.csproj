@@ -26,9 +26,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</InstallUrl>
     <UpdateUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</UpdateUrl>
-    <MinimumRequiredVersion>2019.08.13.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2019.09.23.1</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2019.08.13.%2a</ApplicationVersion>
+    <ApplicationVersion>2019.09.23.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -284,6 +284,7 @@
     <None Include="Resources\remove_32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\export_spreadsheet_32x32.png" />
     <None Include="Resources\Watermark-CZF-Logo.png" />
     <None Include="Resources\CZF-Logo.png" />
     <None Include="Resources\TraExt_btn.png" />
