@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -1425,14 +1426,17 @@
             // xrlab_rem_descuento
             // 
             this.xrlab_rem_descuento.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "rem_descue", "{0:- #,0.00}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "rem_descue")});
             this.xrlab_rem_descuento.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrlab_rem_descuento.Name = "xrlab_rem_descuento";
             this.xrlab_rem_descuento.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 8, 0, 0, 100F);
             this.xrlab_rem_descuento.StylePriority.UseFont = false;
             this.xrlab_rem_descuento.StylePriority.UsePadding = false;
             this.xrlab_rem_descuento.StylePriority.UseTextAlignment = false;
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrlab_rem_descuento.Summary = xrSummary1;
             this.xrlab_rem_descuento.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrlab_rem_descuento.TextFormatString = "{0:-#,000.00}";
             this.xrlab_rem_descuento.Weight = 0.82421045684207372D;
             // 
             // calcfield_fac_tipo

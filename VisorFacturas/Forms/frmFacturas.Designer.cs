@@ -224,7 +224,7 @@
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(160, 54);
             this.btnImprimir.TabIndex = 4;
-            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.Text = "Visualizar";
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // gcFacturas
