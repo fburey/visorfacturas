@@ -83,7 +83,7 @@ namespace VisorFacturas.Forms
         String CodClienteSelect;
         String Month;
         String Year;
-       
+        
         #endregion
 
         #region "FUNCIONES Y MÉTODOS"
@@ -256,7 +256,7 @@ namespace VisorFacturas.Forms
                                   rem_impues = rem.rem_impues,
                                   rem_fec_ve = rem.rem_fec_ve
                               };
-                remision = dataRem.Where(rem => rem.rem_numero == ord_numero).ToList();
+                remision = dataRem.Where(rem => rem.rem_numero == ord_numero).Where(s => s.rem_fec_ve.Month == (cmbMes.SelectedIndex + 1)).ToList();
             }
             else
             {
@@ -279,7 +279,7 @@ namespace VisorFacturas.Forms
                                rem_fec_ve = rem.rem_fec_ve
                            };
 
-                remision = data.OrderBy(ord => ord.rem_numero).ToList();
+                remision = data.OrderBy(ord => ord.rem_numero).Where(s => s.rem_fec_ve.Month == (cmbMes.SelectedIndex + 1)).ToList();
             }
         }
 
@@ -938,6 +938,41 @@ namespace VisorFacturas.Forms
         private void btnexportar_Click(object sender, EventArgs e)
         {
             mpxExport();
+        }
+
+        private void btnimprimir_sobres_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<viewClientes> aolistcli = new List<viewClientes>();
+
+                // Recorremos las facturas que se muestran en el Grid para extraer el cliente
+                // Seleccionamos únicamente las facturas que se visualizan en el grid
+                for (int i = 0; i < gvFacturas.DataRowCount; i++)
+                {
+                    //Clientes
+                    viewFactura aofact = (viewFactura)gvFacturas.GetRow(i);
+                    viewClientes aocli = Clientes.FirstOrDefault(s => s.cli_cod == aofact.cli_codig);
+                    if (aocli == null) { continue; }
+                    aolistcli.Add(aocli);                    
+                }
+
+                // Imprimimos el reporte
+                Reports.xrsobres aorpt = new Reports.xrsobres();
+                aorpt.DataSource = aolistcli;
+                //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+                frmviewer aofrmviewer = new frmviewer(aorpt);
+                aofrmviewer.Text = "Impresión de Sobres";
+                aofrmviewer.MdiParent = this.MdiParent;
+                aofrmviewer.WindowState = FormWindowState.Maximized;
+                aofrmviewer.Show();
+
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion

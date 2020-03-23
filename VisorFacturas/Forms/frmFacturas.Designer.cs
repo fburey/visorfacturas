@@ -93,6 +93,7 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.btnimprimir_sobres = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSinFormat.Properties)).BeginInit();
@@ -139,6 +140,7 @@
             // 
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupControl2.Controls.Add(this.btnimprimir_sobres);
             this.groupControl2.Controls.Add(this.btnexportar);
             this.groupControl2.Controls.Add(this.btnEnviarCorreo);
             this.groupControl2.Controls.Add(this.chkSinFormat);
@@ -158,7 +160,7 @@
             this.btnexportar.Appearance.Options.UseTextOptions = true;
             this.btnexportar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnexportar.ImageOptions.Image = global::VisorFacturas.Properties.Resources.export_spreadsheet_32x32;
-            this.btnexportar.Location = new System.Drawing.Point(18, 210);
+            this.btnexportar.Location = new System.Drawing.Point(18, 270);
             this.btnexportar.Name = "btnexportar";
             this.btnexportar.Size = new System.Drawing.Size(160, 54);
             this.btnexportar.TabIndex = 11;
@@ -172,7 +174,7 @@
             this.btnEnviarCorreo.Appearance.Options.UseTextOptions = true;
             this.btnEnviarCorreo.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnEnviarCorreo.ImageOptions.Image = global::VisorFacturas.Properties.Resources.send_32x32;
-            this.btnEnviarCorreo.Location = new System.Drawing.Point(18, 150);
+            this.btnEnviarCorreo.Location = new System.Drawing.Point(18, 210);
             this.btnEnviarCorreo.Name = "btnEnviarCorreo";
             this.btnEnviarCorreo.Size = new System.Drawing.Size(160, 54);
             this.btnEnviarCorreo.TabIndex = 10;
@@ -206,7 +208,7 @@
             this.btnSalir.Appearance.Options.UseTextOptions = true;
             this.btnSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnSalir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.TraExt_btn;
-            this.btnSalir.Location = new System.Drawing.Point(18, 270);
+            this.btnSalir.Location = new System.Drawing.Point(18, 330);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(160, 54);
             this.btnSalir.TabIndex = 5;
@@ -224,7 +226,7 @@
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(160, 54);
             this.btnImprimir.TabIndex = 4;
-            this.btnImprimir.Text = "Visualizar";
+            this.btnImprimir.Text = "Visualizar Facturas";
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // gcFacturas
@@ -919,6 +921,20 @@
             // 
             this.dxErrProv.ContainerControl = this;
             // 
+            // btnimprimir_sobres
+            // 
+            this.btnimprimir_sobres.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnimprimir_sobres.Appearance.Options.UseFont = true;
+            this.btnimprimir_sobres.Appearance.Options.UseTextOptions = true;
+            this.btnimprimir_sobres.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnimprimir_sobres.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
+            this.btnimprimir_sobres.Location = new System.Drawing.Point(18, 150);
+            this.btnimprimir_sobres.Name = "btnimprimir_sobres";
+            this.btnimprimir_sobres.Size = new System.Drawing.Size(160, 54);
+            this.btnimprimir_sobres.TabIndex = 12;
+            this.btnimprimir_sobres.Text = "Visualizar Sobres";
+            this.btnimprimir_sobres.Click += new System.EventHandler(this.btnimprimir_sobres_Click);
+            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1042,5 +1058,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcli_email2;
         private DevExpress.XtraGrid.Columns.GridColumn colfac_amount;
         private DevExpress.XtraEditors.SimpleButton btnexportar;
+        private DevExpress.XtraEditors.SimpleButton btnimprimir_sobres;
     }
 }

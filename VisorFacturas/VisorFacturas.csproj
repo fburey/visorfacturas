@@ -26,9 +26,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</InstallUrl>
     <UpdateUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</UpdateUrl>
-    <MinimumRequiredVersion>2019.10.29.2</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2020.03.23.2</MinimumRequiredVersion>
     <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>2019.10.29.%2a</ApplicationVersion>
+    <ApplicationVersion>2020.03.23.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -196,6 +196,12 @@
     <Compile Include="Reports\xrFacturaSoloDatos.Designer.cs">
       <DependentUpon>xrFacturaSoloDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrsobres.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrsobres.Designer.cs">
+      <DependentUpon>xrsobres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\clsApp.cs" />
     <Compile Include="Util\clslistusers.cs" />
     <EmbeddedResource Include="Forms\frmActivoFijo.resx">
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrFacturaSoloDatos.resx">
       <DependentUpon>xrFacturaSoloDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrsobres.resx">
+      <DependentUpon>xrsobres.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Datasets\dsModel.xsc">
