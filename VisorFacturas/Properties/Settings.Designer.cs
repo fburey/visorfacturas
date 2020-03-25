@@ -118,5 +118,15 @@ namespace VisorFacturas.Properties {
                 this["DirectorioActivosFijosCZF"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\Contabilidad-CNZF\\Sisintfi\\CxC\\CZ" +
+            "F;Extended Properties=dBASE IV;")]
+        public string mCnxCNZF_TablasCXC {
+            get {
+                return ((string)(this["mCnxCNZF_TablasCXC"]));
+            }
+        }
     }
 }

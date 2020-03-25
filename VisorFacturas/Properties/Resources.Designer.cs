@@ -19,7 +19,7 @@ namespace VisorFacturas.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -277,6 +277,26 @@ namespace VisorFacturas.Properties {
             get {
                 object obj = ResourceManager.GetObject("Watermark_CZF_Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select FAC.fac_fac_nu AS &apos;fac_numfac&apos;
+        ///,FAC.fecha AS &apos;fac_fecha&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,CLI.cli_pais AS &apos;cli_pais&apos;
+        ///,CLI.cli_ciudad AS &apos;cli_ciudad&apos;
+        ///,SUM(NVL(REM01.rem_canti, 0)) AS &apos;rem_cant&apos;
+        ///,SUM(NVL(REM01.rem_precio, 0)) AS &apos;rem_precio&apos;
+        ///,SUM(NVL(REM01.rem_canti, 0) * NVL(REM01.rem_precio, 0)) AS &apos;rem_cantprecio&apos;
+        ///,(SUM(NVL(REM01.rem_descue, 0)) * -1) AS &apos;rem_descuen&apos;
+        ///,NVL(REM02.rem_canti, 0) * NVL(REM02.rem_precio, 0) AS &apos;rem_tramit&apos;
+        ///,NVL(PAG.pg_amo_dol, 0) AS &apos;pag_amount&apos;
+        ///,NVL(PAG.pg_recnu [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_facturas_mes {
+            get {
+                return ResourceManager.GetString("xr_proc_facturas_mes", resourceCulture);
             }
         }
     }

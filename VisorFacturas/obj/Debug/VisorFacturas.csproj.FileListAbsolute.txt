@@ -1217,8 +1217,8 @@ C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraLayout.v19.1.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraPrinting.v19.1.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v19.1.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraReports.v19.1.Extensions.dll
-C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Images.v19.1.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraTreeList.v19.1.dll
+C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.Images.v19.1.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraRichEdit.v19.1.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraVerticalGrid.v19.1.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\DevExpress.XtraNavBar.v19.1.dll
@@ -1370,11 +1370,14 @@ C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v19.1.Core.re
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v19.1.Core.resources.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v19.1.Core.resources.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v19.1.Core.resources.dll
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojAssemblyReference.cache
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmActivoFijo.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmSistInfCNZF.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrfacturasmes.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesAll.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesconMontos.resources
@@ -1382,8 +1385,8 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptEmpleadoLs
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptFacturasCZF.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturas.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrFacturaSoloDatos.resources
-C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrsobresVertical.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrsobres.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.xrsobresVertical.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.GenerateResource.cache
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe.licenses
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CoreCompileInputs.cache

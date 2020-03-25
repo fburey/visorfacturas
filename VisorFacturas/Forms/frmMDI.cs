@@ -102,23 +102,30 @@ namespace VisorFacturas.Forms
         {
             XtraForm aofrmchild;
             BarButtonItem btnitem = (BarButtonItem)e.Item;
-            switch (btnitem.Tag.ToString())
+            switch (btnitem.Tag.ToString().ToLower())
             {
-                case "frmFacturas":
+                case "frmfacturas":
                     aofrmchild = new frmFacturas(moCurrentUser);
                     aofrmchild.MdiParent = this;
                     aofrmchild.WindowState = FormWindowState.Maximized;
                     aofrmchild.CloseBox = false;
                     aofrmchild.Show();
                     break;
-                case "frmConsulta1":
+                case "frmconsulta1":
                     aofrmchild = new frmActivoFijo(moCurrentUser);
                     aofrmchild.MdiParent = this;
                     aofrmchild.WindowState = FormWindowState.Maximized;
                     aofrmchild.CloseBox = false;
                     aofrmchild.Show();
                     break;
-                case "SalirSistema":
+                case "frmsistinf":
+                    aofrmchild = new frmSistInfCNZF(moCurrentUser);
+                    aofrmchild.MdiParent = this;
+                    aofrmchild.WindowState = FormWindowState.Maximized;
+                    aofrmchild.CloseBox = false;
+                    aofrmchild.Show();
+                    break;
+                case "salirsistema":
                     Application.Exit();
                     break;
                 default:

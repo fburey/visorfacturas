@@ -26,9 +26,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</InstallUrl>
     <UpdateUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</UpdateUrl>
-    <MinimumRequiredVersion>2020.03.23.2</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2020.03.25.2</MinimumRequiredVersion>
     <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>2020.03.23.%2a</ApplicationVersion>
+    <ApplicationVersion>2020.03.25.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -100,6 +100,7 @@
     <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.1.Extensions, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -118,7 +119,9 @@
     <Compile Include="Clases\viewClientes.cs" />
     <Compile Include="Clases\viewFactura.cs" />
     <Compile Include="Clases\viewRemision.cs" />
+    <Compile Include="Clases\viewTreeSistInf.cs" />
     <Compile Include="Clases\viewTSUBDIR.cs" />
+    <Compile Include="Clases\view_rpt_facturasmes.cs" />
     <Compile Include="Datasets\dsModel.cs">
       <DependentUpon>dsModel.xsd</DependentUpon>
     </Compile>
@@ -146,6 +149,12 @@
     <Compile Include="Forms\frmMDI.Designer.cs">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSistInfCNZF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSistInfCNZF.Designer.cs">
+      <DependentUpon>frmSistInfCNZF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmviewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +163,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CNZF\xrfacturasmes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CNZF\xrfacturasmes.Designer.cs">
+      <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBienes.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -202,8 +217,15 @@
     <Compile Include="Reports\xrsobres.Designer.cs">
       <DependentUpon>xrsobres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\xrsobresVertical.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xrsobresVertical.designer.cs">
+      <DependentUpon>xrsobresVertical.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\clsApp.cs" />
     <Compile Include="Util\clslistusers.cs" />
+    <Compile Include="Util\clsTreeListSistInf.cs" />
     <EmbeddedResource Include="Forms\frmActivoFijo.resx">
       <DependentUpon>frmActivoFijo.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSistInfCNZF.resx">
+      <DependentUpon>frmSistInfCNZF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmviewer.resx">
       <DependentUpon>frmviewer.cs</DependentUpon>
@@ -227,6 +252,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\CNZF\xrfacturasmes.resx">
+      <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBienes.resx">
       <DependentUpon>rptBienes.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +279,9 @@
     <EmbeddedResource Include="Reports\xrsobres.resx">
       <DependentUpon>xrsobres.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xrsobresVertical.resx">
+      <DependentUpon>xrsobresVertical.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Datasets\dsModel.xsc">
       <DependentUpon>dsModel.xsd</DependentUpon>
@@ -269,7 +300,9 @@
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewEmpleados.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewFactura.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewRemision.datasource" />
+    <None Include="Properties\DataSources\VisorFacturas.Clases.viewTreeSistInf.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewTSUBDIR.datasource" />
+    <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturasmes.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1177,6 +1210,7 @@
       <FileType>Satellite</FileType>
     </PublishFile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

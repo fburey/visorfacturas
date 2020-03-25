@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnimprimir_sobres = new DevExpress.XtraEditors.SimpleButton();
             this.btnexportar = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnviarCorreo = new DevExpress.XtraEditors.SimpleButton();
             this.chkSinFormat = new DevExpress.XtraEditors.CheckEdit();
@@ -93,7 +94,6 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.btnimprimir_sobres = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSinFormat.Properties)).BeginInit();
@@ -152,6 +152,20 @@
             this.groupControl2.Size = new System.Drawing.Size(205, 458);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Acciones";
+            // 
+            // btnimprimir_sobres
+            // 
+            this.btnimprimir_sobres.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnimprimir_sobres.Appearance.Options.UseFont = true;
+            this.btnimprimir_sobres.Appearance.Options.UseTextOptions = true;
+            this.btnimprimir_sobres.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnimprimir_sobres.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
+            this.btnimprimir_sobres.Location = new System.Drawing.Point(18, 150);
+            this.btnimprimir_sobres.Name = "btnimprimir_sobres";
+            this.btnimprimir_sobres.Size = new System.Drawing.Size(160, 54);
+            this.btnimprimir_sobres.TabIndex = 12;
+            this.btnimprimir_sobres.Text = "Visualizar Sobres";
+            this.btnimprimir_sobres.Click += new System.EventHandler(this.btnimprimir_sobres_Click);
             // 
             // btnexportar
             // 
@@ -455,7 +469,7 @@
             0,
             0,
             0});
-            this.speAnno.Location = new System.Drawing.Point(67, 66);
+            this.speAnno.Location = new System.Drawing.Point(67, 26);
             this.speAnno.Name = "speAnno";
             this.speAnno.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.speAnno.Properties.Appearance.Options.UseFont = true;
@@ -473,7 +487,7 @@
             this.btnFiltrar.Appearance.Options.UseTextOptions = true;
             this.btnFiltrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnFiltrar.ImageOptions.Image = global::VisorFacturas.Properties.Resources.filter_32x32;
-            this.btnFiltrar.Location = new System.Drawing.Point(69, 98);
+            this.btnFiltrar.Location = new System.Drawing.Point(69, 95);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(109, 37);
             this.btnFiltrar.TabIndex = 3;
@@ -484,7 +498,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(18, 37);
+            this.labelControl2.Location = new System.Drawing.Point(18, 62);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(33, 19);
             this.labelControl2.TabIndex = 3;
@@ -492,7 +506,7 @@
             // 
             // cmbMes
             // 
-            this.cmbMes.Location = new System.Drawing.Point(67, 34);
+            this.cmbMes.Location = new System.Drawing.Point(67, 59);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMes.Properties.Appearance.Options.UseFont = true;
@@ -523,7 +537,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(18, 69);
+            this.labelControl3.Location = new System.Drawing.Point(18, 29);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(35, 19);
             this.labelControl3.TabIndex = 4;
@@ -920,20 +934,6 @@
             // dxErrProv
             // 
             this.dxErrProv.ContainerControl = this;
-            // 
-            // btnimprimir_sobres
-            // 
-            this.btnimprimir_sobres.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimir_sobres.Appearance.Options.UseFont = true;
-            this.btnimprimir_sobres.Appearance.Options.UseTextOptions = true;
-            this.btnimprimir_sobres.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.btnimprimir_sobres.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
-            this.btnimprimir_sobres.Location = new System.Drawing.Point(18, 150);
-            this.btnimprimir_sobres.Name = "btnimprimir_sobres";
-            this.btnimprimir_sobres.Size = new System.Drawing.Size(160, 54);
-            this.btnimprimir_sobres.TabIndex = 12;
-            this.btnimprimir_sobres.Text = "Visualizar Sobres";
-            this.btnimprimir_sobres.Click += new System.EventHandler(this.btnimprimir_sobres_Click);
             // 
             // frmFacturas
             // 

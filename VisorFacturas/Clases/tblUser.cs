@@ -13,6 +13,7 @@ namespace VisorFacturas.Clases
         public String fullname { get; set; }   // nombre completo del usuario
         public Boolean indVerFactura { get; set; }  // indicador para ver el módulo de Facturas
         public Boolean indVerActFij { get; set; }   // indicador para ver el módulo de Activos Fijos
+        public Boolean indVerSistInf { get; set; }   // indicador para ver el módulo de Sistema de Informacion
         public Int16 idEmpresa { get; set; }  // id de la empresa (1: CZF. 2: CNZF)
         public Boolean indCambiarEmpresa { get; set; }  // indicador para cambiar de empresas al entrar al sistema      
     }

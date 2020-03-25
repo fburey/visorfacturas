@@ -20,6 +20,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.fullname = "Ariel Dávila González";
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = true;
+                    createcurrentuser.indVerSistInf = true;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = true;
 
@@ -33,6 +34,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.fullname = "William Mejía Mendoza";
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = true;
+                    createcurrentuser.indVerSistInf = true;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = true;
                     break;
@@ -41,6 +43,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.fullname = "Ramona Blanco Lezama";
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = false;
+                    createcurrentuser.indVerSistInf = true;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     break;
@@ -49,6 +52,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.fullname = "David González Tiffer";
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = true;
+                    createcurrentuser.indVerSistInf = true;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     break;
@@ -57,6 +61,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.fullname = "Sofía Carolina Obando";
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = false;
+                    createcurrentuser.indVerSistInf = false;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     break;
@@ -65,6 +70,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.fullname = "Usuario No Autorizado";
                     createcurrentuser.indVerFactura = false;
                     createcurrentuser.indVerActFij = false;
+                    createcurrentuser.indVerSistInf = false;
                     createcurrentuser.idEmpresa = 0;
                     createcurrentuser.indCambiarEmpresa = false;
                     break;

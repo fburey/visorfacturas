@@ -184,4 +184,32 @@
   <data name="export_spreadsheet_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\export_spreadsheet_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="xr_proc_facturas_mes" xml:space="preserve">
+    <value>Select FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fecha AS 'fac_fecha'
+,CLI.cli_nom AS 'cli_nombre'
+,CLI.cli_pais AS 'cli_pais'
+,CLI.cli_ciudad AS 'cli_ciudad'
+,SUM(NVL(REM01.rem_canti, 0)) AS 'rem_cant'
+,SUM(NVL(REM01.rem_precio, 0)) AS 'rem_precio'
+,SUM(NVL(REM01.rem_canti, 0) * NVL(REM01.rem_precio, 0)) AS 'rem_cantprecio'
+,(SUM(NVL(REM01.rem_descue, 0)) * -1) AS 'rem_descuen'
+,NVL(REM02.rem_canti, 0) * NVL(REM02.rem_precio, 0) AS 'rem_tramit'
+,NVL(PAG.pg_amo_dol, 0) AS 'pag_amount'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,FAC.fac_amo_do as 'fac_total' 
+,IIF(CLI.cli_apt_po='', NVL(TAR.nom_regime, ''), CLI.cli_apt_po) AS 'tipo_regimen'
+from FACTURA AS FAC 
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+LEFT JOIN TARIFA AS TAR ON (CLI.tip_regime = TAR.tip_regime) AND ((CLI.can_metraj &gt;= TAR.desde AND CLI.can_metraj &lt;= TAR.hasta AND CLI.can_metraj &gt; 0) OR (CLI.callc_esta &gt;= TAR.desde AND CLI.callc_esta &lt;= TAR.hasta AND CLI.callc_esta &gt; 0))
+LEFT JOIN .\TempRemision\REMISION AS REM01 ON (FAC.ord_numero = REM01.rem_numero AND REM01.rem_codig not like '%TRAM%')
+LEFT JOIN .\TempRemision\REMISION AS REM02 ON (FAC.ord_numero = REM02.rem_numero AND REM02.rem_codig like '%TRAM%')
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura) {2}
+group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total, rem_tramit, tipo_regimen 
+order by fac_numfac
+HAVING FAC.fac_amo_do &gt; 0
+where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
+    <comment>Procedimiento para reporte de Listado de Empresas Facturadas en un Año y Mes especificado (este reporte ademas contiene información acerca del pago a esta factura: ROC)</comment>
+  </data>
 </root>

@@ -958,7 +958,8 @@ namespace VisorFacturas.Forms
                 }
 
                 // Imprimimos el reporte
-                Reports.xrsobres aorpt = new Reports.xrsobres();
+                //Reports.xrsobres aorpt = new Reports.xrsobres();
+                Reports.xrsobresVertical aorpt = new Reports.xrsobresVertical();
                 aorpt.DataSource = aolistcli;
                 //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
                 frmviewer aofrmviewer = new frmviewer(aorpt);

@@ -26,5 +26,8 @@
     <Setting Name="DirectorioActivosFijosCZF" Type="System.String" Scope="User">
       <Value Profile="(Default)">\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\AF\ZFM</Value>
     </Setting>
+    <Setting Name="mCnxCNZF_TablasCXC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Provider=VFPOLEDB.1;Data Source=\\192.168.25.23\Contabilidad-CNZF\Sisintfi\CxC\CZF;Extended Properties=dBASE IV;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
