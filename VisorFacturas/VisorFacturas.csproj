@@ -26,9 +26,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</InstallUrl>
     <UpdateUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</UpdateUrl>
-    <MinimumRequiredVersion>2020.03.25.2</MinimumRequiredVersion>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>2020.03.25.%2a</ApplicationVersion>
+    <MinimumRequiredVersion>2020.04.01.1</MinimumRequiredVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2020.04.01.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -121,7 +121,9 @@
     <Compile Include="Clases\viewRemision.cs" />
     <Compile Include="Clases\viewTreeSistInf.cs" />
     <Compile Include="Clases\viewTSUBDIR.cs" />
+    <Compile Include="Clases\view_rpt_facturacomparames_act_ant.cs" />
     <Compile Include="Clases\view_rpt_facturasmes.cs" />
+    <Compile Include="Clases\view_rpt_metrajeanual.cs" />
     <Compile Include="Datasets\dsModel.cs">
       <DependentUpon>dsModel.xsd</DependentUpon>
     </Compile>
@@ -163,11 +165,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CNZF\xrfacturacomparames_act_ant.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CNZF\xrfacturacomparames_act_ant.Designer.cs">
+      <DependentUpon>xrfacturacomparames_act_ant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CNZF\xrfacturasmes.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\CNZF\xrfacturasmes.Designer.cs">
       <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CNZF\xrmetrajeanual.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CNZF\xrmetrajeanual.Designer.cs">
+      <DependentUpon>xrmetrajeanual.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptBienes.cs">
       <SubType>Component</SubType>
@@ -252,8 +266,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\CNZF\xrfacturacomparames_act_ant.resx">
+      <DependentUpon>xrfacturacomparames_act_ant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CNZF\xrfacturasmes.resx">
       <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CNZF\xrmetrajeanual.resx">
+      <DependentUpon>xrmetrajeanual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBienes.resx">
       <DependentUpon>rptBienes.cs</DependentUpon>
@@ -302,7 +322,9 @@
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewRemision.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewTreeSistInf.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewTSUBDIR.datasource" />
+    <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturacomparames_act_ant.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturasmes.datasource" />
+    <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_metrajeanual.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

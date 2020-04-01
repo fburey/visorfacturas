@@ -45,7 +45,29 @@ namespace VisorFacturas.Util
                 fldimageidx = 1
             });
 
-            return aoTreelst;
+            // Nodo hijo 
+            aoTreelst.Add(new viewTreeSistInf()
+            {
+                fldidxrep = 3,
+                fldcodrep = "RPT102",
+                fldnamrep = "Metraje Anual de Clientes",
+                fldcia = 2,
+                fldidxrepReportaA = 1,
+                fldimageidx = 1
+            });
+
+            // Nodo hijo 
+            aoTreelst.Add(new viewTreeSistInf()
+            {
+                fldidxrep = 4,
+                fldcodrep = "RPT103",
+                fldnamrep = "Comparación de Facturas por Mes",
+                fldcia = 2,
+                fldidxrepReportaA = 1,
+                fldimageidx = 1
+            });
+
+            return aoTreelst.OrderBy(f => f.fldidxrep).ToList();
         }
 
     }

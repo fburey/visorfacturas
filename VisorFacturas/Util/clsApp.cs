@@ -16,5 +16,35 @@ namespace VisorFacturas.Util
             //clssafrhh.mfxDtanavGetBtn(mmpxformctlnav, "mvxRefresh").Enabled = false;
 
         }
+
+        public static string mfxMesCadena(short panummes)
+        {
+            if (panummes == 1)
+                return "Enero";
+            else if (panummes == 2)
+                return "Febrero";
+            else if (panummes == 3)
+                return "Marzo";
+            else if (panummes == 4)
+                return "Abril";
+            else if (panummes == 5)
+                return "Mayo";
+            else if (panummes == 6)
+                return "Junio";
+            else if (panummes == 7)
+                return "Julio";
+            else if (panummes == 8)
+                return "Agosto";
+            else if (panummes == 9)
+                return "Septiembre";
+            else if (panummes == 10)
+                return "Octubre";
+            else if (panummes == 11)
+                return "Noviembre";
+            else if (panummes == 12)
+                return "Diciembre";
+            else
+                return "";
+        }
     }
 }

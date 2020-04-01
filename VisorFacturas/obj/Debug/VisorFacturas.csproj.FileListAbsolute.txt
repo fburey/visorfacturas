@@ -1370,14 +1370,15 @@ C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\de\DevExpress.Diagram.v19.1.Core.re
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\es\DevExpress.Diagram.v19.1.Core.resources.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ja\DevExpress.Diagram.v19.1.Core.resources.dll
 C:\GIT\VisorFacturas\VisorFacturas\bin\Debug\ru\DevExpress.Diagram.v19.1.Core.resources.dll
-C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojAssemblyReference.cache
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmActivoFijo.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmFacturas.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmMDI.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmSistInfCNZF.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Forms.frmviewer.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Properties.Resources.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrfacturacomparames_act_ant.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrfacturasmes.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrmetrajeanual.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesAll.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesconMontos.resources
@@ -1396,3 +1397,4 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CopyComplete
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojAssemblyReference.cache

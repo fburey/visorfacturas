@@ -281,22 +281,54 @@ namespace VisorFacturas.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select
+        ///CLI.cli_cod AS &apos;cli_cod&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti, 0)) AS NUMERIC(10,2)) AS &apos;rem_cant&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_cantprecio&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS &apos;rem_descuen&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig = &apos;05TRAM01&apos;, REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_tramit&apos;
+        ///,FAC.fac_amo_do as [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_facturas_compara_mes_act_ant {
+            get {
+                return ResourceManager.GetString("xr_proc_facturas_compara_mes_act_ant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select FAC.fac_fac_nu AS &apos;fac_numfac&apos;
         ///,FAC.fecha AS &apos;fac_fecha&apos;
         ///,CLI.cli_nom AS &apos;cli_nombre&apos;
         ///,CLI.cli_pais AS &apos;cli_pais&apos;
         ///,CLI.cli_ciudad AS &apos;cli_ciudad&apos;
-        ///,SUM(NVL(REM01.rem_canti, 0)) AS &apos;rem_cant&apos;
-        ///,SUM(NVL(REM01.rem_precio, 0)) AS &apos;rem_precio&apos;
-        ///,SUM(NVL(REM01.rem_canti, 0) * NVL(REM01.rem_precio, 0)) AS &apos;rem_cantprecio&apos;
-        ///,(SUM(NVL(REM01.rem_descue, 0)) * -1) AS &apos;rem_descuen&apos;
-        ///,NVL(REM02.rem_canti, 0) * NVL(REM02.rem_precio, 0) AS &apos;rem_tramit&apos;
-        ///,NVL(PAG.pg_amo_dol, 0) AS &apos;pag_amount&apos;
-        ///,NVL(PAG.pg_recnu [resto de la cadena truncado]&quot;;.
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti, 0)) AS NUMERIC(10,2)) AS &apos;rem_cant&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_precio&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_cantprecio&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;,  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string xr_proc_facturas_mes {
             get {
                 return ResourceManager.GetString("xr_proc_facturas_mes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select CLI.cli_cod AS &apos;cli_cod&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,MONTH(FAC.fecha) AS &apos;fac_mesfact&apos;
+        ///,SUM(NVL(REM.rem_canti, 0)) AS &apos;rem_cant&apos;
+        ///from CLIENTE AS CLI
+        ///INNER JOIN FACTURA AS FAC ON CLI.CLI_COD = FAC.CLI_CODIG 
+        ///LEFT JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND REM.rem_codig not like &apos;%TRAM%&apos; AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
+        ///group by cli_cod, cli_nombre, fac_mesfact
+        ///order by CLI.cli_nom 
+        ///HAVING rem_cant &gt; 0  
+        ///where YEAR(FAC.fecha) = {0}.
+        /// </summary>
+        internal static string xr_proc_metraje_anual {
+            get {
+                return ResourceManager.GetString("xr_proc_metraje_anual", resourceCulture);
             }
         }
     }

@@ -36,17 +36,17 @@
             this.bbi_Salir = new DevExpress.XtraBars.BarButtonItem();
             this.bbi_ActivosAsignados = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.bbi_SistInf = new DevExpress.XtraBars.BarButtonItem();
             this.milcImage3232 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribPag_Facturas = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpag_ActivosFijo = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribpag_estilos = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpag_Reportes = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbi_SistInf = new DevExpress.XtraBars.BarButtonItem();
+            this.ribpag_estilos = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.xtabmdiman_Main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.milcImage3232)).BeginInit();
@@ -63,11 +63,11 @@
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonMain.ExpandCollapseItem,
+            this.ribbonMain.SearchEditItem,
             this.bbi_visorfactura,
             this.bbi_Salir,
             this.bbi_ActivosAsignados,
             this.skinRibbonGalleryBarItem1,
-            this.ribbonMain.SearchEditItem,
             this.bbi_SistInf});
             this.ribbonMain.LargeImages = this.milcImage3232;
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
@@ -119,6 +119,15 @@
             this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
             this.skinRibbonGalleryBarItem1.Id = 5;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // bbi_SistInf
+            // 
+            this.bbi_SistInf.Caption = "Sistema de Información";
+            this.bbi_SistInf.Id = 6;
+            this.bbi_SistInf.ImageOptions.LargeImageIndex = 2;
+            this.bbi_SistInf.Name = "bbi_SistInf";
+            this.bbi_SistInf.Tag = "frmSistInf";
+            this.bbi_SistInf.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_visorfactura_ItemClick);
             // 
             // milcImage3232
             // 
@@ -194,6 +203,19 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Visor de Activos Fijos";
             // 
+            // ribpag_Reportes
+            // 
+            this.ribpag_Reportes.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup5});
+            this.ribpag_Reportes.Name = "ribpag_Reportes";
+            this.ribpag_Reportes.Text = "Reportes";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbi_SistInf);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Reportes";
+            // 
             // ribpag_estilos
             // 
             this.ribpag_estilos.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -206,28 +228,6 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Estilos del sistema";
-            // 
-            // ribpag_Reportes
-            // 
-            this.ribpag_Reportes.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup5});
-            this.ribpag_Reportes.Name = "ribpag_Reportes";
-            this.ribpag_Reportes.Text = "Reportes";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.bbi_SistInf);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
-            // 
-            // bbi_SistInf
-            // 
-            this.bbi_SistInf.Caption = "Sistema de Información";
-            this.bbi_SistInf.Id = 6;
-            this.bbi_SistInf.ImageOptions.LargeImageIndex = 2;
-            this.bbi_SistInf.Name = "bbi_SistInf";
-            this.bbi_SistInf.Tag = "frmSistInf";
-            this.bbi_SistInf.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_visorfactura_ItemClick);
             // 
             // frmMDI
             // 

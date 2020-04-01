@@ -190,11 +190,11 @@
 ,CLI.cli_nom AS 'cli_nombre'
 ,CLI.cli_pais AS 'cli_pais'
 ,CLI.cli_ciudad AS 'cli_ciudad'
-,SUM(NVL(REM01.rem_canti, 0)) AS 'rem_cant'
-,SUM(NVL(REM01.rem_precio, 0)) AS 'rem_precio'
-,SUM(NVL(REM01.rem_canti, 0) * NVL(REM01.rem_precio, 0)) AS 'rem_cantprecio'
-,(SUM(NVL(REM01.rem_descue, 0)) * -1) AS 'rem_descuen'
-,NVL(REM02.rem_canti, 0) * NVL(REM02.rem_precio, 0) AS 'rem_tramit'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_precio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
+,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
 ,NVL(PAG.pg_amo_dol, 0) AS 'pag_amount'
 ,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
 ,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
@@ -202,14 +202,52 @@
 ,IIF(CLI.cli_apt_po='', NVL(TAR.nom_regime, ''), CLI.cli_apt_po) AS 'tipo_regimen'
 from FACTURA AS FAC 
 INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
 LEFT JOIN TARIFA AS TAR ON (CLI.tip_regime = TAR.tip_regime) AND ((CLI.can_metraj &gt;= TAR.desde AND CLI.can_metraj &lt;= TAR.hasta AND CLI.can_metraj &gt; 0) OR (CLI.callc_esta &gt;= TAR.desde AND CLI.callc_esta &lt;= TAR.hasta AND CLI.callc_esta &gt; 0))
-LEFT JOIN .\TempRemision\REMISION AS REM01 ON (FAC.ord_numero = REM01.rem_numero AND REM01.rem_codig not like '%TRAM%')
-LEFT JOIN .\TempRemision\REMISION AS REM02 ON (FAC.ord_numero = REM02.rem_numero AND REM02.rem_codig like '%TRAM%')
-LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura) {2}
-group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total, rem_tramit, tipo_regimen 
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)  {2}
+group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total, tipo_regimen 
 order by fac_numfac
 HAVING FAC.fac_amo_do &gt; 0
 where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
     <comment>Procedimiento para reporte de Listado de Empresas Facturadas en un Año y Mes especificado (este reporte ademas contiene información acerca del pago a esta factura: ROC)</comment>
+  </data>
+  <data name="xr_proc_metraje_anual" xml:space="preserve">
+    <value>Select CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,MONTH(FAC.fecha) AS 'fac_mesfact'
+,SUM(NVL(REM.rem_canti, 0)) AS 'rem_cant'
+from CLIENTE AS CLI
+INNER JOIN FACTURA AS FAC ON CLI.CLI_COD = FAC.CLI_CODIG 
+LEFT JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND REM.rem_codig not like '%TRAM%' AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
+group by cli_cod, cli_nombre, fac_mesfact
+order by CLI.cli_nom 
+HAVING rem_cant &gt; 0  
+where YEAR(FAC.fecha) = {0}</value>
+    <comment>Procedimiento para reporte de Metraje Anual por empresas</comment>
+  </data>
+  <data name="xr_proc_facturas_compara_mes_act_ant" xml:space="preserve">
+    <value>Select
+CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
+,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
+,FAC.fac_amo_do as 'fac_total'
+,MONTH(FAC.fecha) AS 'fac_mesfact'
+,YEAR(FAC.fecha) AS 'fac_yearfact'
+from FACTURA AS FAC 
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha)) 
+group by cli_cod, cli_nombre, fac_total, fac_mesfact, fac_yearfact
+order by cli_nombre
+HAVING FAC.fac_amo_do &gt; 0
+where (YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1})
+OR   (YEAR(FAC.fecha) = {2} AND MONTH(FAC.fecha) = {3})</value>
+    <comment>Reporte comparativo de Facturas Mes Actual (del filtro seleccionado) VS Mes Anterior (al filtro seleccionado):
+{0}: Año Actual
+{1}: Mes Actual
+{2}: Año Anterior
+{3}: Mes Anterior</comment>
   </data>
 </root>
