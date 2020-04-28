@@ -1397,4 +1397,3 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CopyComplete
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
-C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojAssemblyReference.cache

@@ -65,6 +65,15 @@ namespace VisorFacturas.Util
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     break;
+                case @"zfrancas\ejaenz":
+                    createcurrentuser.username = pausername;
+                    createcurrentuser.fullname = "Esperanza Jaenz";
+                    createcurrentuser.indVerFactura = true;
+                    createcurrentuser.indVerActFij = false;
+                    createcurrentuser.indVerSistInf = false;
+                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CZF;
+                    createcurrentuser.indCambiarEmpresa = false;
+                    break;
                 default:
                     createcurrentuser.username = "Usuario Inválido";
                     createcurrentuser.fullname = "Usuario No Autorizado";
