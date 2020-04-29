@@ -26,9 +26,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\192.168.25.23\contabilidad\PUBLIC\VisorFact\</InstallUrl>
     <UpdateUrl>\\192.168.25.23\contabilidad\PUBLIC\VisorFact\</UpdateUrl>
-    <MinimumRequiredVersion>2020.04.28.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2020.04.29.1</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2020.04.28.%2a</ApplicationVersion>
+    <ApplicationVersion>2020.04.29.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -219,6 +219,12 @@
     <Compile Include="Reports\xrFacturas.Designer.cs">
       <DependentUpon>xrFacturas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptFacturasSoloDatosCZF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptFacturasSoloDatosCZF.Designer.cs">
+      <DependentUpon>rptFacturasSoloDatosCZF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\xrFacturaSoloDatos.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     <EmbeddedResource Include="Reports\xrFacturas.resx">
       <DependentUpon>xrFacturas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptFacturasSoloDatosCZF.resx">
+      <DependentUpon>rptFacturasSoloDatosCZF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrFacturaSoloDatos.resx">
       <DependentUpon>xrFacturaSoloDatos.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +357,7 @@
     <None Include="Resources\remove_32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Gobierno.png" />
     <None Include="Resources\export_spreadsheet_32x32.png" />
     <None Include="Resources\Watermark-CZF-Logo.png" />
     <None Include="Resources\CZF-Logo.png" />

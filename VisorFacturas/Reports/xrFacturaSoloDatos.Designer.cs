@@ -1525,6 +1525,7 @@
             this.calcfield_fac_total});
             this.DataSource = this.mhead_bndsrc;
             this.Margins = new System.Drawing.Printing.Margins(0, 134, 32, 87);
+            this.SnapGridSize = 2F;
             this.Version = "19.1";
             ((System.ComponentModel.ISupportInitialize)(this.mhead_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).EndInit();

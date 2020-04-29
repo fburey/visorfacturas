@@ -23,12 +23,12 @@ namespace VisorFacturas.Reports
         String MonedaFact;
         String SimboloMoneda;
 
-        public rptFacturasCZF(List<viewRemision> List, String MesFacturado)
+        public rptFacturasCZF(List<viewRemision> List, String padescfact)
         {
             InitializeComponent();
             this.ListRem = List;
             mdetail_bndsrc.DataSource = List;
-            FacturacionMes = "Facturación del Mes de " + MesFacturado;
+            FacturacionMes = padescfact;
             xrTableCell_FacturacionMes.Text = FacturacionMes;
         }
 
@@ -41,12 +41,12 @@ namespace VisorFacturas.Reports
             // Lleno el binding source de Detail (Remision)
             mdetail_bndsrc.DataSource = ListRemDet.ToList();
 
-            //// Si tiene descuento muestro el campo de descuento, en caso contrario, se oculta
-            //if (ListRemDet.AsEnumerable().Sum(o => o.rem_descue) > 0)
-            //    xrtable_descuento.Visible = true;
-            //else
-            //    xrtable_descuento.Visible = false;
-            
+            // Si tiene descuento muestro el campo de descuento, en caso contrario, se oculta
+            if (ListRemDet.AsEnumerable().Sum(o => o.rem_descue) > 0)
+                xrtable_descuento.Visible = true;
+            else
+                xrtable_descuento.Visible = false;
+
             // Obtenemos la moneda de la factura
             MonedaFact = this.GetCurrentColumnValue("fac_dolcor").ToString();            
 
@@ -67,11 +67,11 @@ namespace VisorFacturas.Reports
             // Obtenemos el valor en letras del monto total de la factura (Params: Monto Total, Moneda)
             xrlabel_ValorEnLetras.Text = moclsAppEnum.enletras(TotalFact, MonedaFact);
 
-            // Si en el remision_descripcion abarca Directorio Industrial, entonces cambia el campo REVISADO
-            if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
-                xrlab_Revisado.Text = "Mauricio Abarca";
-            else
-                xrlab_Revisado.Text = "";
+            //// Si en el remision_descripcion abarca Directorio Industrial, entonces cambia el campo REVISADO
+            //if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
+            //    xrlab_Revisado.Text = "Mauricio Abarca";
+            //else
+            //    xrlab_Revisado.Text = "";
 
             ////Formateamos los campos de totales, descuento e IVA
             //xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
@@ -92,7 +92,7 @@ namespace VisorFacturas.Reports
             report.Watermark.ImageAlign = ContentAlignment.MiddleCenter;
             report.Watermark.ImageTiling = false;
             report.Watermark.ImageViewMode = ImageViewMode.Clip;
-            report.Watermark.ImageTransparency = 215;
+            report.Watermark.ImageTransparency = 217;//215;
             report.Watermark.ShowBehind = false;
             //report.Watermark.PageRange = "2,4";
         }

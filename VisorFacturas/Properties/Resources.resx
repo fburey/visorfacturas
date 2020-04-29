@@ -250,4 +250,7 @@ OR   (YEAR(FAC.fecha) = {2} AND MONTH(FAC.fecha) = {3})</value>
 {2}: Año Anterior
 {3}: Mes Anterior</comment>
   </data>
+  <data name="Gobierno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gobierno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

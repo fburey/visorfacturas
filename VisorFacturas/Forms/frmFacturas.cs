@@ -619,9 +619,10 @@ namespace VisorFacturas.Forms
                 {
                     if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                     {
-                        Reports.rptFacturasCZF aorpt = new Reports.rptFacturasCZF(remision, cmbMes.Text);
+                        String descfact = "Facturación del mes de " + cmbMes.Text + " - " + speAnno.Text;
+                        Reports.rptFacturasCZF aorpt = new Reports.rptFacturasCZF(remision, descfact);
                         aorpt.DataSource = factura;
-                        aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
                         frmviewer aofrmviewer = new frmviewer(aorpt);
                         aofrmviewer.Text = TituloReporteFactura;
                         aofrmviewer.MdiParent = this.MdiParent;
@@ -643,14 +644,29 @@ namespace VisorFacturas.Forms
                 }
                 else  // SIN FORMATO
                 {
-                    Reports.xrFacturaSoloDatos aorpt = new Reports.xrFacturaSoloDatos(remision, cmbMes.Text);
-                    aorpt.DataSource = factura;
-                    aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
-                    frmviewer aofrmviewer = new frmviewer(aorpt);
-                    aofrmviewer.Text = TituloReporteFactura + " - S.F.";
-                    aofrmviewer.MdiParent = this.MdiParent;
-                    aofrmviewer.WindowState = FormWindowState.Maximized;
-                    aofrmviewer.Show();
+                    if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    {
+                        String descfact = "Facturación del mes de " + cmbMes.Text + " - " + speAnno.Text;
+                        Reports.rptFacturasSoloDatosCZF aorpt = new Reports.rptFacturasSoloDatosCZF(remision, descfact);
+                        aorpt.DataSource = factura;
+                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+                        frmviewer aofrmviewer = new frmviewer(aorpt);
+                        aofrmviewer.Text = TituloReporteFactura + " - S.F.";
+                        aofrmviewer.MdiParent = this.MdiParent;
+                        aofrmviewer.WindowState = FormWindowState.Maximized;
+                        aofrmviewer.Show();
+                    }
+                    else
+                    {
+                        Reports.xrFacturaSoloDatos aorpt = new Reports.xrFacturaSoloDatos(remision, cmbMes.Text);
+                        aorpt.DataSource = factura;
+                        aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+                        frmviewer aofrmviewer = new frmviewer(aorpt);
+                        aofrmviewer.Text = TituloReporteFactura + " - S.F.";
+                        aofrmviewer.MdiParent = this.MdiParent;
+                        aofrmviewer.WindowState = FormWindowState.Maximized;
+                        aofrmviewer.Show();
+                    }                    
                 }
             }
             catch (Exception ex)
