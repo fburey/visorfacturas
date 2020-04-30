@@ -44,6 +44,8 @@ namespace VisorFacturas.Forms
                     ribPag_Facturas.Visible = moCurrentUser.indVerFactura;
                     //// Puede ver Activos Fijos ?
                     ribpag_ActivosFijo.Visible = moCurrentUser.indVerActFij;
+                    //// Puede ver Reportes ?
+                    ribpag_Reportes.Visible = moCurrentUser.indVerSistInf;
                     //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
                     var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
                     if (idselectempresa != moCurrentUser.idEmpresa)

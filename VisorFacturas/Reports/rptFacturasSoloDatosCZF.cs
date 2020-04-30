@@ -18,6 +18,9 @@ namespace VisorFacturas.Reports
         String FacturacionMes;
         clsAppEnum moclsAppEnum = new clsAppEnum();
         String FormatoNumerico;
+        String TotalFact = "";
+        String MonedaFact;
+        String SimboloMoneda;
 
         public rptFacturasSoloDatosCZF(List<viewRemision> List, String padescfact)
         {
@@ -44,10 +47,25 @@ namespace VisorFacturas.Reports
             else
                 xrtable_descuento.Visible = false;
 
-            // Obtenemos el total de la factura
-            String TotalFact = this.GetCurrentColumnValue("fac_amo_do").ToString();
+            //// Obtenemos el total de la factura
+            //String TotalFact = this.GetCurrentColumnValue("fac_amo_do").ToString();
             // Obtenemos la moneda de la factura
-            String MonedaFact = this.GetCurrentColumnValue("fac_dolcor").ToString();
+            MonedaFact = this.GetCurrentColumnValue("fac_dolcor").ToString();
+
+            // Obtenemos el formato numérico y total de la fact. conforme la moneda de la factura
+            if (MonedaFact.Substring(0, 1).ToUpper() == "D")
+            {
+                TotalFact = this.GetCurrentColumnValue("fac_amo_do").ToString();
+                FormatoNumerico = "{0:U$  #,0.00}";
+                SimboloMoneda = "U$";
+            }
+            else
+            {
+                TotalFact = this.GetCurrentColumnValue("fac_amount").ToString();
+                FormatoNumerico = "{0:C$  #,0.00}";
+                SimboloMoneda = "C$";
+            }
+
             // Obtenemos el valor en letras del monto total de la factura (Params: Monto Total, Moneda)
             xrlabel_ValorEnLetras.Text = moclsAppEnum.enletras(TotalFact, MonedaFact);
 
@@ -57,14 +75,19 @@ namespace VisorFacturas.Reports
             //else
             //    xrlab_Revisado.Text = "Estrellita Blanco";
 
-            // Obtenemos el formato numérico conforme la moneda de la factura
-            if (MonedaFact.Substring(0, 1).ToUpper() == "D")
-                FormatoNumerico = "{0:U$  #,0.00}";
-            else
-                FormatoNumerico = "{0:C$  #,0.00}";
+            //// Obtenemos el formato numérico conforme la moneda de la factura
+            //if (MonedaFact.Substring(0, 1).ToUpper() == "D")
+            //    FormatoNumerico = "{0:U$  #,0.00}";
+            //else
+            //    FormatoNumerico = "{0:C$  #,0.00}";
 
-            xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
-            xrlab_fac_total_2.DataBindings["Text"].FormatString = FormatoNumerico;
+            //xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
+            //xrlab_fac_total_2.DataBindings["Text"].FormatString = FormatoNumerico;
+
+            xtcmon_sub.Text = SimboloMoneda;
+            xtcmon_desc.Text = SimboloMoneda;
+            xtcmon_iva.Text = SimboloMoneda;
+            xtcmon_tot.Text = SimboloMoneda;
         }
     }
 }
