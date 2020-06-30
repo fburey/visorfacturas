@@ -444,14 +444,24 @@ namespace VisorFacturas.Forms
         /// <summary>
         /// Rellena los datos por defecto del correo
         /// </summary>
-        private void LlenarDatosCorreo()
-        {  
+        private void LlenarDatosCorreo(int num)
+        {           
 
-            String TituloMensaje = "AVISO DE COBRO DEL MES DE " + cmbMes.Text.ToUpper() + " " + speAnno.Text;
-            txtCuerpo.Text = "Estimados Señores" + Environment.NewLine + Environment.NewLine + "Se les envía por este medio el " + TituloMensaje +
-            " para su debida cancelación, recuerden que el vencimiento de la factura son los 20 de cada mes. Para gozar de los " +
-            "beneficios que otorga el Régimen hay que tener al día sus pagos." + Environment.NewLine + Environment.NewLine +
-            "Favor hacer caso omiso si está factura ya fue cancelada." + Environment.NewLine + Environment.NewLine + "Saludos!";
+            String TituloMensaje = string.Empty;
+            if (num == 0) //AQUÍ ENTRA SI ES FACTURA
+            {
+                TituloMensaje = "AVISO DE COBRO DEL MES DE " + cmbMes.Text.ToUpper() + " " + speAnno.Text;
+                txtCuerpo.Text = "Estimados Señores" + Environment.NewLine + Environment.NewLine + "Se les envía por este medio el " + TituloMensaje +
+                " para su debida cancelación, recuerden que el vencimiento de la factura son los 20 de cada mes. Para gozar de los " +
+                "beneficios que otorga el Régimen hay que tener al día sus pagos." + Environment.NewLine + Environment.NewLine +
+                "Favor hacer caso omiso si está factura ya fue cancelada." + Environment.NewLine + Environment.NewLine + "Saludos!";
+                
+            }
+            else if(num == 1) //AQUÍ ENTRA SI ES COMUNICADO
+            {
+                TituloMensaje = "";
+                txtCuerpo.Text = "";                
+            }
 
             if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
             {
@@ -462,7 +472,7 @@ namespace VisorFacturas.Forms
             {
                 txtNombreRem.Text = NombreRemitenteCNZF;
                 txtCorreoRem.Text = CorreoremitenteCNZF;
-            }            
+            }
             txtAsunto.Text = TituloMensaje;
         }
 
@@ -683,74 +693,84 @@ namespace VisorFacturas.Forms
         /// <param name="e"></param>
         private void btnEnviarCorreo_Click(object sender, EventArgs e)
         {
-            if (bsGrid.List.Count == 0)
+            if ((bsGrid.List.Count == 0) && (!chkAviso.Checked))
             {
                 XtraMessageBox.Show("No hay facturas en este mes!", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
+            txtAdjuntar.Text = string.Empty;
+            if (chkAviso.Checked)
+                btnAdjun.Enabled = true;
+            else
+                btnAdjun.Enabled = false;
+
             try
-            {
-                // Si va a imprimir Facturas masivas
-                if (chkImpresionMasiva.Checked)
                 {
-                    List<viewClientes> ClientesFiltrados = new List<viewClientes>();                    
-                    for (int i = 0; i < gvFacturas.DataRowCount; i++)
-                    {                        
-                        // Obtenemos la factura
-                        viewFactura fac = (viewFactura)gvFacturas.GetRow(i);
-                        // Agregamos el cliente
-                        ClientesFiltrados.Add(Clientes.Where(s => s.cli_cod.Contains(fac.cli_codig)).FirstOrDefault());
+                    // Si va a imprimir Facturas masivas
+                    if (chkImpresionMasiva.Checked)
+                    {
+                        List<viewClientes> ClientesFiltrados = new List<viewClientes>();
+                        for (int i = 0; i < gvFacturas.DataRowCount; i++)
+                        {
+                            // Obtenemos la factura
+                            viewFactura fac = (viewFactura)gvFacturas.GetRow(i);
+                            // Agregamos el cliente
+                            ClientesFiltrados.Add(Clientes.Where(s => s.cli_cod.Contains(fac.cli_codig)).FirstOrDefault());
+                        }
+                        bsClientes.DataSource = ClientesFiltrados;
+                        xtcTipoEnvio.SelectedTabPage = xtpEnvioMasivo;
                     }
-                    bsClientes.DataSource = ClientesFiltrados;
-                    xtcTipoEnvio.SelectedTabPage = xtpEnvioMasivo;
+                    else
+                    {
+                        // Si solo va a imprimir una Factura
+                        if (gvFacturas.FocusedRowHandle < 0)// && (!chkAviso.Checked))
+                        {
+                            XtraMessageBox.Show("Seleccione una factura para enviar por correo", "Seleccione una Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Seleccionamos los datos del cliente de la factura seleccionada
+                        viewFactura fact_select = (viewFactura)bsGrid.Current;
+                        CodClienteSelect = fact_select.cli_codig;
+
+                        cliente_selected = Clientes.Where(s => s.cli_cod.Contains(CodClienteSelect)).FirstOrDefault();
+                        //var Cliente = from cli in tbl_clientes.AsQueryable() 
+                        //                    where cli.cli_cod.Contains(CodClienteSelect)
+                        //                    select new viewClientes {
+                        //                        cli_cod = cli.cli_cod,
+                        //                        cli_nom = cli.cli_nom,
+                        //                        cli_dir = cli.cli_dir,
+                        //                        cli_email1 = cli.cli_email1,
+                        //                        cli_email2 = cli.cli_email2
+                        //                    };
+
+                        LstCorreosIndiv.Items.Clear();
+                        if (cliente_selected != null)
+                        {
+                            if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
+                                LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
+
+                            if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
+                                LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
+                        }
+                        txtEnvioIndividual.Text = cliente_selected.cli_nom;
+                        xtcTipoEnvio.SelectedTabPage = xtpEnvioIndividual;
+                    }
+
+                    if (!chkAviso.Checked)
+                        LlenarDatosCorreo(0);
+                    else
+                        LlenarDatosCorreo(1);
+
+                    dxErrProv.ClearErrors();
+                    xtraTabControl1.SelectedTabPage = xtpCorreos;
+                    txtNombreRem.Focus();
                 }
-                else
+                catch (Exception ex)
                 {
-                    // Si solo va a imprimir una Factura
-                    if (gvFacturas.FocusedRowHandle < 0)
-                    {
-                        XtraMessageBox.Show("Seleccione una factura para enviar por correo", "Seleccione una Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
-                    // Seleccionamos los datos del cliente de la factura seleccionada
-                    viewFactura fact_select = (viewFactura)bsGrid.Current;
-                    CodClienteSelect = fact_select.cli_codig;
-
-                    cliente_selected = Clientes.Where(s => s.cli_cod.Contains(CodClienteSelect)).FirstOrDefault();
-                    //var Cliente = from cli in tbl_clientes.AsQueryable() 
-                    //                    where cli.cli_cod.Contains(CodClienteSelect)
-                    //                    select new viewClientes {
-                    //                        cli_cod = cli.cli_cod,
-                    //                        cli_nom = cli.cli_nom,
-                    //                        cli_dir = cli.cli_dir,
-                    //                        cli_email1 = cli.cli_email1,
-                    //                        cli_email2 = cli.cli_email2
-                    //                    };
-
-                    LstCorreosIndiv.Items.Clear();
-                    if (cliente_selected != null)
-                    {
-                        if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
-                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
-
-                        if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
-                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
-                    }
-                    txtEnvioIndividual.Text = cliente_selected.cli_nom;
-                    xtcTipoEnvio.SelectedTabPage = xtpEnvioIndividual;
+                    DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                LlenarDatosCorreo();
-                dxErrProv.ClearErrors();
-                xtraTabControl1.SelectedTabPage = xtpCorreos;
-                txtNombreRem.Focus();
-            }
-            catch (Exception ex)
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         /// <summary>
@@ -783,6 +803,8 @@ namespace VisorFacturas.Forms
                 if (result == DialogResult.No)
                     return;
 
+                // Ruta de la factura
+                String PathAttach = string.Empty;
 
                 // Verificamos si existen las carpetas en donde se alojaran las facturas
                 Month = cmbMes.Text;
@@ -798,9 +820,21 @@ namespace VisorFacturas.Forms
                     // Codigo del cliente
                     CodClienteSelect = cliente_selected.cli_cod;
 
-                    // Ruta de la factura
-                    String PathAttach = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
+                    if (!chkAviso.Checked)
+                    {
+                        // Ruta de la factura
+                        PathAttach = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
+                    }
+                    else if (chkAviso.Checked)
+                    {
+                        PathAttach = txtAdjuntar.Text;
+                    }
 
+                    if(PathAttach == string.Empty)
+                    {
+                        XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
                     // Listado de correos: Permito 5 correos, aunque solo ingrese dos correos
                     String[] CorreosCli = new String[5];                    
@@ -809,19 +843,25 @@ namespace VisorFacturas.Forms
                     for (int i = 0; i < LstCorreosIndiv.Items.Count; i++)
                     {
                         CorreosCli[i] = LstCorreosIndiv.Items[i].ToString().Trim();
+                    }                                     
+
+                    
+                    if (!chkAviso.Checked)
+                    {
+                        // obtenemos la factura seleccionada
+                        viewFactura fac_selected = (viewFactura)bsGrid.Current;
+                        GetData(fac_selected.ord_numero);
+
+                        // Creamos el reporte pero no  lo imprimimos
+                        Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
+                        aorpt.DataSource = factura;
+                        aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+                        // Exportamos el reporte en PDF
+                        aorpt.ExportToPdf(PathAttach);
+                        aorpt.Dispose();
                     }
-
-                    // obtenemos la factura seleccionada
-                    viewFactura fac_selected = (viewFactura)bsGrid.Current;
-                    GetData(fac_selected.ord_numero);
-
-                    // Creamos el reporte pero no  lo imprimimos
-                    Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
-                    aorpt.DataSource = factura;
-                    aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
-                    // Exportamos el reporte en PDF
-                    aorpt.ExportToPdf(PathAttach);
-                    aorpt.Dispose();
+                        
+                    
                     // Adjuntamos el archivo que exportamos en PDF
                     adjuntos[0] = PathAttach;
                     // Enviamos el correo
@@ -866,25 +906,48 @@ namespace VisorFacturas.Forms
                             // Codigo del cliente
                             CodClienteSelect = cliente_selected.cli_cod.Trim();
 
-                            // Ruta de la factura
-                            String PathAttach = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
-
-                            ////Verificamos que tenga factura en este mes para enviar
-                            GetData(fac.ord_numero);
-                            if (factura.ToList().Count() > 0)
+                            if (!chkAviso.Checked)
                             {
-                                //Creamos el reporte, sin imprimirlo
-                                Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
-                                aorpt.DataSource = factura;
-                                aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
-                                // Exportamos el reporte en formato PDF
-                                aorpt.ExportToPdf(PathAttach);
-                                aorpt.Dispose();
+                                // Ruta de la factura
+                                PathAttach = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
+                            }
+                            else if (chkAviso.Checked)
+                            {
+                                PathAttach = txtAdjuntar.Text;
+                            }
+
+                            if (PathAttach == string.Empty)
+                            {
+                                XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                            if (!chkAviso.Checked)
+                            {
+                                ////Verificamos que tenga factura en este mes para enviar
+                                GetData(fac.ord_numero);
+                                if (factura.ToList().Count() > 0)
+                                {
+                                    //Creamos el reporte, sin imprimirlo
+                                    Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
+                                    aorpt.DataSource = factura;
+                                    aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+                                    // Exportamos el reporte en formato PDF
+                                    aorpt.ExportToPdf(PathAttach);
+                                    aorpt.Dispose();
+                                    // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
+                                    adjuntos[0] = PathAttach;
+                                    // Enviamos el correo
+                                    EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, txtAsunto.Text, txtCuerpo.Text, adjuntos);
+                                }                                
+                            }
+                            else
+                            {
                                 // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
                                 adjuntos[0] = PathAttach;
                                 // Enviamos el correo
                                 EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, txtAsunto.Text, txtCuerpo.Text, adjuntos);
                             }
+
                         }
 
                         //} // end del if que pregunta si tiene marcada la casilla de Enviar (ESTO SE QUITO, PERO SE DEJA POR SI SE RETOMA)
@@ -992,8 +1055,18 @@ namespace VisorFacturas.Forms
             }
         }
 
+
         #endregion
 
-
+        private void btnAdjun_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog examinar = new OpenFileDialog();
+            if (examinar.ShowDialog() == DialogResult.OK)
+            {
+                txtAdjuntar.Text = examinar.FileName;
+            }
+            else
+                txtAdjuntar.Text = string.Empty;
+        }
     }
 }

@@ -142,7 +142,7 @@
     <Compile Include="Forms\frmFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmFacturas.Designer.cs">
+    <Compile Include="Forms\frmFacturas.designer.cs">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMDI.cs">

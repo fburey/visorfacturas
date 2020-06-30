@@ -199,7 +199,7 @@
 ,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
 ,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
 ,FAC.fac_amo_do as 'fac_total' 
-,IIF(CLI.cli_apt_po='', NVL(TAR.nom_regime, ''), CLI.cli_apt_po) AS 'tipo_regimen'
+,IIF(CLI.cli_regime='', NVL(TAR.nom_regime, ''), CLI.cli_regime) AS 'tipo_regimen'
 from FACTURA AS FAC 
 INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
 INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.chkAviso = new DevExpress.XtraEditors.CheckEdit();
             this.btnimprimir_sobres = new DevExpress.XtraEditors.SimpleButton();
             this.btnexportar = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnviarCorreo = new DevExpress.XtraEditors.SimpleButton();
@@ -65,6 +66,7 @@
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.xtcTipoEnvio = new DevExpress.XtraTab.XtraTabControl();
             this.xtpEnvioMasivo = new DevExpress.XtraTab.XtraTabPage();
+            this.controlNavigator1 = new DevExpress.XtraEditors.ControlNavigator();
             this.gcCorreos = new DevExpress.XtraGrid.GridControl();
             this.bsClientes = new System.Windows.Forms.BindingSource(this.components);
             this.gvCorreos = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -81,6 +83,9 @@
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupctl_datos_correo = new DevExpress.XtraEditors.GroupControl();
+            this.btnAdjun = new DevExpress.XtraEditors.SimpleButton();
+            this.txtAdjuntar = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnVolver = new DevExpress.XtraEditors.SimpleButton();
             this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -94,8 +99,13 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAviso.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSinFormat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkImpresionMasiva.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcFacturas)).BeginInit();
@@ -128,18 +138,25 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupctl_datos_correo)).BeginInit();
             this.groupctl_datos_correo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdjuntar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCuerpo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreRem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCorreoRem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsunto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl2
             // 
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupControl2.Controls.Add(this.chkAviso);
             this.groupControl2.Controls.Add(this.btnimprimir_sobres);
             this.groupControl2.Controls.Add(this.btnexportar);
             this.groupControl2.Controls.Add(this.btnEnviarCorreo);
@@ -149,9 +166,19 @@
             this.groupControl2.Controls.Add(this.btnImprimir);
             this.groupControl2.Location = new System.Drawing.Point(3, 154);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(205, 458);
+            this.groupControl2.Size = new System.Drawing.Size(205, 593);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Acciones";
+            // 
+            // chkAviso
+            // 
+            this.chkAviso.Location = new System.Drawing.Point(18, 96);
+            this.chkAviso.Name = "chkAviso";
+            this.chkAviso.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAviso.Properties.Appearance.Options.UseFont = true;
+            this.chkAviso.Properties.Caption = "Enviar aviso";
+            this.chkAviso.Size = new System.Drawing.Size(160, 23);
+            this.chkAviso.TabIndex = 13;
             // 
             // btnimprimir_sobres
             // 
@@ -160,7 +187,7 @@
             this.btnimprimir_sobres.Appearance.Options.UseTextOptions = true;
             this.btnimprimir_sobres.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnimprimir_sobres.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
-            this.btnimprimir_sobres.Location = new System.Drawing.Point(18, 150);
+            this.btnimprimir_sobres.Location = new System.Drawing.Point(18, 197);
             this.btnimprimir_sobres.Name = "btnimprimir_sobres";
             this.btnimprimir_sobres.Size = new System.Drawing.Size(160, 54);
             this.btnimprimir_sobres.TabIndex = 12;
@@ -174,7 +201,7 @@
             this.btnexportar.Appearance.Options.UseTextOptions = true;
             this.btnexportar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnexportar.ImageOptions.Image = global::VisorFacturas.Properties.Resources.export_spreadsheet_32x32;
-            this.btnexportar.Location = new System.Drawing.Point(18, 270);
+            this.btnexportar.Location = new System.Drawing.Point(18, 317);
             this.btnexportar.Name = "btnexportar";
             this.btnexportar.Size = new System.Drawing.Size(160, 54);
             this.btnexportar.TabIndex = 11;
@@ -188,7 +215,7 @@
             this.btnEnviarCorreo.Appearance.Options.UseTextOptions = true;
             this.btnEnviarCorreo.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnEnviarCorreo.ImageOptions.Image = global::VisorFacturas.Properties.Resources.send_32x32;
-            this.btnEnviarCorreo.Location = new System.Drawing.Point(18, 210);
+            this.btnEnviarCorreo.Location = new System.Drawing.Point(18, 257);
             this.btnEnviarCorreo.Name = "btnEnviarCorreo";
             this.btnEnviarCorreo.Size = new System.Drawing.Size(160, 54);
             this.btnEnviarCorreo.TabIndex = 10;
@@ -222,7 +249,7 @@
             this.btnSalir.Appearance.Options.UseTextOptions = true;
             this.btnSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnSalir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.TraExt_btn;
-            this.btnSalir.Location = new System.Drawing.Point(18, 330);
+            this.btnSalir.Location = new System.Drawing.Point(18, 377);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(160, 54);
             this.btnSalir.TabIndex = 5;
@@ -236,7 +263,7 @@
             this.btnImprimir.Appearance.Options.UseTextOptions = true;
             this.btnImprimir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnImprimir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
-            this.btnImprimir.Location = new System.Drawing.Point(18, 90);
+            this.btnImprimir.Location = new System.Drawing.Point(18, 137);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(160, 54);
             this.btnImprimir.TabIndex = 4;
@@ -255,7 +282,7 @@
             this.gcFacturas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.tipomoneda_ricmb,
             this.tipofactura_ricmb});
-            this.gcFacturas.Size = new System.Drawing.Size(904, 565);
+            this.gcFacturas.Size = new System.Drawing.Size(904, 700);
             this.gcFacturas.TabIndex = 10;
             this.gcFacturas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFacturas});
@@ -555,7 +582,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 1);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtpFacturas;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1127, 616);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1127, 751);
             this.xtraTabControl1.TabIndex = 12;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpFacturas,
@@ -567,7 +594,7 @@
             this.xtpFacturas.Controls.Add(this.groupControl2);
             this.xtpFacturas.Controls.Add(this.groupControl1);
             this.xtpFacturas.Name = "xtpFacturas";
-            this.xtpFacturas.Size = new System.Drawing.Size(1121, 576);
+            this.xtpFacturas.Size = new System.Drawing.Size(1121, 711);
             this.xtpFacturas.Text = "Facturas";
             // 
             // xtpCorreos
@@ -576,7 +603,7 @@
             this.xtpCorreos.Controls.Add(this.splitterControl1);
             this.xtpCorreos.Controls.Add(this.panelControl2);
             this.xtpCorreos.Name = "xtpCorreos";
-            this.xtpCorreos.Size = new System.Drawing.Size(1121, 576);
+            this.xtpCorreos.Size = new System.Drawing.Size(1121, 711);
             this.xtpCorreos.Text = "Correos";
             // 
             // panelControl3
@@ -585,7 +612,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(660, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(461, 576);
+            this.panelControl3.Size = new System.Drawing.Size(461, 711);
             this.panelControl3.TabIndex = 0;
             // 
             // groupControl4
@@ -598,7 +625,7 @@
             this.groupControl4.Controls.Add(this.xtcTipoEnvio);
             this.groupControl4.Location = new System.Drawing.Point(6, 5);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(452, 563);
+            this.groupControl4.Size = new System.Drawing.Size(452, 698);
             this.groupControl4.TabIndex = 13;
             this.groupControl4.Text = "Listado de Correos";
             // 
@@ -610,7 +637,7 @@
             this.xtcTipoEnvio.Location = new System.Drawing.Point(5, 29);
             this.xtcTipoEnvio.Name = "xtcTipoEnvio";
             this.xtcTipoEnvio.SelectedTabPage = this.xtpEnvioMasivo;
-            this.xtcTipoEnvio.Size = new System.Drawing.Size(443, 529);
+            this.xtcTipoEnvio.Size = new System.Drawing.Size(443, 664);
             this.xtcTipoEnvio.TabIndex = 12;
             this.xtcTipoEnvio.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpEnvioMasivo,
@@ -618,19 +645,36 @@
             // 
             // xtpEnvioMasivo
             // 
-            this.xtpEnvioMasivo.Controls.Add(this.gcCorreos);
+            this.xtpEnvioMasivo.Controls.Add(this.layoutControl1);
             this.xtpEnvioMasivo.Name = "xtpEnvioMasivo";
-            this.xtpEnvioMasivo.Size = new System.Drawing.Size(437, 501);
+            this.xtpEnvioMasivo.Size = new System.Drawing.Size(437, 636);
             this.xtpEnvioMasivo.Text = "Envío Masivo";
+            // 
+            // controlNavigator1
+            // 
+            this.controlNavigator1.Buttons.Append.Visible = false;
+            this.controlNavigator1.Buttons.CancelEdit.Visible = false;
+            this.controlNavigator1.Buttons.Edit.Visible = false;
+            this.controlNavigator1.Buttons.EndEdit.Visible = false;
+            this.controlNavigator1.Buttons.First.Visible = false;
+            this.controlNavigator1.Buttons.Last.Visible = false;
+            this.controlNavigator1.Buttons.Remove.Visible = false;
+            this.controlNavigator1.Location = new System.Drawing.Point(12, 12);
+            this.controlNavigator1.Name = "controlNavigator1";
+            this.controlNavigator1.NavigatableControl = this.gcCorreos;
+            this.controlNavigator1.Size = new System.Drawing.Size(208, 19);
+            this.controlNavigator1.StyleController = this.layoutControl1;
+            this.controlNavigator1.TabIndex = 12;
+            this.controlNavigator1.Text = "controlNavigator1";
+            this.controlNavigator1.TextLocation = DevExpress.XtraEditors.NavigatorButtonsTextLocation.Center;
             // 
             // gcCorreos
             // 
             this.gcCorreos.DataSource = this.bsClientes;
-            this.gcCorreos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcCorreos.Location = new System.Drawing.Point(0, 0);
+            this.gcCorreos.Location = new System.Drawing.Point(12, 35);
             this.gcCorreos.MainView = this.gvCorreos;
             this.gcCorreos.Name = "gcCorreos";
-            this.gcCorreos.Size = new System.Drawing.Size(437, 501);
+            this.gcCorreos.Size = new System.Drawing.Size(413, 589);
             this.gcCorreos.TabIndex = 11;
             this.gcCorreos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCorreos});
@@ -708,7 +752,7 @@
             this.xtpEnvioIndividual.Controls.Add(this.txtEnvioIndividual);
             this.xtpEnvioIndividual.Controls.Add(this.labelControl8);
             this.xtpEnvioIndividual.Name = "xtpEnvioIndividual";
-            this.xtpEnvioIndividual.Size = new System.Drawing.Size(437, 501);
+            this.xtpEnvioIndividual.Size = new System.Drawing.Size(437, 636);
             this.xtpEnvioIndividual.Text = "Envío Individual";
             // 
             // LstCorreosIndiv
@@ -760,7 +804,7 @@
             // 
             this.splitterControl1.Location = new System.Drawing.Point(655, 0);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 576);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 711);
             this.splitterControl1.TabIndex = 1;
             this.splitterControl1.TabStop = false;
             // 
@@ -770,13 +814,16 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(655, 576);
+            this.panelControl2.Size = new System.Drawing.Size(655, 711);
             this.panelControl2.TabIndex = 0;
             // 
             // groupctl_datos_correo
             // 
             this.groupctl_datos_correo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.groupctl_datos_correo.AppearanceCaption.Options.UseFont = true;
+            this.groupctl_datos_correo.Controls.Add(this.btnAdjun);
+            this.groupctl_datos_correo.Controls.Add(this.txtAdjuntar);
+            this.groupctl_datos_correo.Controls.Add(this.labelControl1);
             this.groupctl_datos_correo.Controls.Add(this.btnVolver);
             this.groupctl_datos_correo.Controls.Add(this.progressPanel1);
             this.groupctl_datos_correo.Controls.Add(this.labelControl4);
@@ -790,9 +837,41 @@
             this.groupctl_datos_correo.Controls.Add(this.labelControl6);
             this.groupctl_datos_correo.Location = new System.Drawing.Point(3, 5);
             this.groupctl_datos_correo.Name = "groupctl_datos_correo";
-            this.groupctl_datos_correo.Size = new System.Drawing.Size(646, 546);
+            this.groupctl_datos_correo.Size = new System.Drawing.Size(646, 659);
             this.groupctl_datos_correo.TabIndex = 12;
             this.groupctl_datos_correo.Text = "Datos del Correo";
+            // 
+            // btnAdjun
+            // 
+            this.btnAdjun.Location = new System.Drawing.Point(90, 222);
+            this.btnAdjun.Name = "btnAdjun";
+            this.btnAdjun.Size = new System.Drawing.Size(75, 23);
+            this.btnAdjun.TabIndex = 16;
+            this.btnAdjun.Text = "Examinar";
+            this.btnAdjun.Click += new System.EventHandler(this.btnAdjun_Click);
+            // 
+            // txtAdjuntar
+            // 
+            this.txtAdjuntar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAdjuntar.EditValue = "";
+            this.txtAdjuntar.Enabled = false;
+            this.txtAdjuntar.Location = new System.Drawing.Point(16, 249);
+            this.txtAdjuntar.Name = "txtAdjuntar";
+            this.txtAdjuntar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdjuntar.Properties.Appearance.Options.UseFont = true;
+            this.txtAdjuntar.Size = new System.Drawing.Size(612, 24);
+            this.txtAdjuntar.TabIndex = 15;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(16, 224);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(68, 19);
+            this.labelControl1.TabIndex = 14;
+            this.labelControl1.Text = "Adjuntar:";
             // 
             // btnVolver
             // 
@@ -802,7 +881,7 @@
             this.btnVolver.Appearance.Options.UseTextOptions = true;
             this.btnVolver.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnVolver.ImageOptions.Image = global::VisorFacturas.Properties.Resources.prev_32x32;
-            this.btnVolver.Location = new System.Drawing.Point(383, 465);
+            this.btnVolver.Location = new System.Drawing.Point(383, 578);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(115, 61);
             this.btnVolver.TabIndex = 13;
@@ -822,7 +901,7 @@
             this.progressPanel1.Caption = "Enviando Correos...";
             this.progressPanel1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.progressPanel1.Description = "Enviados: 0 de 0. (0%)";
-            this.progressPanel1.Location = new System.Drawing.Point(8, 468);
+            this.progressPanel1.Location = new System.Drawing.Point(8, 581);
             this.progressPanel1.Name = "progressPanel1";
             this.progressPanel1.Size = new System.Drawing.Size(234, 58);
             this.progressPanel1.TabIndex = 12;
@@ -847,7 +926,7 @@
             this.btnEnviar.Appearance.Options.UseTextOptions = true;
             this.btnEnviar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnEnviar.ImageOptions.Image = global::VisorFacturas.Properties.Resources.send_32x32;
-            this.btnEnviar.Location = new System.Drawing.Point(513, 465);
+            this.btnEnviar.Location = new System.Drawing.Point(513, 578);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(115, 61);
             this.btnEnviar.TabIndex = 11;
@@ -869,11 +948,11 @@
             this.txtCuerpo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCuerpo.Location = new System.Drawing.Point(16, 242);
+            this.txtCuerpo.Location = new System.Drawing.Point(16, 308);
             this.txtCuerpo.Name = "txtCuerpo";
             this.txtCuerpo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCuerpo.Properties.Appearance.Options.UseFont = true;
-            this.txtCuerpo.Size = new System.Drawing.Size(612, 217);
+            this.txtCuerpo.Size = new System.Drawing.Size(612, 264);
             this.txtCuerpo.TabIndex = 7;
             // 
             // txtNombreRem
@@ -892,7 +971,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(16, 217);
+            this.labelControl7.Location = new System.Drawing.Point(16, 283);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(145, 19);
             this.labelControl7.TabIndex = 6;
@@ -935,11 +1014,52 @@
             // 
             this.dxErrProv.ContainerControl = this;
             // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.controlNavigator1);
+            this.layoutControl1.Controls.Add(this.gcCorreos);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(437, 636);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(437, 636);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gcCorreos;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 23);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(417, 593);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.controlNavigator1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(417, 23);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 616);
+            this.ClientSize = new System.Drawing.Size(1127, 751);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "frmFacturas";
             this.Text = "Visor de Facturas";
@@ -947,6 +1067,7 @@
             this.Resize += new System.EventHandler(this.frmFacturas_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkAviso.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSinFormat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkImpresionMasiva.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcFacturas)).EndInit();
@@ -982,12 +1103,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupctl_datos_correo)).EndInit();
             this.groupctl_datos_correo.ResumeLayout(false);
             this.groupctl_datos_correo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdjuntar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCuerpo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreRem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCorreoRem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsunto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1059,5 +1186,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn colfac_amount;
         private DevExpress.XtraEditors.SimpleButton btnexportar;
         private DevExpress.XtraEditors.SimpleButton btnimprimir_sobres;
+        private DevExpress.XtraEditors.CheckEdit chkAviso;
+        private DevExpress.XtraEditors.SimpleButton btnAdjun;
+        private DevExpress.XtraEditors.TextEdit txtAdjuntar;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.ControlNavigator controlNavigator1;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }
