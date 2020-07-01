@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.mspsmForm = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DxSAFRHH.inv.forms.frmWaitForm), true, true);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.chkAviso = new DevExpress.XtraEditors.CheckEdit();
             this.btnimprimir_sobres = new DevExpress.XtraEditors.SimpleButton();
@@ -66,6 +67,7 @@
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.xtcTipoEnvio = new DevExpress.XtraTab.XtraTabControl();
             this.xtpEnvioMasivo = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.controlNavigator1 = new DevExpress.XtraEditors.ControlNavigator();
             this.gcCorreos = new DevExpress.XtraGrid.GridControl();
             this.bsClientes = new System.Windows.Forms.BindingSource(this.components);
@@ -75,6 +77,9 @@
             this.colcli_dir = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcli_email1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcli_email2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtpEnvioIndividual = new DevExpress.XtraTab.XtraTabPage();
             this.LstCorreosIndiv = new DevExpress.XtraEditors.ListBoxControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -83,11 +88,11 @@
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupctl_datos_correo = new DevExpress.XtraEditors.GroupControl();
+            this.mchk_copia_remitente = new DevExpress.XtraEditors.CheckEdit();
             this.btnAdjun = new DevExpress.XtraEditors.SimpleButton();
             this.txtAdjuntar = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnVolver = new DevExpress.XtraEditors.SimpleButton();
-            this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.btnEnviar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -97,12 +102,19 @@
             this.txtCorreoRem = new DevExpress.XtraEditors.TextEdit();
             this.txtAsunto = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.xtpCapturaErr = new DevExpress.XtraTab.XtraTabPage();
+            this.btnimprimir_err = new DevExpress.XtraEditors.SimpleButton();
+            this.btnVolver2 = new DevExpress.XtraEditors.SimpleButton();
+            this.mcapterr_gc = new DevExpress.XtraGrid.GridControl();
+            this.bsClientes_err = new System.Windows.Forms.BindingSource(this.components);
+            this.mcapterr_gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.mcapterr_gv_colcli_nom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mcapterr_gv_colcli_email1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mcapterr_gv_colcli_email2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mcapterr_gv_colcli_dir = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkAviso.Properties)).BeginInit();
@@ -128,9 +140,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtcTipoEnvio)).BeginInit();
             this.xtcTipoEnvio.SuspendLayout();
             this.xtpEnvioMasivo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCorreos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCorreos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.xtpEnvioIndividual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LstCorreosIndiv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEnvioIndividual.Properties)).BeginInit();
@@ -138,19 +155,24 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupctl_datos_correo)).BeginInit();
             this.groupctl_datos_correo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_copia_remitente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdjuntar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCuerpo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreRem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCorreoRem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsunto.Properties)).BeginInit();
+            this.xtpCapturaErr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mcapterr_gc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsClientes_err)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mcapterr_gv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mspsmForm
+            // 
+            this.mspsmForm.ClosingDelay = 500;
             // 
             // groupControl2
             // 
@@ -166,7 +188,7 @@
             this.groupControl2.Controls.Add(this.btnImprimir);
             this.groupControl2.Location = new System.Drawing.Point(3, 154);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(205, 593);
+            this.groupControl2.Size = new System.Drawing.Size(205, 556);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Acciones";
             // 
@@ -282,7 +304,7 @@
             this.gcFacturas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.tipomoneda_ricmb,
             this.tipofactura_ricmb});
-            this.gcFacturas.Size = new System.Drawing.Size(904, 700);
+            this.gcFacturas.Size = new System.Drawing.Size(885, 663);
             this.gcFacturas.TabIndex = 10;
             this.gcFacturas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFacturas});
@@ -582,11 +604,12 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 1);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtpFacturas;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1127, 751);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1162, 714);
             this.xtraTabControl1.TabIndex = 12;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpFacturas,
-            this.xtpCorreos});
+            this.xtpCorreos,
+            this.xtpCapturaErr});
             // 
             // xtpFacturas
             // 
@@ -594,7 +617,7 @@
             this.xtpFacturas.Controls.Add(this.groupControl2);
             this.xtpFacturas.Controls.Add(this.groupControl1);
             this.xtpFacturas.Name = "xtpFacturas";
-            this.xtpFacturas.Size = new System.Drawing.Size(1121, 711);
+            this.xtpFacturas.Size = new System.Drawing.Size(1156, 674);
             this.xtpFacturas.Text = "Facturas";
             // 
             // xtpCorreos
@@ -603,7 +626,7 @@
             this.xtpCorreos.Controls.Add(this.splitterControl1);
             this.xtpCorreos.Controls.Add(this.panelControl2);
             this.xtpCorreos.Name = "xtpCorreos";
-            this.xtpCorreos.Size = new System.Drawing.Size(1121, 711);
+            this.xtpCorreos.Size = new System.Drawing.Size(1156, 674);
             this.xtpCorreos.Text = "Correos";
             // 
             // panelControl3
@@ -612,7 +635,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(660, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(461, 711);
+            this.panelControl3.Size = new System.Drawing.Size(496, 674);
             this.panelControl3.TabIndex = 0;
             // 
             // groupControl4
@@ -625,7 +648,7 @@
             this.groupControl4.Controls.Add(this.xtcTipoEnvio);
             this.groupControl4.Location = new System.Drawing.Point(6, 5);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(452, 698);
+            this.groupControl4.Size = new System.Drawing.Size(487, 661);
             this.groupControl4.TabIndex = 13;
             this.groupControl4.Text = "Listado de Correos";
             // 
@@ -637,7 +660,7 @@
             this.xtcTipoEnvio.Location = new System.Drawing.Point(5, 29);
             this.xtcTipoEnvio.Name = "xtcTipoEnvio";
             this.xtcTipoEnvio.SelectedTabPage = this.xtpEnvioMasivo;
-            this.xtcTipoEnvio.Size = new System.Drawing.Size(443, 664);
+            this.xtcTipoEnvio.Size = new System.Drawing.Size(478, 627);
             this.xtcTipoEnvio.TabIndex = 12;
             this.xtcTipoEnvio.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpEnvioMasivo,
@@ -647,8 +670,20 @@
             // 
             this.xtpEnvioMasivo.Controls.Add(this.layoutControl1);
             this.xtpEnvioMasivo.Name = "xtpEnvioMasivo";
-            this.xtpEnvioMasivo.Size = new System.Drawing.Size(437, 636);
+            this.xtpEnvioMasivo.Size = new System.Drawing.Size(472, 599);
             this.xtpEnvioMasivo.Text = "Envío Masivo";
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.controlNavigator1);
+            this.layoutControl1.Controls.Add(this.gcCorreos);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(472, 599);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
             // 
             // controlNavigator1
             // 
@@ -674,7 +709,7 @@
             this.gcCorreos.Location = new System.Drawing.Point(12, 35);
             this.gcCorreos.MainView = this.gvCorreos;
             this.gcCorreos.Name = "gcCorreos";
-            this.gcCorreos.Size = new System.Drawing.Size(413, 589);
+            this.gcCorreos.Size = new System.Drawing.Size(448, 552);
             this.gcCorreos.TabIndex = 11;
             this.gcCorreos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCorreos});
@@ -745,6 +780,35 @@
             this.colcli_email2.VisibleIndex = 3;
             this.colcli_email2.Width = 180;
             // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(472, 599);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gcCorreos;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 23);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(452, 556);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.controlNavigator1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(452, 23);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
             // xtpEnvioIndividual
             // 
             this.xtpEnvioIndividual.Controls.Add(this.LstCorreosIndiv);
@@ -752,7 +816,7 @@
             this.xtpEnvioIndividual.Controls.Add(this.txtEnvioIndividual);
             this.xtpEnvioIndividual.Controls.Add(this.labelControl8);
             this.xtpEnvioIndividual.Name = "xtpEnvioIndividual";
-            this.xtpEnvioIndividual.Size = new System.Drawing.Size(437, 636);
+            this.xtpEnvioIndividual.Size = new System.Drawing.Size(472, 599);
             this.xtpEnvioIndividual.Text = "Envío Individual";
             // 
             // LstCorreosIndiv
@@ -765,7 +829,7 @@
             this.LstCorreosIndiv.Location = new System.Drawing.Point(20, 123);
             this.LstCorreosIndiv.Name = "LstCorreosIndiv";
             this.LstCorreosIndiv.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.LstCorreosIndiv.Size = new System.Drawing.Size(383, 159);
+            this.LstCorreosIndiv.Size = new System.Drawing.Size(418, 159);
             this.LstCorreosIndiv.TabIndex = 5;
             // 
             // labelControl9
@@ -787,7 +851,7 @@
             this.txtEnvioIndividual.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnvioIndividual.Properties.Appearance.Options.UseFont = true;
             this.txtEnvioIndividual.Properties.ReadOnly = true;
-            this.txtEnvioIndividual.Size = new System.Drawing.Size(383, 26);
+            this.txtEnvioIndividual.Size = new System.Drawing.Size(418, 26);
             this.txtEnvioIndividual.TabIndex = 3;
             // 
             // labelControl8
@@ -804,7 +868,7 @@
             // 
             this.splitterControl1.Location = new System.Drawing.Point(655, 0);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 711);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 674);
             this.splitterControl1.TabIndex = 1;
             this.splitterControl1.TabStop = false;
             // 
@@ -814,18 +878,20 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(655, 711);
+            this.panelControl2.Size = new System.Drawing.Size(655, 674);
             this.panelControl2.TabIndex = 0;
             // 
             // groupctl_datos_correo
             // 
+            this.groupctl_datos_correo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupctl_datos_correo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 12F);
             this.groupctl_datos_correo.AppearanceCaption.Options.UseFont = true;
+            this.groupctl_datos_correo.Controls.Add(this.mchk_copia_remitente);
             this.groupctl_datos_correo.Controls.Add(this.btnAdjun);
             this.groupctl_datos_correo.Controls.Add(this.txtAdjuntar);
             this.groupctl_datos_correo.Controls.Add(this.labelControl1);
             this.groupctl_datos_correo.Controls.Add(this.btnVolver);
-            this.groupctl_datos_correo.Controls.Add(this.progressPanel1);
             this.groupctl_datos_correo.Controls.Add(this.labelControl4);
             this.groupctl_datos_correo.Controls.Add(this.btnEnviar);
             this.groupctl_datos_correo.Controls.Add(this.labelControl5);
@@ -840,6 +906,16 @@
             this.groupctl_datos_correo.Size = new System.Drawing.Size(646, 659);
             this.groupctl_datos_correo.TabIndex = 12;
             this.groupctl_datos_correo.Text = "Datos del Correo";
+            // 
+            // mchk_copia_remitente
+            // 
+            this.mchk_copia_remitente.Location = new System.Drawing.Point(16, 484);
+            this.mchk_copia_remitente.Name = "mchk_copia_remitente";
+            this.mchk_copia_remitente.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mchk_copia_remitente.Properties.Appearance.Options.UseFont = true;
+            this.mchk_copia_remitente.Properties.Caption = "C.C. Remitente";
+            this.mchk_copia_remitente.Size = new System.Drawing.Size(165, 27);
+            this.mchk_copia_remitente.TabIndex = 17;
             // 
             // btnAdjun
             // 
@@ -881,32 +957,12 @@
             this.btnVolver.Appearance.Options.UseTextOptions = true;
             this.btnVolver.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnVolver.ImageOptions.Image = global::VisorFacturas.Properties.Resources.prev_32x32;
-            this.btnVolver.Location = new System.Drawing.Point(383, 578);
+            this.btnVolver.Location = new System.Drawing.Point(383, 484);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(115, 61);
             this.btnVolver.TabIndex = 13;
             this.btnVolver.Text = "Volver";
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // progressPanel1
-            // 
-            this.progressPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.progressPanel1.Appearance.Options.UseBackColor = true;
-            this.progressPanel1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressPanel1.AppearanceCaption.Options.UseFont = true;
-            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressPanel1.AppearanceDescription.Options.UseFont = true;
-            this.progressPanel1.BarAnimationElementThickness = 2;
-            this.progressPanel1.Caption = "Enviando Correos...";
-            this.progressPanel1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.progressPanel1.Description = "Enviados: 0 de 0. (0%)";
-            this.progressPanel1.Location = new System.Drawing.Point(8, 581);
-            this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(234, 58);
-            this.progressPanel1.TabIndex = 12;
-            this.progressPanel1.Text = "Caption";
-            this.progressPanel1.Visible = false;
             // 
             // labelControl4
             // 
@@ -926,7 +982,7 @@
             this.btnEnviar.Appearance.Options.UseTextOptions = true;
             this.btnEnviar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnEnviar.ImageOptions.Image = global::VisorFacturas.Properties.Resources.send_32x32;
-            this.btnEnviar.Location = new System.Drawing.Point(513, 578);
+            this.btnEnviar.Location = new System.Drawing.Point(513, 484);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(115, 61);
             this.btnEnviar.TabIndex = 11;
@@ -952,7 +1008,7 @@
             this.txtCuerpo.Name = "txtCuerpo";
             this.txtCuerpo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCuerpo.Properties.Appearance.Options.UseFont = true;
-            this.txtCuerpo.Size = new System.Drawing.Size(612, 264);
+            this.txtCuerpo.Size = new System.Drawing.Size(612, 163);
             this.txtCuerpo.TabIndex = 7;
             // 
             // txtNombreRem
@@ -1010,56 +1066,150 @@
             this.labelControl6.TabIndex = 4;
             this.labelControl6.Text = "Asunto:";
             // 
+            // xtpCapturaErr
+            // 
+            this.xtpCapturaErr.Controls.Add(this.btnimprimir_err);
+            this.xtpCapturaErr.Controls.Add(this.btnVolver2);
+            this.xtpCapturaErr.Controls.Add(this.mcapterr_gc);
+            this.xtpCapturaErr.Controls.Add(this.memoEdit2);
+            this.xtpCapturaErr.Name = "xtpCapturaErr";
+            this.xtpCapturaErr.Size = new System.Drawing.Size(1156, 674);
+            this.xtpCapturaErr.Text = "Captura de Errores";
+            // 
+            // btnimprimir_err
+            // 
+            this.btnimprimir_err.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnimprimir_err.Appearance.Options.UseFont = true;
+            this.btnimprimir_err.Appearance.Options.UseTextOptions = true;
+            this.btnimprimir_err.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnimprimir_err.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
+            this.btnimprimir_err.Location = new System.Drawing.Point(733, 8);
+            this.btnimprimir_err.Name = "btnimprimir_err";
+            this.btnimprimir_err.Size = new System.Drawing.Size(132, 46);
+            this.btnimprimir_err.TabIndex = 15;
+            this.btnimprimir_err.Text = "Imprimir Listado";
+            this.btnimprimir_err.Click += new System.EventHandler(this.btnimprimir_err_Click);
+            // 
+            // btnVolver2
+            // 
+            this.btnVolver2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver2.Appearance.Options.UseFont = true;
+            this.btnVolver2.Appearance.Options.UseTextOptions = true;
+            this.btnVolver2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnVolver2.ImageOptions.Image = global::VisorFacturas.Properties.Resources.prev_32x32;
+            this.btnVolver2.Location = new System.Drawing.Point(612, 8);
+            this.btnVolver2.Name = "btnVolver2";
+            this.btnVolver2.Size = new System.Drawing.Size(115, 46);
+            this.btnVolver2.TabIndex = 14;
+            this.btnVolver2.Text = "Volver";
+            this.btnVolver2.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // mcapterr_gc
+            // 
+            this.mcapterr_gc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mcapterr_gc.DataSource = this.bsClientes_err;
+            this.mcapterr_gc.Location = new System.Drawing.Point(11, 66);
+            this.mcapterr_gc.MainView = this.mcapterr_gv;
+            this.mcapterr_gc.Name = "mcapterr_gc";
+            this.mcapterr_gc.Size = new System.Drawing.Size(1138, 600);
+            this.mcapterr_gc.TabIndex = 3;
+            this.mcapterr_gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.mcapterr_gv});
+            // 
+            // bsClientes_err
+            // 
+            this.bsClientes_err.DataSource = typeof(VisorFacturas.Clases.viewClientes);
+            // 
+            // mcapterr_gv
+            // 
+            this.mcapterr_gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.mcapterr_gv_colcli_nom,
+            this.mcapterr_gv_colcli_email1,
+            this.mcapterr_gv_colcli_email2,
+            this.mcapterr_gv_colcli_dir});
+            this.mcapterr_gv.GridControl = this.mcapterr_gc;
+            this.mcapterr_gv.Name = "mcapterr_gv";
+            this.mcapterr_gv.OptionsBehavior.ReadOnly = true;
+            this.mcapterr_gv.OptionsView.ColumnAutoWidth = false;
+            this.mcapterr_gv.OptionsView.ShowGroupPanel = false;
+            // 
+            // mcapterr_gv_colcli_nom
+            // 
+            this.mcapterr_gv_colcli_nom.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.mcapterr_gv_colcli_nom.AppearanceHeader.Options.UseFont = true;
+            this.mcapterr_gv_colcli_nom.AppearanceHeader.Options.UseTextOptions = true;
+            this.mcapterr_gv_colcli_nom.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.mcapterr_gv_colcli_nom.Caption = "Cliente";
+            this.mcapterr_gv_colcli_nom.FieldName = "cli_nom";
+            this.mcapterr_gv_colcli_nom.Name = "mcapterr_gv_colcli_nom";
+            this.mcapterr_gv_colcli_nom.Visible = true;
+            this.mcapterr_gv_colcli_nom.VisibleIndex = 0;
+            this.mcapterr_gv_colcli_nom.Width = 250;
+            // 
+            // mcapterr_gv_colcli_email1
+            // 
+            this.mcapterr_gv_colcli_email1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.mcapterr_gv_colcli_email1.AppearanceHeader.Options.UseFont = true;
+            this.mcapterr_gv_colcli_email1.AppearanceHeader.Options.UseTextOptions = true;
+            this.mcapterr_gv_colcli_email1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.mcapterr_gv_colcli_email1.Caption = "Correo Nº 1";
+            this.mcapterr_gv_colcli_email1.FieldName = "cli_email1";
+            this.mcapterr_gv_colcli_email1.Name = "mcapterr_gv_colcli_email1";
+            this.mcapterr_gv_colcli_email1.Visible = true;
+            this.mcapterr_gv_colcli_email1.VisibleIndex = 1;
+            this.mcapterr_gv_colcli_email1.Width = 175;
+            // 
+            // mcapterr_gv_colcli_email2
+            // 
+            this.mcapterr_gv_colcli_email2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.mcapterr_gv_colcli_email2.AppearanceHeader.Options.UseFont = true;
+            this.mcapterr_gv_colcli_email2.AppearanceHeader.Options.UseTextOptions = true;
+            this.mcapterr_gv_colcli_email2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.mcapterr_gv_colcli_email2.Caption = "Correo Nº 2";
+            this.mcapterr_gv_colcli_email2.FieldName = "cli_email2";
+            this.mcapterr_gv_colcli_email2.Name = "mcapterr_gv_colcli_email2";
+            this.mcapterr_gv_colcli_email2.Visible = true;
+            this.mcapterr_gv_colcli_email2.VisibleIndex = 2;
+            this.mcapterr_gv_colcli_email2.Width = 175;
+            // 
+            // mcapterr_gv_colcli_dir
+            // 
+            this.mcapterr_gv_colcli_dir.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.mcapterr_gv_colcli_dir.AppearanceHeader.Options.UseFont = true;
+            this.mcapterr_gv_colcli_dir.AppearanceHeader.Options.UseTextOptions = true;
+            this.mcapterr_gv_colcli_dir.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.mcapterr_gv_colcli_dir.Caption = "Captura de Error";
+            this.mcapterr_gv_colcli_dir.FieldName = "cli_dir";
+            this.mcapterr_gv_colcli_dir.Name = "mcapterr_gv_colcli_dir";
+            this.mcapterr_gv_colcli_dir.Visible = true;
+            this.mcapterr_gv_colcli_dir.VisibleIndex = 3;
+            this.mcapterr_gv_colcli_dir.Width = 600;
+            // 
+            // memoEdit2
+            // 
+            this.memoEdit2.EditValue = "El listado muestra errores que ocurrieron en el envío masivo de facturas:\r\n* Nota" +
+    ": Los Clientes que están en este listado no recibieron correo electrónico:";
+            this.memoEdit2.Location = new System.Drawing.Point(11, 12);
+            this.memoEdit2.Name = "memoEdit2";
+            this.memoEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.memoEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.memoEdit2.Properties.Appearance.Options.UseBackColor = true;
+            this.memoEdit2.Properties.Appearance.Options.UseFont = true;
+            this.memoEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.memoEdit2.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.memoEdit2.Size = new System.Drawing.Size(618, 48);
+            this.memoEdit2.TabIndex = 2;
+            // 
             // dxErrProv
             // 
             this.dxErrProv.ContainerControl = this;
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.controlNavigator1);
-            this.layoutControl1.Controls.Add(this.gcCorreos);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(437, 636);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(437, 636);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gcCorreos;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 23);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(417, 593);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.controlNavigator1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(417, 23);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
             // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 751);
+            this.ClientSize = new System.Drawing.Size(1162, 708);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "frmFacturas";
             this.Text = "Visor de Facturas";
@@ -1091,9 +1241,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtcTipoEnvio)).EndInit();
             this.xtcTipoEnvio.ResumeLayout(false);
             this.xtpEnvioMasivo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCorreos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCorreos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.xtpEnvioIndividual.ResumeLayout(false);
             this.xtpEnvioIndividual.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LstCorreosIndiv)).EndInit();
@@ -1103,18 +1258,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupctl_datos_correo)).EndInit();
             this.groupctl_datos_correo.ResumeLayout(false);
             this.groupctl_datos_correo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_copia_remitente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdjuntar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCuerpo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreRem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCorreoRem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAsunto.Properties)).EndInit();
+            this.xtpCapturaErr.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mcapterr_gc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsClientes_err)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mcapterr_gv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1157,7 +1313,6 @@
         private DevExpress.XtraEditors.SplitterControl splitterControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrProv;
-        private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
         private DevExpress.XtraTab.XtraTabControl xtcTipoEnvio;
         private DevExpress.XtraTab.XtraTabPage xtpEnvioMasivo;
         private DevExpress.XtraTab.XtraTabPage xtpEnvioIndividual;
@@ -1195,5 +1350,18 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraSplashScreen.SplashScreenManager mspsmForm;
+        private DevExpress.XtraTab.XtraTabPage xtpCapturaErr;
+        private DevExpress.XtraGrid.GridControl mcapterr_gc;
+        private DevExpress.XtraGrid.Views.Grid.GridView mcapterr_gv;
+        private DevExpress.XtraEditors.MemoEdit memoEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn mcapterr_gv_colcli_nom;
+        private DevExpress.XtraGrid.Columns.GridColumn mcapterr_gv_colcli_dir;
+        private DevExpress.XtraGrid.Columns.GridColumn mcapterr_gv_colcli_email1;
+        private DevExpress.XtraGrid.Columns.GridColumn mcapterr_gv_colcli_email2;
+        private DevExpress.XtraEditors.SimpleButton btnimprimir_err;
+        private DevExpress.XtraEditors.SimpleButton btnVolver2;
+        private System.Windows.Forms.BindingSource bsClientes_err;
+        private DevExpress.XtraEditors.CheckEdit mchk_copia_remitente;
     }
 }

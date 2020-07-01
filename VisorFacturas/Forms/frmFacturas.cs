@@ -16,6 +16,7 @@ using System.Net.Mail;
 using VisorFacturas.Enums;
 using DevExpress.XtraGrid.Views.Grid;
 using System.IO;
+using System.Net;
 
 namespace VisorFacturas.Forms
 {
@@ -69,6 +70,7 @@ namespace VisorFacturas.Forms
         List<viewClientes> Clientes; // Se usa en el grid Clientes
         viewClientes cliente_selected;
         List<viewFactura> ListFacturas; // Se usa en el Grid Facturas
+        List<viewClientes> ListClientes_Err;
 
         //DataAdapters
         OleDbDataAdapter adapter;
@@ -96,13 +98,13 @@ namespace VisorFacturas.Forms
         {
             if (!System.IO.Directory.Exists(pathTablas))
             {
-                MessageBox.Show("Verifique la ruta de los archivos de datos: \n\n" + pathTablas, "La ruta no existe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Verifique la ruta de los archivos de datos: \n\n" + pathTablas, "La ruta no existe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (!System.IO.Directory.Exists(pathTablaRemisionTemp))
             {
-                MessageBox.Show("Verifique la ruta de los archivos de datos: \n\n" + pathTablaRemisionTemp, "La ruta no existe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Verifique la ruta de los archivos de datos: \n\n" + pathTablaRemisionTemp, "La ruta no existe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -284,47 +286,6 @@ namespace VisorFacturas.Forms
         }
 
         /// <summary>
-        /// Función que se encarga de enviar correo a UN destinatario
-        /// </summary>
-        /// <param name="From"></param>
-        /// <param name="NameFrom"></param>
-        /// <param name="to"></param>
-        /// <param name="Subject"></param>
-        /// <param name="Message"></param>
-        /// <param name="Attachements"></param>
-        private void EnviarCorreo(String From, String NameFrom, String to, String Subject, String Message, String[] Attachements = null)
-        {
-            try
-            {
-                SmtpClient server = new SmtpClient(smtpCORREO);
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(From, NameFrom);
-                mail.To.Add(new MailAddress(to));
-                mail.Subject = Subject;
-                mail.Body = Message;
-                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess|DeliveryNotificationOptions.Delay;
-                
-                
-                if (Attachements != null)
-                {
-                    foreach (var attach in Attachements)
-                    {
-                        if (!String.IsNullOrEmpty(attach))
-                        {
-                            mail.Attachments.Add(new Attachment(attach));
-                        }
-                    }
-                }
-                server.Send(mail);
-                mail.Dispose();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
         /// Función que se encarga de enviar correo a VARIOS destinatarios
         /// </summary>
         /// <param name="From"></param>
@@ -337,10 +298,10 @@ namespace VisorFacturas.Forms
         {
             try
             {
-                SmtpClient server = new SmtpClient(smtpCORREO);
+                //SmtpClient server = new SmtpClient(smtpCORREO);
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(From, NameFrom);
-                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+                             
                 foreach (var t in to)
                 {
                     if (!String.IsNullOrEmpty(t))
@@ -348,6 +309,21 @@ namespace VisorFacturas.Forms
                         mail.To.Add(new MailAddress(t));
                     }
                 }
+
+                // Se pregunta si tiene activado el check de Copia del Remitente
+                if (mchk_copia_remitente.Checked)
+                {
+                    // Si lo tiene activo, se agregara el correo del remitente en CC del correo
+                    mail.CC.Add(new MailAddress(From));
+                    // Y se desactiva la notificación
+                    mail.DeliveryNotificationOptions = DeliveryNotificationOptions.Never;
+                }
+                else
+                {
+                    // Únicamente se activa la notificación de llegada de correo
+                    mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+                }
+                
 
                 mail.Subject = Subject;
                 mail.Body = Message;
@@ -363,11 +339,40 @@ namespace VisorFacturas.Forms
 
                     }
                 }
-                server.Send(mail);
+
+                //server.Send(mail);
+                //mail.Dispose();
+
+                using (var serv = new SmtpClient())
+                {
+                    serv.Host = smtpCORREO;
+                    serv.Send(mail);
+                }
+                
+            }
+            catch (FormatException fex)
+            {
+                String msg_fex = "La dirección del correo electrónico  es incorrecta";
+                // Agregamos un registro al listado de capturas de errores
+                ListClientes_Err.Add(new viewClientes()
+                {
+                    cli_nom = cliente_selected.cli_nom,
+                    cli_email1 = cliente_selected.cli_email1,
+                    cli_email2 = cliente_selected.cli_email2,
+                    cli_dir = msg_fex // El campo dir se usara para escribir el mensaje del error
+                });
+                //XtraMessageBox.Show(msg_fex, "Error No: " + fex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ListClientes_Err.Add(new viewClientes()
+                {
+                    cli_nom = cliente_selected.cli_nom,
+                    cli_email1 = cliente_selected.cli_email1,
+                    cli_email2 = cliente_selected.cli_email2,
+                    cli_dir = ex.Message // El campo dir se usara para escribir el mensaje del error
+                });
+                //XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -705,72 +710,79 @@ namespace VisorFacturas.Forms
             else
                 btnAdjun.Enabled = false;
 
+            // Se activa por defecto la CC al remitente
+            mchk_copia_remitente.Checked = true;
+            mchk_copia_remitente.Visible = true;
+
             try
+            {
+                // Si va a imprimir Facturas masivas
+                if (chkImpresionMasiva.Checked)
                 {
-                    // Si va a imprimir Facturas masivas
-                    if (chkImpresionMasiva.Checked)
+                    List<viewClientes> ClientesFiltrados = new List<viewClientes>();
+                    for (int i = 0; i < gvFacturas.DataRowCount; i++)
                     {
-                        List<viewClientes> ClientesFiltrados = new List<viewClientes>();
-                        for (int i = 0; i < gvFacturas.DataRowCount; i++)
-                        {
-                            // Obtenemos la factura
-                            viewFactura fac = (viewFactura)gvFacturas.GetRow(i);
-                            // Agregamos el cliente
-                            ClientesFiltrados.Add(Clientes.Where(s => s.cli_cod.Contains(fac.cli_codig)).FirstOrDefault());
-                        }
-                        bsClientes.DataSource = ClientesFiltrados;
-                        xtcTipoEnvio.SelectedTabPage = xtpEnvioMasivo;
-                    }
-                    else
-                    {
-                        // Si solo va a imprimir una Factura
-                        if (gvFacturas.FocusedRowHandle < 0)// && (!chkAviso.Checked))
-                        {
-                            XtraMessageBox.Show("Seleccione una factura para enviar por correo", "Seleccione una Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
-                        }
-
-                        // Seleccionamos los datos del cliente de la factura seleccionada
-                        viewFactura fact_select = (viewFactura)bsGrid.Current;
-                        CodClienteSelect = fact_select.cli_codig;
-
-                        cliente_selected = Clientes.Where(s => s.cli_cod.Contains(CodClienteSelect)).FirstOrDefault();
-                        //var Cliente = from cli in tbl_clientes.AsQueryable() 
-                        //                    where cli.cli_cod.Contains(CodClienteSelect)
-                        //                    select new viewClientes {
-                        //                        cli_cod = cli.cli_cod,
-                        //                        cli_nom = cli.cli_nom,
-                        //                        cli_dir = cli.cli_dir,
-                        //                        cli_email1 = cli.cli_email1,
-                        //                        cli_email2 = cli.cli_email2
-                        //                    };
-
-                        LstCorreosIndiv.Items.Clear();
-                        if (cliente_selected != null)
-                        {
-                            if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
-                                LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
-
-                            if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
-                                LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
-                        }
-                        txtEnvioIndividual.Text = cliente_selected.cli_nom;
-                        xtcTipoEnvio.SelectedTabPage = xtpEnvioIndividual;
+                        // Obtenemos la factura
+                        viewFactura fac = (viewFactura)gvFacturas.GetRow(i);
+                        // Agregamos el cliente
+                        ClientesFiltrados.Add(Clientes.Where(s => s.cli_cod.Contains(fac.cli_codig)).FirstOrDefault());
                     }
 
-                    if (!chkAviso.Checked)
-                        LlenarDatosCorreo(0);
-                    else
-                        LlenarDatosCorreo(1);
+                    bsClientes.DataSource = ClientesFiltrados;                    
+                    xtcTipoEnvio.SelectedTabPage = xtpEnvioMasivo;
 
-                    dxErrProv.ClearErrors();
-                    xtraTabControl1.SelectedTabPage = xtpCorreos;
-                    txtNombreRem.Focus();
                 }
-                catch (Exception ex)
+                else
                 {
-                    DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Si solo va a imprimir una Factura
+                    if (gvFacturas.FocusedRowHandle < 0)// && (!chkAviso.Checked))
+                    {
+                        XtraMessageBox.Show("Seleccione una factura para enviar por correo", "Seleccione una Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    // Seleccionamos los datos del cliente de la factura seleccionada
+                    viewFactura fact_select = (viewFactura)bsGrid.Current;
+                    CodClienteSelect = fact_select.cli_codig;
+
+                    cliente_selected = Clientes.Where(s => s.cli_cod.Contains(CodClienteSelect)).FirstOrDefault();
+                    //var Cliente = from cli in tbl_clientes.AsQueryable() 
+                    //                    where cli.cli_cod.Contains(CodClienteSelect)
+                    //                    select new viewClientes {
+                    //                        cli_cod = cli.cli_cod,
+                    //                        cli_nom = cli.cli_nom,
+                    //                        cli_dir = cli.cli_dir,
+                    //                        cli_email1 = cli.cli_email1,
+                    //                        cli_email2 = cli.cli_email2
+                    //                    };
+
+                    LstCorreosIndiv.Items.Clear();
+                    if (cliente_selected != null)
+                    {
+                        if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
+                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
+
+                        if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
+                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
+
+                    }
+                    txtEnvioIndividual.Text = cliente_selected.cli_nom;
+                    xtcTipoEnvio.SelectedTabPage = xtpEnvioIndividual;
                 }
+
+                if (!chkAviso.Checked)
+                    LlenarDatosCorreo(0);
+                else
+                    LlenarDatosCorreo(1);
+
+                dxErrProv.ClearErrors();
+                xtraTabControl1.SelectedTabPage = xtpCorreos;
+                txtNombreRem.Focus();
+            }
+            catch (Exception ex)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -812,11 +824,22 @@ namespace VisorFacturas.Forms
                 CrearCarpetasFacturas();
 
                 // listado de archivos adjuntos. MAX: 5
-                String[] adjuntos = new String[5];                
+                String[] adjuntos = new String[5];
+
+                // Limpiamos el Binding source de la tabla captura de errores
+                if (bsClientes_err.Count > 0) { bsClientes_err.Clear(); }
+
+                // Inicializamos la variable
+                ListClientes_Err = new List<viewClientes>();
+
+                // Variable para el Asunto del correo
+                String Asunto = "";
 
                 // Si solo Imprime una Factura
                 if (!chkImpresionMasiva.Checked)
                 {
+                    #region ENVIO DE CORREO DE UN SOLO CLIENTE                    
+
                     // Codigo del cliente
                     CodClienteSelect = cliente_selected.cli_cod;
 
@@ -843,46 +866,81 @@ namespace VisorFacturas.Forms
                     for (int i = 0; i < LstCorreosIndiv.Items.Count; i++)
                     {
                         CorreosCli[i] = LstCorreosIndiv.Items[i].ToString().Trim();
-                    }                                     
-
-                    
-                    if (!chkAviso.Checked)
-                    {
-                        // obtenemos la factura seleccionada
-                        viewFactura fac_selected = (viewFactura)bsGrid.Current;
-                        GetData(fac_selected.ord_numero);
-
-                        // Creamos el reporte pero no  lo imprimimos
-                        Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
-                        aorpt.DataSource = factura;
-                        aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
-                        // Exportamos el reporte en PDF
-                        aorpt.ExportToPdf(PathAttach);
-                        aorpt.Dispose();
                     }
-                        
+
+                    if (!String.IsNullOrEmpty(CorreosCli[0]) || !String.IsNullOrEmpty(CorreosCli[1]))
+                    {
+                        if (!chkAviso.Checked)
+                        {
+                            // obtenemos la factura seleccionada
+                            viewFactura fac_selected = (viewFactura)bsGrid.Current;
+                            GetData(fac_selected.ord_numero);
+
+                            // Creamos el reporte pero no  lo imprimimos
+                            Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
+                            aorpt.DataSource = factura;
+                            aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+                            // Exportamos el reporte en PDF
+                            aorpt.ExportToPdf(PathAttach);
+                            aorpt.Dispose();
+
+                            Asunto = txtAsunto.Text + " - " + cliente_selected.cli_nom;
+                        }
+                        else
+                        {
+                            Asunto = txtAsunto.Text;
+                        }
+
+
+                        // Adjuntamos el archivo que exportamos en PDF
+                        adjuntos[0] = PathAttach;
+                        // Enviamos el correo
+                        EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, Asunto, txtCuerpo.Text, adjuntos);
+                    }
+                    else
+                    {
+                        // Agregamos un registro al listado de capturas de errores
+                        ListClientes_Err.Add(new viewClientes()
+                        {
+                            cli_nom = cliente_selected.cli_nom,
+                            cli_email1 = cliente_selected.cli_email1,
+                            cli_email2 = cliente_selected.cli_email2,
+                            cli_dir = "Este cliente no tiene digitado sus correos electrónicos." // El campo dir se usara para escribir el mensaje del error
+                        });
+                    }
                     
-                    // Adjuntamos el archivo que exportamos en PDF
-                    adjuntos[0] = PathAttach;
-                    // Enviamos el correo
-                    EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, txtAsunto.Text, txtCuerpo.Text, adjuntos);
+
+                    #endregion
                 }
                 else
                 {
-                    // Si Imprime varias facturas
-                    progressPanel1.Visible = true; 
-                    
+                    #region ENVIO MASIVO DE CORREOS ELECTRÓNICOS                    
+
+                    //// Si Imprime varias facturas
+                    // Por si ya estaba abierto, cerramos el splash form
+                    if (mspsmForm.IsSplashFormVisible) { mspsmForm.CloseWaitForm(); }
+
+                    //Formulario de espera abierto
+                    mspsmForm.ShowWaitForm();
+                    mspsmForm.SetWaitFormCaption("Enviando las Facturas...");
+                    int ancountertotal = gvFacturas.RowCount;
+                    int ancounterposition = 0;
+
                     for (int i = 0; i < gvFacturas.DataRowCount; i++)
                     {
+                        // Aumentamos el porcentaje de progreso
+                        ancounterposition++;
+                        mspsmForm.SetWaitFormDescription(String.Format("Progreso de envío de facturas: {0:n2}% ", ((decimal)ancounterposition / (decimal)ancountertotal) * (decimal)100));
+
+                        //if (i == 262)
+                        //{
+                        //    Console.WriteLine("");
+                        //}
+
                         // Obtenemos la factura
                         viewFactura fac = (viewFactura)gvFacturas.GetRow(i);
                         //Obtenemos el cliente de la Factura
                         cliente_selected = Clientes.Where(s => s.cli_cod.Contains(fac.cli_codig)).FirstOrDefault();
-
-                        // Variable que indica el porcentaje  de correos enviados 
-                        Double PorcCorreosEnviados = Math.Round(((float)(i + 1) / (float)gvFacturas.DataRowCount) * 100, 2);
-                        // Descripción del Panel de Progreso
-                        progressPanel1.Description = String.Format("Enviados: {0} de {1}. ({2} %)", (i + 1), gvFacturas.DataRowCount, PorcCorreosEnviados);
 
                         // Listado de correos: Permito 5 correos, aunque solo ingrese dos correos
                         String[] CorreosCli = new String[5];
@@ -936,8 +994,12 @@ namespace VisorFacturas.Forms
                                     aorpt.Dispose();
                                     // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
                                     adjuntos[0] = PathAttach;
+                                    // Asunto + nombre del cliente
+                                    Asunto = Asunto = txtAsunto.Text + " - " + cliente_selected.cli_nom;
                                     // Enviamos el correo
-                                    EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, txtAsunto.Text, txtCuerpo.Text, adjuntos);
+                                    EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, Asunto, txtCuerpo.Text, adjuntos);
+                                    //Console.WriteLine("Factura Nº " + i.ToString() + " enviada!");
+                                    
                                 }                                
                             }
                             else
@@ -949,17 +1011,42 @@ namespace VisorFacturas.Forms
                             }
 
                         }
+                        else
+                        {
+                            // Agregamos un registro al listado de capturas de errores
+                            ListClientes_Err.Add(new viewClientes() {
+                                cli_nom = cliente_selected.cli_nom,
+                                cli_email1 = cliente_selected.cli_email1,
+                                cli_email2 = cliente_selected.cli_email2,
+                                cli_dir = "Este cliente no tiene digitado sus correos electrónicos." // El campo dir se usara para escribir el mensaje del error
+                            });
+                        }
 
                         //} // end del if que pregunta si tiene marcada la casilla de Enviar (ESTO SE QUITO, PERO SE DEJA POR SI SE RETOMA)
                     } // end del for que recorre las facturas
+
+                    #endregion 
+
                 } // end del if que pregunta si es Envío Individual o Masivo
 
-                
-                XtraMessageBox.Show("Correos electrónicos enviados correctamente", "Envío exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                progressPanel1.Visible = false;
-                txtAsunto.Text = "";
-                txtCuerpo.Text = "";
-                xtraTabControl1.SelectedTabPage = xtpFacturas;                
+                if (mspsmForm.IsSplashFormVisible)
+                    mspsmForm.CloseWaitForm();
+
+                bsClientes_err.DataSource = ListClientes_Err;
+                if (ListClientes_Err.Count > 0)
+                {
+                    txtAsunto.Text = "";
+                    txtCuerpo.Text = "";
+                    xtraTabControl1.SelectedTabPage = xtpCapturaErr;
+                    XtraMessageBox.Show("Los correos han sido enviados, exceptos a los clientes que están en el siguiente listado", "Envío exitoso pero con algunos errores", MessageBoxButtons.OK, MessageBoxIcon.Warning);                    
+                }
+                else
+                {
+                    XtraMessageBox.Show("Todos los Correos electrónicos se enviaron correctamente", "Envío exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtAsunto.Text = "";
+                    txtCuerpo.Text = "";
+                    xtraTabControl1.SelectedTabPage = xtpFacturas;
+                }              
             }
             catch (Exception ex)
             {
@@ -993,25 +1080,16 @@ namespace VisorFacturas.Forms
         
         private void frmFacturas_Resize(object sender, EventArgs e)
         {
-            if (this.Height >= 560)
-            {
-                //btnVolver.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-                //btnEnviar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-                //progressPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                //txtCuerpo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-                //txtCuerpo.Height = 220;
-                groupctl_datos_correo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-                groupctl_datos_correo.Height = 520;
-            }
-            else
-            {
-                //btnVolver.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-                //btnEnviar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-                //progressPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-                //txtCuerpo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
-                groupctl_datos_correo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+            //if (this.Height >= 560)
+            //{                
+            //    groupctl_datos_correo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            //    groupctl_datos_correo.Height = 520;
+            //}
+            //else
+            //{
+            //    groupctl_datos_correo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
                 
-            }
+            //}
         }
 
         private void btnexportar_Click(object sender, EventArgs e)
@@ -1067,6 +1145,14 @@ namespace VisorFacturas.Forms
             }
             else
                 txtAdjuntar.Text = string.Empty;
+        }
+
+        private void btnimprimir_err_Click(object sender, EventArgs e)
+        {
+            if (mcapterr_gv.RowCount > 0)
+            {
+                mcapterr_gc.ShowRibbonPrintPreview();
+            }
         }
     }
 }
