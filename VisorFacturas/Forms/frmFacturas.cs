@@ -44,6 +44,8 @@ namespace VisorFacturas.Forms
         /* Variables para el envio de correos */
         String NombreRemitenteCNZF = "Ramona Blanco Lezama";
         String CorreoremitenteCNZF = "rblanco@cnzf.gob.ni";
+        //String NombreRemitenteCNZF = "Ariel Davila";
+        //String CorreoremitenteCNZF = "adavila@czf.com.ni";
         String NombreRemitenteCZF = "";
         String CorreoremitenteCZF = "";
 
@@ -345,7 +347,13 @@ namespace VisorFacturas.Forms
 
                 using (var serv = new SmtpClient())
                 {
-                    serv.Host = smtpCORREO;
+                    serv.Host = smtpCORREO; //"ns.czf.com.ni";// "mail.cnzf.gob.ni";// smtpCORREO;
+                    serv.EnableSsl = false;
+                    serv.Port = 25;
+                    serv.DeliveryFormat = SmtpDeliveryFormat.International;
+                    serv.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    //serv.UseDefaultCredentials = false;
+                    //serv.Credentials = new NetworkCredential("adavila@czf.com.ni", "Fender22.", "czf.com.ni");
                     serv.Send(mail);
                 }
                 
@@ -764,6 +772,11 @@ namespace VisorFacturas.Forms
 
                         if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
                             LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
+
+                        //// Correos de prueba
+                        //LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
+                        //LstCorreosIndiv.Items.Add("restrada@czf.com.ni");
+                        //LstCorreosIndiv.Items.Add("davilaandres95@gmail.com");
 
                     }
                     txtEnvioIndividual.Text = cliente_selected.cli_nom;
