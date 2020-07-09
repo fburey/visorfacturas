@@ -42,12 +42,12 @@ namespace VisorFacturas.Forms
         String smtpCORREO;
 
         /* Variables para el envio de correos */
-        String NombreRemitenteCNZF = "Ramona Blanco Lezama";
-        String CorreoremitenteCNZF = "rblanco@cnzf.gob.ni";
+        //String NombreRemitenteCNZF = "Ramona Blanco Lezama";
+        //String CorreoremitenteCNZF = "rblanco@cnzf.gob.ni";
         //String NombreRemitenteCNZF = "Ariel Davila";
         //String CorreoremitenteCNZF = "adavila@czf.com.ni";
-        String NombreRemitenteCZF = "";
-        String CorreoremitenteCZF = "";
+        //String NombreRemitenteCZF = "";
+        //String CorreoremitenteCZF = "";
 
         //Rutas de Directorios
         String pathTablas; // = Settings.Default.DirectorioTablasCNZF;
@@ -87,6 +87,7 @@ namespace VisorFacturas.Forms
         String CodClienteSelect;
         String Month;
         String Year;
+        Boolean isErrorSendMail = false;
         
         #endregion
 
@@ -300,6 +301,8 @@ namespace VisorFacturas.Forms
         {
             try
             {
+                //if (1 == 1) return;
+
                 //SmtpClient server = new SmtpClient(smtpCORREO);
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(From, NameFrom);
@@ -312,20 +315,23 @@ namespace VisorFacturas.Forms
                     }
                 }
 
-                // Se pregunta si tiene activado el check de Copia del Remitente
-                if (mchk_copia_remitente.Checked)
+                // Pregunta si NO es un envio de correo de notificación de error (Clientes que no se le pudo enviar el correo)
+                if (isErrorSendMail == false)
                 {
-                    // Si lo tiene activo, se agregara el correo del remitente en CC del correo
-                    mail.CC.Add(new MailAddress(From));
-                    // Y se desactiva la notificación
-                    mail.DeliveryNotificationOptions = DeliveryNotificationOptions.Never;
+                    // Se pregunta si tiene activado el check de Copia del Remitente
+                    if (mchk_copia_remitente.Checked)
+                    {
+                        // Si lo tiene activo, se agregara el correo del remitente en CC del correo
+                        mail.CC.Add(new MailAddress(From));
+                        // Y se desactiva la notificación
+                        mail.DeliveryNotificationOptions = DeliveryNotificationOptions.Never;
+                    }
+                    else
+                    {
+                        // Únicamente se activa la notificación de llegada de correo
+                        mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+                    }
                 }
-                else
-                {
-                    // Únicamente se activa la notificación de llegada de correo
-                    mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
-                }
-                
 
                 mail.Subject = Subject;
                 mail.Body = Message;
@@ -352,8 +358,6 @@ namespace VisorFacturas.Forms
                     serv.Port = 25;
                     serv.DeliveryFormat = SmtpDeliveryFormat.International;
                     serv.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    //serv.UseDefaultCredentials = false;
-                    //serv.Credentials = new NetworkCredential("adavila@czf.com.ni", "Fender22.", "czf.com.ni");
                     serv.Send(mail);
                 }
                 
@@ -476,16 +480,18 @@ namespace VisorFacturas.Forms
                 txtCuerpo.Text = "";                
             }
 
-            if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
-            {
-                txtNombreRem.Text = NombreRemitenteCZF;
-                txtCorreoRem.Text = CorreoremitenteCZF;
-            }
-            else
-            {
-                txtNombreRem.Text = NombreRemitenteCNZF;
-                txtCorreoRem.Text = CorreoremitenteCNZF;
-            }
+            txtNombreRem.Text = moCurrentUser.fullname;
+            txtCorreoRem.Text = moCurrentUser.email;
+            //if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+            //{
+            //    txtNombreRem.Text = NombreRemitenteCZF;
+            //    txtCorreoRem.Text = CorreoremitenteCZF;
+            //}
+            //else
+            //{
+            //    txtNombreRem.Text = NombreRemitenteCNZF;
+            //    txtCorreoRem.Text = CorreoremitenteCNZF;
+            //}
             txtAsunto.Text = TituloMensaje;
         }
 
@@ -774,8 +780,8 @@ namespace VisorFacturas.Forms
                             LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
 
                         //// Correos de prueba
-                        //LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
-                        //LstCorreosIndiv.Items.Add("restrada@czf.com.ni");
+                        ////LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
+                        //LstCorreosIndiv.Items.Add("restrada.czf.com.ni");
                         //LstCorreosIndiv.Items.Add("davilaandres95@gmail.com");
 
                     }
@@ -830,6 +836,7 @@ namespace VisorFacturas.Forms
 
                 // Ruta de la factura
                 String PathAttach = string.Empty;
+                isErrorSendMail = false;
 
                 // Verificamos si existen las carpetas en donde se alojaran las facturas
                 Month = cmbMes.Text;
@@ -1048,10 +1055,27 @@ namespace VisorFacturas.Forms
                 bsClientes_err.DataSource = ListClientes_Err;
                 if (ListClientes_Err.Count > 0)
                 {
-                    txtAsunto.Text = "";
-                    txtCuerpo.Text = "";
-                    xtraTabControl1.SelectedTabPage = xtpCapturaErr;
-                    XtraMessageBox.Show("Los correos han sido enviados, exceptos a los clientes que están en el siguiente listado", "Envío exitoso pero con algunos errores", MessageBoxButtons.OK, MessageBoxIcon.Warning);                    
+                    // Si tiene activado envio masivo, y la lista de errores es menor que la lista de facturas (clientes), quiere decir que 
+                    // algunas facturas se enviaron pero otras no
+                    if (chkImpresionMasiva.Checked && ListClientes_Err.Count < gvFacturas.DataRowCount)
+                    {
+                        txtAsunto.Text = "";
+                        txtCuerpo.Text = "";
+                        xtraTabControl1.SelectedTabPage = xtpCapturaErr;
+                        XtraMessageBox.Show("Los correos han sido enviados, exceptos a los clientes que están en el siguiente listado", "Envío exitoso pero con algunos errores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        // Enviamos un correo a David Gonzalez y Ramona Blanco indicando cuales fueron los clientes a los que el sistema no pudo enviarles el correo                        
+                        mpxAvisoClientesSinEnvioFact(ListClientes_Err);
+                    }
+                    else
+                    {
+                        txtAsunto.Text = "";
+                        txtCuerpo.Text = "";
+                        xtraTabControl1.SelectedTabPage = xtpCapturaErr;
+                        XtraMessageBox.Show("Los correos no se pudieron enviar. Por favor revise el siguiente listado.", "Han ocurrido algunos errores", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        mpxAvisoClientesSinEnvioFact(ListClientes_Err);
+                    }
                 }
                 else
                 {
@@ -1166,6 +1190,53 @@ namespace VisorFacturas.Forms
             {
                 mcapterr_gc.ShowRibbonPrintPreview();
             }
+        }
+
+        private void mpxAvisoClientesSinEnvioFact(List<viewClientes> listClientes_Err) {
+            String nombreRemitent = moCurrentUser.fullname;
+            String correoRemitent = moCurrentUser.email;
+            String titulocorreo;
+            String cuerpocorreo;
+            String[] arrayAdjuntos = new String[1];
+            arrayAdjuntos[0] = pathFact + "\\" + Year + "\\" + Month + "\\" + "reporte_clientes_sin_facturas_" + DateTime.Now.ToString("yyyy_MM_dd") + "_" + DateTime.Now.ToString("HHmm") + ".pdf";
+
+            String[] CorreosDestinos = new String[2];
+            //CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
+            //CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
+            CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\adavila", null).email;
+
+            //Creamos el reporte, sin imprimirlo
+            String TituloRpt;
+            if (chkAviso.Checked)
+            {
+                titulocorreo = "Clientes sin recibir correo de Aviso";
+                TituloRpt = "Listado de Clientes que no recibieron el Correo de Aviso";
+                cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
+                                  "En el envío masivo del correo de Aviso a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
+                                  "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            }
+            else
+            {
+                titulocorreo = "Aviso de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
+                TituloRpt = "Listado de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
+               cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
+                                  "En el envío masivo de facturas a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
+                                  "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            }
+                
+
+            Reports.CNZF.xrclientsinfact aorpt = new Reports.CNZF.xrclientsinfact(TituloRpt);
+            aorpt.DataSource = listClientes_Err;
+            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+            // Exportamos el reporte en formato PDF
+            aorpt.ExportToPdf(arrayAdjuntos[0]);
+            aorpt.Dispose();
+            // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
+
+            // Enviamos el correo
+            isErrorSendMail = true;
+            EnviarCorreo(correoRemitent, nombreRemitent, CorreosDestinos, titulocorreo, cuerpocorreo, arrayAdjuntos);
+
         }
     }
 }
