@@ -1201,9 +1201,9 @@ namespace VisorFacturas.Forms
             arrayAdjuntos[0] = pathFact + "\\" + Year + "\\" + Month + "\\" + "reporte_clientes_sin_facturas_" + DateTime.Now.ToString("yyyy_MM_dd") + "_" + DateTime.Now.ToString("HHmm") + ".pdf";
 
             String[] CorreosDestinos = new String[2];
-            //CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
-            //CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
-            CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\adavila", null).email;
+            CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
+            CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
+            //CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\adavila", null).email;
 
             //Creamos el reporte, sin imprimirlo
             String TituloRpt;

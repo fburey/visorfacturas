@@ -26,9 +26,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</InstallUrl>
     <UpdateUrl>\\192.168.25.23\Publicaciones\CONTABILIDAD-CNZF\Sistema DBF\</UpdateUrl>
-    <MinimumRequiredVersion>2020.07.09.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2020.07.29.1</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2020.07.09.%2a</ApplicationVersion>
+    <ApplicationVersion>2020.07.29.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
