@@ -333,7 +333,7 @@ namespace VisorFacturas.Forms
                     }
                 }
 
-                mail.Subject = Subject;
+                mail.Subject = Subject.Trim();
                 mail.Body = Message;
 
                 if (Attachements != null)
@@ -467,7 +467,7 @@ namespace VisorFacturas.Forms
             String TituloMensaje = string.Empty;
             if (num == 0) //AQUÍ ENTRA SI ES FACTURA
             {
-                TituloMensaje = "AVISO DE COBRO DEL MES DE " + cmbMes.Text.ToUpper() + " " + speAnno.Text;
+                TituloMensaje = "AVISO DE COBRO " + cmbMes.Text.ToUpper() + " " + speAnno.Text;
                 txtCuerpo.Text = "Estimados Señores" + Environment.NewLine + Environment.NewLine + "Se les envía por este medio el " + TituloMensaje +
                 " para su debida cancelación, recuerden que el vencimiento de la factura son los 20 de cada mes. Para gozar de los " +
                 "beneficios que otorga el Régimen hay que tener al día sus pagos." + Environment.NewLine + Environment.NewLine +
