@@ -125,6 +125,7 @@
             this.mxrppaginfPagNum = new DevExpress.XtraReports.UI.XRPageInfo();
             this.calfld_Estado = new DevExpress.XtraReports.UI.CalculatedField();
             this.calfld_Fecha = new DevExpress.XtraReports.UI.CalculatedField();
+            this.calcfld_preciounit = new DevExpress.XtraReports.UI.CalculatedField();
             this.mbndsrc_report = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaTit)).BeginInit();
@@ -223,7 +224,7 @@
             // xrTableCell30
             // 
             this.xrTableCell30.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[rem_precio]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[calcfld_preciounit]")});
             this.xrTableCell30.Font = new System.Drawing.Font("Arial", 7.5F);
             this.xrTableCell30.Multiline = true;
             this.xrTableCell30.Name = "xrTableCell30";
@@ -1235,6 +1236,11 @@
             this.calfld_Fecha.Expression = "Iif(GetYear([pag_fecha])<2000, \'\', FormatString(\'{0:dd/MM/yyyy}\',[pag_fecha]))";
             this.calfld_Fecha.Name = "calfld_Fecha";
             // 
+            // calcfld_preciounit
+            // 
+            this.calcfld_preciounit.Expression = "iif([rem_cant] <> 0, Round([rem_cantprecio]/[rem_cant], 2), 0)";
+            this.calcfld_preciounit.Name = "calcfld_preciounit";
+            // 
             // mbndsrc_report
             // 
             this.mbndsrc_report.DataSource = typeof(VisorFacturas.Clases.view_rpt_facturasmes);
@@ -1250,7 +1256,8 @@
             this.PageFooter});
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.calfld_Estado,
-            this.calfld_Fecha});
+            this.calfld_Fecha,
+            this.calcfld_preciounit});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.mbndsrc_report});
             this.DataSource = this.mbndsrc_report;
@@ -1361,5 +1368,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell49;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell50;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell51;
+        private DevExpress.XtraReports.UI.CalculatedField calcfld_preciounit;
     }
 }

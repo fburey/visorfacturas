@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSistInfCNZF));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mchk_comparamesanyoant = new DevExpress.XtraEditors.CheckEdit();
             this.mchk_pagostiemporeal = new DevExpress.XtraEditors.CheckEdit();
             this.mbtn_salir = new DevExpress.XtraEditors.SimpleButton();
             this.speAnno = new DevExpress.XtraEditors.SpinEdit();
@@ -52,16 +53,16 @@
             this.mempty_cmbmes = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mlytitm_pagostiemporeal = new DevExpress.XtraLayout.LayoutControlItem();
             this.mempty_speanno = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.mlytitm_comparamesanyoant = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mlcg_botonesacc = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mempty_filtros = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.mchk_comparamesanyoant = new DevExpress.XtraEditors.CheckEdit();
-            this.mlytitm_comparamesanyoant = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_comparamesanyoant.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_pagostiemporeal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speAnno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMes.Properties)).BeginInit();
@@ -78,14 +79,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mempty_cmbmes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_pagostiemporeal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_speanno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_comparamesanyoant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_botonesacc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchk_comparamesanyoant.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_comparamesanyoant)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -105,6 +105,17 @@
             this.layoutControl1.Size = new System.Drawing.Size(1017, 551);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // mchk_comparamesanyoant
+            // 
+            this.mchk_comparamesanyoant.Location = new System.Drawing.Point(537, 80);
+            this.mchk_comparamesanyoant.Name = "mchk_comparamesanyoant";
+            this.mchk_comparamesanyoant.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.mchk_comparamesanyoant.Properties.Appearance.Options.UseFont = true;
+            this.mchk_comparamesanyoant.Properties.Caption = "Comparar el mes entre Años";
+            this.mchk_comparamesanyoant.Size = new System.Drawing.Size(225, 23);
+            this.mchk_comparamesanyoant.StyleController = this.layoutControl1;
+            this.mchk_comparamesanyoant.TabIndex = 11;
             // 
             // mchk_pagostiemporeal
             // 
@@ -388,6 +399,15 @@
             this.mempty_speanno.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.mempty_speanno.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // mlytitm_comparamesanyoant
+            // 
+            this.mlytitm_comparamesanyoant.Control = this.mchk_comparamesanyoant;
+            this.mlytitm_comparamesanyoant.Location = new System.Drawing.Point(192, 57);
+            this.mlytitm_comparamesanyoant.Name = "mlytitm_comparamesanyoant";
+            this.mlytitm_comparamesanyoant.Size = new System.Drawing.Size(229, 30);
+            this.mlytitm_comparamesanyoant.TextSize = new System.Drawing.Size(0, 0);
+            this.mlytitm_comparamesanyoant.TextVisible = false;
+            // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
@@ -455,26 +475,6 @@
             this.mempty_filtros.Size = new System.Drawing.Size(240, 111);
             this.mempty_filtros.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // mchk_comparamesanyoant
-            // 
-            this.mchk_comparamesanyoant.Location = new System.Drawing.Point(537, 80);
-            this.mchk_comparamesanyoant.Name = "mchk_comparamesanyoant";
-            this.mchk_comparamesanyoant.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.mchk_comparamesanyoant.Properties.Appearance.Options.UseFont = true;
-            this.mchk_comparamesanyoant.Properties.Caption = "Comparar el mes entre Años";
-            this.mchk_comparamesanyoant.Size = new System.Drawing.Size(225, 23);
-            this.mchk_comparamesanyoant.StyleController = this.layoutControl1;
-            this.mchk_comparamesanyoant.TabIndex = 11;
-            // 
-            // mlytitm_comparamesanyoant
-            // 
-            this.mlytitm_comparamesanyoant.Control = this.mchk_comparamesanyoant;
-            this.mlytitm_comparamesanyoant.Location = new System.Drawing.Point(192, 57);
-            this.mlytitm_comparamesanyoant.Name = "mlytitm_comparamesanyoant";
-            this.mlytitm_comparamesanyoant.Size = new System.Drawing.Size(229, 30);
-            this.mlytitm_comparamesanyoant.TextSize = new System.Drawing.Size(0, 0);
-            this.mlytitm_comparamesanyoant.TextVisible = false;
-            // 
             // frmSistInfCNZF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +486,7 @@
             this.Load += new System.EventHandler(this.frmSistInfCNZF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_comparamesanyoant.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_pagostiemporeal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speAnno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMes.Properties)).EndInit();
@@ -502,14 +503,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mempty_cmbmes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_pagostiemporeal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_speanno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_comparamesanyoant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_botonesacc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchk_comparamesanyoant.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_comparamesanyoant)).EndInit();
             this.ResumeLayout(false);
 
         }
