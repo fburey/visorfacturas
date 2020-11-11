@@ -1401,3 +1401,4 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CopyComplete
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojAssemblyReference.cache
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrfacturasmes_Copia.resources
