@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturas));
             this.mspsmForm = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DxSAFRHH.inv.forms.frmWaitForm), true, true);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnGenerarFactEne = new DevExpress.XtraEditors.SimpleButton();
             this.chkAviso = new DevExpress.XtraEditors.CheckEdit();
             this.btnimprimir_sobres = new DevExpress.XtraEditors.SimpleButton();
             this.btnexportar = new DevExpress.XtraEditors.SimpleButton();
@@ -178,6 +180,7 @@
             // 
             this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupControl2.Controls.Add(this.btnGenerarFactEne);
             this.groupControl2.Controls.Add(this.chkAviso);
             this.groupControl2.Controls.Add(this.btnimprimir_sobres);
             this.groupControl2.Controls.Add(this.btnexportar);
@@ -192,9 +195,23 @@
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Acciones";
             // 
+            // btnGenerarFactEne
+            // 
+            this.btnGenerarFactEne.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarFactEne.Appearance.Options.UseFont = true;
+            this.btnGenerarFactEne.Appearance.Options.UseTextOptions = true;
+            this.btnGenerarFactEne.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.btnGenerarFactEne.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGenerarFactEne.ImageOptions.SvgImage")));
+            this.btnGenerarFactEne.Location = new System.Drawing.Point(18, 418);
+            this.btnGenerarFactEne.Name = "btnGenerarFactEne";
+            this.btnGenerarFactEne.Size = new System.Drawing.Size(160, 54);
+            this.btnGenerarFactEne.TabIndex = 14;
+            this.btnGenerarFactEne.Text = "Generar Facturas Enero";
+            this.btnGenerarFactEne.Click += new System.EventHandler(this.btnGenerarFactEne_Click);
+            // 
             // chkAviso
             // 
-            this.chkAviso.Location = new System.Drawing.Point(18, 96);
+            this.chkAviso.Location = new System.Drawing.Point(18, 80);
             this.chkAviso.Name = "chkAviso";
             this.chkAviso.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAviso.Properties.Appearance.Options.UseFont = true;
@@ -209,7 +226,7 @@
             this.btnimprimir_sobres.Appearance.Options.UseTextOptions = true;
             this.btnimprimir_sobres.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnimprimir_sobres.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
-            this.btnimprimir_sobres.Location = new System.Drawing.Point(18, 197);
+            this.btnimprimir_sobres.Location = new System.Drawing.Point(18, 178);
             this.btnimprimir_sobres.Name = "btnimprimir_sobres";
             this.btnimprimir_sobres.Size = new System.Drawing.Size(160, 54);
             this.btnimprimir_sobres.TabIndex = 12;
@@ -223,7 +240,7 @@
             this.btnexportar.Appearance.Options.UseTextOptions = true;
             this.btnexportar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnexportar.ImageOptions.Image = global::VisorFacturas.Properties.Resources.export_spreadsheet_32x32;
-            this.btnexportar.Location = new System.Drawing.Point(18, 317);
+            this.btnexportar.Location = new System.Drawing.Point(18, 298);
             this.btnexportar.Name = "btnexportar";
             this.btnexportar.Size = new System.Drawing.Size(160, 54);
             this.btnexportar.TabIndex = 11;
@@ -237,7 +254,7 @@
             this.btnEnviarCorreo.Appearance.Options.UseTextOptions = true;
             this.btnEnviarCorreo.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnEnviarCorreo.ImageOptions.Image = global::VisorFacturas.Properties.Resources.send_32x32;
-            this.btnEnviarCorreo.Location = new System.Drawing.Point(18, 257);
+            this.btnEnviarCorreo.Location = new System.Drawing.Point(18, 238);
             this.btnEnviarCorreo.Name = "btnEnviarCorreo";
             this.btnEnviarCorreo.Size = new System.Drawing.Size(160, 54);
             this.btnEnviarCorreo.TabIndex = 10;
@@ -246,7 +263,7 @@
             // 
             // chkSinFormat
             // 
-            this.chkSinFormat.Location = new System.Drawing.Point(18, 56);
+            this.chkSinFormat.Location = new System.Drawing.Point(18, 51);
             this.chkSinFormat.Name = "chkSinFormat";
             this.chkSinFormat.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkSinFormat.Properties.Appearance.Options.UseFont = true;
@@ -271,7 +288,7 @@
             this.btnSalir.Appearance.Options.UseTextOptions = true;
             this.btnSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnSalir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.TraExt_btn;
-            this.btnSalir.Location = new System.Drawing.Point(18, 377);
+            this.btnSalir.Location = new System.Drawing.Point(18, 358);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(160, 54);
             this.btnSalir.TabIndex = 5;
@@ -285,7 +302,7 @@
             this.btnImprimir.Appearance.Options.UseTextOptions = true;
             this.btnImprimir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.btnImprimir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
-            this.btnImprimir.Location = new System.Drawing.Point(18, 137);
+            this.btnImprimir.Location = new System.Drawing.Point(18, 118);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(160, 54);
             this.btnImprimir.TabIndex = 4;
@@ -304,7 +321,7 @@
             this.gcFacturas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.tipomoneda_ricmb,
             this.tipofactura_ricmb});
-            this.gcFacturas.Size = new System.Drawing.Size(885, 663);
+            this.gcFacturas.Size = new System.Drawing.Size(935, 663);
             this.gcFacturas.TabIndex = 10;
             this.gcFacturas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFacturas});
@@ -329,6 +346,8 @@
             this.gvFacturas.GridControl = this.gcFacturas;
             this.gvFacturas.Name = "gvFacturas";
             this.gvFacturas.OptionsBehavior.Editable = false;
+            this.gvFacturas.OptionsCustomization.AllowColumnMoving = false;
+            this.gvFacturas.OptionsCustomization.AllowGroup = false;
             this.gvFacturas.OptionsView.ColumnAutoWidth = false;
             this.gvFacturas.OptionsView.ShowAutoFilterRow = true;
             this.gvFacturas.OptionsView.ShowGroupPanel = false;
@@ -1363,5 +1382,6 @@
         private DevExpress.XtraEditors.SimpleButton btnVolver2;
         private System.Windows.Forms.BindingSource bsClientes_err;
         private DevExpress.XtraEditors.CheckEdit mchk_copia_remitente;
+        private DevExpress.XtraEditors.SimpleButton btnGenerarFactEne;
     }
 }

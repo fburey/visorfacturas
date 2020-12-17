@@ -1059,7 +1059,7 @@
             this.xrLabel45.StylePriority.UseFont = false;
             this.xrLabel45.StylePriority.UsePadding = false;
             this.xrLabel45.StylePriority.UseTextAlignment = false;
-            this.xrLabel45.Text = "Ramona Blanco";
+            this.xrLabel45.Text = "Cartera y Cobro";
             this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // xrlab_Revisado
@@ -1074,7 +1074,7 @@
             this.xrlab_Revisado.StylePriority.UseFont = false;
             this.xrlab_Revisado.StylePriority.UsePadding = false;
             this.xrlab_Revisado.StylePriority.UseTextAlignment = false;
-            this.xrlab_Revisado.Text = "Estrellita Blanco";
+            this.xrlab_Revisado.Text = "Gerencia de Operaciones";
             this.xrlab_Revisado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // xrLabel47
@@ -1089,7 +1089,7 @@
             this.xrLabel47.StylePriority.UseFont = false;
             this.xrLabel47.StylePriority.UsePadding = false;
             this.xrLabel47.StylePriority.UseTextAlignment = false;
-            this.xrLabel47.Text = "Luisa Molina";
+            this.xrLabel47.Text = "Vice-Gte. Adva-Financiera";
             this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // xrLabel48

@@ -17,6 +17,8 @@ using VisorFacturas.Enums;
 using DevExpress.XtraGrid.Views.Grid;
 using System.IO;
 using System.Net;
+using DevExpress.XtraLayout;
+using DevExpress.Utils;
 
 namespace VisorFacturas.Forms
 {
@@ -88,7 +90,43 @@ namespace VisorFacturas.Forms
         String Month;
         String Year;
         Boolean isErrorSendMail = false;
-        
+        Boolean aoisfacturasgeneradas = false;
+        Int32 aonum_fact_ini_modal;
+        DateTime aofecha_fact_modal;
+        DateTime aofecha_fact_vence_modal;
+
+
+        // Clase para el XtraDialog MODAL 
+        public class xdModalform : XtraUserControl
+        {
+            public DevExpress.XtraLayout.LayoutControl mlytctrl;
+            public xdModalform()
+            {
+                mlytctrl = new DevExpress.XtraLayout.LayoutControl();
+                mlytctrl.Dock = DockStyle.Fill;
+                SpinEdit spenumfacturaini = new SpinEdit() { Name = "modal_spenumfacturaini" };
+                DateEdit dteFechaFact = new DateEdit() { Name = "modal_dteFechaFact"};
+                SeparatorControl separatorControl01 = new SeparatorControl();
+
+                // Configuramos el SpinEdit
+                spenumfacturaini.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+                spenumfacturaini.Properties.Mask.EditMask = "D";
+                spenumfacturaini.Properties.Mask.UseMaskAsDisplayFormat = true;
+
+                // Configuramos el DateTime
+
+
+                mlytctrl.AddItem(String.Empty, spenumfacturaini).Text = "Número de Fact. Inicial: ";
+                mlytctrl.AddItem(String.Empty, dteFechaFact).Text = "Fecha Factura: ";
+                //mlytctrl.AddItem(String.Empty, separatorControl01).TextVisible = false;
+
+                this.Controls.Add(mlytctrl);
+                this.Height = 100;
+                this.Width = 250;
+                //this.Dock = DockStyle.Top;
+            }
+        }
+
         #endregion
 
         #region "FUNCIONES Y MÉTODOS"
@@ -191,6 +229,7 @@ namespace VisorFacturas.Forms
             {
                 //tbl_facturas.Clear();
                 //String Sqlwhere = "";
+                aoisfacturasgeneradas = false;
                 DateTime fechaini = new DateTime((int)speAnno.Value, (cmbMes.SelectedIndex + 1), 1);
                 DateTime fechafin = fechaini.AddMonths(1).AddDays(-1);
 
@@ -285,6 +324,14 @@ namespace VisorFacturas.Forms
                            };
 
                 remision = data.OrderBy(ord => ord.rem_numero).Where(s => s.rem_fec_ve.Month == (cmbMes.SelectedIndex + 1)).ToList();
+
+                if (aoisfacturasgeneradas)
+                {
+                    foreach (var item in remision)
+                    {
+                        item.rem_fec_ve = aofecha_fact_vence_modal;
+                    }
+                }
             }
         }
 
@@ -581,6 +628,10 @@ namespace VisorFacturas.Forms
 
                 // Consumimos las tablas DBF
                 CargarDatosTablasDBF();
+
+                // Configuración de propiedades del Grid
+                //gvFacturas.OptionsBehavior.Editable = true;
+                //gvFacturas.OptionsBehavior.ReadOnly = false;
 
                 ////tipomoneda_ricmb.Items.AddEnum(typeof(clsAppEnum.MvxTipoMoneda), true);
             }
@@ -1192,6 +1243,29 @@ namespace VisorFacturas.Forms
             }
         }
 
+        private void btnGenerarFactEne_Click(object sender, EventArgs e)
+        {
+            xdModalform myDialogform = new xdModalform();
+            if (DevExpress.XtraEditors.XtraDialog.Show(myDialogform, "Parámetros para facturas", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                aoisfacturasgeneradas = true;
+                aonum_fact_ini_modal = (Int32)(myDialogform.mlytctrl.Controls["modal_spenumfacturaini"] as SpinEdit).Value;
+                aofecha_fact_modal = (DateTime)(myDialogform.mlytctrl.Controls["modal_dteFechaFact"] as DateEdit).DateTime;
+                aofecha_fact_vence_modal = new DateTime(aofecha_fact_modal.Year, aofecha_fact_modal.Month, 20);
+
+                int aonumfac = aonum_fact_ini_modal;
+                foreach (var item in ListFacturas)
+                {
+                    item.fac_fac_nu = aonumfac;
+                    item.fecha = aofecha_fact_modal;
+                    aonumfac++;
+                }
+
+                //bsGrid.Clear();
+                bsGrid.DataSource = ListFacturas.ToList();
+            }
+        }
+
         private void mpxAvisoClientesSinEnvioFact(List<viewClientes> listClientes_Err) {
             String nombreRemitent = moCurrentUser.fullname;
             String correoRemitent = moCurrentUser.email;
@@ -1238,5 +1312,7 @@ namespace VisorFacturas.Forms
             EnviarCorreo(correoRemitent, nombreRemitent, CorreosDestinos, titulocorreo, cuerpocorreo, arrayAdjuntos);
 
         }
+
+        
     }
 }

@@ -53,11 +53,11 @@ namespace VisorFacturas.Reports
             // Obtenemos el valor en letras del monto total de la factura (Params: Monto Total, Moneda)
             xrlabel_ValorEnLetras.Text = moclsAppEnum.enletras(TotalFact, MonedaFact);
 
-            // Si en el remision_descripcion abarca Directorio Industrial, entonces cambia el campo REVISADO
-            if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
-                xrlab_Revisado.Text = "Mauricio Abarca";
-            else
-                xrlab_Revisado.Text = "Estrellita Blanco";
+            //// Si en el remision_descripcion abarca Directorio Industrial, entonces cambia el campo REVISADO
+            //if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
+            //    xrlab_Revisado.Text = "Mauricio Abarca";
+            //else
+            //    xrlab_Revisado.Text = "Estrellita Blanco";
 
             // Obtenemos el formato numérico conforme la moneda de la factura
             if (MonedaFact.Substring(0, 1).ToUpper() == "D")
