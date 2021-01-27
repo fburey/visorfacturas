@@ -60,8 +60,9 @@ namespace VisorFacturas.Forms
         String sqlClientesCZF = "SELECT cli_cod, cli_nom, (cli_direc1 + ' ' + cli_direc2) AS cli_dir FROM CLIENTE";
 
         String sqlClientesCNZF = "SELECT cli_cod, cli_nom, (cli_direc1 + ' ' + cli_direc2) AS cli_dir, cli_email1, cli_email2, cli_ruc FROM CLIENTE";
-        String sqlFacturas = "SELECT cli_codig, fecha, ord_numero, fac_fac_nu, fac_tasa, fac_amo_do, fac_dolcor, tipo, fac_amount, fac_pagado, fac_pag_do FROM FACTURA WHERE fac_amo_do > 0 AND tipo == '1' order by fac_fac_nu ASC";                
-        String sqlRemision = "Select DISTINCT rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
+        String sqlFacturas = "SELECT cli_codig, fecha, ord_numero, fac_fac_nu, fac_tasa, fac_amo_do, fac_dolcor, tipo, fac_amount, fac_pagado, fac_pag_do FROM FACTURA WHERE fac_amo_do > 0 AND tipo == '1' order by fac_fac_nu ASC";
+        //String sqlRemision = "Select DISTINCT rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
+        String sqlRemision = "Select rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
 
         /* DataTables del DataSet - En estas tablas se almacenan los datos */
         dsModel.CLIENTEDataTable tbl_clientes = new dsModel.CLIENTEDataTable();

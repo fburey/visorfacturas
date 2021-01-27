@@ -207,6 +207,7 @@
             this.btnGenerarFactEne.Size = new System.Drawing.Size(160, 54);
             this.btnGenerarFactEne.TabIndex = 14;
             this.btnGenerarFactEne.Text = "Generar Facturas Enero";
+            this.btnGenerarFactEne.Visible = false;
             this.btnGenerarFactEne.Click += new System.EventHandler(this.btnGenerarFactEne_Click);
             // 
             // chkAviso
