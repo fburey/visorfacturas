@@ -19,6 +19,7 @@ using System.IO;
 using System.Net;
 using DevExpress.XtraLayout;
 using DevExpress.Utils;
+using System.Net.Mime;
 
 namespace VisorFacturas.Forms
 {
@@ -95,7 +96,8 @@ namespace VisorFacturas.Forms
         Int32 aonum_fact_ini_modal;
         DateTime aofecha_fact_modal;
         DateTime aofecha_fact_vence_modal;
-
+        AlternateView htmlView;
+        LinkedResource img;
 
         // Clase para el XtraDialog MODAL 
         public class xdModalform : XtraUserControl
@@ -354,7 +356,7 @@ namespace VisorFacturas.Forms
                 //SmtpClient server = new SmtpClient(smtpCORREO);
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(From, NameFrom);
-                             
+
                 foreach (var t in to)
                 {
                     if (!String.IsNullOrEmpty(t))
@@ -382,7 +384,19 @@ namespace VisorFacturas.Forms
                 }
 
                 mail.Subject = Subject.Trim();
-                mail.Body = Message;
+
+                // Para mientras, el envio de facturas se hará por HTML, debido a que en el cuerpo del mensaje se inserta una imagen.
+                // Este tipo de mensaje HTML se creó temporalmente, hasta que se dé la orden de quitar la circular del cuerpo del mensaje
+                // El mensaje html solo afecta al envío de facturas. Para los envios de Aviso, se hace como antes (utilizando el campo de texto CUERPO)
+                if (htmlView != null)
+                {
+                    mail.Body = "";
+                    mail.AlternateViews.Add(htmlView);
+                }
+                else
+                {
+                    mail.Body = Message;
+                }
 
                 if (Attachements != null)
                 {
@@ -408,7 +422,7 @@ namespace VisorFacturas.Forms
                     serv.DeliveryMethod = SmtpDeliveryMethod.Network;
                     serv.Send(mail);
                 }
-                
+
             }
             catch (FormatException fex)
             {
@@ -433,6 +447,10 @@ namespace VisorFacturas.Forms
                     cli_dir = ex.Message // El campo dir se usara para escribir el mensaje del error
                 });
                 //XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                htmlView = null;
             }
         }
 
@@ -513,14 +531,44 @@ namespace VisorFacturas.Forms
         {           
 
             String TituloMensaje = string.Empty;
+            String TituloMensaje_cuerpo = string.Empty;
+            String Cuerpo_Html = string.Empty;
+            String font_style = "font-family: Arial, Helvetica, sans-serif;";
+            String Ruta_imagen = pathTablaRemisionTemp + @"\circular.jpg";
+            htmlView = null;
+            img = null;
+
             if (num == 0) //AQUÍ ENTRA SI ES FACTURA
             {
-                TituloMensaje = "AVISO DE COBRO " + cmbMes.Text.ToUpper() + " " + speAnno.Text;
-                txtCuerpo.Text = "Estimados Señores" + Environment.NewLine + Environment.NewLine + "Se les envía por este medio el " + TituloMensaje +
+                //TituloMensaje = "AVISO DE COBRO " + cmbMes.Text.ToUpper() + " " + speAnno.Text;
+                TituloMensaje_cuerpo = "Aviso de Cobro " + cmbMes.Text + " " + speAnno.Text;
+                TituloMensaje = TituloMensaje_cuerpo.ToUpper();
+                txtCuerpo.Text = "Estimados Señores" + Environment.NewLine + Environment.NewLine + "Se les envía por este medio el " + TituloMensaje_cuerpo +
                 " para su debida cancelación, recuerden que el vencimiento de la factura son los 10 de cada mes. Para gozar de los " +
                 "beneficios que otorga el Régimen hay que tener al día sus pagos." + Environment.NewLine + Environment.NewLine +
-                "Favor hacer caso omiso si está factura ya fue cancelada." + Environment.NewLine + Environment.NewLine + "Saludos!";
-                
+                "Favor hacer caso omiso si esta factura ya fue cancelada." + Environment.NewLine + Environment.NewLine + "Saludos!";
+
+                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                {
+                    // Este codigo es para crear el cuerpo del mensaje en Formato HTML
+                    Cuerpo_Html += String.Format(@"<h4 style=""{0}"">Estimados Señores</h4>", font_style);
+                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Se les envía por este medio el <b>{1}</b> para su ", font_style, TituloMensaje_cuerpo);
+                    Cuerpo_Html += String.Format(@"debida cancelación, recuerden que el vencimiento de la factura son los 10 de cada mes. Para gozar de los ");
+                    Cuerpo_Html += String.Format(@"beneficios que otorga el Régimen hay que tener al día sus pagos.</p>");
+                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Favor hacer caso omiso si esta factura ya fue cancelada.</p>", font_style);
+                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Saludos!</p>", font_style);
+                    Cuerpo_Html += String.Format(@"<img src='cid:imagen_circular' style=""width:70%;height:70%"">");
+
+                    htmlView = AlternateView.CreateAlternateViewFromString(Cuerpo_Html, Encoding.UTF8, MediaTypeNames.Text.Html);
+
+                    // Creamos el recurso a incrustar. El ID de la imagen que le asignamos (arbitrario) está referenciado desde el código HTML como origen de la imagen
+                    img = new LinkedResource(Ruta_imagen, MediaTypeNames.Image.Jpeg);
+                    img.ContentId = "imagen_circular";
+
+                    // Lo incrustamos en la vista HTML...
+                    htmlView.LinkedResources.Add(img);
+
+                }
             }
             else if(num == 1) //AQUÍ ENTRA SI ES COMUNICADO
             {
@@ -827,14 +875,14 @@ namespace VisorFacturas.Forms
                     LstCorreosIndiv.Items.Clear();
                     if (cliente_selected != null)
                     {
-                        //if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
-                        //    LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
+                        if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
+                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
 
-                        //if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
-                        //    LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
+                        if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
+                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
 
-                        // Correos de prueba
-                        LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
+                        //// Correos de prueba
+                        //LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
                         //LstCorreosIndiv.Items.Add("restrada.czf.com.ni");
                         //LstCorreosIndiv.Items.Add("davilaandres95@gmail.com");
 
@@ -1331,11 +1379,11 @@ namespace VisorFacturas.Forms
             {
                 titulocorreo = "Aviso de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
                 TituloRpt = "Listado de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
-               cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
-                                  "En el envío masivo de facturas a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
-                                  "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+                cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
+                                   "En el envío masivo de facturas a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
+                                   "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
             }
-                
+
 
             Reports.CNZF.xrclientsinfact aorpt = new Reports.CNZF.xrclientsinfact(TituloRpt);
             aorpt.DataSource = listClientes_Err;
