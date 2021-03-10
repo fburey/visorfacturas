@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="VisorFacturas.exe" version="2021.01.27.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="VisorFacturas.exe" version="2021.03.09.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="account_book-database.ico" asmv2:publisher="VisorFacturas" asmv2:product="VisorFacturas" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="VisorFacturas" version="2021.1.27.1" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="VisorFacturas" version="2021.3.9.2" language="neutral" processorArchitecture="msil" />
     <commandLine file="VisorFacturas.exe" parameters="" />
   </entryPoint>
   <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
@@ -788,14 +788,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VisorFacturas.exe" size="2062848">
-      <assemblyIdentity name="VisorFacturas" version="2021.1.27.1" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VisorFacturas.exe" size="2063360">
+      <assemblyIdentity name="VisorFacturas" version="2021.3.9.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NGA4CBF9ITHwDicmB+SD4MkY5domYzRpPfFXuBboD+g=</dsig:DigestValue>
+        <dsig:DigestValue>sxblP49ApZ7MLhmU9dHxZ1ESBKGuqQNiFDwj1PE7fhc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

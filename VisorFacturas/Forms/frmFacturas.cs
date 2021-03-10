@@ -517,7 +517,7 @@ namespace VisorFacturas.Forms
             {
                 TituloMensaje = "AVISO DE COBRO " + cmbMes.Text.ToUpper() + " " + speAnno.Text;
                 txtCuerpo.Text = "Estimados Señores" + Environment.NewLine + Environment.NewLine + "Se les envía por este medio el " + TituloMensaje +
-                " para su debida cancelación, recuerden que el vencimiento de la factura son los 20 de cada mes. Para gozar de los " +
+                " para su debida cancelación, recuerden que el vencimiento de la factura son los 10 de cada mes. Para gozar de los " +
                 "beneficios que otorga el Régimen hay que tener al día sus pagos." + Environment.NewLine + Environment.NewLine +
                 "Favor hacer caso omiso si está factura ya fue cancelada." + Environment.NewLine + Environment.NewLine + "Saludos!";
                 
@@ -771,10 +771,12 @@ namespace VisorFacturas.Forms
             }
 
             txtAdjuntar.Text = string.Empty;
-            if (chkAviso.Checked)
-                btnAdjun.Enabled = true;
-            else
-                btnAdjun.Enabled = false;
+            btnAdjun.Enabled = true;
+
+            //if (chkAviso.Checked)
+            //    btnAdjun.Enabled = true;
+            //else
+            //    btnAdjun.Enabled = false;
 
             // Se activa por defecto la CC al remitente
             mchk_copia_remitente.Checked = true;
@@ -825,14 +827,14 @@ namespace VisorFacturas.Forms
                     LstCorreosIndiv.Items.Clear();
                     if (cliente_selected != null)
                     {
-                        if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
-                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
+                        //if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
+                        //    LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
 
-                        if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
-                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
+                        //if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
+                        //    LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
 
-                        //// Correos de prueba
-                        ////LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
+                        // Correos de prueba
+                        LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
                         //LstCorreosIndiv.Items.Add("restrada.czf.com.ni");
                         //LstCorreosIndiv.Items.Add("davilaandres95@gmail.com");
 
@@ -887,7 +889,8 @@ namespace VisorFacturas.Forms
                     return;
 
                 // Ruta de la factura
-                String PathAttach = string.Empty;
+                String PathAttach_Fact = string.Empty;
+                String PathAttach_Adjunto = string.Empty;
                 isErrorSendMail = false;
 
                 // Verificamos si existen las carpetas en donde se alojaran las facturas
@@ -917,22 +920,30 @@ namespace VisorFacturas.Forms
 
                     if (!chkAviso.Checked)
                     {
-                        // Ruta de la factura
-                        PathAttach = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
+                        // Ruta de la factura (Exigida)
+                        PathAttach_Fact = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
+                        // Ruta del Adjunto (Opcional)
+                        PathAttach_Adjunto = txtAdjuntar.Text;
+
+                        if (PathAttach_Fact == string.Empty)
+                        {
+                            XtraMessageBox.Show("Ha ocurrido un problema al crear la ruta de las facturas. Favor comunicarse con soporte técnico!", "Problemas con la ruta de las Facturas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
                     else if (chkAviso.Checked)
                     {
-                        PathAttach = txtAdjuntar.Text;
-                    }
-
-                    if(PathAttach == string.Empty)
-                    {
-                        XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                        // Ruta del Adjunto (Exigida)
+                        PathAttach_Adjunto = txtAdjuntar.Text;
+                        if (PathAttach_Adjunto == string.Empty)
+                        {
+                            XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }                    
 
                     // Listado de correos: Permito 5 correos, aunque solo ingrese dos correos
-                    String[] CorreosCli = new String[5];                    
+                    String[] CorreosCli = new String[5];
 
                     // Añadimos los correos que están en la Lista
                     for (int i = 0; i < LstCorreosIndiv.Items.Count; i++)
@@ -953,19 +964,25 @@ namespace VisorFacturas.Forms
                             aorpt.DataSource = factura;
                             aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
                             // Exportamos el reporte en PDF
-                            aorpt.ExportToPdf(PathAttach);
+                            aorpt.ExportToPdf(PathAttach_Fact);
                             aorpt.Dispose();
 
                             Asunto = txtAsunto.Text + " - " + cliente_selected.cli_nom;
+
+                            // Adjuntamos el archivo que exportamos en PDF
+                            adjuntos[0] = PathAttach_Fact;
+                            // Verificamos si existe un adjunto mas
+                            if (!String.IsNullOrEmpty(PathAttach_Adjunto))
+                            {
+                                adjuntos[1] = PathAttach_Adjunto;
+                            }
                         }
                         else
                         {
                             Asunto = txtAsunto.Text;
+                            adjuntos[0] = PathAttach_Adjunto;
                         }
-
-
-                        // Adjuntamos el archivo que exportamos en PDF
-                        adjuntos[0] = PathAttach;
+                        
                         // Enviamos el correo
                         EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, Asunto, txtCuerpo.Text, adjuntos);
                     }
@@ -1038,19 +1055,33 @@ namespace VisorFacturas.Forms
 
                             if (!chkAviso.Checked)
                             {
-                                // Ruta de la factura
-                                PathAttach = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
+                                // Ruta de la factura (Es obligatoria, por eso se valida)
+                                PathAttach_Fact = pathFact + "\\" + Year + "\\" + Month + "\\" + CodClienteSelect + "-" + cliente_selected.cli_nom.Trim() + ".pdf";
+                                // Ruta del Adjunto (Opcional)
+                                PathAttach_Adjunto = txtAdjuntar.Text;
+
+                                if (PathAttach_Fact == string.Empty)
+                                {
+                                    XtraMessageBox.Show("Ha ocurrido un problema al crear la ruta de las facturas. Favor comunicarse con soporte técnico!", "Problemas con la ruta de las Facturas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
                             }
                             else if (chkAviso.Checked)
                             {
-                                PathAttach = txtAdjuntar.Text;
+                                // Ruta del Adjunto (Es obligatoria, por eso se valida)
+                                PathAttach_Adjunto = txtAdjuntar.Text;
+                                if (PathAttach_Adjunto == string.Empty)
+                                {
+                                    XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
                             }
 
-                            if (PathAttach == string.Empty)
-                            {
-                                XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
+                            //if (PathAttach_Fact == string.Empty)
+                            //{
+                            //    XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //    return;
+                            //}
                             if (!chkAviso.Checked)
                             {
                                 ////Verificamos que tenga factura en este mes para enviar
@@ -1062,10 +1093,16 @@ namespace VisorFacturas.Forms
                                     aorpt.DataSource = factura;
                                     aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
                                     // Exportamos el reporte en formato PDF
-                                    aorpt.ExportToPdf(PathAttach);
+                                    aorpt.ExportToPdf(PathAttach_Fact);
                                     aorpt.Dispose();
                                     // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
-                                    adjuntos[0] = PathAttach;
+                                    adjuntos[0] = PathAttach_Fact;
+                                    // Verificamos si existe un adjunto mas
+                                    if (!String.IsNullOrEmpty(PathAttach_Adjunto))
+                                    {
+                                        adjuntos[1] = PathAttach_Adjunto;
+                                    }
+
                                     // Asunto + nombre del cliente
                                     Asunto = Asunto = txtAsunto.Text + " - " + cliente_selected.cli_nom;
                                     // Enviamos el correo
@@ -1077,7 +1114,7 @@ namespace VisorFacturas.Forms
                             else
                             {
                                 // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
-                                adjuntos[0] = PathAttach;
+                                adjuntos[0] = PathAttach_Adjunto;
                                 // Enviamos el correo
                                 EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, txtAsunto.Text, txtCuerpo.Text, adjuntos);
                             }
