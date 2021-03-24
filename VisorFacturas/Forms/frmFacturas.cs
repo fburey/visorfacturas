@@ -62,8 +62,8 @@ namespace VisorFacturas.Forms
 
         String sqlClientesCNZF = "SELECT cli_cod, cli_nom, (cli_direc1 + ' ' + cli_direc2) AS cli_dir, cli_email1, cli_email2, cli_ruc FROM CLIENTE";
         String sqlFacturas = "SELECT cli_codig, fecha, ord_numero, fac_fac_nu, fac_tasa, fac_amo_do, fac_dolcor, tipo, fac_amount, fac_pagado, fac_pag_do FROM FACTURA WHERE fac_amo_do > 0 AND tipo == '1' order by fac_fac_nu ASC";
-        //String sqlRemision = "Select DISTINCT rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
-        String sqlRemision = "Select rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
+        String sqlRemision = "Select DISTINCT rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
+        //String sqlRemision = "Select rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
 
         /* DataTables del DataSet - En estas tablas se almacenan los datos */
         dsModel.CLIENTEDataTable tbl_clientes = new dsModel.CLIENTEDataTable();
@@ -556,7 +556,7 @@ namespace VisorFacturas.Forms
                     Cuerpo_Html += String.Format(@"debida cancelación, recuerden que el vencimiento de la factura son los 10 de cada mes. Para gozar de los ");
                     Cuerpo_Html += String.Format(@"beneficios que otorga el Régimen hay que tener al día sus pagos.</p>");
                     Cuerpo_Html += String.Format(@"<p style=""{0}"">Favor hacer caso omiso si esta factura ya fue cancelada.</p>", font_style);
-                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Saludos!</p>", font_style);
+                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Un cordial saludo!</p>", font_style);
                     Cuerpo_Html += String.Format(@"<img src='cid:imagen_circular' style=""width:70%;height:70%"">");
 
                     htmlView = AlternateView.CreateAlternateViewFromString(Cuerpo_Html, Encoding.UTF8, MediaTypeNames.Text.Html);
