@@ -426,7 +426,7 @@ namespace VisorFacturas.Forms
             }
             catch (FormatException fex)
             {
-                String msg_fex = "La dirección del correo electrónico  es incorrecta";
+                String msg_fex = "La dirección del correo electrónico es incorrecta";
                 // Agregamos un registro al listado de capturas de errores
                 ListClientes_Err.Add(new viewClientes()
                 {
@@ -448,10 +448,10 @@ namespace VisorFacturas.Forms
                 });
                 //XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                htmlView = null;
-            }
+            //finally
+            //{
+            //    htmlView = null;
+            //}
         }
 
         /// <summary>
