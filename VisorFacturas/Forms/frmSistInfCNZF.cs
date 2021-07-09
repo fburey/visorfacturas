@@ -12,6 +12,10 @@ using DevExpress.XtraTreeList.Nodes;
 using VisorFacturas.Clases;
 using System.Data.OleDb;
 using VisorFacturas.Properties;
+using VisorFacturas.ni.gob.bcn.servicios;
+using System.Xml.Serialization;
+using VisorFacturas.Util;
+using System.IO;
 
 namespace VisorFacturas.Forms
 {
@@ -24,12 +28,29 @@ namespace VisorFacturas.Forms
 
         #region VARIABLES GLOBALES  
         // Variables globales
-        short aomes_entero;
-        string aomes_cadena;
-        short aoanyo_entero;
         string aoNombreReporte;
         string aoCodReporte;
         short aoidximage;
+        DevExpress.XtraLayout.Utils.LayoutVisibility aoAlways = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+        DevExpress.XtraLayout.Utils.LayoutVisibility aoNever = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+        // Variables de Filtros - Parametros
+        short aofiltro_mes_entero;
+        string aofiltro_mes_cadena;
+        short aofiltro_anyo_entero;
+        DateTime aofiltro_mesyearini;
+        DateTime aofiltro_mesyearfin;
+        String aofiltro_codcliente;
+
+        // Variables de Filtros - Indicadores
+        bool aofiltroind_pagosfechaact;
+        bool aofiltroind_comparamesyearANT;
+        bool aofiltroind_solofactpendientes;
+
+        // Otras variables
+        String aosql_clientes = "Select cli_cod, cli_nom from CLIENTE WHERE tip_regime > 0";
+        DataTable acDT_temp;
+
         #endregion
 
         #region EVENTOS
@@ -37,13 +58,12 @@ namespace VisorFacturas.Forms
         private void frmSistInfCNZF_Load(object sender, EventArgs e)
         {
             // Poblamos el TreeList
-            mtree_bndsrc.DataSource = Util.clsTreeListSistInf.mfxGetTreeList();
+            mtree_bndsrc.DataSource = clsTreeListSistInf.mfxGetTreeList();
             mtree_sistinf.ExpandAll();
 
-            // Valores por defecto
-            speAnno.Value = DateTime.Now.Year;
-            cmbMes.SelectedIndex = DateTime.Now.Month - 1;
+            mpxInitControls();
 
+            mpxFillLoadDta();
         }
 
         private void mtree_sistinf_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
@@ -78,9 +98,54 @@ namespace VisorFacturas.Forms
             mpxSalir();
         }
 
+        private void mgle_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            (sender as GridLookUpEdit).Properties.View.ClearColumnsFilter();
+        }
+
         #endregion
 
         #region METODOS Y FUNCIONES
+
+        private void mpxInitControls()
+        {
+            // Valores por defecto
+            speAnno.Value = DateTime.Now.Year;
+            cmbMes.SelectedIndex = DateTime.Now.Month - 1;
+            mdte_Param_mesyearini.DateTime = new DateTime(DateTime.Now.Year, 1, 1);
+            mdte_Param_mesyearfin.DateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
+
+            mlcg_Params.ExpandButtonVisible = false;
+            mlcg_indicadores.ExpandButtonVisible = false;
+
+            mlcg_Params.Expanded = true;
+            mlcg_indicadores.Expanded = true;
+
+            // Gridlookupedit Clientes
+            mgle_Param_cliente_grv.RowHeight = 25;
+        }
+
+        private void mpxFillLoadDta()
+        {
+            acDT_temp = new DataTable();
+            using (OleDbDataAdapter adapt = new OleDbDataAdapter(aosql_clientes, Settings.Default.mCnxCNZF_TablasCXC))
+            {
+                adapt.Fill(acDT_temp);
+            }
+
+            // Cargamos los clientes
+            List<viewClientes> aoclientes_lst = new List<viewClientes>();
+            foreach (DataRow item in acDT_temp.Rows)
+            {
+                aoclientes_lst.Add(new viewClientes()
+                {
+                    cli_cod = item["cli_cod"].ToString(),
+                    cli_nom = item["cli_nom"].ToString()
+                });
+            }
+
+            mclientes_bndsrc.DataSource = aoclientes_lst.OrderBy(x => x.cli_nom).ToList();
+        }
 
         private void mpxSalir()
         {
@@ -93,17 +158,23 @@ namespace VisorFacturas.Forms
         /// </summary>
         private void mpxHideControls()
         {
-            mlytitm_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            mlytitm_pagostiemporeal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            mempty_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            mlytitm_speanno.Visibility = aoNever;
+            mempty_speanno.Visibility = aoNever;
+            mlytitm_cmbMes.Visibility = aoNever;
+            mempty_cmbmes.Visibility = aoNever;
+            mlytitm_Param_mesyearini.Visibility = aoNever;
+            mlytitm_Param_mesyearfin.Visibility = aoNever;
+            mlytitm_Param_cliente.Visibility = aoNever;
+            mlcg_Params.Visibility = aoNever;
 
-            mlytitm_cmbMes.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            mlytitm_comparamesanyoant.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            mempty_cmbmes.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            mlytitm_pagosfechaactual.Visibility = aoNever;
+            mlytitm_comparamesanyoant.Visibility = aoNever;
+            mlytitm_solofactpendientes.Visibility = aoNever;
+            mlcg_indicadores.Visibility = aoNever;
 
             // Ocultamos el Grupo filtro y el espacio en blanco a la derecha
-            mlcg_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            mempty_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            mlcg_filtros.Visibility = aoNever;
+            mempty_filtros.Visibility = aoNever;
         }
 
         /// <summary>
@@ -116,40 +187,99 @@ namespace VisorFacturas.Forms
 
             switch (paReportCod)
             {
-                case "RPT101":                    
-                    mlytitm_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mlytitm_pagostiemporeal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                case "RPT101":
+                    // Listado de Facturas Mensual
+                    mlytitm_speanno.Visibility = aoAlways;
+                    mempty_speanno.Visibility = aoAlways;
+                    mlytitm_cmbMes.Visibility = aoAlways;
+                    mempty_cmbmes.Visibility = aoAlways;
+                    mlcg_Params.Visibility = aoAlways;
 
-                    mlytitm_cmbMes.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_cmbmes.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-
-                    // Mostramos el Grupo filtro y el espacio en blanco a la derecha
-                    mlcg_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    mlytitm_pagosfechaactual.Visibility = aoAlways;
+                    mlcg_indicadores.Visibility = aoAlways;
                     break;
 
                 case "RPT102":
-                    mlytitm_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-
-                    mlcg_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    // Metraje Anual de Clientes
+                    mlytitm_speanno.Visibility = aoAlways;
+                    mempty_speanno.Visibility = aoAlways;
+                    mlcg_Params.Visibility = aoAlways;
                     break;
 
                 case "RPT103":
-                    mlytitm_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_speanno.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    // Comparación de Facturas por Mes
+                    mlytitm_speanno.Visibility = aoAlways;
+                    mempty_speanno.Visibility = aoAlways;
+                    mlytitm_cmbMes.Visibility = aoAlways;
+                    mempty_cmbmes.Visibility = aoAlways;
+                    mlcg_Params.Visibility = aoAlways;
 
-                    mlytitm_cmbMes.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mlytitm_comparamesanyoant.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_cmbmes.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    mlytitm_comparamesanyoant.Visibility = aoAlways;
+                    mlcg_indicadores.Visibility = aoAlways;
+                    break;
 
-                    // Mostramos el Grupo filtro y el espacio en blanco a la derecha
-                    mlcg_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    mempty_filtros.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                case "RPT104":
+                    // Saldo de Clientes
+                    mlytitm_Param_mesyearini.Visibility = aoAlways;
+                    mlytitm_Param_mesyearfin.Visibility = aoAlways;
+                    mlcg_Params.Visibility = aoAlways;
+                    break;
+
+                case "RPT105":
+                    // Saldo de Clientes detallado
+                    mlytitm_Param_mesyearini.Visibility = aoAlways;
+                    mlytitm_Param_mesyearfin.Visibility = aoAlways;
+                    mlytitm_Param_cliente.Visibility = aoAlways;
+                    mlcg_Params.Visibility = aoAlways;
+
+                    mlytitm_solofactpendientes.Visibility = aoAlways;
+                    mlcg_indicadores.Visibility = aoAlways;
                     break;
             }
+
+            // Mostramos el Grupo filtro y el espacio en blanco a la derecha
+            mlcg_filtros.Visibility = aoAlways;
+            mempty_filtros.Visibility = aoAlways;
+        }
+
+        private void mpxValidarFiltros()
+        {
+            String aomsgError = "";
+            /**#####################################################################################################################################**/
+            // Lo primero que hacemos es actualizar todas las variables con su valor actualizado
+
+            /******************************************************************************************/
+            /***********   GRUPO DE PARAMETROS ****************************************************** */
+            #region PARAMETROS
+            aofiltro_anyo_entero = (short)speAnno.Value;
+            aofiltro_mes_entero = Convert.ToInt16(cmbMes.SelectedIndex + 1);
+            aofiltro_mes_cadena = cmbMes.Text.Trim();
+
+            // Rango de Meses
+            aofiltro_mesyearini = new DateTime(mdte_Param_mesyearini.DateTime.Year, mdte_Param_mesyearini.DateTime.Month, 1);
+            aofiltro_mesyearfin = new DateTime(mdte_Param_mesyearfin.DateTime.Year, mdte_Param_mesyearfin.DateTime.Month, 1).AddMonths(1).AddDays(-1);
+
+            /**#####################################################################################################################################**/
+            // Ahora vamos a validar todos aquellos parámetros que estén visibles (si están visibles, es xq el reporte los requiere)
+            // Cuenta contable
+            if (mlytitm_Param_cliente.Visibility == aoAlways)
+            {
+                if (String.IsNullOrEmpty(Convert.ToString(mgle_Param_cliente.EditValue)))
+                    aofiltro_codcliente = null;
+                else
+                    aofiltro_codcliente = mgle_Param_cliente.EditValue.ToString();
+            }
+            #endregion
+
+            /******************************************************************************************/
+            /***********   GRUPO DE INDICADORES ****************************************************** */
+            #region INDICADORES
+
+            // Pagos a la Fecha Actual
+            aofiltroind_pagosfechaact = mchk_pagosfechaactual.Checked;
+            aofiltroind_comparamesyearANT = mchk_comparamesanyoant.Checked;
+            aofiltroind_solofactpendientes = mchk_solofactpendientes.Checked;
+            #endregion
         }
 
         /// <summary>
@@ -159,18 +289,21 @@ namespace VisorFacturas.Forms
         {
             try
             {
-                // Declaramos las variables locales
+                // Declaramos las variables locales a ocupar
                 string acSql = "";
-                DataTable acDT_temp = new DataTable();
-
-                // Asignamos el valor de las variables
-                aoanyo_entero = (short)speAnno.Value;
-                aomes_entero = Convert.ToInt16(cmbMes.SelectedIndex + 1);
-                aomes_cadena = cmbMes.Text.Trim();
-
+                acDT_temp = new DataTable();
                 short aoanyo_entero_ANT = 0;
                 short aoMES_entero_ANT = 0;
+                decimal aoTasaCambio = 0;
                 string aotittle2 = "";
+                String aofechaini_cadena = "";
+                String aofechafin_cadena = "";
+                String aoSentenciaAND_1 = "";
+                String aoSentenciaAND_2 = "";
+                frmviewer aofrmviewer;
+
+                // Rellenamos las variables de filtros
+                mpxValidarFiltros();
 
                 if (String.IsNullOrEmpty(aoCodReporte))
                 {
@@ -186,21 +319,21 @@ namespace VisorFacturas.Forms
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_facturasmes> aolistrpt_101 = new List<view_rpt_facturasmes>();
                         // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
-                        if (mchk_pagostiemporeal.Checked)
+                        if (aofiltroind_pagosfechaact)
                         {
-                            acSql = String.Format(Resources.xr_proc_facturas_mes, aoanyo_entero, aomes_entero, "");                            
+                            acSql = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, "");
                         }
                         else
                         {
                             // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
-                            string aoSentenciaAND = "AND YEAR(PAG.pg_fecpag) = " + aoanyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aomes_entero.ToString();
-                            acSql = String.Format(Resources.xr_proc_facturas_mes, aoanyo_entero, aomes_entero, aoSentenciaAND);
-                        }                        
-                        
+                            aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                            acSql = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                        }
+
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
                         using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
                         {
-                            adapt.Fill(acDT_temp);                            
+                            adapt.Fill(acDT_temp);
                         }
 
                         if (acDT_temp.Rows.Count == 0)
@@ -208,6 +341,8 @@ namespace VisorFacturas.Forms
                             XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
+
+                        mpxShowSplashForm();
 
                         // Rellenamos la lista que se enviara al reporte
                         foreach (DataRow item in acDT_temp.Rows)
@@ -253,12 +388,14 @@ namespace VisorFacturas.Forms
                             }
                         }
 
+                        mpxCloseSplashForm();
+
                         Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
                         aorpt_101.DataSource = aolistrpt_101;
-                        aorpt_101.mpxSetTittle("", "Año: " + aoanyo_entero.ToString() + "  Mes: " + aomes_cadena + "  Moneda: Dólares (US$)");
+                        aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        frmviewer aofrmviewer = new frmviewer(aorpt_101);
-                        aofrmviewer.Text = aoNombreReporte + " - " + aomes_cadena + " " + aoanyo_entero.ToString();
+                        aofrmviewer = new frmviewer(aorpt_101);
+                        aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
                         aofrmviewer.MdiParent = this.MdiParent;
                         aofrmviewer.WindowState = FormWindowState.Maximized;
                         aofrmviewer.Show();
@@ -270,7 +407,9 @@ namespace VisorFacturas.Forms
                         #region RPT102
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_metrajeanual> aolistrpt_102 = new List<view_rpt_metrajeanual>();
-                        acSql = String.Format(Resources.xr_proc_metraje_anual, aoanyo_entero);
+                        acSql = String.Format(Resources.xr_proc_metraje_anual, aofiltro_anyo_entero);
+
+                        mpxShowSplashForm();
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
                         using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
@@ -280,6 +419,7 @@ namespace VisorFacturas.Forms
 
                         if (acDT_temp.Rows.Count == 0)
                         {
+                            mpxCloseSplashForm();
                             XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
@@ -406,15 +546,17 @@ namespace VisorFacturas.Forms
                             }
                         }
 
+                        mpxCloseSplashForm();
+
                         Reports.CNZF.xrmetrajeanual aorpt_102 = new Reports.CNZF.xrmetrajeanual();
                         aorpt_102.DataSource = aolistrpt_102;
-                        aorpt_102.mpxSetTittle("", "Año: " + aoanyo_entero.ToString());
+                        aorpt_102.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString());
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        frmviewer aofrmviewer_102 = new frmviewer(aorpt_102);
-                        aofrmviewer_102.Text = aoNombreReporte + " - " + aoanyo_entero.ToString();
-                        aofrmviewer_102.MdiParent = this.MdiParent;
-                        aofrmviewer_102.WindowState = FormWindowState.Maximized;
-                        aofrmviewer_102.Show();
+                        aofrmviewer = new frmviewer(aorpt_102);
+                        aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_anyo_entero.ToString();
+                        aofrmviewer.MdiParent = this.MdiParent;
+                        aofrmviewer.WindowState = FormWindowState.Maximized;
+                        aofrmviewer.Show();
 
                         break;
                     #endregion
@@ -425,31 +567,33 @@ namespace VisorFacturas.Forms
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_facturacomparames_act_ant> aolistrpt_103 = new List<view_rpt_facturacomparames_act_ant>();
                         // Preguntamos si esta seleccionado el check Comparar Mismo mes Año Actual vs Año Anterior
-                        if (mchk_comparamesanyoant.Checked)
+                        if (aofiltroind_comparamesyearANT)
                         {
-                            aoanyo_entero_ANT = Convert.ToInt16(aoanyo_entero - 1);
-                            aoMES_entero_ANT = aomes_entero;
+                            aoanyo_entero_ANT = Convert.ToInt16(aofiltro_anyo_entero - 1);
+                            aoMES_entero_ANT = aofiltro_mes_entero;
                         }
                         else
                         {
                             // Si no está seleccionado, el reporte comparará Mes Actual y Mes Anterior
                             // Preguntamos si tiene Seleccionado Enero como Mes Actual
-                            if (aomes_entero == 1)
+                            if (aofiltro_mes_entero == 1)
                             {
-                                aoanyo_entero_ANT = Convert.ToInt16(aoanyo_entero - 1);
+                                aoanyo_entero_ANT = Convert.ToInt16(aofiltro_anyo_entero - 1);
                                 aoMES_entero_ANT = 12;
                             }
                             else
                             {
                                 // Compararemos el Mes Actual vs El mes Anterior del mismo Año
-                                aoanyo_entero_ANT = aoanyo_entero;
-                                aoMES_entero_ANT = Convert.ToInt16(aomes_entero - 1);
-                            }                            
+                                aoanyo_entero_ANT = aofiltro_anyo_entero;
+                                aoMES_entero_ANT = Convert.ToInt16(aofiltro_mes_entero - 1);
+                            }
                         }
 
                         // Creamos la consulta
-                        acSql = String.Format(Resources.xr_proc_facturas_compara_mes_act_ant, aoanyo_entero, aomes_entero,
+                        acSql = String.Format(Resources.xr_proc_facturas_compara_mes_act_ant, aofiltro_anyo_entero, aofiltro_mes_entero,
                                                                                                   aoanyo_entero_ANT, aoMES_entero_ANT);
+
+                        mpxShowSplashForm();
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
                         using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
@@ -459,6 +603,7 @@ namespace VisorFacturas.Forms
 
                         if (acDT_temp.Rows.Count == 0)
                         {
+                            mpxCloseSplashForm();
                             XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
@@ -488,8 +633,8 @@ namespace VisorFacturas.Forms
                                     aoety_exist.rem_tramit_ANT = Double.Parse(item["rem_tramit"].ToString());
                                     aoety_exist.fac_total_ANT = Double.Parse(item["fac_total"].ToString());
                                 }
-                                else if (short.Parse(item["fac_yearfact"].ToString()) == aoanyo_entero &&
-                                    short.Parse(item["fac_mesfact"].ToString()) == aomes_entero)
+                                else if (short.Parse(item["fac_yearfact"].ToString()) == aofiltro_anyo_entero &&
+                                    short.Parse(item["fac_mesfact"].ToString()) == aofiltro_mes_entero)
                                 {
                                     aoety_exist.rem_cant_ACT = Double.Parse(item["rem_cant"].ToString());
                                     aoety_exist.rem_cantprecio_ACT = Double.Parse(item["rem_cantprecio"].ToString());
@@ -527,8 +672,8 @@ namespace VisorFacturas.Forms
                                     aoety_new.rem_tramit_ANT = Double.Parse(item["rem_tramit"].ToString());
                                     aoety_new.fac_total_ANT = Double.Parse(item["fac_total"].ToString());
                                 }
-                                else if (short.Parse(item["fac_yearfact"].ToString()) == aoanyo_entero &&
-                                    short.Parse(item["fac_mesfact"].ToString()) == aomes_entero)
+                                else if (short.Parse(item["fac_yearfact"].ToString()) == aofiltro_anyo_entero &&
+                                    short.Parse(item["fac_mesfact"].ToString()) == aofiltro_mes_entero)
                                 {
                                     aoety_new.rem_cant_ACT = Double.Parse(item["rem_cant"].ToString());
                                     aoety_new.rem_cantprecio_ACT = Double.Parse(item["rem_cantprecio"].ToString());
@@ -542,33 +687,326 @@ namespace VisorFacturas.Forms
                             }
                         }
 
+                        mpxCloseSplashForm();
+
                         Reports.CNZF.xrfacturacomparames_act_ant aorpt_103 = new Reports.CNZF.xrfacturacomparames_act_ant();
                         aorpt_103.DataSource = aolistrpt_103;
                         aotittle2 = Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString() + " vs " +
-                                    Util.clsApp.mfxMesCadena(aomes_entero) + " " + aoanyo_entero.ToString() + "  Moneda: Dólares (US$)";
+                                    Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString() + "  Moneda: Dólares (US$)";
                         aorpt_103.mpxSetTittle("", aotittle2, Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString(),
-                            Util.clsApp.mfxMesCadena(aomes_entero) + " " + aoanyo_entero.ToString());
+                            Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString());
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        frmviewer aofrmviewer_103 = new frmviewer(aorpt_103);
-                        aofrmviewer_103.Text = aoNombreReporte + " - " + aomes_cadena + " " + aoanyo_entero.ToString();
-                        aofrmviewer_103.MdiParent = this.MdiParent;
-                        aofrmviewer_103.WindowState = FormWindowState.Maximized;
-                        aofrmviewer_103.Show();
+                        aofrmviewer = new frmviewer(aorpt_103);
+                        aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                        aofrmviewer.MdiParent = this.MdiParent;
+                        aofrmviewer.WindowState = FormWindowState.Maximized;
+                        aofrmviewer.Show();
 
 
                         break;
-                        #endregion
+                    #endregion
 
+                    case "RPT104":
+                        #region RPT104
+
+                        // Creamos la lista del reporte a imprimir
+                        List<view_rpt_saldoclientes> aolistrpt_104 = new List<view_rpt_saldoclientes>();
+
+                        mpxShowSplashForm();
+
+                        // Obtenemos la tasa del día del Mes Year Final
+                        Tipo_Cambio_BCN aoWebService = new Tipo_Cambio_BCN();
+                        try
+                        {
+                            // Hacemos la consulta al Web Service del BCN para obtener la tasa de cambio
+                            aoTasaCambio = (decimal)aoWebService.RecuperaTC_Dia(aofiltro_mesyearfin.Year, aofiltro_mesyearfin.Month, aofiltro_mesyearfin.Day);
+                            //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
+
+                        }
+                        catch (Exception)
+                        {
+                            mpxCloseSplashForm();
+                            XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se obtuvieron datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        //// Rellenamos la consulta SQL
+                        aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
+                        aofechafin_cadena = "{^" + aofiltro_mesyearfin.ToString("yyyy/MM/dd") + "}";
+                        acSql = String.Format(Resources.xr_proc_saldocliente_detallado, aofechaini_cadena,
+                                                                              aofechafin_cadena,
+                                                                              aoTasaCambio.ToString(),
+                                                                              aoSentenciaAND_1,
+                                                                              aoSentenciaAND_2);
+
+
+                        // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
+                        {
+                            adapt.Fill(acDT_temp);
+                        }
+
+                        if (acDT_temp.Rows.Count == 0)
+                        {
+                            mpxCloseSplashForm();
+                            XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Rellenamos la lista que se enviara al reporte
+                        foreach (DataRow item in acDT_temp.Rows)
+                        {
+                            // Variable para capturar registros repetidos, y actualizar valores
+                            List<view_rpt_saldoclientes> aoexistregistro = new List<view_rpt_saldoclientes>();
+                            // Consulta para ubicar registro repetidos
+                            aoexistregistro = (from t in aolistrpt_104.AsQueryable()
+                                               where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
+                                               select t).ToList();
+
+                            if (aoexistregistro.Count > 0)
+                            {
+                                // Si el Numero de Fact ya existe en la lista, solo sumamos en la entidad existente los valores de la tabla PAGOS
+                                view_rpt_saldoclientes aoety_exist = aoexistregistro[0];
+                                Int32 posety = aolistrpt_104.IndexOf(aoety_exist);
+                                aolistrpt_104.RemoveAt(posety);
+
+                                aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
+                                aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
+                                aoety_exist.pag_totd += Decimal.Parse(item["pag_totd"].ToString());
+                                aoety_exist.pag_totc += Decimal.Parse(item["pag_totc"].ToString());
+                                aoety_exist.sdototd -= Decimal.Parse(item["pag_totd"].ToString());
+
+                                if (aoety_exist.sdo_30 > 0)
+                                    aoety_exist.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                                else if (aoety_exist.sdo_60 > 0)
+                                    aoety_exist.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                                else if (aoety_exist.sdo_60 > 0)
+                                    aoety_exist.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                                else
+                                    aoety_exist.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+
+                                aolistrpt_104.Insert(posety, aoety_exist);
+                            }
+                            else
+                            {
+                                // Si el Numero de Fact NO existe, lo agregamos a la Lista
+                                aolistrpt_104.Add(new view_rpt_saldoclientes()
+                                {
+                                    fac_numfac = item["fac_numfac"].ToString(),
+                                    fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
+                                    cli_cod = item["cli_cod"].ToString(),
+                                    cli_nombre = item["cli_nombre"].ToString(),
+                                    tipo_regimen = item["tipo_reg"].ToString(),
+                                    factotd = Decimal.Parse(item["factotd"].ToString()),
+                                    factotc = Decimal.Parse(item["factotc"].ToString()),
+                                    pag_numroc = item["pag_numroc"].ToString(),
+                                    pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
+                                    pag_totd = Decimal.Parse(item["pag_totd"].ToString()),
+                                    pag_totc = Decimal.Parse(item["pag_totc"].ToString()),
+                                    sdototd = Decimal.Parse(item["sdo_totd"].ToString()),
+                                    sdototc = Decimal.Parse(item["sdo_totc"].ToString()),
+                                    sdototccalc = Decimal.Parse(item["sdo_totccalc"].ToString()),
+                                    sdo_30 = Decimal.Parse(item["sdo_30"].ToString()),
+                                    sdo_60 = Decimal.Parse(item["sdo_60"].ToString()),
+                                    sdo_90 = Decimal.Parse(item["sdo_90"].ToString()),
+                                    sdo_mas90 = Decimal.Parse(item["sdo_mas90"].ToString()),
+                                    dias = int.Parse(item["dias"].ToString())
+                                });
+                            }
+                        }
+
+                        mpxCloseSplashForm();
+
+                        // Imprimimos el reporte
+                        Reports.CNZF.xrsaldoclientes aorpt_104 = new Reports.CNZF.xrsaldoclientes();
+                        aorpt_104.DataSource = aolistrpt_104;
+                        aorpt_104.mpxSetTittle(""
+                                               ,"Del: " + aofiltro_mesyearini.ToString("dd/MMMM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MMMM/yyyy")
+                                               , "T/C: " + aoTasaCambio.ToString("#,0.0000"));
+                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                        aofrmviewer = new frmviewer(aorpt_104);
+                        aofrmviewer.Text = aoNombreReporte;
+                        aofrmviewer.MdiParent = this.MdiParent;
+                        aofrmviewer.WindowState = FormWindowState.Maximized;
+                        aofrmviewer.Show();
+
+                        break;
+                    #endregion
+                    case "RPT105":
+
+                        #region RPT 105
+                        // Creamos la lista del reporte a imprimir
+                        List<view_rpt_saldoclientes> aolistrpt_105 = new List<view_rpt_saldoclientes>();
+
+                        mpxShowSplashForm();
+
+                        // Obtenemos la tasa del día del Mes Year Final
+                        Tipo_Cambio_BCN aoWebService_105 = new Tipo_Cambio_BCN();
+                        try
+                        {
+                            // Hacemos la consulta al Web Service del BCN para obtener la tasa de cambio
+                            aoTasaCambio = (decimal)aoWebService_105.RecuperaTC_Dia(aofiltro_mesyearfin.Year, aofiltro_mesyearfin.Month, aofiltro_mesyearfin.Day);
+                            //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
+
+                        }
+                        catch (Exception)
+                        {
+                            mpxCloseSplashForm();
+                            XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se obtuvieron datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Rellenamos la consulta SQL
+                        //Para ello hacemos algunas preguntas IF
+                        if (aofiltro_codcliente != null)
+                        {
+                            aoSentenciaAND_1 = String.Format(" AND (FAC.cli_codig = '{0}')", aofiltro_codcliente);
+                        }
+
+                        if (aofiltroind_solofactpendientes)
+                        {
+                            aoSentenciaAND_2 = " AND (pag.pg_recnum is null)";
+                        }
+
+                        aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
+                        aofechafin_cadena = "{^" + aofiltro_mesyearfin.ToString("yyyy/MM/dd") + "}";
+                        acSql = String.Format(Resources.xr_proc_saldocliente_detallado, aofechaini_cadena,
+                                                                              aofechafin_cadena,
+                                                                              aoTasaCambio.ToString(),
+                                                                              aoSentenciaAND_1,
+                                                                              aoSentenciaAND_2);
+
+
+                        // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
+                        {
+                            adapt.Fill(acDT_temp);
+                        }
+
+                        if (acDT_temp.Rows.Count == 0)
+                        {
+                            mpxCloseSplashForm();
+                            XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Rellenamos la lista que se enviara al reporte
+                        foreach (DataRow item in acDT_temp.Rows)
+                        {
+                            // Variable para capturar registros repetidos, y actualizar valores
+                            List<view_rpt_saldoclientes> aoexistregistro = new List<view_rpt_saldoclientes>();
+                            // Consulta para ubicar registro repetidos
+                            aoexistregistro = (from t in aolistrpt_105.AsQueryable()
+                                               where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
+                                               select t).ToList();
+
+                            if (aoexistregistro.Count > 0)
+                            {
+                                // Si el Numero de Fact ya existe en la lista, solo sumamos en la entidad existente los valores de la tabla PAGOS
+                                view_rpt_saldoclientes aoety_exist = aoexistregistro[0];
+                                Int32 posety = aolistrpt_105.IndexOf(aoety_exist);
+                                aolistrpt_105.RemoveAt(posety);
+
+                                aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
+                                aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
+                                aoety_exist.pag_totd += Decimal.Parse(item["pag_totd"].ToString());
+                                aoety_exist.pag_totc += Decimal.Parse(item["pag_totc"].ToString());
+                                aoety_exist.sdototd -= Decimal.Parse(item["pag_totd"].ToString());
+
+                                if (aoety_exist.sdo_30 > 0)
+                                    aoety_exist.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                                else if (aoety_exist.sdo_60 > 0)
+                                    aoety_exist.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                                else if (aoety_exist.sdo_60 > 0)
+                                    aoety_exist.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                                else
+                                    aoety_exist.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+
+                                aolistrpt_105.Insert(posety, aoety_exist);
+                            }
+                            else
+                            {
+                                // Si el Numero de Fact NO existe, lo agregamos a la Lista
+                                aolistrpt_105.Add(new view_rpt_saldoclientes()
+                                {
+                                    fac_numfac = item["fac_numfac"].ToString(),
+                                    fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
+                                    cli_cod = item["cli_cod"].ToString(),
+                                    cli_nombre = item["cli_nombre"].ToString(),
+                                    tipo_regimen = item["tipo_reg"].ToString(),
+                                    factotd = Decimal.Parse(item["factotd"].ToString()),
+                                    factotc = Decimal.Parse(item["factotc"].ToString()),
+                                    pag_numroc = item["pag_numroc"].ToString(),
+                                    pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
+                                    pag_totd = Decimal.Parse(item["pag_totd"].ToString()),
+                                    pag_totc = Decimal.Parse(item["pag_totc"].ToString()),
+                                    sdototd = Decimal.Parse(item["sdo_totd"].ToString()),
+                                    sdototc = Decimal.Parse(item["sdo_totc"].ToString()),
+                                    sdototccalc = Decimal.Parse(item["sdo_totccalc"].ToString()),
+                                    sdo_30 = Decimal.Parse(item["sdo_30"].ToString()),
+                                    sdo_60 = Decimal.Parse(item["sdo_60"].ToString()),
+                                    sdo_90 = Decimal.Parse(item["sdo_90"].ToString()),
+                                    sdo_mas90 = Decimal.Parse(item["sdo_mas90"].ToString()),
+                                    dias = int.Parse(item["dias"].ToString())
+                                });
+                            }
+                        }
+
+                        mpxCloseSplashForm();
+
+                        // Imprimimos el reporte
+                        Reports.CNZF.xrsaldoclientesdetalle aorpt_105 = new Reports.CNZF.xrsaldoclientesdetalle();
+                        aorpt_105.DataSource = aolistrpt_105;
+                        aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MMMM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MMMM/yyyy"));
+                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                        aofrmviewer = new frmviewer(aorpt_105);
+                        aofrmviewer.Text = aoNombreReporte;
+                        aofrmviewer.MdiParent = this.MdiParent;
+                        aofrmviewer.WindowState = FormWindowState.Maximized;
+                        aofrmviewer.Show();
+
+                        break;
+                        #endregion
                 }
 
             }
             catch (Exception ex)
             {
+                mpxCloseSplashForm();
                 XtraMessageBox.Show(ex.Message, "Mensaje del Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        #endregion
+        private void mpxShowSplashForm()
+        {
+            if (msplashfrm_wait.IsSplashFormVisible)
+            {
+                msplashfrm_wait.CloseWaitForm();
+            }
+            msplashfrm_wait.ShowWaitForm();
+            msplashfrm_wait.SetWaitFormCaption("Procesando los datos");
+            msplashfrm_wait.SetWaitFormDescription("Por favor, espere...");
+        }
 
+        private void mpxShowSplashForm(String patitulo, String padescripcion)
+        {
+            if (msplashfrm_wait.IsSplashFormVisible)
+            {
+                msplashfrm_wait.CloseWaitForm();
+            }
+            msplashfrm_wait.ShowWaitForm();
+            msplashfrm_wait.SetWaitFormCaption(patitulo);
+            msplashfrm_wait.SetWaitFormDescription(padescripcion);
+        }
+
+        private void mpxCloseSplashForm()
+        {
+            if (msplashfrm_wait.IsSplashFormVisible == true)
+            {
+                msplashfrm_wait.CloseWaitForm();
+            }
+        }
+
+        #endregion
     }
 }

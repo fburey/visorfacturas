@@ -253,4 +253,43 @@ OR   (YEAR(FAC.fecha) = {2} AND MONTH(FAC.fecha) = {3})</value>
   <data name="Gobierno" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gobierno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="xr_proc_saldocliente_detallado" xml:space="preserve">
+    <value>SELECT 
+FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fecha AS 'fac_fecha'
+,CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,UPPER(CLI.cli_regime) AS 'tipo_reg'
+,FAC.fac_amo_do as 'factotd' 
+,FAC.fac_amount as 'factotc'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,NVL(PAG.pg_amo_dol, 0) AS 'pag_totd'
+,NVL(PAG.pg_amount, 0) AS 'pag_totc'
+,CAST((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) AS NUMERIC(12,2)) as 'sdo_totd'
+,CAST((FAC.fac_amount - NVL(PAG.pg_amount, 0)) AS NUMERIC(12,2)) as 'sdo_totc'
+,CAST(((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2}) AS NUMERIC(12,2)) as 'sdo_totccalc'
+,CAST(IIF((({1} - FAC.fecha) / 30.4166) &lt;= 1, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(10,2)) AS 'sdo_30'
+,CAST(IIF(((({1} - FAC.fecha) / 30.4166) &gt; 1) AND ((({1} - FAC.fecha) / 30.4166) &lt;= 2), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(10,2)) AS 'sdo_60'
+,CAST(IIF(((({1} - FAC.fecha) / 30.4166) &gt; 2) AND ((({1} - FAC.fecha) / 30.4166) &lt;= 3), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(10,2)) AS 'sdo_90'
+,CAST(IIF((({1} - FAC.fecha) / 30.4166) &gt; 3, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(10,2)) AS 'sdo_mas90'
+,IIF((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) == 0, 0, ({1} - FAC.fecha)) AS 'dias'
+FROM FACTURA AS FAC
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)
+WHERE 
+FAC.fac_amo_do &gt; 0
+AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
+AND FAC.cli_codig &lt;&gt; '04105100000000'
+{3}
+{4}
+ORDER BY CLI.cli_cod, FAC.fecha</value>
+    <comment>Procedimiento para reporte de Saldos de Clientes Detallado:
+Parámetros:
+{0}: Fecha Inicial
+{1}: Fecha Final
+{2}: Tasa de Fecha Final
+{3}: Filtra por un Cliente
+{4}: Filtra si solo desea ver facturas pendientes</comment>
+  </data>
 </root>

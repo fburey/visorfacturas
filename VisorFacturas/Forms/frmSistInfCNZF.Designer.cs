@@ -31,8 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSistInfCNZF));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mgle_Param_cliente = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.mclientes_bndsrc = new System.Windows.Forms.BindingSource(this.components);
+            this.mgle_Param_cliente_grv = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.mgle_Param_cliente_grv_colcli_cod = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mgle_Param_cliente_grv_colcli_nom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mchk_solofactpendientes = new DevExpress.XtraEditors.CheckEdit();
+            this.mdte_Param_mesyearini = new DevExpress.XtraEditors.DateEdit();
             this.mchk_comparamesanyoant = new DevExpress.XtraEditors.CheckEdit();
-            this.mchk_pagostiemporeal = new DevExpress.XtraEditors.CheckEdit();
+            this.mchk_pagosfechaactual = new DevExpress.XtraEditors.CheckEdit();
             this.mbtn_salir = new DevExpress.XtraEditors.SimpleButton();
             this.speAnno = new DevExpress.XtraEditors.SpinEdit();
             this.cmbMes = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -43,97 +50,217 @@
             this.colfldnamrep = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.mtree_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.mimlFormx16 = new DevExpress.Utils.ImageCollection(this.components);
+            this.mdte_Param_mesyearfin = new DevExpress.XtraEditors.DateEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.mlcg_filtros = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.mlcg_Params = new DevExpress.XtraLayout.LayoutControlGroup();
             this.mlytitm_speanno = new DevExpress.XtraLayout.LayoutControlItem();
             this.mlytitm_cmbMes = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.mempty_cmbmes = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.mlytitm_pagostiemporeal = new DevExpress.XtraLayout.LayoutControlItem();
             this.mempty_speanno = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.mempty_cmbmes = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.mlytitm_Param_mesyearini = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mlytitm_Param_mesyearfin = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mlytitm_Param_cliente = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mlcg_indicadores = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.mlytitm_pagosfechaactual = new DevExpress.XtraLayout.LayoutControlItem();
             this.mlytitm_comparamesanyoant = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mlytitm_solofactpendientes = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mlcg_botonesacc = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mempty_filtros = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.msplashfrm_wait = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DxSAFRHH.inv.forms.frmWaitForm), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mgle_Param_cliente.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mclientes_bndsrc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mgle_Param_cliente_grv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_solofactpendientes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearini.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearini.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_comparamesanyoant.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchk_pagostiemporeal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_pagosfechaactual.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speAnno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtree_sistinf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtree_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mimlFormx16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearfin.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearfin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_filtros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlcg_Params)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_speanno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_cmbMes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mempty_cmbmes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_pagostiemporeal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_speanno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mempty_cmbmes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_Param_mesyearini)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_Param_mesyearfin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_Param_cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlcg_indicadores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_pagosfechaactual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_comparamesanyoant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_solofactpendientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_botonesacc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.mgle_Param_cliente);
+            this.layoutControl1.Controls.Add(this.mchk_solofactpendientes);
+            this.layoutControl1.Controls.Add(this.mdte_Param_mesyearini);
             this.layoutControl1.Controls.Add(this.mchk_comparamesanyoant);
-            this.layoutControl1.Controls.Add(this.mchk_pagostiemporeal);
+            this.layoutControl1.Controls.Add(this.mchk_pagosfechaactual);
             this.layoutControl1.Controls.Add(this.mbtn_salir);
             this.layoutControl1.Controls.Add(this.speAnno);
             this.layoutControl1.Controls.Add(this.cmbMes);
             this.layoutControl1.Controls.Add(this.mbtn_imprimir);
             this.layoutControl1.Controls.Add(this.mtree_sistinf);
+            this.layoutControl1.Controls.Add(this.mdte_Param_mesyearfin);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1170, 180, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1017, 551);
+            this.layoutControl1.Size = new System.Drawing.Size(1013, 683);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // mgle_Param_cliente
+            // 
+            this.mgle_Param_cliente.Location = new System.Drawing.Point(471, 170);
+            this.mgle_Param_cliente.Name = "mgle_Param_cliente";
+            this.mgle_Param_cliente.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.mgle_Param_cliente.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mgle_Param_cliente.Properties.Appearance.Options.UseFont = true;
+            this.mgle_Param_cliente.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mgle_Param_cliente.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.mgle_Param_cliente.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.mgle_Param_cliente.Properties.DataSource = this.mclientes_bndsrc;
+            this.mgle_Param_cliente.Properties.DisplayMember = "cli_nom";
+            this.mgle_Param_cliente.Properties.NullText = "";
+            this.mgle_Param_cliente.Properties.PopupFormMinSize = new System.Drawing.Size(450, 550);
+            this.mgle_Param_cliente.Properties.PopupView = this.mgle_Param_cliente_grv;
+            this.mgle_Param_cliente.Properties.ValueMember = "cli_cod";
+            this.mgle_Param_cliente.Size = new System.Drawing.Size(341, 26);
+            this.mgle_Param_cliente.StyleController = this.layoutControl1;
+            this.mgle_Param_cliente.TabIndex = 14;
+            this.mgle_Param_cliente.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.mgle_Closed);
+            // 
+            // mclientes_bndsrc
+            // 
+            this.mclientes_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewClientes);
+            // 
+            // mgle_Param_cliente_grv
+            // 
+            this.mgle_Param_cliente_grv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mgle_Param_cliente_grv.Appearance.HeaderPanel.Options.UseFont = true;
+            this.mgle_Param_cliente_grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.mgle_Param_cliente_grv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.mgle_Param_cliente_grv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mgle_Param_cliente_grv.Appearance.Row.Options.UseFont = true;
+            this.mgle_Param_cliente_grv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.mgle_Param_cliente_grv_colcli_cod,
+            this.mgle_Param_cliente_grv_colcli_nom});
+            this.mgle_Param_cliente_grv.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.mgle_Param_cliente_grv.Name = "mgle_Param_cliente_grv";
+            this.mgle_Param_cliente_grv.OptionsCustomization.AllowColumnMoving = false;
+            this.mgle_Param_cliente_grv.OptionsCustomization.AllowFilter = false;
+            this.mgle_Param_cliente_grv.OptionsCustomization.AllowGroup = false;
+            this.mgle_Param_cliente_grv.OptionsFilter.AllowFilterEditor = false;
+            this.mgle_Param_cliente_grv.OptionsFind.AllowFindPanel = false;
+            this.mgle_Param_cliente_grv.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.mgle_Param_cliente_grv.OptionsView.ColumnAutoWidth = false;
+            this.mgle_Param_cliente_grv.OptionsView.ShowAutoFilterRow = true;
+            this.mgle_Param_cliente_grv.OptionsView.ShowGroupPanel = false;
+            // 
+            // mgle_Param_cliente_grv_colcli_cod
+            // 
+            this.mgle_Param_cliente_grv_colcli_cod.Caption = "Código";
+            this.mgle_Param_cliente_grv_colcli_cod.FieldName = "cli_cod";
+            this.mgle_Param_cliente_grv_colcli_cod.Name = "mgle_Param_cliente_grv_colcli_cod";
+            this.mgle_Param_cliente_grv_colcli_cod.Visible = true;
+            this.mgle_Param_cliente_grv_colcli_cod.VisibleIndex = 0;
+            this.mgle_Param_cliente_grv_colcli_cod.Width = 118;
+            // 
+            // mgle_Param_cliente_grv_colcli_nom
+            // 
+            this.mgle_Param_cliente_grv_colcli_nom.Caption = "Cliente";
+            this.mgle_Param_cliente_grv_colcli_nom.FieldName = "cli_nom";
+            this.mgle_Param_cliente_grv_colcli_nom.Name = "mgle_Param_cliente_grv_colcli_nom";
+            this.mgle_Param_cliente_grv_colcli_nom.Visible = true;
+            this.mgle_Param_cliente_grv_colcli_nom.VisibleIndex = 1;
+            this.mgle_Param_cliente_grv_colcli_nom.Width = 309;
+            // 
+            // mchk_solofactpendientes
+            // 
+            this.mchk_solofactpendientes.Location = new System.Drawing.Point(344, 269);
+            this.mchk_solofactpendientes.Name = "mchk_solofactpendientes";
+            this.mchk_solofactpendientes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.mchk_solofactpendientes.Properties.Appearance.Options.UseFont = true;
+            this.mchk_solofactpendientes.Properties.Caption = "Mostrar solo facturas pendientes";
+            this.mchk_solofactpendientes.Size = new System.Drawing.Size(456, 23);
+            this.mchk_solofactpendientes.StyleController = this.layoutControl1;
+            this.mchk_solofactpendientes.TabIndex = 13;
+            // 
+            // mdte_Param_mesyearini
+            // 
+            this.mdte_Param_mesyearini.EditValue = null;
+            this.mdte_Param_mesyearini.Location = new System.Drawing.Point(471, 140);
+            this.mdte_Param_mesyearini.Name = "mdte_Param_mesyearini";
+            this.mdte_Param_mesyearini.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.mdte_Param_mesyearini.Properties.Appearance.Options.UseFont = true;
+            this.mdte_Param_mesyearini.Properties.BeepOnError = false;
+            this.mdte_Param_mesyearini.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.mdte_Param_mesyearini.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.mdte_Param_mesyearini.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.mdte_Param_mesyearini.Properties.MaskSettings.Set("mask", "MMM yyyy");
+            this.mdte_Param_mesyearini.Properties.UseMaskAsDisplayFormat = true;
+            this.mdte_Param_mesyearini.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.mdte_Param_mesyearini.Size = new System.Drawing.Size(111, 26);
+            this.mdte_Param_mesyearini.StyleController = this.layoutControl1;
+            this.mdte_Param_mesyearini.TabIndex = 12;
+            // 
             // mchk_comparamesanyoant
             // 
-            this.mchk_comparamesanyoant.Location = new System.Drawing.Point(537, 80);
+            this.mchk_comparamesanyoant.Location = new System.Drawing.Point(344, 242);
             this.mchk_comparamesanyoant.Name = "mchk_comparamesanyoant";
             this.mchk_comparamesanyoant.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mchk_comparamesanyoant.Properties.Appearance.Options.UseFont = true;
             this.mchk_comparamesanyoant.Properties.Caption = "Comparar el mes entre Años";
-            this.mchk_comparamesanyoant.Size = new System.Drawing.Size(225, 23);
+            this.mchk_comparamesanyoant.Size = new System.Drawing.Size(456, 23);
             this.mchk_comparamesanyoant.StyleController = this.layoutControl1;
             this.mchk_comparamesanyoant.TabIndex = 11;
             // 
-            // mchk_pagostiemporeal
+            // mchk_pagosfechaactual
             // 
-            this.mchk_pagostiemporeal.Location = new System.Drawing.Point(547, 40);
-            this.mchk_pagostiemporeal.Name = "mchk_pagostiemporeal";
-            this.mchk_pagostiemporeal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.mchk_pagostiemporeal.Properties.Appearance.Options.UseFont = true;
-            this.mchk_pagostiemporeal.Properties.Caption = "Pagos en tiempo real";
-            this.mchk_pagostiemporeal.Size = new System.Drawing.Size(183, 23);
-            this.mchk_pagostiemporeal.StyleController = this.layoutControl1;
-            this.mchk_pagostiemporeal.TabIndex = 10;
+            this.mchk_pagosfechaactual.Location = new System.Drawing.Point(344, 212);
+            this.mchk_pagosfechaactual.Name = "mchk_pagosfechaactual";
+            this.mchk_pagosfechaactual.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.mchk_pagosfechaactual.Properties.Appearance.Options.UseFont = true;
+            this.mchk_pagosfechaactual.Properties.Caption = "Pagos a la fecha actual";
+            this.mchk_pagosfechaactual.Size = new System.Drawing.Size(456, 23);
+            this.mchk_pagosfechaactual.StyleController = this.layoutControl1;
+            this.mchk_pagosfechaactual.TabIndex = 10;
             // 
             // mbtn_salir
             // 
             this.mbtn_salir.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mbtn_salir.Appearance.Options.UseFont = true;
             this.mbtn_salir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.TraExt_btn;
-            this.mbtn_salir.Location = new System.Drawing.Point(465, 143);
+            this.mbtn_salir.Location = new System.Drawing.Point(465, 287);
             this.mbtn_salir.Name = "mbtn_salir";
             this.mbtn_salir.Size = new System.Drawing.Size(117, 53);
             this.mbtn_salir.StyleController = this.layoutControl1;
@@ -148,7 +275,7 @@
             0,
             0,
             0});
-            this.speAnno.Location = new System.Drawing.Point(400, 40);
+            this.speAnno.Location = new System.Drawing.Point(411, 68);
             this.speAnno.Name = "speAnno";
             this.speAnno.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.speAnno.Properties.Appearance.Options.UseFont = true;
@@ -164,7 +291,7 @@
             // 
             // cmbMes
             // 
-            this.cmbMes.Location = new System.Drawing.Point(400, 80);
+            this.cmbMes.Location = new System.Drawing.Point(411, 104);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMes.Properties.Appearance.Options.UseFont = true;
@@ -198,7 +325,7 @@
             this.mbtn_imprimir.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mbtn_imprimir.Appearance.Options.UseFont = true;
             this.mbtn_imprimir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
-            this.mbtn_imprimir.Location = new System.Drawing.Point(344, 143);
+            this.mbtn_imprimir.Location = new System.Drawing.Point(344, 287);
             this.mbtn_imprimir.Name = "mbtn_imprimir";
             this.mbtn_imprimir.Size = new System.Drawing.Size(117, 53);
             this.mbtn_imprimir.StyleController = this.layoutControl1;
@@ -226,7 +353,7 @@
             this.mtree_sistinf.ParentFieldName = "fldidxrepReportaA";
             this.mtree_sistinf.RowHeight = 25;
             this.mtree_sistinf.SelectImageList = this.mimlFormx16;
-            this.mtree_sistinf.Size = new System.Drawing.Size(326, 547);
+            this.mtree_sistinf.Size = new System.Drawing.Size(326, 679);
             this.mtree_sistinf.TabIndex = 4;
             this.mtree_sistinf.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.mtree_sistinf_FocusedNodeChanged);
             // 
@@ -262,6 +389,26 @@
             this.mimlFormx16.Images.SetKeyName(0, "report_20x20.png");
             this.mimlFormx16.Images.SetKeyName(1, "business_report_20X20.png");
             // 
+            // mdte_Param_mesyearfin
+            // 
+            this.mdte_Param_mesyearfin.EditValue = null;
+            this.mdte_Param_mesyearfin.Location = new System.Drawing.Point(701, 140);
+            this.mdte_Param_mesyearfin.Name = "mdte_Param_mesyearfin";
+            this.mdte_Param_mesyearfin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.mdte_Param_mesyearfin.Properties.Appearance.Options.UseFont = true;
+            this.mdte_Param_mesyearfin.Properties.BeepOnError = false;
+            this.mdte_Param_mesyearfin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.mdte_Param_mesyearfin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.mdte_Param_mesyearfin.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.mdte_Param_mesyearfin.Properties.MaskSettings.Set("mask", "MMM yyyy");
+            this.mdte_Param_mesyearfin.Properties.UseMaskAsDisplayFormat = true;
+            this.mdte_Param_mesyearfin.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.mdte_Param_mesyearfin.Size = new System.Drawing.Size(111, 26);
+            this.mdte_Param_mesyearfin.StyleController = this.layoutControl1;
+            this.mdte_Param_mesyearfin.TabIndex = 12;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -271,11 +418,11 @@
             this.mlcg_filtros,
             this.emptySpaceItem2,
             this.mlcg_botonesacc,
-            this.emptySpaceItem1,
-            this.mempty_filtros});
+            this.mempty_filtros,
+            this.emptySpaceItem6});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(1017, 551);
+            this.Root.Size = new System.Drawing.Size(1013, 683);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -285,7 +432,7 @@
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(330, 0);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(330, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(330, 551);
+            this.layoutControlItem1.Size = new System.Drawing.Size(330, 683);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -294,34 +441,44 @@
             // 
             // mlcg_filtros
             // 
-            this.mlcg_filtros.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.mlcg_filtros.AppearanceGroup.Options.UseFont = true;
+            this.mlcg_filtros.AllowHtmlStringInCaption = true;
             this.mlcg_filtros.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.mlytitm_speanno,
-            this.mlytitm_cmbMes,
-            this.emptySpaceItem5,
-            this.emptySpaceItem4,
-            this.mempty_cmbmes,
-            this.mlytitm_pagostiemporeal,
-            this.mempty_speanno,
-            this.mlytitm_comparamesanyoant});
+            this.mlcg_Params,
+            this.mlcg_indicadores});
             this.mlcg_filtros.Location = new System.Drawing.Point(330, 0);
             this.mlcg_filtros.Name = "mlcg_filtros";
-            this.mlcg_filtros.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 0, 0, 0);
-            this.mlcg_filtros.Size = new System.Drawing.Size(447, 111);
-            this.mlcg_filtros.Text = "Filtros";
+            this.mlcg_filtros.Size = new System.Drawing.Size(508, 252);
+            this.mlcg_filtros.Text = "<b>Filtros</b>";
+            // 
+            // mlcg_Params
+            // 
+            this.mlcg_Params.ExpandButtonVisible = true;
+            this.mlcg_Params.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.mlytitm_speanno,
+            this.mlytitm_cmbMes,
+            this.mempty_speanno,
+            this.mempty_cmbmes,
+            this.mlytitm_Param_mesyearini,
+            this.mlytitm_Param_mesyearfin,
+            this.mlytitm_Param_cliente});
+            this.mlcg_Params.Location = new System.Drawing.Point(0, 0);
+            this.mlcg_Params.Name = "mlcg_Params";
+            this.mlcg_Params.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 9, 3);
+            this.mlcg_Params.Size = new System.Drawing.Size(484, 177);
+            this.mlcg_Params.Text = "Parámetros";
             // 
             // mlytitm_speanno
             // 
             this.mlytitm_speanno.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11F);
             this.mlytitm_speanno.AppearanceItemCaption.Options.UseFont = true;
             this.mlytitm_speanno.Control = this.speAnno;
-            this.mlytitm_speanno.Location = new System.Drawing.Point(0, 17);
-            this.mlytitm_speanno.MaxSize = new System.Drawing.Size(192, 30);
-            this.mlytitm_speanno.MinSize = new System.Drawing.Size(192, 30);
+            this.mlytitm_speanno.Location = new System.Drawing.Point(0, 0);
+            this.mlytitm_speanno.MaxSize = new System.Drawing.Size(192, 36);
+            this.mlytitm_speanno.MinSize = new System.Drawing.Size(192, 35);
             this.mlytitm_speanno.Name = "mlytitm_speanno";
-            this.mlytitm_speanno.Size = new System.Drawing.Size(192, 30);
+            this.mlytitm_speanno.Size = new System.Drawing.Size(192, 36);
             this.mlytitm_speanno.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.mlytitm_speanno.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 6);
             this.mlytitm_speanno.Text = "Año:";
             this.mlytitm_speanno.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.mlytitm_speanno.TextSize = new System.Drawing.Size(50, 20);
@@ -332,88 +489,145 @@
             this.mlytitm_cmbMes.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11F);
             this.mlytitm_cmbMes.AppearanceItemCaption.Options.UseFont = true;
             this.mlytitm_cmbMes.Control = this.cmbMes;
-            this.mlytitm_cmbMes.Location = new System.Drawing.Point(0, 57);
-            this.mlytitm_cmbMes.MaxSize = new System.Drawing.Size(192, 30);
-            this.mlytitm_cmbMes.MinSize = new System.Drawing.Size(192, 30);
+            this.mlytitm_cmbMes.Location = new System.Drawing.Point(0, 36);
+            this.mlytitm_cmbMes.MaxSize = new System.Drawing.Size(192, 36);
+            this.mlytitm_cmbMes.MinSize = new System.Drawing.Size(192, 36);
             this.mlytitm_cmbMes.Name = "mlytitm_cmbMes";
-            this.mlytitm_cmbMes.Size = new System.Drawing.Size(192, 30);
+            this.mlytitm_cmbMes.Size = new System.Drawing.Size(192, 36);
             this.mlytitm_cmbMes.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.mlytitm_cmbMes.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 6);
             this.mlytitm_cmbMes.Text = "Mes:";
             this.mlytitm_cmbMes.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.mlytitm_cmbMes.TextSize = new System.Drawing.Size(50, 20);
             this.mlytitm_cmbMes.TextToControlDistance = 5;
             // 
-            // emptySpaceItem5
+            // mempty_speanno
             // 
-            this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem5.MaxSize = new System.Drawing.Size(0, 17);
-            this.emptySpaceItem5.MinSize = new System.Drawing.Size(10, 17);
-            this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(431, 17);
-            this.emptySpaceItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 47);
-            this.emptySpaceItem4.MaxSize = new System.Drawing.Size(0, 10);
-            this.emptySpaceItem4.MinSize = new System.Drawing.Size(10, 10);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(431, 10);
-            this.emptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.mempty_speanno.AllowHotTrack = false;
+            this.mempty_speanno.Location = new System.Drawing.Point(192, 0);
+            this.mempty_speanno.MaxSize = new System.Drawing.Size(268, 36);
+            this.mempty_speanno.MinSize = new System.Drawing.Size(268, 36);
+            this.mempty_speanno.Name = "mempty_speanno";
+            this.mempty_speanno.Size = new System.Drawing.Size(268, 36);
+            this.mempty_speanno.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.mempty_speanno.TextSize = new System.Drawing.Size(0, 0);
             // 
             // mempty_cmbmes
             // 
             this.mempty_cmbmes.AllowHotTrack = false;
-            this.mempty_cmbmes.Location = new System.Drawing.Point(421, 57);
+            this.mempty_cmbmes.Location = new System.Drawing.Point(192, 36);
+            this.mempty_cmbmes.MaxSize = new System.Drawing.Size(268, 36);
+            this.mempty_cmbmes.MinSize = new System.Drawing.Size(268, 36);
             this.mempty_cmbmes.Name = "mempty_cmbmes";
-            this.mempty_cmbmes.Size = new System.Drawing.Size(10, 30);
+            this.mempty_cmbmes.Size = new System.Drawing.Size(268, 36);
+            this.mempty_cmbmes.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.mempty_cmbmes.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // mlytitm_pagostiemporeal
+            // mlytitm_Param_mesyearini
             // 
-            this.mlytitm_pagostiemporeal.Control = this.mchk_pagostiemporeal;
-            this.mlytitm_pagostiemporeal.Location = new System.Drawing.Point(192, 17);
-            this.mlytitm_pagostiemporeal.MaxSize = new System.Drawing.Size(197, 30);
-            this.mlytitm_pagostiemporeal.MinSize = new System.Drawing.Size(197, 30);
-            this.mlytitm_pagostiemporeal.Name = "mlytitm_pagostiemporeal";
-            this.mlytitm_pagostiemporeal.Padding = new DevExpress.XtraLayout.Utils.Padding(12, 2, 2, 2);
-            this.mlytitm_pagostiemporeal.Size = new System.Drawing.Size(197, 30);
-            this.mlytitm_pagostiemporeal.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.mlytitm_pagostiemporeal.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.mlytitm_pagostiemporeal.TextSize = new System.Drawing.Size(0, 0);
-            this.mlytitm_pagostiemporeal.TextToControlDistance = 0;
-            this.mlytitm_pagostiemporeal.TextVisible = false;
+            this.mlytitm_Param_mesyearini.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.mlytitm_Param_mesyearini.AppearanceItemCaption.Options.UseFont = true;
+            this.mlytitm_Param_mesyearini.Control = this.mdte_Param_mesyearini;
+            this.mlytitm_Param_mesyearini.Location = new System.Drawing.Point(0, 72);
+            this.mlytitm_Param_mesyearini.MaxSize = new System.Drawing.Size(230, 36);
+            this.mlytitm_Param_mesyearini.MinSize = new System.Drawing.Size(230, 30);
+            this.mlytitm_Param_mesyearini.Name = "mlytitm_Param_mesyearini";
+            this.mlytitm_Param_mesyearini.Size = new System.Drawing.Size(230, 30);
+            this.mlytitm_Param_mesyearini.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.mlytitm_Param_mesyearini.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 6);
+            this.mlytitm_Param_mesyearini.Text = "Mes/Año Inicial:";
+            this.mlytitm_Param_mesyearini.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.mlytitm_Param_mesyearini.TextSize = new System.Drawing.Size(110, 20);
+            this.mlytitm_Param_mesyearini.TextToControlDistance = 5;
             // 
-            // mempty_speanno
+            // mlytitm_Param_mesyearfin
             // 
-            this.mempty_speanno.AllowHotTrack = false;
-            this.mempty_speanno.Location = new System.Drawing.Point(389, 17);
-            this.mempty_speanno.MaxSize = new System.Drawing.Size(21, 30);
-            this.mempty_speanno.MinSize = new System.Drawing.Size(21, 30);
-            this.mempty_speanno.Name = "mempty_speanno";
-            this.mempty_speanno.Size = new System.Drawing.Size(42, 30);
-            this.mempty_speanno.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.mempty_speanno.TextSize = new System.Drawing.Size(0, 0);
+            this.mlytitm_Param_mesyearfin.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.mlytitm_Param_mesyearfin.AppearanceItemCaption.Options.UseFont = true;
+            this.mlytitm_Param_mesyearfin.Control = this.mdte_Param_mesyearfin;
+            this.mlytitm_Param_mesyearfin.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.mlytitm_Param_mesyearfin.CustomizationFormText = "layoutControlItem4";
+            this.mlytitm_Param_mesyearfin.Location = new System.Drawing.Point(230, 72);
+            this.mlytitm_Param_mesyearfin.MaxSize = new System.Drawing.Size(230, 36);
+            this.mlytitm_Param_mesyearfin.MinSize = new System.Drawing.Size(230, 30);
+            this.mlytitm_Param_mesyearfin.Name = "mlytitm_Param_mesyearfin";
+            this.mlytitm_Param_mesyearfin.Padding = new DevExpress.XtraLayout.Utils.Padding(12, 2, 2, 2);
+            this.mlytitm_Param_mesyearfin.Size = new System.Drawing.Size(230, 30);
+            this.mlytitm_Param_mesyearfin.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.mlytitm_Param_mesyearfin.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 6);
+            this.mlytitm_Param_mesyearfin.Text = "Mes/Año Final:";
+            this.mlytitm_Param_mesyearfin.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.mlytitm_Param_mesyearfin.TextSize = new System.Drawing.Size(100, 20);
+            this.mlytitm_Param_mesyearfin.TextToControlDistance = 5;
+            // 
+            // mlytitm_Param_cliente
+            // 
+            this.mlytitm_Param_cliente.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.mlytitm_Param_cliente.AppearanceItemCaption.Options.UseFont = true;
+            this.mlytitm_Param_cliente.Control = this.mgle_Param_cliente;
+            this.mlytitm_Param_cliente.Location = new System.Drawing.Point(0, 102);
+            this.mlytitm_Param_cliente.MaxSize = new System.Drawing.Size(460, 36);
+            this.mlytitm_Param_cliente.MinSize = new System.Drawing.Size(460, 36);
+            this.mlytitm_Param_cliente.Name = "mlytitm_Param_cliente";
+            this.mlytitm_Param_cliente.Size = new System.Drawing.Size(460, 36);
+            this.mlytitm_Param_cliente.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.mlytitm_Param_cliente.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 6);
+            this.mlytitm_Param_cliente.Text = "Cliente:";
+            this.mlytitm_Param_cliente.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.mlytitm_Param_cliente.TextSize = new System.Drawing.Size(110, 20);
+            this.mlytitm_Param_cliente.TextToControlDistance = 5;
+            // 
+            // mlcg_indicadores
+            // 
+            this.mlcg_indicadores.ExpandButtonVisible = true;
+            this.mlcg_indicadores.Expanded = false;
+            this.mlcg_indicadores.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.mlytitm_pagosfechaactual,
+            this.mlytitm_comparamesanyoant,
+            this.mlytitm_solofactpendientes});
+            this.mlcg_indicadores.Location = new System.Drawing.Point(0, 177);
+            this.mlcg_indicadores.Name = "mlcg_indicadores";
+            this.mlcg_indicadores.Size = new System.Drawing.Size(484, 30);
+            this.mlcg_indicadores.Text = "Indicadores";
+            // 
+            // mlytitm_pagosfechaactual
+            // 
+            this.mlytitm_pagosfechaactual.Control = this.mchk_pagosfechaactual;
+            this.mlytitm_pagosfechaactual.Location = new System.Drawing.Point(0, 0);
+            this.mlytitm_pagosfechaactual.MaxSize = new System.Drawing.Size(0, 30);
+            this.mlytitm_pagosfechaactual.MinSize = new System.Drawing.Size(197, 30);
+            this.mlytitm_pagosfechaactual.Name = "mlytitm_pagosfechaactual";
+            this.mlytitm_pagosfechaactual.Size = new System.Drawing.Size(460, 30);
+            this.mlytitm_pagosfechaactual.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.mlytitm_pagosfechaactual.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.mlytitm_pagosfechaactual.TextSize = new System.Drawing.Size(0, 0);
+            this.mlytitm_pagosfechaactual.TextToControlDistance = 0;
+            this.mlytitm_pagosfechaactual.TextVisible = false;
             // 
             // mlytitm_comparamesanyoant
             // 
             this.mlytitm_comparamesanyoant.Control = this.mchk_comparamesanyoant;
-            this.mlytitm_comparamesanyoant.Location = new System.Drawing.Point(192, 57);
+            this.mlytitm_comparamesanyoant.Location = new System.Drawing.Point(0, 30);
             this.mlytitm_comparamesanyoant.Name = "mlytitm_comparamesanyoant";
-            this.mlytitm_comparamesanyoant.Size = new System.Drawing.Size(229, 30);
+            this.mlytitm_comparamesanyoant.Size = new System.Drawing.Size(460, 27);
             this.mlytitm_comparamesanyoant.TextSize = new System.Drawing.Size(0, 0);
             this.mlytitm_comparamesanyoant.TextVisible = false;
+            // 
+            // mlytitm_solofactpendientes
+            // 
+            this.mlytitm_solofactpendientes.Control = this.mchk_solofactpendientes;
+            this.mlytitm_solofactpendientes.Location = new System.Drawing.Point(0, 57);
+            this.mlytitm_solofactpendientes.Name = "mlytitm_solofactpendientes";
+            this.mlytitm_solofactpendientes.Size = new System.Drawing.Size(460, 27);
+            this.mlytitm_solofactpendientes.TextSize = new System.Drawing.Size(0, 0);
+            this.mlytitm_solofactpendientes.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(596, 111);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(596, 252);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(421, 99);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(417, 102);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // mlcg_botonesacc
@@ -423,9 +637,9 @@
             this.mlcg_botonesacc.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.layoutControlItem3});
-            this.mlcg_botonesacc.Location = new System.Drawing.Point(330, 111);
+            this.mlcg_botonesacc.Location = new System.Drawing.Point(330, 252);
             this.mlcg_botonesacc.Name = "mlcg_botonesacc";
-            this.mlcg_botonesacc.Size = new System.Drawing.Size(266, 99);
+            this.mlcg_botonesacc.Size = new System.Drawing.Size(266, 102);
             this.mlcg_botonesacc.Text = "Botones de Acción";
             // 
             // layoutControlItem2
@@ -456,60 +670,73 @@
             this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(330, 210);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 10);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(687, 341);
-            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // mempty_filtros
             // 
             this.mempty_filtros.AllowHotTrack = false;
-            this.mempty_filtros.Location = new System.Drawing.Point(777, 0);
+            this.mempty_filtros.Location = new System.Drawing.Point(838, 0);
             this.mempty_filtros.Name = "mempty_filtros";
-            this.mempty_filtros.Size = new System.Drawing.Size(240, 111);
+            this.mempty_filtros.Size = new System.Drawing.Size(175, 252);
             this.mempty_filtros.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem6
+            // 
+            this.emptySpaceItem6.AllowHotTrack = false;
+            this.emptySpaceItem6.Location = new System.Drawing.Point(330, 354);
+            this.emptySpaceItem6.Name = "emptySpaceItem6";
+            this.emptySpaceItem6.Size = new System.Drawing.Size(683, 329);
+            this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // msplashfrm_wait
+            // 
+            this.msplashfrm_wait.ClosingDelay = 500;
             // 
             // frmSistInfCNZF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 551);
+            this.ClientSize = new System.Drawing.Size(1013, 683);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmSistInfCNZF";
             this.Text = "Sistema de Información";
             this.Load += new System.EventHandler(this.frmSistInfCNZF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mgle_Param_cliente.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mclientes_bndsrc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mgle_Param_cliente_grv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_solofactpendientes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearini.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearini.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_comparamesanyoant.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchk_pagostiemporeal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_pagosfechaactual.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speAnno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMes.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtree_sistinf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtree_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mimlFormx16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearfin.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearfin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_filtros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlcg_Params)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_speanno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_cmbMes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mempty_cmbmes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_pagostiemporeal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_speanno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mempty_cmbmes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_Param_mesyearini)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_Param_mesyearfin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_Param_cliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlcg_indicadores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_pagosfechaactual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_comparamesanyoant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_solofactpendientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_botonesacc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -531,8 +758,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmbMes;
         private DevExpress.XtraLayout.LayoutControlItem mlytitm_speanno;
         private DevExpress.XtraLayout.LayoutControlItem mlytitm_cmbMes;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraEditors.SimpleButton mbtn_salir;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem mempty_filtros;
@@ -540,11 +765,26 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem mempty_speanno;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.CheckEdit mchk_pagostiemporeal;
-        private DevExpress.XtraLayout.LayoutControlItem mlytitm_pagostiemporeal;
-        private DevExpress.XtraLayout.EmptySpaceItem mempty_cmbmes;
+        private DevExpress.XtraEditors.CheckEdit mchk_pagosfechaactual;
+        private DevExpress.XtraLayout.LayoutControlItem mlytitm_pagosfechaactual;
         private DevExpress.XtraEditors.CheckEdit mchk_comparamesanyoant;
         private DevExpress.XtraLayout.LayoutControlItem mlytitm_comparamesanyoant;
+        private DevExpress.XtraEditors.DateEdit mdte_Param_mesyearini;
+        private DevExpress.XtraLayout.LayoutControlItem mlytitm_Param_mesyearini;
+        private DevExpress.XtraEditors.DateEdit mdte_Param_mesyearfin;
+        private DevExpress.XtraLayout.LayoutControlItem mlytitm_Param_mesyearfin;
+        private DevExpress.XtraLayout.LayoutControlGroup mlcg_indicadores;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
+        private DevExpress.XtraLayout.LayoutControlGroup mlcg_Params;
+        private DevExpress.XtraLayout.EmptySpaceItem mempty_cmbmes;
+        private DevExpress.XtraEditors.CheckEdit mchk_solofactpendientes;
+        private DevExpress.XtraLayout.LayoutControlItem mlytitm_solofactpendientes;
+        private DevExpress.XtraEditors.GridLookUpEdit mgle_Param_cliente;
+        private DevExpress.XtraGrid.Views.Grid.GridView mgle_Param_cliente_grv;
+        private DevExpress.XtraLayout.LayoutControlItem mlytitm_Param_cliente;
+        private System.Windows.Forms.BindingSource mclientes_bndsrc;
+        private DevExpress.XtraGrid.Columns.GridColumn mgle_Param_cliente_grv_colcli_cod;
+        private DevExpress.XtraGrid.Columns.GridColumn mgle_Param_cliente_grv_colcli_nom;
+        private DevExpress.XtraSplashScreen.SplashScreenManager msplashfrm_wait;
     }
 }

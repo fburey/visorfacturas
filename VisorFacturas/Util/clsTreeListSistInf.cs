@@ -67,6 +67,27 @@ namespace VisorFacturas.Util
                 fldimageidx = 1
             });
 
+            // Nodo hijo 
+            aoTreelst.Add(new viewTreeSistInf()
+            {
+                fldidxrep = 5,
+                fldcodrep = "RPT104",
+                fldnamrep = "Saldo de Clientes",
+                fldcia = 2,
+                fldidxrepReportaA = 1,
+                fldimageidx = 1
+            });
+
+            aoTreelst.Add(new viewTreeSistInf()
+            {
+                fldidxrep = 6,
+                fldcodrep = "RPT105",
+                fldnamrep = "Saldo de Clientes Detallado",
+                fldcia = 2,
+                fldidxrepReportaA = 1,
+                fldimageidx = 1
+            });
+
             return aoTreelst.OrderBy(f => f.fldidxrep).ToList();
         }
 

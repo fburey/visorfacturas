@@ -19,7 +19,7 @@ namespace VisorFacturas.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -339,6 +339,28 @@ namespace VisorFacturas.Properties {
         internal static string xr_proc_metraje_anual {
             get {
                 return ResourceManager.GetString("xr_proc_metraje_anual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT 
+        ///FAC.fac_fac_nu AS &apos;fac_numfac&apos;
+        ///,FAC.fecha AS &apos;fac_fecha&apos;
+        ///,CLI.cli_cod AS &apos;cli_cod&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,UPPER(CLI.cli_regime) AS &apos;tipo_reg&apos;
+        ///,FAC.fac_amo_do as &apos;factotd&apos; 
+        ///,FAC.fac_amount as &apos;factotc&apos;
+        ///,NVL(PAG.pg_recnum, &apos;&apos;) AS &apos;pag_numroc&apos;
+        ///,NVL(PAG.pg_fecpag, CTOD(&apos;&apos;)) AS &apos;pag_fecha&apos;
+        ///,NVL(PAG.pg_amo_dol, 0) AS &apos;pag_totd&apos;
+        ///,NVL(PAG.pg_amount, 0) AS &apos;pag_totc&apos;
+        ///,CAST((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) AS NUMERIC(12,2)) as &apos;sdo_totd&apos;
+        ///,CAST((FAC.fac_amount - NVL(PAG.pg_amount,  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_saldocliente_detallado {
+            get {
+                return ResourceManager.GetString("xr_proc_saldocliente_detallado", resourceCulture);
             }
         }
     }

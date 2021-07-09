@@ -1387,6 +1387,8 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrfactur
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrfacturasmes_Copia.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrfacturasmes.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrmetrajeanual.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrsaldoclientesdetalle.resources
+C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.CNZF.xrsaldoclientes.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienes.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesAll.resources
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.Reports.rptBienesconMontos.resources
@@ -1406,4 +1408,3 @@ C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.application
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csproj.CopyComplete
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.exe
 C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.pdb
-C:\GIT\VisorFacturas\VisorFacturas\obj\Debug\VisorFacturas.csprojAssemblyReference.cache
