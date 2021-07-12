@@ -300,7 +300,7 @@ namespace VisorFacturas.Forms
                 String aofechafin_cadena = "";
                 String aoSentenciaAND_1 = "";
                 String aoSentenciaAND_2 = "";
-                frmviewer aofrmviewer;
+                frmviewer aofrmviewer;                
 
                 // Rellenamos las variables de filtros
                 mpxValidarFiltros();
@@ -958,9 +958,15 @@ namespace VisorFacturas.Forms
                         Reports.CNZF.xrsaldoclientesdetalle aorpt_105 = new Reports.CNZF.xrsaldoclientesdetalle();
                         aorpt_105.DataSource = aolistrpt_105;
                         aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MMMM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MMMM/yyyy"));
+
+                        if (aofiltroind_solofactpendientes)
+                        {
+                            aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
+                        }
+                        
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
                         aofrmviewer = new frmviewer(aorpt_105);
-                        aofrmviewer.Text = aoNombreReporte;
+                        aofrmviewer.Text = aoNombreReporte;                        
                         aofrmviewer.MdiParent = this.MdiParent;
                         aofrmviewer.WindowState = FormWindowState.Maximized;
                         aofrmviewer.Show();
