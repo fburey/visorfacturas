@@ -291,6 +291,50 @@ namespace VisorFacturas.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a SELECT 
+        ///FAC.fac_fac_nu AS &apos;fac_numfac&apos;
+        ///,FAC.fecha AS &apos;fac_fecha&apos;
+        ///,CLI.cli_cod AS &apos;cli_cod&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,UPPER(CLI.cli_regime) AS &apos;tipo_reg&apos;
+        ///,FAC.fac_amo_do as &apos;factotd&apos; 
+        ///,NVL(PAG.pg_recnum, &apos;&apos;) AS &apos;pag_numroc&apos;
+        ///,NVL(PAG.pg_fecpag, CTOD(&apos;&apos;)) AS &apos;pag_fecha&apos;
+        ///,NVL(PAG.pg_amo_dol, 0) AS &apos;pag_totd&apos;
+        ///,CAST((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) AS NUMERIC(12,2)) as &apos;sdo_totd&apos;
+        ///,CAST(((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2}) AS NUMERIC(12,2)) as &apos;sdo_totccalc&apos;
+        ///,CAST(IIF((({1} -  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_antiguedad_saldo_est_cuenta {
+            get {
+                return ResourceManager.GetString("xr_proc_antiguedad_saldo_est_cuenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT
+        ///CLI.cli_cod,
+        ///CLI.cli_nom,
+        ///CLI.cli_regime as &apos;tipo_regim&apos;,
+        ///SUM(FAC.fac_amo_do) as &apos;fac_totd&apos;, 
+        ///SUM(NVL((SELECT SUM(PAG.pg_amo_dol) from PAGOS as PAG where PAG.pg_factura=FAC.fac_fac_nu), 0)) as &apos;pag_totd&apos; 
+        ///FROM FACTURA AS FAC
+        ///INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+        ///where FAC.fecha &lt; {0} 
+        ///{1}
+        ///AND FAC.fac_amo_do &gt; 0
+        ///AND FAC.fac_fac_nu &gt; 100
+        ///AND FAC.tipo = &apos;1&apos;
+        ///
+        ///GROUP BY CLI.cli_cod, CLI.cli_nom, CLI.cli_regime.
+        /// </summary>
+        internal static string xr_proc_clisdo_ANT {
+            get {
+                return ResourceManager.GetString("xr_proc_clisdo_ANT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select
         ///CLI.cli_cod AS &apos;cli_cod&apos;
         ///,CLI.cli_nom AS &apos;cli_nombre&apos;
@@ -339,28 +383,6 @@ namespace VisorFacturas.Properties {
         internal static string xr_proc_metraje_anual {
             get {
                 return ResourceManager.GetString("xr_proc_metraje_anual", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a SELECT 
-        ///FAC.fac_fac_nu AS &apos;fac_numfac&apos;
-        ///,FAC.fecha AS &apos;fac_fecha&apos;
-        ///,CLI.cli_cod AS &apos;cli_cod&apos;
-        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
-        ///,UPPER(CLI.cli_regime) AS &apos;tipo_reg&apos;
-        ///,FAC.fac_amo_do as &apos;factotd&apos; 
-        ///,FAC.fac_amount as &apos;factotc&apos;
-        ///,NVL(PAG.pg_recnum, &apos;&apos;) AS &apos;pag_numroc&apos;
-        ///,NVL(PAG.pg_fecpag, CTOD(&apos;&apos;)) AS &apos;pag_fecha&apos;
-        ///,NVL(PAG.pg_amo_dol, 0) AS &apos;pag_totd&apos;
-        ///,NVL(PAG.pg_amount, 0) AS &apos;pag_totc&apos;
-        ///,CAST((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) AS NUMERIC(12,2)) as &apos;sdo_totd&apos;
-        ///,CAST((FAC.fac_amount - NVL(PAG.pg_amount,  [resto de la cadena truncado]&quot;;.
-        /// </summary>
-        internal static string xr_proc_saldocliente_detallado {
-            get {
-                return ResourceManager.GetString("xr_proc_saldocliente_detallado", resourceCulture);
             }
         }
     }

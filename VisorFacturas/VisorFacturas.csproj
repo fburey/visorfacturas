@@ -24,9 +24,9 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>2021.07.12.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2021.07.14.1</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2021.07.12.%2a</ApplicationVersion>
+    <ApplicationVersion>2021.07.14.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -220,17 +220,17 @@
     <Compile Include="Reports\CNZF\xrmetrajeanual.Designer.cs">
       <DependentUpon>xrmetrajeanual.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\CNZF\xrsaldoclientesdetalle.cs">
+    <Compile Include="Reports\CNZF\xrestado_cta_cliente.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\CNZF\xrsaldoclientesdetalle.Designer.cs">
-      <DependentUpon>xrsaldoclientesdetalle.cs</DependentUpon>
+    <Compile Include="Reports\CNZF\xrestado_cta_cliente.Designer.cs">
+      <DependentUpon>xrestado_cta_cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\CNZF\xrsaldoclientes.cs">
+    <Compile Include="Reports\CNZF\xrantiguedad_saldo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\CNZF\xrsaldoclientes.Designer.cs">
-      <DependentUpon>xrsaldoclientes.cs</DependentUpon>
+    <Compile Include="Reports\CNZF\xrantiguedad_saldo.Designer.cs">
+      <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptBienes.cs">
       <SubType>Component</SubType>
@@ -345,11 +345,11 @@
     <EmbeddedResource Include="Reports\CNZF\xrmetrajeanual.resx">
       <DependentUpon>xrmetrajeanual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\CNZF\xrsaldoclientesdetalle.resx">
-      <DependentUpon>xrsaldoclientesdetalle.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\CNZF\xrestado_cta_cliente.resx">
+      <DependentUpon>xrestado_cta_cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\CNZF\xrsaldoclientes.resx">
-      <DependentUpon>xrsaldoclientes.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\CNZF\xrantiguedad_saldo.resx">
+      <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBienes.resx">
       <DependentUpon>rptBienes.cs</DependentUpon>
@@ -410,6 +410,7 @@
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturasmes.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_metrajeanual.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_saldoclientes.datasource" />
+    <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_sdoant.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

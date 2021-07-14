@@ -33,6 +33,7 @@ namespace VisorFacturas.Forms
         short aoidximage;
         DevExpress.XtraLayout.Utils.LayoutVisibility aoAlways = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
         DevExpress.XtraLayout.Utils.LayoutVisibility aoNever = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+        DateTime aoFecha2000 = new DateTime(2000, 1, 1);
 
         // Variables de Filtros - Parametros
         short aofiltro_mes_entero;
@@ -50,6 +51,7 @@ namespace VisorFacturas.Forms
         // Otras variables
         String aosql_clientes = "Select cli_cod, cli_nom from CLIENTE WHERE tip_regime > 0";
         DataTable acDT_temp;
+        DataTable acDT_temp_02;
 
         #endregion
 
@@ -103,6 +105,53 @@ namespace VisorFacturas.Forms
             (sender as GridLookUpEdit).Properties.View.ClearColumnsFilter();
         }
 
+        private void mrdg_Param_cli_buscarpor_EditValueChanged(object sender, EventArgs e)
+        {
+            RadioGroup aosender = sender as RadioGroup;
+            if (aosender != null)
+            {
+                if (Convert.ToInt16(aosender.EditValue) == 1)
+                {
+                    mlytitm_Param_cliente.Visibility = aoAlways;
+                    mlytitm_Param_codcliente.Visibility = aoNever;
+                }
+                else
+                {
+                    mlytitm_Param_cliente.Visibility = aoNever;
+                    mlytitm_Param_codcliente.Visibility = aoAlways;
+                }
+            }
+        }
+
+        private void mdte_mesyearinifin_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mdte_mesyearinifin_Validated(object sender, EventArgs e)
+        {
+            DateEdit aosender = sender as DateEdit;
+            if (aosender != null)
+            {
+                if (aosender.Tag.ToString() == "mvxmesyear_ini")
+                {
+                    // Si la fecha Inicial pasa a ser mayor que la final
+                    if (aosender.DateTime.Date > mdte_Param_mesyearfin.DateTime.Date)
+                    {
+                        mdte_Param_mesyearfin.DateTime = aosender.DateTime;
+                    }
+                }
+                else if (aosender.Tag.ToString() == "mvxmesyear_fin")
+                {
+                    // Si la fecha Final pasa a ser menor que la inicial
+                    if (aosender.DateTime.Date < mdte_Param_mesyearini.DateTime.Date)
+                    {
+                        mdte_Param_mesyearini.DateTime = aosender.DateTime;
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region METODOS Y FUNCIONES
@@ -114,6 +163,8 @@ namespace VisorFacturas.Forms
             cmbMes.SelectedIndex = DateTime.Now.Month - 1;
             mdte_Param_mesyearini.DateTime = new DateTime(DateTime.Now.Year, 1, 1);
             mdte_Param_mesyearfin.DateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
+            mrdg_Param_cli_buscarpor.EditValue = 1;
+            mrdg_Param_cli_buscarpor.SelectedIndex = 0;
 
             mlcg_Params.ExpandButtonVisible = false;
             mlcg_indicadores.ExpandButtonVisible = false;
@@ -164,7 +215,8 @@ namespace VisorFacturas.Forms
             mempty_cmbmes.Visibility = aoNever;
             mlytitm_Param_mesyearini.Visibility = aoNever;
             mlytitm_Param_mesyearfin.Visibility = aoNever;
-            mlytitm_Param_cliente.Visibility = aoNever;
+            //mlytitm_Param_cliente.Visibility = aoNever;
+            mlcg_cliente.Visibility = aoNever;
             mlcg_Params.Visibility = aoNever;
 
             mlytitm_pagosfechaactual.Visibility = aoNever;
@@ -220,7 +272,7 @@ namespace VisorFacturas.Forms
 
                 case "RPT104":
                     // Saldo de Clientes
-                    mlytitm_Param_mesyearini.Visibility = aoAlways;
+                    //mlytitm_Param_mesyearini.Visibility = aoAlways;
                     mlytitm_Param_mesyearfin.Visibility = aoAlways;
                     mlcg_Params.Visibility = aoAlways;
                     break;
@@ -229,7 +281,8 @@ namespace VisorFacturas.Forms
                     // Saldo de Clientes detallado
                     mlytitm_Param_mesyearini.Visibility = aoAlways;
                     mlytitm_Param_mesyearfin.Visibility = aoAlways;
-                    mlytitm_Param_cliente.Visibility = aoAlways;
+                    //mlytitm_Param_cliente.Visibility = aoAlways;
+                    mlcg_cliente.Visibility = aoAlways;
                     mlcg_Params.Visibility = aoAlways;
 
                     mlytitm_solofactpendientes.Visibility = aoAlways;
@@ -244,7 +297,7 @@ namespace VisorFacturas.Forms
 
         private void mpxValidarFiltros()
         {
-            String aomsgError = "";
+            //String aomsgError = "";
             /**#####################################################################################################################################**/
             // Lo primero que hacemos es actualizar todas las variables con su valor actualizado
 
@@ -262,12 +315,27 @@ namespace VisorFacturas.Forms
             /**#####################################################################################################################################**/
             // Ahora vamos a validar todos aquellos parámetros que estén visibles (si están visibles, es xq el reporte los requiere)
             // Cuenta contable
-            if (mlytitm_Param_cliente.Visibility == aoAlways)
+            if (mlcg_cliente.Visibility == aoAlways)
             {
-                if (String.IsNullOrEmpty(Convert.ToString(mgle_Param_cliente.EditValue)))
-                    aofiltro_codcliente = null;
+                if (Convert.ToInt16(mrdg_Param_cli_buscarpor.EditValue) == 1)
+                {
+                    if (String.IsNullOrEmpty(Convert.ToString(mgle_Param_cliente.EditValue)))
+                        aofiltro_codcliente = null;
+                    else
+                        aofiltro_codcliente = mgle_Param_cliente.EditValue.ToString();
+                }
+                else if (Convert.ToInt16(mrdg_Param_cli_buscarpor.EditValue) == 2)
+                {
+                    if (String.IsNullOrEmpty((mtxt_Param_codcliente.Text)))
+                        aofiltro_codcliente = null;
+                    else
+                        aofiltro_codcliente = mtxt_Param_codcliente.Text.Trim();
+                }
                 else
-                    aofiltro_codcliente = mgle_Param_cliente.EditValue.ToString();
+                {
+                    aofiltro_codcliente = null;
+                }
+
             }
             #endregion
 
@@ -290,8 +358,10 @@ namespace VisorFacturas.Forms
             try
             {
                 // Declaramos las variables locales a ocupar
-                string acSql = "";
+                string acSql_01 = "";
+                string acSql_02 = "";
                 acDT_temp = new DataTable();
+                acDT_temp_02 = new DataTable();
                 short aoanyo_entero_ANT = 0;
                 short aoMES_entero_ANT = 0;
                 decimal aoTasaCambio = 0;
@@ -300,7 +370,7 @@ namespace VisorFacturas.Forms
                 String aofechafin_cadena = "";
                 String aoSentenciaAND_1 = "";
                 String aoSentenciaAND_2 = "";
-                frmviewer aofrmviewer;                
+                frmviewer aofrmviewer;
 
                 // Rellenamos las variables de filtros
                 mpxValidarFiltros();
@@ -321,17 +391,17 @@ namespace VisorFacturas.Forms
                         // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
                         if (aofiltroind_pagosfechaact)
                         {
-                            acSql = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, "");
+                            acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, "");
                         }
                         else
                         {
                             // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
                             aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
-                            acSql = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                            acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
                         }
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
                         {
                             adapt.Fill(acDT_temp);
                         }
@@ -407,12 +477,12 @@ namespace VisorFacturas.Forms
                         #region RPT102
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_metrajeanual> aolistrpt_102 = new List<view_rpt_metrajeanual>();
-                        acSql = String.Format(Resources.xr_proc_metraje_anual, aofiltro_anyo_entero);
+                        acSql_01 = String.Format(Resources.xr_proc_metraje_anual, aofiltro_anyo_entero);
 
                         mpxShowSplashForm();
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
                         {
                             adapt.Fill(acDT_temp);
                         }
@@ -590,13 +660,13 @@ namespace VisorFacturas.Forms
                         }
 
                         // Creamos la consulta
-                        acSql = String.Format(Resources.xr_proc_facturas_compara_mes_act_ant, aofiltro_anyo_entero, aofiltro_mes_entero,
+                        acSql_01 = String.Format(Resources.xr_proc_facturas_compara_mes_act_ant, aofiltro_anyo_entero, aofiltro_mes_entero,
                                                                                                   aoanyo_entero_ANT, aoMES_entero_ANT);
 
                         mpxShowSplashForm();
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
                         {
                             adapt.Fill(acDT_temp);
                         }
@@ -731,17 +801,17 @@ namespace VisorFacturas.Forms
                         }
 
                         //// Rellenamos la consulta SQL
-                        aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
+                        //aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
+                        aofechaini_cadena = "{^" + aoFecha2000.ToString("yyyy/MM/dd") + "}";
                         aofechafin_cadena = "{^" + aofiltro_mesyearfin.ToString("yyyy/MM/dd") + "}";
-                        acSql = String.Format(Resources.xr_proc_saldocliente_detallado, aofechaini_cadena,
+                        acSql_01 = String.Format(Resources.xr_proc_antiguedad_saldo_est_cuenta, aofechaini_cadena,
                                                                               aofechafin_cadena,
                                                                               aoTasaCambio.ToString(),
-                                                                              aoSentenciaAND_1,
-                                                                              aoSentenciaAND_2);
+                                                                              aoSentenciaAND_1);
 
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
                         {
                             adapt.Fill(acDT_temp);
                         }
@@ -753,75 +823,16 @@ namespace VisorFacturas.Forms
                             return;
                         }
 
-                        // Rellenamos la lista que se enviara al reporte
-                        foreach (DataRow item in acDT_temp.Rows)
-                        {
-                            // Variable para capturar registros repetidos, y actualizar valores
-                            List<view_rpt_saldoclientes> aoexistregistro = new List<view_rpt_saldoclientes>();
-                            // Consulta para ubicar registro repetidos
-                            aoexistregistro = (from t in aolistrpt_104.AsQueryable()
-                                               where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
-                                               select t).ToList();
-
-                            if (aoexistregistro.Count > 0)
-                            {
-                                // Si el Numero de Fact ya existe en la lista, solo sumamos en la entidad existente los valores de la tabla PAGOS
-                                view_rpt_saldoclientes aoety_exist = aoexistregistro[0];
-                                Int32 posety = aolistrpt_104.IndexOf(aoety_exist);
-                                aolistrpt_104.RemoveAt(posety);
-
-                                aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
-                                aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
-                                aoety_exist.pag_totd += Decimal.Parse(item["pag_totd"].ToString());
-                                aoety_exist.pag_totc += Decimal.Parse(item["pag_totc"].ToString());
-                                aoety_exist.sdototd -= Decimal.Parse(item["pag_totd"].ToString());
-
-                                if (aoety_exist.sdo_30 > 0)
-                                    aoety_exist.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
-                                else if (aoety_exist.sdo_60 > 0)
-                                    aoety_exist.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
-                                else if (aoety_exist.sdo_60 > 0)
-                                    aoety_exist.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
-                                else
-                                    aoety_exist.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
-
-                                aolistrpt_104.Insert(posety, aoety_exist);
-                            }
-                            else
-                            {
-                                // Si el Numero de Fact NO existe, lo agregamos a la Lista
-                                aolistrpt_104.Add(new view_rpt_saldoclientes()
-                                {
-                                    fac_numfac = item["fac_numfac"].ToString(),
-                                    fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
-                                    cli_cod = item["cli_cod"].ToString(),
-                                    cli_nombre = item["cli_nombre"].ToString(),
-                                    tipo_regimen = item["tipo_reg"].ToString(),
-                                    factotd = Decimal.Parse(item["factotd"].ToString()),
-                                    factotc = Decimal.Parse(item["factotc"].ToString()),
-                                    pag_numroc = item["pag_numroc"].ToString(),
-                                    pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
-                                    pag_totd = Decimal.Parse(item["pag_totd"].ToString()),
-                                    pag_totc = Decimal.Parse(item["pag_totc"].ToString()),
-                                    sdototd = Decimal.Parse(item["sdo_totd"].ToString()),
-                                    sdototc = Decimal.Parse(item["sdo_totc"].ToString()),
-                                    sdototccalc = Decimal.Parse(item["sdo_totccalc"].ToString()),
-                                    sdo_30 = Decimal.Parse(item["sdo_30"].ToString()),
-                                    sdo_60 = Decimal.Parse(item["sdo_60"].ToString()),
-                                    sdo_90 = Decimal.Parse(item["sdo_90"].ToString()),
-                                    sdo_mas90 = Decimal.Parse(item["sdo_mas90"].ToString()),
-                                    dias = int.Parse(item["dias"].ToString())
-                                });
-                            }
-                        }
+                        aolistrpt_104 = mpxFillListRPT104_105(aoTasaCambio);
 
                         mpxCloseSplashForm();
 
                         // Imprimimos el reporte
-                        Reports.CNZF.xrsaldoclientes aorpt_104 = new Reports.CNZF.xrsaldoclientes();
+                        aolistrpt_104 = aolistrpt_104.Where(x => x.sdototd != 0).ToList();
+                        Reports.CNZF.xrantiguedad_saldo aorpt_104 = new Reports.CNZF.xrantiguedad_saldo(aolistrpt_104);
                         aorpt_104.DataSource = aolistrpt_104;
                         aorpt_104.mpxSetTittle(""
-                                               ,"Del: " + aofiltro_mesyearini.ToString("dd/MMMM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MMMM/yyyy")
+                                               , "Al " + aofiltro_mesyearfin.ToString("dd") + " de " + aofiltro_mesyearfin.ToString("MMMM") + " del " + aofiltro_mesyearfin.ToString("yyyy")
                                                , "T/C: " + aoTasaCambio.ToString("#,0.0000"));
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
                         aofrmviewer = new frmviewer(aorpt_104);
@@ -832,11 +843,13 @@ namespace VisorFacturas.Forms
 
                         break;
                     #endregion
-                    case "RPT105":
 
+                    case "RPT105":
                         #region RPT 105
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_saldoclientes> aolistrpt_105 = new List<view_rpt_saldoclientes>();
+                        //List<view_rpt_saldoclientes> aosdoANT_105 = new List<view_rpt_saldoclientes>();
+
 
                         mpxShowSplashForm();
 
@@ -858,115 +871,174 @@ namespace VisorFacturas.Forms
 
                         // Rellenamos la consulta SQL
                         //Para ello hacemos algunas preguntas IF
-                        if (aofiltro_codcliente != null)
+                        if (aofiltro_codcliente == null)
                         {
-                            aoSentenciaAND_1 = String.Format(" AND (FAC.cli_codig = '{0}')", aofiltro_codcliente);
+                            mpxCloseSplashForm();
+                            XtraMessageBox.Show("No ha especificado un cliente", "Faltan datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        else
+                        {
+                            aoSentenciaAND_1 = String.Format("AND (FAC.cli_codig = '{0}')", aofiltro_codcliente);
                         }
 
-                        if (aofiltroind_solofactpendientes)
-                        {
-                            aoSentenciaAND_2 = " AND (pag.pg_recnum is null)";
-                        }
+                        //if (aofiltroind_solofactpendientes)
+                        //{
+                        //    aoSentenciaAND_2 = " AND (pag.pg_recnum is null)";
+                        //}
 
                         aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
                         aofechafin_cadena = "{^" + aofiltro_mesyearfin.ToString("yyyy/MM/dd") + "}";
-                        acSql = String.Format(Resources.xr_proc_saldocliente_detallado, aofechaini_cadena,
+                        // Query Principal
+                        acSql_01 = String.Format(Resources.xr_proc_antiguedad_saldo_est_cuenta, aofechaini_cadena,
                                                                               aofechafin_cadena,
                                                                               aoTasaCambio.ToString(),
-                                                                              aoSentenciaAND_1,
-                                                                              aoSentenciaAND_2);
+                                                                              aoSentenciaAND_1);
+
+                        //// Query secundaria para traer los saldos anteriores
+                        //acSql_02 = String.Format(Resources.xr_proc_clisdo_ANT, aofechaini_cadena,
+                        //                                                       aoSentenciaAND_1);
 
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
                         {
                             adapt.Fill(acDT_temp);
                         }
+
+                        //// Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                        //using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_02, Settings.Default.mCnxCNZF_TablasCXC))
+                        //{
+                        //    adapt.Fill(acDT_temp_02);
+                        //}
 
                         if (acDT_temp.Rows.Count == 0)
                         {
                             mpxCloseSplashForm();
                             XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
+
                         }
+                        //else if (acDT_temp.Rows.Count == 0 && acDT_temp_02.Rows.Count != 0)
+                        //{
+                        //    // Pasamos los registros del Datatable a la Lista SDO
+                        //    acDT_temp_02.AsEnumerable().ToList().ForEach(s => aosdoANT_105.Add(new view_rpt_saldoclientes()
+                        //    {
+                        //        cli_cod = s["cli_cod"].ToString(),
+                        //        cli_nombre = s["cli_nom"].ToString(),
+                        //        factotd = Decimal.Parse(s["fac_totd"].ToString()),
+                        //        pag_totd = Decimal.Parse(s["pag_totd"].ToString())
+                        //    }));
+                        //}
+                        //else if (acDT_temp.Rows.Count != 0 && acDT_temp_02.Rows.Count != 0)
+                        //{
+                        //    // Pasamos los registros del Datatable a la Lista SDO
+                        //    acDT_temp_02.AsEnumerable().ToList().ForEach(s => aosdoANT_105.Add(new view_rpt_saldoclientes()
+                        //    {                                
+                        //        cli_cod = s["cli_cod"].ToString(),
+                        //        cli_nombre = s["cli_nom"].ToString(),                                
+                        //        factotd = Decimal.Parse(s["fac_totd"].ToString()),                                
+                        //        pag_totd = Decimal.Parse(s["pag_totd"].ToString())                                
+                        //    }));
 
-                        // Rellenamos la lista que se enviara al reporte
-                        foreach (DataRow item in acDT_temp.Rows)
-                        {
-                            // Variable para capturar registros repetidos, y actualizar valores
-                            List<view_rpt_saldoclientes> aoexistregistro = new List<view_rpt_saldoclientes>();
-                            // Consulta para ubicar registro repetidos
-                            aoexistregistro = (from t in aolistrpt_105.AsQueryable()
-                                               where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
-                                               select t).ToList();
+                        //    aolistrpt_105 = mpxFillListRPT104_105(aoTasaCambio, aosdoANT_105);
+                        //}
+                        //
 
-                            if (aoexistregistro.Count > 0)
-                            {
-                                // Si el Numero de Fact ya existe en la lista, solo sumamos en la entidad existente los valores de la tabla PAGOS
-                                view_rpt_saldoclientes aoety_exist = aoexistregistro[0];
-                                Int32 posety = aolistrpt_105.IndexOf(aoety_exist);
-                                aolistrpt_105.RemoveAt(posety);
+                        aolistrpt_105 = mpxFillListRPT104_105(aoTasaCambio);
 
-                                aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
-                                aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
-                                aoety_exist.pag_totd += Decimal.Parse(item["pag_totd"].ToString());
-                                aoety_exist.pag_totc += Decimal.Parse(item["pag_totc"].ToString());
-                                aoety_exist.sdototd -= Decimal.Parse(item["pag_totd"].ToString());
+                        #region CODIGO VIEJO 
+                        //// Rellenamos la lista que se enviara al reporte
+                        //foreach (DataRow item in acDT_temp.Rows)
+                        //{
+                        //    // Variable para capturar registros repetidos, y actualizar valores
+                        //    List<view_rpt_saldoclientes> aoexistregistro = new List<view_rpt_saldoclientes>();
+                        //    // Consulta para ubicar registro repetidos
+                        //    aoexistregistro = (from t in aolistrpt_105.AsQueryable()
+                        //                       where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
+                        //                       select t).ToList();
 
-                                if (aoety_exist.sdo_30 > 0)
-                                    aoety_exist.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
-                                else if (aoety_exist.sdo_60 > 0)
-                                    aoety_exist.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
-                                else if (aoety_exist.sdo_60 > 0)
-                                    aoety_exist.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
-                                else
-                                    aoety_exist.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        //    if (aoexistregistro.Count > 0)
+                        //    {
+                        //        //if (aoexistregistro[0].fac_numfac.Trim() == "34934")
+                        //        //{
+                        //        //    MessageBox.Show("Test");
+                        //        //}
 
-                                aolistrpt_105.Insert(posety, aoety_exist);
-                            }
-                            else
-                            {
-                                // Si el Numero de Fact NO existe, lo agregamos a la Lista
-                                aolistrpt_105.Add(new view_rpt_saldoclientes()
-                                {
-                                    fac_numfac = item["fac_numfac"].ToString(),
-                                    fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
-                                    cli_cod = item["cli_cod"].ToString(),
-                                    cli_nombre = item["cli_nombre"].ToString(),
-                                    tipo_regimen = item["tipo_reg"].ToString(),
-                                    factotd = Decimal.Parse(item["factotd"].ToString()),
-                                    factotc = Decimal.Parse(item["factotc"].ToString()),
-                                    pag_numroc = item["pag_numroc"].ToString(),
-                                    pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
-                                    pag_totd = Decimal.Parse(item["pag_totd"].ToString()),
-                                    pag_totc = Decimal.Parse(item["pag_totc"].ToString()),
-                                    sdototd = Decimal.Parse(item["sdo_totd"].ToString()),
-                                    sdototc = Decimal.Parse(item["sdo_totc"].ToString()),
-                                    sdototccalc = Decimal.Parse(item["sdo_totccalc"].ToString()),
-                                    sdo_30 = Decimal.Parse(item["sdo_30"].ToString()),
-                                    sdo_60 = Decimal.Parse(item["sdo_60"].ToString()),
-                                    sdo_90 = Decimal.Parse(item["sdo_90"].ToString()),
-                                    sdo_mas90 = Decimal.Parse(item["sdo_mas90"].ToString()),
-                                    dias = int.Parse(item["dias"].ToString())
-                                });
-                            }
-                        }
+                        //        // Si el Numero de Fact ya existe en la lista, solo sumamos en la entidad existente los valores de la tabla PAGOS
+                        //        view_rpt_saldoclientes aoety_exist = aoexistregistro[0];
+                        //        Int32 posety = aolistrpt_105.IndexOf(aoety_exist);
+                        //        aolistrpt_105.RemoveAt(posety);
+
+                        //        aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
+                        //        aoety_exist.pag_fecha += Environment.NewLine + DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy");
+                        //        aoety_exist.pag_totd += Decimal.Parse(item["pag_totd"].ToString());
+                        //        aoety_exist.pag_totc += Decimal.Parse(item["pag_totc"].ToString());
+                        //        aoety_exist.sdototd -= Decimal.Parse(item["pag_totd"].ToString());
+
+                        //        if (aoety_exist.sdo_30 > 0)
+                        //            aoety_exist.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                        //        else if (aoety_exist.sdo_60 > 0)
+                        //            aoety_exist.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                        //        else if (aoety_exist.sdo_60 > 0)
+                        //            aoety_exist.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        //        else
+                        //            aoety_exist.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+
+                        //        if (aoety_exist.sdototd <= 0)
+                        //            aoety_exist.sdototccalc = 0;
+                        //        else
+                        //            aoety_exist.sdototccalc = aoety_exist.sdototd * aoTasaCambio;
+
+                        //        aolistrpt_105.Insert(posety, aoety_exist);
+                        //    }
+                        //    else
+                        //    {
+                        //        // Si el Numero de Fact NO existe, lo agregamos a la Lista
+                        //        aolistrpt_105.Add(new view_rpt_saldoclientes()
+                        //        {
+                        //            fac_numfac = item["fac_numfac"].ToString(),
+                        //            fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
+                        //            cli_cod = item["cli_cod"].ToString(),
+                        //            cli_nombre = item["cli_nombre"].ToString(),
+                        //            tipo_regimen = item["tipo_reg"].ToString(),
+                        //            factotd = Decimal.Parse(item["factotd"].ToString()),
+                        //            factotc = Decimal.Parse(item["factotc"].ToString()),
+                        //            pag_numroc = item["pag_numroc"].ToString(),
+                        //            pag_fecha = String.IsNullOrEmpty(Convert.ToString(item["pag_fecha"])) ? "" : DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy"),
+                        //            pag_totd = Decimal.Parse(item["pag_totd"].ToString()),
+                        //            pag_totc = Decimal.Parse(item["pag_totc"].ToString()),
+                        //            sdototd = Decimal.Parse(item["sdo_totd"].ToString()),
+                        //            sdototc = Decimal.Parse(item["sdo_totc"].ToString()),
+                        //            sdototccalc = Decimal.Parse(item["sdo_totccalc"].ToString()),
+                        //            sdo_30 = Decimal.Parse(item["sdo_30"].ToString()),
+                        //            sdo_60 = Decimal.Parse(item["sdo_60"].ToString()),
+                        //            sdo_90 = Decimal.Parse(item["sdo_90"].ToString()),
+                        //            sdo_mas90 = Decimal.Parse(item["sdo_mas90"].ToString()),
+                        //            dias = int.Parse(item["dias"].ToString())
+                        //        });
+                        //    }
+                        //}
+                        #endregion
 
                         mpxCloseSplashForm();
 
                         // Imprimimos el reporte
-                        Reports.CNZF.xrsaldoclientesdetalle aorpt_105 = new Reports.CNZF.xrsaldoclientesdetalle();
-                        aorpt_105.DataSource = aolistrpt_105;
-                        aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MMMM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MMMM/yyyy"));
-
+                        Reports.CNZF.xrestado_cta_cliente aorpt_105 = new Reports.CNZF.xrestado_cta_cliente();
+                        aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MM/yyyy"));
                         if (aofiltroind_solofactpendientes)
                         {
+                            aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd != 0 || x.sdo_antd != 0).ToList();
                             aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
                         }
-                        
+                        else
+                        {
+                            aorpt_105.DataSource = aolistrpt_105;
+                        }
+
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
                         aofrmviewer = new frmviewer(aorpt_105);
-                        aofrmviewer.Text = aoNombreReporte;                        
+                        aofrmviewer.Text = aoNombreReporte;
                         aofrmviewer.MdiParent = this.MdiParent;
                         aofrmviewer.WindowState = FormWindowState.Maximized;
                         aofrmviewer.Show();
@@ -1013,6 +1085,131 @@ namespace VisorFacturas.Forms
             }
         }
 
+        private List<view_rpt_saldoclientes> mpxFillListRPT104_105(Decimal paTasaCambio, List<view_rpt_saldoclientes> paSDOANT_lst = null)
+        {
+            List<view_rpt_saldoclientes> aolistrpt = new List<view_rpt_saldoclientes>();
+
+            #region CODIGO PARA PASAR DATOS DEL DATATABLE A UNA LISTA
+            //// Pasamos
+            //acDT_temp.AsEnumerable().ToList().ForEach(s => aolistrpt_104.Add(new view_rpt_saldoclientes() { 
+            //    fac_numfac = s["fac_numfac"].ToString(),
+            //    fac_fecha = DateTime.Parse(s["fac_fecha"].ToString()),
+            //    cli_cod = s["cli_cod"].ToString(),
+            //    cli_nombre = s["cli_nombre"].ToString(),
+            //    tipo_regimen = s["tipo_reg"].ToString(),
+            //    factotd = Decimal.Parse(s["factotd"].ToString()),
+            //    factotc = Decimal.Parse(s["factotc"].ToString()),
+            //    pag_numroc = s["pag_numroc"].ToString(),
+            //    pag_fecha = s["pag_fecha"] != null ? DateTime.Parse(s["pag_fecha"].ToString()) : new DateTime(),
+            //    pag_totd = Decimal.Parse(s["pag_totd"].ToString()),
+            //    pag_totc = Decimal.Parse(s["pag_totc"].ToString()),
+            //    sdototd = Decimal.Parse(s["sdo_totd"].ToString()),
+            //    sdototc = Decimal.Parse(s["sdo_totc"].ToString()),
+            //    sdototccalc = Decimal.Parse(s["sdo_totccalc"].ToString()),
+            //    sdo_30 = Decimal.Parse(s["sdo_30"].ToString()),
+            //    sdo_60 = Decimal.Parse(s["sdo_60"].ToString()),
+            //    sdo_90 = Decimal.Parse(s["sdo_90"].ToString()),
+            //    sdo_mas90 = Decimal.Parse(s["sdo_mas90"].ToString()),
+            //    dias = int.Parse(s["dias"].ToString())
+            //}));
+
+            //var lst_repetidos = (from t in aolistrpt_104.AsQueryable()
+            //                     group t by t.fac_numfac into t_group
+            //                   where t_group.Count() > 1
+            //                     select new
+            //                     {
+            //                         fac_numfac = Convert.ToInt32(t_group.Key),
+            //                         Count = t_group.Count(),
+            //                     }).OrderBy(x => x.fac_numfac).ToList();
+            #endregion
+
+            view_rpt_saldoclientes aoety_exist_ant = new view_rpt_saldoclientes();
+            view_rpt_saldoclientes aoety_exist_act = new view_rpt_saldoclientes();
+            // Rellenamos la lista que se enviara al reporte
+            foreach (DataRow item in acDT_temp.Rows)
+            {
+                //// Para prueba
+                //if (Convert.ToInt32(item["fac_numfac"]) == 7443)
+                //{
+                //    MessageBox.Show("Test");
+                //}
+
+                // Si se repite el numero de Factura, quiere decir que se hizo mas de un recibo para pagar la factura
+                if (Convert.ToInt32(aoety_exist_ant.fac_numfac) == Convert.ToInt32(item["fac_numfac"]))
+                {
+                    // Si el Numero de Fact ya existe en la lista, solo sumamos en la entidad existente los valores de la tabla PAGOS
+                    aoety_exist_act = aoety_exist_ant; //aoexistregistro[0];                                
+
+                    aoety_exist_act.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
+                    aoety_exist_act.pag_fecha += Environment.NewLine + DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy");
+                    aoety_exist_act.pag_totd += Decimal.Parse(item["pag_totd"].ToString());
+                    aoety_exist_act.sdototd -= Decimal.Parse(item["pag_totd"].ToString());
+                    aoety_exist_act.sdo_actd = aoety_exist_ant.sdo_antd + aoety_exist_act.sdototd;
+                    aoety_exist_act.sdo_actccalc = (aoety_exist_ant.sdo_antd + aoety_exist_act.sdototd) * paTasaCambio;
+
+                    if (aoety_exist_act.sdo_30 > 0)
+                        aoety_exist_act.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                    else if (aoety_exist_act.sdo_60 > 0)
+                        aoety_exist_act.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                    else if (aoety_exist_act.sdo_60 > 0)
+                        aoety_exist_act.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                    else
+                        aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+
+                    //if (aoety_exist_act.sdototd <= 0)
+                    //    aoety_exist_act.sdototccalc = 0;
+                    //else
+                    aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
+
+                    //aolistrpt.Remove(aoety_exist_ant); // Quita el registro anterior
+                    //aolistrpt.Add(aoety_exist_act); // Agrega el registro actual que fue modificado
+                }
+                else
+                {
+                    // Si el Numero de Fact NO existe, lo agregamos a la Lista
+                    aoety_exist_act = new view_rpt_saldoclientes()
+                    {
+                        fac_numfac = item["fac_numfac"].ToString(),
+                        fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
+                        cli_cod = item["cli_cod"].ToString(),
+                        cli_nombre = item["cli_nombre"].ToString(),
+                        tipo_regimen = item["tipo_reg"].ToString(),
+                        factotd = Decimal.Parse(item["factotd"].ToString()),
+                        pag_numroc = item["pag_numroc"].ToString(),
+                        pag_fecha = String.IsNullOrEmpty(Convert.ToString(item["pag_fecha"])) ? "" : DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy"),
+                        pag_totd = Decimal.Parse(item["pag_totd"].ToString()),
+                        sdototd = Decimal.Parse(item["sdo_totd"].ToString()),
+                        sdototccalc = Decimal.Parse(item["sdo_totccalc"].ToString()),
+                        sdo_30 = Decimal.Parse(item["sdo_30"].ToString()),
+                        sdo_60 = Decimal.Parse(item["sdo_60"].ToString()),
+                        sdo_90 = Decimal.Parse(item["sdo_90"].ToString()),
+                        sdo_mas90 = Decimal.Parse(item["sdo_mas90"].ToString()),
+                        sdo_antd = Decimal.Parse(item["sdo_antd"].ToString()),
+                        sdo_actd = Decimal.Parse(item["sdo_antd"].ToString())
+                    };
+
+                    // Preguntamos si la lista de Saldo está vacía
+                    //if (paSDOANT_lst != null)
+                    //{
+                    //    view_rpt_saldoclientes aosdo_ety = paSDOANT_lst.FirstOrDefault(x => x.cli_cod.Trim() == aoety_exist_act.cli_cod.Trim());
+                    //    if (aosdo_ety != null)
+                    //    {
+                    //        aoety_exist_act.sdo_ant = (aosdo_ety.factotd - aosdo_ety.pag_totd);
+                    //    }
+                    //}
+
+                    aolistrpt.Add(aoety_exist_act); // Agregamos el registro a la Lista
+                }
+
+                // El registro actual pasa a ser el anterior
+                aoety_exist_ant = aoety_exist_act;
+            }
+
+            return aolistrpt;
+        }
+
         #endregion
+
+
     }
 }

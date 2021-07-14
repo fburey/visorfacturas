@@ -72,7 +72,7 @@ namespace VisorFacturas.Util
             {
                 fldidxrep = 5,
                 fldcodrep = "RPT104",
-                fldnamrep = "Saldo de Clientes",
+                fldnamrep = "Antigüedad por Régimen",
                 fldcia = 2,
                 fldidxrepReportaA = 1,
                 fldimageidx = 1
@@ -82,7 +82,7 @@ namespace VisorFacturas.Util
             {
                 fldidxrep = 6,
                 fldcodrep = "RPT105",
-                fldnamrep = "Saldo de Clientes Detallado",
+                fldnamrep = "Estado de Cuenta de Clientes",
                 fldcia = 2,
                 fldidxrepReportaA = 1,
                 fldimageidx = 1

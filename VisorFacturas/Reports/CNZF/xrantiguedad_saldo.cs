@@ -1,0 +1,77 @@
+﻿using DevExpress.XtraReports.UI;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using VisorFacturas.Clases;
+
+namespace VisorFacturas.Reports.CNZF
+{
+    public partial class xrantiguedad_saldo : DevExpress.XtraReports.UI.XtraReport
+    {
+        List<view_rpt_saldoclientes> aoListRPT;
+        Boolean aovisibleDetail = false;
+        Boolean aovisibleDetailGroup = false;
+
+        public xrantiguedad_saldo(List<view_rpt_saldoclientes> paList)
+        {
+            InitializeComponent();
+            aoListRPT = paList;
+        }
+
+        public void mpxSetTittle(string patittle02 = "", string patittle03 = "", string paTC = "")
+        {
+            if (!String.IsNullOrEmpty(patittle02))
+            {
+                mtblcelTit020.Text = patittle02;
+            }
+            if (!String.IsNullOrEmpty(patittle03))
+            {
+                mtblcelTit030.Text = patittle03;
+            }
+            if (!String.IsNullOrEmpty(paTC))
+            {
+                xrlbl_tasacambio.Text = paTC;
+            }
+        }
+
+        private void gh_cliente_AfterPrint(object sender, EventArgs e)
+        {
+            // Obtengo el ord_numero actual
+            String cli_cod_current = this.GetCurrentColumnValue("cli_cod").ToString();
+            // Filtro las Facturas por Cliente y Lleno el binding source de Detail
+            mdetail_bndsrc.DataSource = aoListRPT.Where(s => s.cli_cod.Trim() == cli_cod_current.Trim()).ToList();
+            aovisibleDetail = true;
+            aovisibleDetailGroup = true;
+        }
+
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Detail.Visible = aovisibleDetail;
+        }
+
+        private void Detail_AfterPrint(object sender, EventArgs e)
+        {
+            aovisibleDetail = false;
+            aovisibleDetailGroup = true;
+        }
+
+        private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            GroupHeader1.Visible = aovisibleDetailGroup;
+        }
+
+        private void Detail1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Detail1.Visible = aovisibleDetailGroup;
+        }
+
+        private void GroupFooter1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            GroupFooter1.Visible = aovisibleDetailGroup;
+            aovisibleDetailGroup = false;
+        }
+    }
+}

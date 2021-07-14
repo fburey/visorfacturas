@@ -16,7 +16,7 @@ namespace VisorFacturas.Clases
         public decimal factotd { get; set; }
         public decimal factotc { get; set; }
         public String pag_numroc { get; set; }
-        public DateTime pag_fecha { get; set; }
+        public String pag_fecha { get; set; }
         public decimal pag_totd { get; set; }
         public decimal pag_totc { get; set; }
         public decimal sdototd { get; set; }
@@ -27,5 +27,8 @@ namespace VisorFacturas.Clases
         public decimal sdo_90 { get; set; }
         public decimal sdo_mas90 { get; set; }
         public int dias { get; set; }
+        public decimal sdo_antd { get; set; }
+        public decimal  sdo_actd { get; set; }
+        public decimal sdo_actccalc { get; set; }
     }
 }
