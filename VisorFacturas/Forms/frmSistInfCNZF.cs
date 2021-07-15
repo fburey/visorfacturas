@@ -807,7 +807,7 @@ namespace VisorFacturas.Forms
                         acSql_01 = String.Format(Resources.xr_proc_antiguedad_saldo_est_cuenta, aofechaini_cadena,
                                                                               aofechafin_cadena,
                                                                               aoTasaCambio.ToString(),
-                                                                              aoSentenciaAND_1);
+                                                                              /*aoSentenciaAND_1*/ "AND (1=1)");
 
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
@@ -828,7 +828,7 @@ namespace VisorFacturas.Forms
                         mpxCloseSplashForm();
 
                         // Imprimimos el reporte
-                        aolistrpt_104 = aolistrpt_104.Where(x => x.sdototd != 0).ToList();
+                        aolistrpt_104 = aolistrpt_104.Where(x => x.sdototd > 0).ToList();
                         Reports.CNZF.xrantiguedad_saldo aorpt_104 = new Reports.CNZF.xrantiguedad_saldo(aolistrpt_104);
                         aorpt_104.DataSource = aolistrpt_104;
                         aorpt_104.mpxSetTittle(""
@@ -1028,7 +1028,7 @@ namespace VisorFacturas.Forms
                         aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MM/yyyy"));
                         if (aofiltroind_solofactpendientes)
                         {
-                            aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd != 0 || x.sdo_antd != 0).ToList();
+                            aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd > 0).ToList();
                             aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
                         }
                         else
@@ -1156,10 +1156,13 @@ namespace VisorFacturas.Forms
                     else
                         aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
 
-                    //if (aoety_exist_act.sdototd <= 0)
-                    //    aoety_exist_act.sdototccalc = 0;
-                    //else
-                    aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
+                    if (aoety_exist_act.sdototd <= 0)
+                    {
+                        aoety_exist_act.sdototccalc = 0;
+                        aoety_exist_act.sdototd = 0;
+                    }                        
+                    else
+                        aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
 
                     //aolistrpt.Remove(aoety_exist_ant); // Quita el registro anterior
                     //aolistrpt.Add(aoety_exist_act); // Agrega el registro actual que fue modificado
@@ -1187,6 +1190,14 @@ namespace VisorFacturas.Forms
                         sdo_antd = Decimal.Parse(item["sdo_antd"].ToString()),
                         sdo_actd = Decimal.Parse(item["sdo_antd"].ToString())
                     };
+
+                    if (aoety_exist_act.sdototd <= 0)
+                    {
+                        aoety_exist_act.sdototccalc = 0;
+                        aoety_exist_act.sdototd = 0;
+                    }
+                    //else
+                    //    aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
 
                     // Preguntamos si la lista de Saldo está vacía
                     //if (paSDOANT_lst != null)

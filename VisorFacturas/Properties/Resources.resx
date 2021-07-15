@@ -264,12 +264,12 @@ FAC.fac_fac_nu AS 'fac_numfac'
 ,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
 ,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
 ,NVL(PAG.pg_amo_dol, 0) AS 'pag_totd'
-,CAST((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) AS NUMERIC(12,2)) as 'sdo_totd'
-,CAST(((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2}) AS NUMERIC(12,2)) as 'sdo_totccalc'
-,CAST(IIF((({1} - FAC.fecha) / {2}) &lt;= 1, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(12,2)) AS 'sdo_30'
-,CAST(IIF(((({1} - FAC.fecha) / {2}) &gt; 1) AND ((({1} - FAC.fecha) / {2}) &lt;= 2), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(10,2)) AS 'sdo_60'
-,CAST(IIF(((({1} - FAC.fecha) / {2}) &gt; 2) AND ((({1} - FAC.fecha) / {2}) &lt;= 3), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(10,2)) AS 'sdo_90'
-,CAST(IIF((({1} - FAC.fecha) / {2}) &gt; 3, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0) AS NUMERIC(12,2)) AS 'sdo_mas90'
+,CAST(IIF(FAC.Debe == 0, 0, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0))) AS DOUBLE) as 'sdo_totd'
+,CAST(IIF(FAC.Debe == 0, 0, ((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2})) AS DOUBLE) as 'sdo_totccalc'
+,CAST(IIF(FAC.Debe == 0, 0, IIF((({1} - FAC.fecha) / 30.4166) &lt;= 1, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_30'
+,CAST(IIF(FAC.Debe == 0, 0, IIF(((({1} - FAC.fecha) / 30.4166) &gt; 1) AND ((({1} - FAC.fecha) / 30.4166) &lt;= 2), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_60'
+,CAST(IIF(FAC.Debe == 0, 0, IIF(((({1} - FAC.fecha) / 30.4166) &gt; 2) AND ((({1} - FAC.fecha) / 30.4166) &lt;= 3), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_90'
+,CAST(IIF(FAC.Debe == 0, 0, IIF((({1} - FAC.fecha) / 30.4166) &gt; 3, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_mas90'
 ,NVL((
 SELECT
 (SUM(FAC2.fac_amo_do) - SUM(NVL((SELECT SUM(PAG2.pg_amo_dol) from PAGOS as PAG2 where PAG2.pg_factura=FAC2.fac_fac_nu), 0)))
@@ -280,14 +280,16 @@ AND FAC2.CLI_CODIG = FAC.cli_codig
 AND FAC2.fac_amo_do &gt; 0
 AND FAC2.fac_fac_nu &gt; 100
 AND FAC2.tipo = '1'
+AND (FAC2.Debe Between 1 AND 2)
 ), 0) AS 'sdo_antd'
 FROM CLIENTE AS CLI
-LEFT JOIN FACTURA AS FAC ON FAC.CLI_CODIG = CLI.CLI_COD
+INNER JOIN FACTURA AS FAC ON FAC.CLI_CODIG = CLI.CLI_COD
 LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)
 WHERE 
-FAC.fac_amo_do &gt; 0 AND FAC.tipo == '1' AND FAC.fac_fac_nu &gt; 100
+FAC.fac_amo_do &gt; 0 AND FAC.tipo == '1' AND FAC.fac_fac_nu &gt; 100 
+AND (FAC.Debe Between 0 AND 2)
 AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
-AND (FAC.cli_codig NOT LIKE '04%')
+AND (FAC.cli_codig NOT LIKE '04%' AND FAC.cli_codig NOT LIKE '02%')
 {3}
 ORDER BY FAC.fecha, FAC.fac_fac_nu, PAG.pg_recnum</value>
     <comment>Query para reporte de Antiguedad de Saldos y Estado de Cuenta de Cliente:

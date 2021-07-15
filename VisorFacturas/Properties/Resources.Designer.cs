@@ -301,9 +301,8 @@ namespace VisorFacturas.Properties {
         ///,NVL(PAG.pg_recnum, &apos;&apos;) AS &apos;pag_numroc&apos;
         ///,NVL(PAG.pg_fecpag, CTOD(&apos;&apos;)) AS &apos;pag_fecha&apos;
         ///,NVL(PAG.pg_amo_dol, 0) AS &apos;pag_totd&apos;
-        ///,CAST((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) AS NUMERIC(12,2)) as &apos;sdo_totd&apos;
-        ///,CAST(((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2}) AS NUMERIC(12,2)) as &apos;sdo_totccalc&apos;
-        ///,CAST(IIF((({1} -  [resto de la cadena truncado]&quot;;.
+        ///,CAST(IIF(FAC.Debe == 0, 0, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0))) AS DOUBLE) as &apos;sdo_totd&apos;
+        ///,CAST(IIF(FAC.Debe == 0, 0, ((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2})) AS DOUBLE) as &apos;s [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string xr_proc_antiguedad_saldo_est_cuenta {
             get {
