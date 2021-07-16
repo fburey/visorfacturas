@@ -249,7 +249,7 @@
             this.mchk_solofactpendientes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mchk_solofactpendientes.Properties.Appearance.Options.UseFont = true;
             this.mchk_solofactpendientes.Properties.Caption = "Mostrar solo facturas pendientes";
-            this.mchk_solofactpendientes.Size = new System.Drawing.Size(456, 23);
+            this.mchk_solofactpendientes.Size = new System.Drawing.Size(462, 23);
             this.mchk_solofactpendientes.StyleController = this.layoutControl1;
             this.mchk_solofactpendientes.TabIndex = 13;
             // 
@@ -282,7 +282,7 @@
             this.mchk_comparamesanyoant.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mchk_comparamesanyoant.Properties.Appearance.Options.UseFont = true;
             this.mchk_comparamesanyoant.Properties.Caption = "Comparar el mes entre Años";
-            this.mchk_comparamesanyoant.Size = new System.Drawing.Size(456, 23);
+            this.mchk_comparamesanyoant.Size = new System.Drawing.Size(462, 23);
             this.mchk_comparamesanyoant.StyleController = this.layoutControl1;
             this.mchk_comparamesanyoant.TabIndex = 11;
             // 
@@ -293,7 +293,7 @@
             this.mchk_pagosfechaactual.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mchk_pagosfechaactual.Properties.Appearance.Options.UseFont = true;
             this.mchk_pagosfechaactual.Properties.Caption = "Pagos a la fecha actual";
-            this.mchk_pagosfechaactual.Size = new System.Drawing.Size(456, 23);
+            this.mchk_pagosfechaactual.Size = new System.Drawing.Size(462, 23);
             this.mchk_pagosfechaactual.StyleController = this.layoutControl1;
             this.mchk_pagosfechaactual.TabIndex = 10;
             // 
@@ -692,7 +692,7 @@
             this.mlytitm_pagosfechaactual.MaxSize = new System.Drawing.Size(0, 30);
             this.mlytitm_pagosfechaactual.MinSize = new System.Drawing.Size(197, 30);
             this.mlytitm_pagosfechaactual.Name = "mlytitm_pagosfechaactual";
-            this.mlytitm_pagosfechaactual.Size = new System.Drawing.Size(460, 30);
+            this.mlytitm_pagosfechaactual.Size = new System.Drawing.Size(466, 30);
             this.mlytitm_pagosfechaactual.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.mlytitm_pagosfechaactual.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.mlytitm_pagosfechaactual.TextSize = new System.Drawing.Size(0, 0);
@@ -704,7 +704,7 @@
             this.mlytitm_comparamesanyoant.Control = this.mchk_comparamesanyoant;
             this.mlytitm_comparamesanyoant.Location = new System.Drawing.Point(0, 30);
             this.mlytitm_comparamesanyoant.Name = "mlytitm_comparamesanyoant";
-            this.mlytitm_comparamesanyoant.Size = new System.Drawing.Size(460, 27);
+            this.mlytitm_comparamesanyoant.Size = new System.Drawing.Size(466, 27);
             this.mlytitm_comparamesanyoant.TextSize = new System.Drawing.Size(0, 0);
             this.mlytitm_comparamesanyoant.TextVisible = false;
             // 
@@ -713,7 +713,7 @@
             this.mlytitm_solofactpendientes.Control = this.mchk_solofactpendientes;
             this.mlytitm_solofactpendientes.Location = new System.Drawing.Point(0, 57);
             this.mlytitm_solofactpendientes.Name = "mlytitm_solofactpendientes";
-            this.mlytitm_solofactpendientes.Size = new System.Drawing.Size(460, 27);
+            this.mlytitm_solofactpendientes.Size = new System.Drawing.Size(466, 27);
             this.mlytitm_solofactpendientes.TextSize = new System.Drawing.Size(0, 0);
             this.mlytitm_solofactpendientes.TextVisible = false;
             // 

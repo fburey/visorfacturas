@@ -14,6 +14,8 @@ namespace VisorFacturas.Reports.CNZF
         List<view_rpt_saldoclientes> aoListRPT;
         Boolean aovisibleDetail = false;
         Boolean aovisibleDetailGroup = false;
+        int rowcount = 0;
+        bool ind_va_A_contar = true;
 
         public xrantiguedad_saldo(List<view_rpt_saldoclientes> paList)
         {
@@ -36,6 +38,7 @@ namespace VisorFacturas.Reports.CNZF
                 xrlbl_tasacambio.Text = paTC;
             }
         }
+
 
         private void gh_cliente_AfterPrint(object sender, EventArgs e)
         {
@@ -72,6 +75,16 @@ namespace VisorFacturas.Reports.CNZF
         {
             GroupFooter1.Visible = aovisibleDetailGroup;
             aovisibleDetailGroup = false;
+        }
+
+        private void gh_cliente_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            xrtc_contador.Text = (++rowcount).ToString();
+        }
+
+        private void ReportFooter_AfterPrint(object sender, EventArgs e)
+        {
+            rowcount = 0;
         }
     }
 }

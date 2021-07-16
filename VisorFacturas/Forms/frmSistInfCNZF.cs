@@ -86,7 +86,6 @@ namespace VisorFacturas.Forms
                     mpxHideControls();
                     mbtn_imprimir.Enabled = false;
                 }
-
             }
         }
 
@@ -275,6 +274,9 @@ namespace VisorFacturas.Forms
                     //mlytitm_Param_mesyearini.Visibility = aoAlways;
                     mlytitm_Param_mesyearfin.Visibility = aoAlways;
                     mlcg_Params.Visibility = aoAlways;
+
+                    mlytitm_pagosfechaactual.Visibility = aoAlways;
+                    mlcg_indicadores.Visibility = aoAlways;
                     break;
 
                 case "RPT105":
@@ -286,6 +288,7 @@ namespace VisorFacturas.Forms
                     mlcg_Params.Visibility = aoAlways;
 
                     mlytitm_solofactpendientes.Visibility = aoAlways;
+                    mlytitm_pagosfechaactual.Visibility = aoAlways;
                     mlcg_indicadores.Visibility = aoAlways;
                     break;
             }
@@ -343,7 +346,12 @@ namespace VisorFacturas.Forms
             /***********   GRUPO DE INDICADORES ****************************************************** */
             #region INDICADORES
 
-            // Pagos a la Fecha Actual
+            //// Pagos a la Fecha Actual
+            //if (mlytitm_pagosfechaactual.Visibility == aoAlways)
+            //    aofiltroind_pagosfechaact = mchk_pagosfechaactual.Checked;
+            //else
+            //    aofiltroind_pagosfechaact = false;
+
             aofiltroind_pagosfechaact = mchk_pagosfechaactual.Checked;
             aofiltroind_comparamesyearANT = mchk_comparamesanyoant.Checked;
             aofiltroind_solofactpendientes = mchk_solofactpendientes.Checked;
@@ -804,10 +812,11 @@ namespace VisorFacturas.Forms
                         //aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
                         aofechaini_cadena = "{^" + aoFecha2000.ToString("yyyy/MM/dd") + "}";
                         aofechafin_cadena = "{^" + aofiltro_mesyearfin.ToString("yyyy/MM/dd") + "}";
+                        //aoSentenciaAND_2 = " AND (PAG.pg_fecpag <= " + aofechafin_cadena + ")";
                         acSql_01 = String.Format(Resources.xr_proc_antiguedad_saldo_est_cuenta, aofechaini_cadena,
                                                                               aofechafin_cadena,
                                                                               aoTasaCambio.ToString(),
-                                                                              /*aoSentenciaAND_1*/ "AND (1=1)");
+                                                                              "AND 1=1");
 
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
@@ -871,6 +880,9 @@ namespace VisorFacturas.Forms
 
                         // Rellenamos la consulta SQL
                         //Para ello hacemos algunas preguntas IF
+                        aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
+                        aofechafin_cadena = "{^" + aofiltro_mesyearfin.ToString("yyyy/MM/dd") + "}";
+
                         if (aofiltro_codcliente == null)
                         {
                             mpxCloseSplashForm();
@@ -882,13 +894,15 @@ namespace VisorFacturas.Forms
                             aoSentenciaAND_1 = String.Format("AND (FAC.cli_codig = '{0}')", aofiltro_codcliente);
                         }
 
-                        //if (aofiltroind_solofactpendientes)
+                        //if (aofiltroind_pagosfechaact)
                         //{
-                        //    aoSentenciaAND_2 = " AND (pag.pg_recnum is null)";
+                        //    aoSentenciaAND_2 = " AND (PAG.pg_fecpag <= " + aofechafin_cadena + ")";
                         //}
-
-                        aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
-                        aofechafin_cadena = "{^" + aofiltro_mesyearfin.ToString("yyyy/MM/dd") + "}";
+                        //else
+                        //{
+                        //    aoSentenciaAND_2 = "AND 1=1";
+                        //}
+                        
                         // Query Principal
                         acSql_01 = String.Format(Resources.xr_proc_antiguedad_saldo_est_cuenta, aofechaini_cadena,
                                                                               aofechafin_cadena,
@@ -1125,11 +1139,12 @@ namespace VisorFacturas.Forms
 
             view_rpt_saldoclientes aoety_exist_ant = new view_rpt_saldoclientes();
             view_rpt_saldoclientes aoety_exist_act = new view_rpt_saldoclientes();
+            double aodifday = 0;
             // Rellenamos la lista que se enviara al reporte
             foreach (DataRow item in acDT_temp.Rows)
             {
                 //// Para prueba
-                //if (Convert.ToInt32(item["fac_numfac"]) == 7443)
+                //if (Convert.ToInt32(item["fac_numfac"]) == 36197)
                 //{
                 //    MessageBox.Show("Test");
                 //}
@@ -1138,7 +1153,16 @@ namespace VisorFacturas.Forms
                 if (Convert.ToInt32(aoety_exist_ant.fac_numfac) == Convert.ToInt32(item["fac_numfac"]))
                 {
                     // Si el Numero de Fact ya existe en la lista, solo sumamos en la entidad existente los valores de la tabla PAGOS
-                    aoety_exist_act = aoety_exist_ant; //aoexistregistro[0];                                
+                    aoety_exist_act = aoety_exist_ant; //aoexistregistro[0];
+
+                    if (aofiltroind_pagosfechaact == false /*|| aoCodReporte == "RPT104"*/)
+                    {
+                        // Si la fecha de pago es mayor q la fecha fin mes year, no tomarlos en cuenta los datos de pago (Setearlos a Cero)
+                        if (Convert.ToDateTime(item["pag_fecha"]).Date > aofiltro_mesyearfin.Date)
+                        {
+                            continue;
+                        }
+                    }
 
                     aoety_exist_act.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
                     aoety_exist_act.pag_fecha += Environment.NewLine + DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy");
@@ -1156,10 +1180,14 @@ namespace VisorFacturas.Forms
                     else
                         aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
 
+                    // Formateamos la fecha
+                    //aoety_exist_act.pag_fecha = Convert.ToDateTime(aoety_exist_act.pag_fecha).Year < 2000 ? "" : Convert.ToDateTime(aoety_exist_act.pag_fecha).ToString("dd/MM/yyyy");
+
+
                     if (aoety_exist_act.sdototd <= 0)
                     {
                         aoety_exist_act.sdototccalc = 0;
-                        aoety_exist_act.sdototd = 0;
+                        aoety_exist_act.sdototc = 0;
                     }                        
                     else
                         aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
@@ -1179,7 +1207,7 @@ namespace VisorFacturas.Forms
                         tipo_regimen = item["tipo_reg"].ToString(),
                         factotd = Decimal.Parse(item["factotd"].ToString()),
                         pag_numroc = item["pag_numroc"].ToString(),
-                        pag_fecha = String.IsNullOrEmpty(Convert.ToString(item["pag_fecha"])) ? "" : DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy"),
+                        pag_fecha = Convert.ToDateTime(item["pag_fecha"]).ToString("dd/MM/yyyy"),
                         pag_totd = Decimal.Parse(item["pag_totd"].ToString()),
                         sdototd = Decimal.Parse(item["sdo_totd"].ToString()),
                         sdototccalc = Decimal.Parse(item["sdo_totccalc"].ToString()),
@@ -1191,23 +1219,67 @@ namespace VisorFacturas.Forms
                         sdo_actd = Decimal.Parse(item["sdo_antd"].ToString())
                     };
 
+                    
+                    if (aofiltroind_pagosfechaact == false /* || aoCodReporte == "RPT104"*/)
+                    {
+                        // Esto lo hacemos para ver donde se revive el saldo en la antiguedad
+                        aodifday = Math.Abs((Convert.ToDateTime(item["fac_fecha"]) - aofiltro_mesyearfin).TotalDays / 30.4166);
+
+                        // Si la fecha de pago es mayor q la fecha fin mes year, no tomarlos en cuenta los datos de pago (Setearlos a Cero)
+                        if (Convert.ToDateTime(item["pag_fecha"]).Date > aofiltro_mesyearfin.Date)
+                        {
+                            // Revivimos el saldo de esa factura
+                            aoety_exist_act.sdototd = Decimal.Parse(item["pag_totd"].ToString());
+                            aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
+
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 = Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 = Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 2 && aodifday <= 3)
+                                aoety_exist_act.sdo_90 = Decimal.Parse(item["pag_totd"].ToString());
+                            else
+                                aoety_exist_act.sdo_mas90 = Decimal.Parse(item["pag_totd"].ToString());                            
+
+                            // Limpiamos los campos de pago
+                            aoety_exist_act.pag_numroc = "";
+                            aoety_exist_act.pag_totd = 0;
+                            aoety_exist_act.pag_totc = 0;
+                            aoety_exist_act.pag_fecha = new DateTime(1999, 12, 31).ToString("dd/MM/yyyy");
+                        }
+                    }
+                    else
+                    {
+                        if (aoCodReporte == "RPT105")
+                        {
+                            aoety_exist_act.sdototd = aoety_exist_act.factotd - aoety_exist_act.pag_totd;
+                            aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
+
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 = aoety_exist_act.sdototd;
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 = aoety_exist_act.sdototd;
+                            else if (aodifday > 2 && aodifday <= 3)
+                                aoety_exist_act.sdo_90 = aoety_exist_act.sdototd;
+                            else
+                                aoety_exist_act.sdo_mas90 = aoety_exist_act.sdototd;
+                        }                        
+                    }
+
+                    // Formateamos la fecha
+                    aoety_exist_act.pag_fecha = Convert.ToDateTime(aoety_exist_act.pag_fecha).Year < 2000 ? "" : Convert.ToDateTime(aoety_exist_act.pag_fecha).ToString("dd/MM/yyyy");
+
+                    // Esto lo hacemos porque hay registros de pagos que superan al monto de la factura por centavos,
+                    // entonces para evitar que queden saldos en negativos, seteamos a cero los saldos
                     if (aoety_exist_act.sdototd <= 0)
                     {
                         aoety_exist_act.sdototccalc = 0;
-                        aoety_exist_act.sdototd = 0;
+                        aoety_exist_act.sdototc = 0;
+                        aoety_exist_act.sdo_30 = 0;
+                        aoety_exist_act.sdo_60 = 0;
+                        aoety_exist_act.sdo_90 = 0;
+                        aoety_exist_act.sdo_mas90 = 0;
                     }
-                    //else
-                    //    aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
-
-                    // Preguntamos si la lista de Saldo está vacía
-                    //if (paSDOANT_lst != null)
-                    //{
-                    //    view_rpt_saldoclientes aosdo_ety = paSDOANT_lst.FirstOrDefault(x => x.cli_cod.Trim() == aoety_exist_act.cli_cod.Trim());
-                    //    if (aosdo_ety != null)
-                    //    {
-                    //        aoety_exist_act.sdo_ant = (aosdo_ety.factotd - aosdo_ety.pag_totd);
-                    //    }
-                    //}
 
                     aolistrpt.Add(aoety_exist_act); // Agregamos el registro a la Lista
                 }
