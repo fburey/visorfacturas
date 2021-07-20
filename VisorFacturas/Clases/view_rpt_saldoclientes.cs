@@ -28,7 +28,9 @@ namespace VisorFacturas.Clases
         public decimal sdo_mas90 { get; set; }
         public int dias { get; set; }
         public decimal sdo_antd { get; set; }
-        public decimal  sdo_actd { get; set; }
+        public decimal sdo_actd { get; set; }
         public decimal sdo_actccalc { get; set; }
+        public String concept { get; set; }
+        public Int16 fac_debe { get; set; }
     }
 }

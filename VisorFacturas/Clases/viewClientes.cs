@@ -14,6 +14,6 @@ namespace VisorFacturas.Clases
         public String cli_email1 { get; set; }
         public String cli_email2 { get; set; }
         public String cli_ruc { get; set; }
-
+        public String cli_regimen { get; set; }
     }
 }

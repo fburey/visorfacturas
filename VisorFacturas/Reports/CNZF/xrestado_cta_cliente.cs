@@ -17,11 +17,6 @@ namespace VisorFacturas.Reports.CNZF
             InitializeComponent();
         }
 
-        //public xrestado_cta_cliente(List<view_rpt_saldoclientes> paSDOANT_lst)
-        //{
-        //    InitializeComponent();
-        //    aoSDOANT_lst = paSDOANT_lst;
-        //}
         public void mpxSetTittle(string patittle02 = "", string patittle03 = "")
         {
             if (!String.IsNullOrEmpty(patittle02))
@@ -34,28 +29,57 @@ namespace VisorFacturas.Reports.CNZF
             }            
         }
 
-        private void Detail_AfterPrint(object sender, EventArgs e)
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             view_rpt_saldoclientes aocurrent = (view_rpt_saldoclientes)this.GetCurrentRow();
             if (aocurrent != null)
-                aosdo_ACUM += aocurrent.sdototd;
+            {
+                if (aocurrent.fac_debe == 7)
+                {
+                    aosdo_ANT = aocurrent.sdototd;
+                    xrow_01.Visible = true;
+                    xrow_02.Visible = false;
+                }
+                else
+                {
+                    aosdo_ACUM += aocurrent.sdototd;
+                    xrow_01.Visible = false;
+                    xrow_02.Visible = true;
+                }
+            }
             else
-                aosdo_ACUM += 0;
+            {
+                xrow_02.Visible = true;
+            }
+                
+        }
+
+        private void Detail_AfterPrint(object sender, EventArgs e)
+        {
+            //view_rpt_saldoclientes aocurrent = (view_rpt_saldoclientes)this.GetCurrentRow();
+            //if (aocurrent != null)
+            //    aosdo_ACUM += aocurrent.sdototd;
+            //else
+            //    aosdo_ACUM += 0;
         }
 
         private void GroupFooter1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+            xrtc_SUMSDOTOTD.Text = aosdo_ACUM.ToString("#,0.00");
             xrtc_SDOFIN.Text = (aosdo_ACUM + aosdo_ANT).ToString("#,0.00");
         }
+
+        
 
         private void GroupHeader1_AfterPrint(object sender, EventArgs e)
         {
             aosdo_ACUM = 0;
-            view_rpt_saldoclientes aocurrent = (view_rpt_saldoclientes)this.GetCurrentRow();
-            if (aocurrent != null)
-                aosdo_ANT = aocurrent.sdo_antd;
-            else
-                aosdo_ACUM = 0;
+            aosdo_ANT = 0;
+            //view_rpt_saldoclientes aocurrent = (view_rpt_saldoclientes)this.GetCurrentRow();
+            //if (aocurrent != null)
+            //    aosdo_ANT = aocurrent.sdo_antd;
+            //else
+            //    aosdo_ACUM = 0;
             
         }
     }

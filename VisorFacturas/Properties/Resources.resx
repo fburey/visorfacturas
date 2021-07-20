@@ -253,72 +253,84 @@ OR   (YEAR(FAC.fecha) = {2} AND MONTH(FAC.fecha) = {3})</value>
   <data name="Gobierno" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gobierno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="xr_proc_antiguedad_saldo_est_cuenta" xml:space="preserve">
+  <data name="xr_proc_antiguedad_sdo" xml:space="preserve">
     <value>SELECT 
-FAC.fac_fac_nu AS 'fac_numfac'
-,FAC.fecha AS 'fac_fecha'
-,CLI.cli_cod AS 'cli_cod'
+CLI.cli_cod AS 'cli_cod'
 ,CLI.cli_nom AS 'cli_nombre'
 ,UPPER(CLI.cli_regime) AS 'tipo_reg'
-,FAC.fac_amo_do as 'factotd' 
+,FAC.fecha AS 'fac_fecha'
+,FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fac_amo_do as 'factotd'
+,NVL(PAG.pg_amo_dol, 0) as 'pag_totd'
 ,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
 ,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
-,NVL(PAG.pg_amo_dol, 0) AS 'pag_totd'
-,CAST(IIF(FAC.Debe == 0, 0, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0))) AS DOUBLE) as 'sdo_totd'
-,CAST(IIF(FAC.Debe == 0, 0, ((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2})) AS DOUBLE) as 'sdo_totccalc'
-,CAST(IIF(FAC.Debe == 0, 0, IIF((({1} - FAC.fecha) / 30.4166) &lt;= 1, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_30'
-,CAST(IIF(FAC.Debe == 0, 0, IIF(((({1} - FAC.fecha) / 30.4166) &gt; 1) AND ((({1} - FAC.fecha) / 30.4166) &lt;= 2), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_60'
-,CAST(IIF(FAC.Debe == 0, 0, IIF(((({1} - FAC.fecha) / 30.4166) &gt; 2) AND ((({1} - FAC.fecha) / 30.4166) &lt;= 3), (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_90'
-,CAST(IIF(FAC.Debe == 0, 0, IIF((({1} - FAC.fecha) / 30.4166) &gt; 3, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)), 0)) AS DOUBLE) AS 'sdo_mas90'
-,NVL((
-SELECT
-(SUM(FAC2.fac_amo_do) - SUM(NVL((SELECT SUM(PAG2.pg_amo_dol) from PAGOS as PAG2 where PAG2.pg_factura=FAC2.fac_fac_nu), 0)))
-FROM FACTURA AS FAC2
-INNER JOIN CLIENTE AS CLI2 ON FAC2.CLI_CODIG = CLI2.CLI_COD
-where FAC2.fecha &lt; {0}
-AND FAC2.CLI_CODIG = FAC.cli_codig
-AND FAC2.fac_amo_do &gt; 0
-AND FAC2.fac_fac_nu &gt; 100
-AND FAC2.tipo = '1'
-AND (FAC2.Debe Between 1 AND 2)
-), 0) AS 'sdo_antd'
+,FAC.Debe as 'fac_debe'
 FROM FACTURA AS FAC
 INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
-LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod_cli {2})
 WHERE 
-FAC.fac_amo_do &gt; 0 AND FAC.tipo == '1' AND FAC.fac_fac_nu &gt; 100 
-AND (FAC.Debe Between 0 AND 2)
+FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; '' 
 AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
-AND (FAC.cli_codig NOT LIKE '04%' AND FAC.cli_codig NOT LIKE '02%')
-{3}
+AND (FAC.cli_codig LIKE '0112%')
+AND ((FAC.Debe = 0 AND PAG.pg_fecpag IS NULL) OR (FAC.Debe Between 1 AND 2))
 ORDER BY FAC.fecha, FAC.fac_fac_nu, PAG.pg_recnum</value>
+    <comment>Query para obtener la antiguedad de saldos de los clientes a partir de una fecha especificada:
+
+
+
+Parámetros:
+{0}: Fecha Inicial
+{1}: Fecha Final
+{2}: Corte de fechas de Pago (a la fecha final especificada)</comment>
+  </data>
+  <data name="xr_proc_estado_cuenta" xml:space="preserve">
+    <value>SELECT 
+CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,UPPER(CLI.cli_regime) AS 'tipo_reg'
+,'Saldo Inicial' as 'concept'
+,CTOD('') AS 'fac_fecha'
+,1 AS 'fac_numfac'
+,SUM(FAC.fac_amo_do) as 'fac_totd' 
+,SUM(NVL((SELECT SUM(PAG.pg_amo_dol) from PAGOS as PAG where PAG.pg_factura=FAC.fac_fac_nu AND FAC.CLI_CODIG = PAG.pg_cod_cli), 0)) as 'pag_totd'
+,'' AS 'pag_numroc'
+,CTOD('') AS 'pag_fecha'
+,7 as 'fac_debe'
+FROM CLIENTE AS CLI 
+LEFT JOIN FACTURA AS FAC ON FAC.CLI_CODIG = CLI.CLI_COD
+WHERE 
+(CLI.cli_cod LIKE '0112%' {2})
+AND FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; ''  
+AND (FAC.fecha &lt; {0})
+AND (FAC.Debe Between 1 AND 2)
+GROUP BY CLI.cli_cod, CLI.cli_nom, CLI.cli_regime
+UNION ALL
+SELECT 
+CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,UPPER(CLI.cli_regime) AS 'tipo_reg'
+,IIF(FAC.Tipo == '1', 'Factura Mensual', IIF(FAC.Tipo == 'D', 'Nota de Débito', '')) as 'concept'
+,FAC.fecha AS 'fac_fecha'
+,FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fac_amo_do as 'factotd'
+,NVL(PAG.pg_amo_dol, 0) as 'pag_totd'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,FAC.Debe as 'fac_debe'
+FROM FACTURA AS FAC
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod_cli {3})
+WHERE 
+FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; '' 
+AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
+AND (FAC.cli_codig LIKE '0112%' {2})
+AND ((FAC.Debe = 0) OR (FAC.Debe Between 1 AND 2))
+ORDER BY CLI.cli_cod, FAC.fecha, FAC.fac_fac_nu</value>
     <comment>Query para reporte de Antiguedad de Saldos y Estado de Cuenta de Cliente:
 Parámetros:
 {0}: Fecha Inicial
 {1}: Fecha Final
-{2}: Tasa de Fecha Final
-{3}: Filtra por un Cliente</comment>
-  </data>
-  <data name="xr_proc_clisdo_ANT" xml:space="preserve">
-    <value>SELECT
-CLI.cli_cod,
-CLI.cli_nom,
-CLI.cli_regime as 'tipo_regim',
-SUM(FAC.fac_amo_do) as 'fac_totd', 
-SUM(NVL((SELECT SUM(PAG.pg_amo_dol) from PAGOS as PAG where PAG.pg_factura=FAC.fac_fac_nu), 0)) as 'pag_totd' 
-FROM FACTURA AS FAC
-INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
-where FAC.fecha &lt; {0} 
-{1}
-AND FAC.fac_amo_do &gt; 0
-AND FAC.fac_fac_nu &gt; 100
-AND FAC.tipo = '1'
-
-GROUP BY CLI.cli_cod, CLI.cli_nom, CLI.cli_regime</value>
-    <comment>Query para obtener el saldo anterior de los clientes a partir de una fecha especificada:
-
-Parámetros:
-{0}: Fecha Inicial
-{1}: Código Cliente</comment>
+{2}: Filtra por un Cliente
+{3}: Corte de fechas de Pago (a la fecha final especificada)</comment>
   </data>
 </root>

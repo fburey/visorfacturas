@@ -292,44 +292,46 @@ namespace VisorFacturas.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a SELECT 
-        ///FAC.fac_fac_nu AS &apos;fac_numfac&apos;
-        ///,FAC.fecha AS &apos;fac_fecha&apos;
-        ///,CLI.cli_cod AS &apos;cli_cod&apos;
+        ///CLI.cli_cod AS &apos;cli_cod&apos;
         ///,CLI.cli_nom AS &apos;cli_nombre&apos;
         ///,UPPER(CLI.cli_regime) AS &apos;tipo_reg&apos;
-        ///,FAC.fac_amo_do as &apos;factotd&apos; 
+        ///,FAC.fecha AS &apos;fac_fecha&apos;
+        ///,FAC.fac_fac_nu AS &apos;fac_numfac&apos;
+        ///,FAC.fac_amo_do as &apos;factotd&apos;
+        ///,NVL(PAG.pg_amo_dol, 0) as &apos;pag_totd&apos;
         ///,NVL(PAG.pg_recnum, &apos;&apos;) AS &apos;pag_numroc&apos;
         ///,NVL(PAG.pg_fecpag, CTOD(&apos;&apos;)) AS &apos;pag_fecha&apos;
-        ///,NVL(PAG.pg_amo_dol, 0) AS &apos;pag_totd&apos;
-        ///,CAST(IIF(FAC.Debe == 0, 0, (FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0))) AS DOUBLE) as &apos;sdo_totd&apos;
-        ///,CAST(IIF(FAC.Debe == 0, 0, ((FAC.fac_amo_do - NVL(PAG.pg_amo_dol, 0)) * {2})) AS DOUBLE) as &apos;s [resto de la cadena truncado]&quot;;.
+        ///,FAC.Debe as &apos;fac_debe&apos;
+        ///FROM FACTURA AS FAC
+        ///INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+        ///LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string xr_proc_antiguedad_saldo_est_cuenta {
+        internal static string xr_proc_antiguedad_sdo {
             get {
-                return ResourceManager.GetString("xr_proc_antiguedad_saldo_est_cuenta", resourceCulture);
+                return ResourceManager.GetString("xr_proc_antiguedad_sdo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT
-        ///CLI.cli_cod,
-        ///CLI.cli_nom,
-        ///CLI.cli_regime as &apos;tipo_regim&apos;,
-        ///SUM(FAC.fac_amo_do) as &apos;fac_totd&apos;, 
-        ///SUM(NVL((SELECT SUM(PAG.pg_amo_dol) from PAGOS as PAG where PAG.pg_factura=FAC.fac_fac_nu), 0)) as &apos;pag_totd&apos; 
-        ///FROM FACTURA AS FAC
-        ///INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
-        ///where FAC.fecha &lt; {0} 
-        ///{1}
-        ///AND FAC.fac_amo_do &gt; 0
-        ///AND FAC.fac_fac_nu &gt; 100
-        ///AND FAC.tipo = &apos;1&apos;
-        ///
-        ///GROUP BY CLI.cli_cod, CLI.cli_nom, CLI.cli_regime.
+        ///   Busca una cadena traducida similar a SELECT 
+        ///CLI.cli_cod AS &apos;cli_cod&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,UPPER(CLI.cli_regime) AS &apos;tipo_reg&apos;
+        ///,&apos;Saldo Inicial&apos; as &apos;concept&apos;
+        ///,CTOD(&apos;&apos;) AS &apos;fac_fecha&apos;
+        ///,1 AS &apos;fac_numfac&apos;
+        ///,SUM(FAC.fac_amo_do) as &apos;fac_totd&apos; 
+        ///,SUM(NVL((SELECT SUM(PAG.pg_amo_dol) from PAGOS as PAG where PAG.pg_factura=FAC.fac_fac_nu AND FAC.CLI_CODIG = PAG.pg_cod_cli), 0)) as &apos;pag_totd&apos;
+        ///,&apos;&apos; AS &apos;pag_numroc&apos;
+        ///,CTOD(&apos;&apos;) AS &apos;pag_fecha&apos;
+        ///,7 as &apos;fac_debe&apos;
+        ///FROM CLIENTE AS CLI 
+        ///LEFT JOIN FACTURA AS FAC ON FAC.CLI_CODIG = CLI.CLI_COD
+        ///WHER [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string xr_proc_clisdo_ANT {
+        internal static string xr_proc_estado_cuenta {
             get {
-                return ResourceManager.GetString("xr_proc_clisdo_ANT", resourceCulture);
+                return ResourceManager.GetString("xr_proc_estado_cuenta", resourceCulture);
             }
         }
         
