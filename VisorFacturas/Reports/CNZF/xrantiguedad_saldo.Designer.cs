@@ -30,6 +30,7 @@ namespace VisorFacturas.Reports.CNZF
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
@@ -43,14 +44,13 @@ namespace VisorFacturas.Reports.CNZF
             DevExpress.XtraReports.UI.XRSummary xrSummary11 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary12 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary13 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary14 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary15 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary16 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary17 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary18 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary19 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary20 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary14 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -70,6 +70,7 @@ namespace VisorFacturas.Reports.CNZF
             this.xrTableCell54 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrtc_contador = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -146,6 +147,8 @@ namespace VisorFacturas.Reports.CNZF
             this.xrTableCell59 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell60 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell61 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell24 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -161,9 +164,6 @@ namespace VisorFacturas.Reports.CNZF
             this.xrTableRow7 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell37 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell43 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell60 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell61 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrtc_contador = new DevExpress.XtraReports.UI.XRTableCell();
             this.mdetail_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.mreport_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -437,6 +437,18 @@ namespace VisorFacturas.Reports.CNZF
             this.xrTableRow2.Name = "xrTableRow2";
             this.xrTableRow2.StylePriority.UseBackColor = false;
             this.xrTableRow2.Weight = 0.87272729693956674D;
+            // 
+            // xrtc_contador
+            // 
+            this.xrtc_contador.Font = new System.Drawing.Font("Arial", 8F);
+            this.xrtc_contador.Multiline = true;
+            this.xrtc_contador.Name = "xrtc_contador";
+            this.xrtc_contador.StylePriority.UseFont = false;
+            this.xrtc_contador.StylePriority.UseTextAlignment = false;
+            xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.RecordNumber;
+            this.xrtc_contador.Summary = xrSummary1;
+            this.xrtc_contador.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrtc_contador.Weight = 0.30932241137737621D;
             // 
             // xrTableCell14
             // 
@@ -879,7 +891,7 @@ namespace VisorFacturas.Reports.CNZF
             this.xrTable2});
             this.gh_cliente.DrillDownControl = this.mchk_expandcollapseDetail;
             this.gh_cliente.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("cli_nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            new DevExpress.XtraReports.UI.GroupField("cli_cod", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.gh_cliente.HeightF = 20F;
             this.gh_cliente.Name = "gh_cliente";
             this.gh_cliente.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.gh_cliente_BeforePrint);
@@ -1397,6 +1409,32 @@ namespace VisorFacturas.Reports.CNZF
             this.xrTableRow3.StylePriority.UseBackColor = false;
             this.xrTableRow3.Weight = 1D;
             // 
+            // xrTableCell60
+            // 
+            this.xrTableCell60.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell60.Multiline = true;
+            this.xrTableCell60.Name = "xrTableCell60";
+            this.xrTableCell60.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 8, 0, 0, 100F);
+            this.xrTableCell60.StylePriority.UseFont = false;
+            this.xrTableCell60.StylePriority.UsePadding = false;
+            this.xrTableCell60.StylePriority.UseTextAlignment = false;
+            this.xrTableCell60.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell60.Weight = 2.3131865792802797D;
+            // 
+            // xrTableCell61
+            // 
+            this.xrTableCell61.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell61.Multiline = true;
+            this.xrTableCell61.Name = "xrTableCell61";
+            this.xrTableCell61.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 8, 0, 0, 100F);
+            this.xrTableCell61.StylePriority.UseFont = false;
+            this.xrTableCell61.StylePriority.UsePadding = false;
+            this.xrTableCell61.StylePriority.UseTextAlignment = false;
+            xrSummary14.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            this.xrTableCell61.Summary = xrSummary14;
+            this.xrTableCell61.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell61.Weight = 1.2169559398369421D;
+            // 
             // xrTableCell24
             // 
             this.xrTableCell24.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
@@ -1569,44 +1607,6 @@ namespace VisorFacturas.Reports.CNZF
             this.xrTableCell43.Name = "xrTableCell43";
             this.xrTableCell43.StylePriority.UseBorders = false;
             this.xrTableCell43.Weight = 1.6556961458360311D;
-            // 
-            // xrTableCell60
-            // 
-            this.xrTableCell60.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrTableCell60.Multiline = true;
-            this.xrTableCell60.Name = "xrTableCell60";
-            this.xrTableCell60.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 8, 0, 0, 100F);
-            this.xrTableCell60.StylePriority.UseFont = false;
-            this.xrTableCell60.StylePriority.UsePadding = false;
-            this.xrTableCell60.StylePriority.UseTextAlignment = false;
-            this.xrTableCell60.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell60.Weight = 2.3131865792802797D;
-            // 
-            // xrTableCell61
-            // 
-            this.xrTableCell61.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.xrTableCell61.Multiline = true;
-            this.xrTableCell61.Name = "xrTableCell61";
-            this.xrTableCell61.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 8, 0, 0, 100F);
-            this.xrTableCell61.StylePriority.UseFont = false;
-            this.xrTableCell61.StylePriority.UsePadding = false;
-            this.xrTableCell61.StylePriority.UseTextAlignment = false;
-            xrSummary14.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            this.xrTableCell61.Summary = xrSummary14;
-            this.xrTableCell61.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell61.Weight = 1.2169559398369421D;
-            // 
-            // xrtc_contador
-            // 
-            this.xrtc_contador.Font = new System.Drawing.Font("Arial", 8F);
-            this.xrtc_contador.Multiline = true;
-            this.xrtc_contador.Name = "xrtc_contador";
-            this.xrtc_contador.StylePriority.UseFont = false;
-            this.xrtc_contador.StylePriority.UseTextAlignment = false;
-            xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.RecordNumber;
-            this.xrtc_contador.Summary = xrSummary1;
-            this.xrtc_contador.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrtc_contador.Weight = 0.30932241137737621D;
             // 
             // mdetail_bndsrc
             // 
