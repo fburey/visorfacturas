@@ -20,18 +20,14 @@ using System.Net;
 using DevExpress.XtraLayout;
 using DevExpress.Utils;
 using System.Net.Mime;
+using static VisorFacturas.Util.clsSendmail_richtext;
 
 namespace VisorFacturas.Forms
 {
     public partial class frmFacturas : DevExpress.XtraEditors.XtraForm
     {
-        public frmFacturas(tblUser paCurrentUser)
-        {
-            InitializeComponent();
-            this.moCurrentUser = paCurrentUser;
-        }
 
-        #region "DECLARACION E INSTANCIA DE VARIABLES GLOBALES"
+        #region VARIABLES GLOBALES Y FORMULARIOS MODALES
 
         // Usuario del sistema
         tblUser moCurrentUser;
@@ -62,7 +58,7 @@ namespace VisorFacturas.Forms
 
         String sqlClientesCNZF = "SELECT cli_cod, cli_nom, (cli_direc1 + ' ' + cli_direc2) AS cli_dir, cli_email1, cli_email2, cli_ruc FROM CLIENTE";
         String sqlFacturas = "SELECT cli_codig, fecha, ord_numero, fac_fac_nu, fac_tasa, fac_amo_do, fac_dolcor, tipo, fac_amount, fac_pagado, fac_pag_do FROM FACTURA WHERE fac_amo_do > 0 AND tipo == '1' order by fac_fac_nu ASC";
-        String sqlRemision = "Select DISTINCT rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
+        String sqlRemision = "Select DISTINCT rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";
         //String sqlRemision = "Select rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
 
         /* DataTables del DataSet - En estas tablas se almacenan los datos */
@@ -108,7 +104,7 @@ namespace VisorFacturas.Forms
                 mlytctrl = new DevExpress.XtraLayout.LayoutControl();
                 mlytctrl.Dock = DockStyle.Fill;
                 SpinEdit spenumfacturaini = new SpinEdit() { Name = "modal_spenumfacturaini" };
-                DateEdit dteFechaFact = new DateEdit() { Name = "modal_dteFechaFact"};
+                DateEdit dteFechaFact = new DateEdit() { Name = "modal_dteFechaFact" };
                 SeparatorControl separatorControl01 = new SeparatorControl();
 
                 // Configuramos el SpinEdit
@@ -132,7 +128,17 @@ namespace VisorFacturas.Forms
 
         #endregion
 
-        #region "FUNCIONES Y MÉTODOS"
+        #region CONSTRUCTORES
+
+        public frmFacturas(tblUser paCurrentUser)
+        {
+            InitializeComponent();
+            this.moCurrentUser = paCurrentUser;
+        }
+
+        #endregion
+
+        #region FUNCIONES Y MÉTODOS
 
         /// <summary>
         /// Verifica si las rutas a los archivos .DBF existen
@@ -351,17 +357,25 @@ namespace VisorFacturas.Forms
         {
             try
             {
-                //if (1 == 1) return;
-
-                //SmtpClient server = new SmtpClient(smtpCORREO);
                 MailMessage mail = new MailMessage();
+                // creamos el objeto mail
                 mail.From = new MailAddress(From, NameFrom);
+                mail.Subject = Subject.Trim();
 
+                // Agregamos los destinatarios
                 foreach (var t in to)
                 {
-                    if (!String.IsNullOrEmpty(t))
+                    if (!String.IsNullOrEmpty(t))                    
+                        mail.To.Add(new MailAddress(t));                    
+                }
+
+                // Agregamos los archivos adjuntos (en caso de que hubieran)
+                if (Attachements != null)
+                {
+                    foreach (var attach in Attachements)
                     {
-                        mail.To.Add(new MailAddress(t));
+                        if (!String.IsNullOrEmpty(attach))
+                            mail.Attachments.Add(new Attachment(attach));
                     }
                 }
 
@@ -383,48 +397,54 @@ namespace VisorFacturas.Forms
                     }
                 }
 
-                mail.Subject = Subject.Trim();
+                /*********************************************************************************************************************/
+                /*                                                CUERPO DEL MENSAJE                                                 */
+                /*********************************************************************************************************************/
+                // Si el parámetro Mensaje viene vacío, entonces tomamos lo que esta escrito en el campo de texto Mensaje
+                if (String.IsNullOrEmpty(Message))
+                {
+                    // Preguntamos qué pestaña del cuerpo del mensaje se está mostrando actualmente
+                    if (xtcCuerpoMail.SelectedTabPage == xtpTextoNormal)  // ******* TEXTO NORMAL
+                    {
+                        mail.Body = txtCuerpo.Text.Trim();
+                    }
+                    else // ******************************************************** TEXTO ENRIQUECIDO
+                    {
+                        RichEditMailMessageExporter exporter = new RichEditMailMessageExporter(mrtxt_cuerpoMail, mail);
+                        exporter.Export();
+                    }
+                }
+                else
+                    mail.Body = Message;
 
+                #region CUERPO DEL MENSAJE - A como estaba antes
                 // Para mientras, el envio de facturas se hará por HTML, debido a que en el cuerpo del mensaje se inserta una imagen.
                 // Este tipo de mensaje HTML se creó temporalmente, hasta que se dé la orden de quitar la circular del cuerpo del mensaje
                 // El mensaje html solo afecta al envío de facturas. Para los envios de Aviso, se hace como antes (utilizando el campo de texto CUERPO)
-                if (htmlView != null)
-                {
-                    mail.Body = "";
-                    mail.AlternateViews.Add(htmlView);
-                }
-                else
-                {
-                    mail.Body = Message;
-                }
+                //if (htmlView != null)
+                //{
+                //    mail.Body = "";
+                //    mail.AlternateViews.Add(htmlView);
+                //}
+                //else
+                //{
+                //    mail.Body = Message;
+                //}
+                #endregion
 
-                if (Attachements != null)
+
+                using (var mailSender = new SmtpClient())
                 {
-                    foreach (var attach in Attachements)
-                    {
-                        if (!String.IsNullOrEmpty(attach))
-                        {
-                            mail.Attachments.Add(new Attachment(attach));
-                        }
-
-                    }
-                }
-
-                //server.Send(mail);
-                //mail.Dispose();
-
-                using (var serv = new SmtpClient())
-                {
-                    serv.Host = smtpCORREO; //"ns.czf.com.ni";// "mail.cnzf.gob.ni";// smtpCORREO;
-                    serv.EnableSsl = false;
-                    serv.Port = 25;
-                    serv.DeliveryFormat = SmtpDeliveryFormat.International;
-                    serv.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    serv.Send(mail);
+                    mailSender.Host = smtpCORREO; //"ns.czf.com.ni";// "mail.cnzf.gob.ni";// smtpCORREO;
+                    mailSender.EnableSsl = false;
+                    mailSender.Port = 25;
+                    mailSender.DeliveryFormat = SmtpDeliveryFormat.International;
+                    mailSender.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    mailSender.Send(mail);
                 }
 
             }
-            catch (FormatException fex)
+            catch (FormatException)
             {
                 String msg_fex = "La dirección del correo electrónico es incorrecta";
                 // Agregamos un registro al listado de capturas de errores
@@ -448,12 +468,8 @@ namespace VisorFacturas.Forms
                 });
                 //XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //finally
-            //{
-            //    htmlView = null;
-            //}
         }
-
+               
         /// <summary>
         /// Función que se encarga de validar los datos del formulario de Correo
         /// </summary>
@@ -485,11 +501,23 @@ namespace VisorFacturas.Forms
                 dxErrProv.SetIconAlignment(txtAsunto, ErrorIconAlignment.MiddleRight);
             }
 
-            if (String.IsNullOrEmpty(txtCuerpo.Text.Trim()))
+            if (xtcCuerpoMail.SelectedTabPage == xtpTextoNormal)
             {
-                isValid = false;
-                dxErrProv.SetError(txtCuerpo, "No deje vacío este campo!");
-                dxErrProv.SetIconAlignment(txtCuerpo, ErrorIconAlignment.MiddleRight);
+                if (String.IsNullOrEmpty(txtCuerpo.Text.Trim()))
+                {
+                    isValid = false;
+                    dxErrProv.SetError(txtCuerpo, "No deje vacío este campo!");
+                    dxErrProv.SetIconAlignment(txtCuerpo, ErrorIconAlignment.TopLeft);
+                }
+            }
+            else
+            {
+                if (mrtxt_cuerpoMail.Document.IsEmpty)
+                {
+                    isValid = false;
+                    dxErrProv.SetError(mrtxt_cuerpoMail, "No deje vacío este campo!");
+                    dxErrProv.SetIconAlignment(mrtxt_cuerpoMail, ErrorIconAlignment.TopLeft);
+                }
             }
 
             return isValid;
@@ -535,6 +563,7 @@ namespace VisorFacturas.Forms
             String Cuerpo_Html = string.Empty;
             String font_style = "font-family: Arial, Helvetica, sans-serif;";
             String Ruta_imagen = pathTablaRemisionTemp + @"\circular.jpg";
+            String Ruta_archivo_body_default = pathTablaRemisionTemp + @"\body-msg-default.docx";
             htmlView = null;
             img = null;
 
@@ -550,30 +579,46 @@ namespace VisorFacturas.Forms
 
                 if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
                 {
-                    // Este codigo es para crear el cuerpo del mensaje en Formato HTML
-                    Cuerpo_Html += String.Format(@"<h4 style=""{0}"">Estimados Señores</h4>", font_style);
-                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Se les envía por este medio el <b>{1}</b> para su ", font_style, TituloMensaje_cuerpo);
-                    Cuerpo_Html += String.Format(@"debida cancelación, recuerden que el vencimiento de la factura son los 10 de cada mes. Para gozar de los ");
-                    Cuerpo_Html += String.Format(@"beneficios que otorga el Régimen hay que tener al día sus pagos.</p>");
-                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Favor hacer caso omiso si esta factura ya fue cancelada.</p>", font_style);
-                    Cuerpo_Html += String.Format(@"<p style=""{0}"">Un cordial saludo!</p>", font_style);
-                    Cuerpo_Html += String.Format(@"<img src='cid:imagen_circular' style=""width:70%;height:70%"">");
+                    //// Este codigo es para crear el cuerpo del mensaje en Formato HTML
+                    //Cuerpo_Html += String.Format(@"<h4 style=""{0}"">Estimados Señores</h4>", font_style);
+                    //Cuerpo_Html += String.Format(@"<p style=""{0}"">Se les envía por este medio el <b>{1}</b> para su ", font_style, TituloMensaje_cuerpo);
+                    //Cuerpo_Html += String.Format(@"debida cancelación, recuerden que el vencimiento de la factura son los 10 de cada mes. Para gozar de los ");
+                    //Cuerpo_Html += String.Format(@"beneficios que otorga el Régimen hay que tener al día sus pagos.</p>");
+                    //Cuerpo_Html += String.Format(@"<p style=""{0}"">Favor hacer caso omiso si esta factura ya fue cancelada.</p>", font_style);
+                    //Cuerpo_Html += String.Format(@"<p style=""{0}"">Un cordial saludo!</p>", font_style);
+                    //Cuerpo_Html += String.Format(@"<img src='cid:imagen_circular' style=""width:70%;height:70%"">");
 
-                    htmlView = AlternateView.CreateAlternateViewFromString(Cuerpo_Html, Encoding.UTF8, MediaTypeNames.Text.Html);
+                    //htmlView = AlternateView.CreateAlternateViewFromString(Cuerpo_Html, Encoding.UTF8, MediaTypeNames.Text.Html);
 
-                    // Creamos el recurso a incrustar. El ID de la imagen que le asignamos (arbitrario) está referenciado desde el código HTML como origen de la imagen
-                    img = new LinkedResource(Ruta_imagen, MediaTypeNames.Image.Jpeg);
-                    img.ContentId = "imagen_circular";
+                    //// Creamos el recurso a incrustar. El ID de la imagen que le asignamos (arbitrario) está referenciado desde el código HTML como origen de la imagen
+                    //img = new LinkedResource(Ruta_imagen, MediaTypeNames.Image.Jpeg);
+                    //img.ContentId = "imagen_circular";
 
-                    // Lo incrustamos en la vista HTML...
-                    htmlView.LinkedResources.Add(img);
+                    //// Lo incrustamos en la vista HTML...
+                    //htmlView.LinkedResources.Add(img);
 
+                    // Lo pegamos en el Rich Text Editor
+                    mrtxt_cuerpoMail.LoadDocument(Ruta_archivo_body_default);
+
+                    // Mostramos la pestaña donde se encuentra el Rich Control
+                    xtcCuerpoMail.SelectedTabPage = xtpTextoEnriquecido;
+                    xtpTextoNormal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                }
+                else
+                {
+                    // Mostramos la pestaña donde se encuentra el Texto Normal                    
+                    xtpTextoNormal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    xtcCuerpoMail.SelectedTabPage = xtpTextoNormal;
                 }
             }
             else if(num == 1) //AQUÍ ENTRA SI ES COMUNICADO
             {
                 TituloMensaje = "";
-                txtCuerpo.Text = "";                
+                txtCuerpo.Text = "";
+
+                // Mostramos la pestaña donde se encuentra el Texto Normal                    
+                xtpTextoNormal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                xtcCuerpoMail.SelectedTabPage = xtpTextoNormal;
             }
 
             txtNombreRem.Text = moCurrentUser.fullname;
@@ -627,9 +672,57 @@ namespace VisorFacturas.Forms
             }
         }
 
+        private void mpxAvisoClientesSinEnvioFact(List<viewClientes> listClientes_Err)
+        {
+            String nombreRemitent = moCurrentUser.fullname;
+            String correoRemitent = moCurrentUser.email;
+            String titulocorreo;
+            String cuerpocorreo;
+            String[] arrayAdjuntos = new String[1];
+            arrayAdjuntos[0] = pathFact + "\\" + Year + "\\" + Month + "\\" + "reporte_clientes_sin_facturas_" + DateTime.Now.ToString("yyyy_MM_dd") + "_" + DateTime.Now.ToString("HHmm") + ".pdf";
+
+            String[] CorreosDestinos = new String[2];
+            CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
+            CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
+            //CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\adavila", null).email;
+
+            //Creamos el reporte, sin imprimirlo
+            String TituloRpt;
+            if (chkAviso.Checked)
+            {
+                titulocorreo = "Clientes sin recibir correo de Aviso";
+                TituloRpt = "Listado de Clientes que no recibieron el Correo de Aviso";
+                cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
+                                  "En el envío masivo del correo de Aviso a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
+                                  "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            }
+            else
+            {
+                titulocorreo = "Aviso de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
+                TituloRpt = "Listado de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
+                cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
+                                   "En el envío masivo de facturas a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
+                                   "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
+            }
+
+
+            Reports.CNZF.xrclientsinfact aorpt = new Reports.CNZF.xrclientsinfact(TituloRpt);
+            aorpt.DataSource = listClientes_Err;
+            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+            // Exportamos el reporte en formato PDF
+            aorpt.ExportToPdf(arrayAdjuntos[0]);
+            aorpt.Dispose();
+            // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
+
+            // Enviamos el correo
+            isErrorSendMail = true;
+            EnviarCorreo(correoRemitent, nombreRemitent, CorreosDestinos, titulocorreo, cuerpocorreo, arrayAdjuntos);
+
+        }
+
         #endregion
 
-        #region "EVENTOS"
+        #region EVENTOS
 
         private void frmFacturas_Load(object sender, EventArgs e)
         {
@@ -819,12 +912,12 @@ namespace VisorFacturas.Forms
             }
 
             txtAdjuntar.Text = string.Empty;
-            btnAdjun.Enabled = true;
+            //btnAdjun.Enabled = true;
 
-            //if (chkAviso.Checked)
-            //    btnAdjun.Enabled = true;
-            //else
-            //    btnAdjun.Enabled = false;
+            if (chkAviso.Checked)
+                btnAdjun.Enabled = true;
+            else
+                btnAdjun.Enabled = false;
 
             // Se activa por defecto la CC al remitente
             mchk_copia_remitente.Checked = true;
@@ -881,10 +974,10 @@ namespace VisorFacturas.Forms
                         if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
                             LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
 
-                        //// Correos de prueba
+                        // Correos de prueba
                         //LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
-                        //LstCorreosIndiv.Items.Add("restrada.czf.com.ni");
                         //LstCorreosIndiv.Items.Add("davilaandres95@gmail.com");
+                        //LstCorreosIndiv.Items.Add("restrada.czf.com.ni");
 
                     }
                     txtEnvioIndividual.Text = cliente_selected.cli_nom;
@@ -983,11 +1076,11 @@ namespace VisorFacturas.Forms
                     {
                         // Ruta del Adjunto (Exigida)
                         PathAttach_Adjunto = txtAdjuntar.Text;
-                        if (PathAttach_Adjunto == string.Empty)
-                        {
-                            XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
+                        //if (PathAttach_Adjunto == string.Empty)
+                        //{
+                        //    XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //    return;
+                        //}
                     }                    
 
                     // Listado de correos: Permito 5 correos, aunque solo ingrese dos correos
@@ -1032,7 +1125,7 @@ namespace VisorFacturas.Forms
                         }
                         
                         // Enviamos el correo
-                        EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, Asunto, txtCuerpo.Text, adjuntos);
+                        EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, Asunto, ""/*txtCuerpo.Text*/, adjuntos);
                     }
                     else
                     {
@@ -1154,7 +1247,7 @@ namespace VisorFacturas.Forms
                                     // Asunto + nombre del cliente
                                     Asunto = Asunto = txtAsunto.Text + " - " + cliente_selected.cli_nom;
                                     // Enviamos el correo
-                                    EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, Asunto, txtCuerpo.Text, adjuntos);
+                                    EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, Asunto, ""/*txtCuerpo.Text*/, adjuntos);
                                     //Console.WriteLine("Factura Nº " + i.ToString() + " enviada!");
                                     
                                 }                                
@@ -1164,7 +1257,7 @@ namespace VisorFacturas.Forms
                                 // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
                                 adjuntos[0] = PathAttach_Adjunto;
                                 // Enviamos el correo
-                                EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, txtAsunto.Text, txtCuerpo.Text, adjuntos);
+                                EnviarCorreo(txtCorreoRem.Text.Trim(), txtNombreRem.Text, CorreosCli, txtAsunto.Text, ""/*txtCuerpo.Text*/, adjuntos);
                             }
 
                         }
@@ -1237,6 +1330,7 @@ namespace VisorFacturas.Forms
         private void btnVolver_Click(object sender, EventArgs e)
         {
             xtraTabControl1.SelectedTabPage = xtpFacturas;
+            mrtxt_cuerpoMail.CreateNewDocument();
         }
 
         
@@ -1307,9 +1401,6 @@ namespace VisorFacturas.Forms
             }
         }
 
-
-        #endregion
-
         private void btnAdjun_Click(object sender, EventArgs e)
         {
             OpenFileDialog examinar = new OpenFileDialog();
@@ -1352,53 +1443,7 @@ namespace VisorFacturas.Forms
             }
         }
 
-        private void mpxAvisoClientesSinEnvioFact(List<viewClientes> listClientes_Err) {
-            String nombreRemitent = moCurrentUser.fullname;
-            String correoRemitent = moCurrentUser.email;
-            String titulocorreo;
-            String cuerpocorreo;
-            String[] arrayAdjuntos = new String[1];
-            arrayAdjuntos[0] = pathFact + "\\" + Year + "\\" + Month + "\\" + "reporte_clientes_sin_facturas_" + DateTime.Now.ToString("yyyy_MM_dd") + "_" + DateTime.Now.ToString("HHmm") + ".pdf";
-
-            String[] CorreosDestinos = new String[2];
-            CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
-            CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
-            //CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\adavila", null).email;
-
-            //Creamos el reporte, sin imprimirlo
-            String TituloRpt;
-            if (chkAviso.Checked)
-            {
-                titulocorreo = "Clientes sin recibir correo de Aviso";
-                TituloRpt = "Listado de Clientes que no recibieron el Correo de Aviso";
-                cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
-                                  "En el envío masivo del correo de Aviso a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
-                                  "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
-            }
-            else
-            {
-                titulocorreo = "Aviso de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
-                TituloRpt = "Listado de Clientes sin factura de " + cmbMes.Text + " " + speAnno.Text;
-                cuerpocorreo = "Este es un correo emitido por el sistema 'VisorFacturas'." + Environment.NewLine + Environment.NewLine +
-                                   "En el envío masivo de facturas a clientes, el sistema detectó algunos conflictos con los correos de algunos clientes. Por favor revisar el archivo adjunto." + Environment.NewLine + Environment.NewLine +
-                                   "Usuario que imprimió: " + moCurrentUser.fullname + "   Fecha/Hora: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
-            }
-
-
-            Reports.CNZF.xrclientsinfact aorpt = new Reports.CNZF.xrclientsinfact(TituloRpt);
-            aorpt.DataSource = listClientes_Err;
-            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
-            // Exportamos el reporte en formato PDF
-            aorpt.ExportToPdf(arrayAdjuntos[0]);
-            aorpt.Dispose();
-            // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
-
-            // Enviamos el correo
-            isErrorSendMail = true;
-            EnviarCorreo(correoRemitent, nombreRemitent, CorreosDestinos, titulocorreo, cuerpocorreo, arrayAdjuntos);
-
-        }
-
+        #endregion
         
     }
 }
