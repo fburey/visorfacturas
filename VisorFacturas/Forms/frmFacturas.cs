@@ -1211,11 +1211,11 @@ namespace VisorFacturas.Forms
                             {
                                 // Ruta del Adjunto (Es obligatoria, por eso se valida)
                                 PathAttach_Adjunto = txtAdjuntar.Text;
-                                if (PathAttach_Adjunto == string.Empty)
-                                {
-                                    XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    return;
-                                }
+                                //if (PathAttach_Adjunto == string.Empty)
+                                //{
+                                //    XtraMessageBox.Show("No hay una ruta seleccionada", "Seleccione un archivo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                //    return;
+                                //}
                             }
 
                             //if (PathAttach_Fact == string.Empty)
