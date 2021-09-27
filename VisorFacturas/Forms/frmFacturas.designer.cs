@@ -99,6 +99,7 @@
             this.colcli_dir = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcli_email1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcli_email2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcli_regimen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.controlNavigator1 = new DevExpress.XtraEditors.ControlNavigator();
             this.miglForm2424 = new DevExpress.Utils.ImageCollection(this.components);
             this.txtCorreoRem = new DevExpress.XtraEditors.TextEdit();
@@ -159,6 +160,7 @@
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.colcli_regimen1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcFacturas)).BeginInit();
@@ -329,6 +331,7 @@
             this.colfac_amo_do,
             this.colfac_amount,
             this.colfac_dolcor,
+            this.colcli_regimen1,
             this.coltipo});
             this.gvFacturas.GridControl = this.gcFacturas;
             this.gvFacturas.Name = "gvFacturas";
@@ -1078,7 +1081,8 @@
             this.colcli_cod,
             this.colcli_dir,
             this.colcli_email1,
-            this.colcli_email2});
+            this.colcli_email2,
+            this.colcli_regimen});
             this.gvCorreos.GridControl = this.gcCorreos;
             this.gvCorreos.Name = "gvCorreos";
             this.gvCorreos.OptionsBehavior.AutoPopulateColumns = false;
@@ -1092,6 +1096,10 @@
             // 
             // colcli_nom1
             // 
+            this.colcli_nom1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_nom1.AppearanceHeader.Options.UseFont = true;
+            this.colcli_nom1.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_nom1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colcli_nom1.Caption = "Cliente";
             this.colcli_nom1.FieldName = "cli_nom";
             this.colcli_nom1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -1102,6 +1110,10 @@
             // 
             // colcli_cod
             // 
+            this.colcli_cod.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_cod.AppearanceHeader.Options.UseFont = true;
+            this.colcli_cod.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_cod.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colcli_cod.Caption = "Código";
             this.colcli_cod.FieldName = "cli_cod";
             this.colcli_cod.Name = "colcli_cod";
@@ -1111,12 +1123,20 @@
             // 
             // colcli_dir
             // 
+            this.colcli_dir.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_dir.AppearanceHeader.Options.UseFont = true;
+            this.colcli_dir.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_dir.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colcli_dir.Caption = "Dirección";
             this.colcli_dir.FieldName = "cli_dir";
             this.colcli_dir.Name = "colcli_dir";
             // 
             // colcli_email1
             // 
+            this.colcli_email1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_email1.AppearanceHeader.Options.UseFont = true;
+            this.colcli_email1.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_email1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colcli_email1.Caption = "Correo N°1";
             this.colcli_email1.FieldName = "cli_email1";
             this.colcli_email1.Name = "colcli_email1";
@@ -1126,12 +1146,29 @@
             // 
             // colcli_email2
             // 
+            this.colcli_email2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_email2.AppearanceHeader.Options.UseFont = true;
+            this.colcli_email2.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_email2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colcli_email2.Caption = "Correo N°2";
             this.colcli_email2.FieldName = "cli_email2";
             this.colcli_email2.Name = "colcli_email2";
             this.colcli_email2.Visible = true;
             this.colcli_email2.VisibleIndex = 3;
             this.colcli_email2.Width = 180;
+            // 
+            // colcli_regimen
+            // 
+            this.colcli_regimen.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_regimen.AppearanceHeader.Options.UseFont = true;
+            this.colcli_regimen.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_regimen.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colcli_regimen.Caption = "Regimen";
+            this.colcli_regimen.FieldName = "cli_regimen";
+            this.colcli_regimen.Name = "colcli_regimen";
+            this.colcli_regimen.Visible = true;
+            this.colcli_regimen.VisibleIndex = 4;
+            this.colcli_regimen.Width = 117;
             // 
             // controlNavigator1
             // 
@@ -1832,6 +1869,19 @@
             // 
             this.dxErrProv.ContainerControl = this;
             // 
+            // colcli_regimen1
+            // 
+            this.colcli_regimen1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_regimen1.AppearanceHeader.Options.UseFont = true;
+            this.colcli_regimen1.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_regimen1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colcli_regimen1.Caption = "Régimen";
+            this.colcli_regimen1.FieldName = "cli_regimen";
+            this.colcli_regimen1.Name = "colcli_regimen1";
+            this.colcli_regimen1.Visible = true;
+            this.colcli_regimen1.VisibleIndex = 9;
+            this.colcli_regimen1.Width = 115;
+            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2068,5 +2118,7 @@
         private DevExpress.XtraRichEdit.RichEditControl mrtxt_cuerpoMail;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
         private DevExpress.Utils.ImageCollection miglForm2424;
+        private DevExpress.XtraGrid.Columns.GridColumn colcli_regimen;
+        private DevExpress.XtraGrid.Columns.GridColumn colcli_regimen1;
     }
 }

@@ -14,6 +14,7 @@ namespace VisorFacturas.Clases
         public String cli_nom { get; set; }
         public String cli_dir { get; set; }
         public String cli_ruc { get; set; }
+        public String cli_regimen { get; set; }
         public String ord_numero { get; set; }
         public DateTime fecha { get; set; }
         public int fac_fac_nu { get; set; }

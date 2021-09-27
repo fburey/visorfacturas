@@ -56,7 +56,7 @@ namespace VisorFacturas.Forms
 
         String sqlClientesCZF = "SELECT cli_cod, cli_nom, (cli_direc1 + ' ' + cli_direc2) AS cli_dir FROM CLIENTE";
 
-        String sqlClientesCNZF = "SELECT cli_cod, cli_nom, (cli_direc1 + ' ' + cli_direc2) AS cli_dir, cli_email1, cli_email2, cli_ruc FROM CLIENTE";
+        String sqlClientesCNZF = "SELECT cli_cod, cli_nom, (cli_direc1 + ' ' + cli_direc2) AS cli_dir, cli_email1, cli_email2, cli_ruc, cli_regime FROM CLIENTE";
         String sqlFacturas = "SELECT cli_codig, fecha, ord_numero, fac_fac_nu, fac_tasa, fac_amo_do, fac_dolcor, tipo, fac_amount, fac_pagado, fac_pag_do FROM FACTURA WHERE fac_amo_do > 0 AND tipo == '1' order by fac_fac_nu ASC";
         String sqlRemision = "Select DISTINCT rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";
         //String sqlRemision = "Select rem_numero, rem_codig, (rem_desc1 + ' ' + rem_desc2) AS rem_desc, rem_canti, rem_precio, rem_impues, rem_descue, rem_fec_ve From REMISION ORDER BY rem_numero ASC";        
@@ -202,7 +202,8 @@ namespace VisorFacturas.Forms
                                   cli_dir = cli.cli_dir,
                                   cli_email1 = cli.cli_email1,
                                   cli_email2 = cli.cli_email2,
-                                  cli_ruc = cli.cli_ruc
+                                  cli_ruc = cli.cli_ruc,
+                                  cli_regimen = cli.cli_regime.ToUpper()
                               };
                 Clientes = data.ToList();
 
@@ -260,7 +261,8 @@ namespace VisorFacturas.Forms
                                                     cli_ruc = client.cli_ruc,
                                                     fac_amount = fac.fac_amount,
                                                     fac_pagado = fac.fac_pagado,
-                                                    fac_pag_do = fac.fac_pag_do
+                                                    fac_pag_do = fac.fac_pag_do,
+                                                    cli_regimen = client.cli_regime.ToUpper()
                                                 };
 
 
@@ -560,9 +562,9 @@ namespace VisorFacturas.Forms
 
             String TituloMensaje = string.Empty;
             String TituloMensaje_cuerpo = string.Empty;
-            String Cuerpo_Html = string.Empty;
-            String font_style = "font-family: Arial, Helvetica, sans-serif;";
-            String Ruta_imagen = pathTablaRemisionTemp + @"\circular.jpg";
+            //String Cuerpo_Html = string.Empty;
+            //String font_style = "font-family: Arial, Helvetica, sans-serif;";
+            //String Ruta_imagen = pathTablaRemisionTemp + @"\circular.jpg";
             String Ruta_archivo_body_default = pathTablaRemisionTemp + @"\body-msg-default.docx";
             htmlView = null;
             img = null;
@@ -599,10 +601,13 @@ namespace VisorFacturas.Forms
 
                     // Lo pegamos en el Rich Text Editor
                     mrtxt_cuerpoMail.LoadDocument(Ruta_archivo_body_default);
+                    mrtxt_cuerpoMail.Document.RtfText = mrtxt_cuerpoMail.Document.RtfText.Replace("<Mes><Year>", cmbMes.Text + " " + speAnno.Value.ToString());
 
                     // Mostramos la pestaña donde se encuentra el Rich Control
                     xtcCuerpoMail.SelectedTabPage = xtpTextoEnriquecido;
                     xtpTextoNormal.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+                    
                 }
                 else
                 {
