@@ -1451,6 +1451,21 @@ namespace VisorFacturas.Forms
         }
 
         #endregion
-        
+
+        private void mrtxt_cuerpoMail_DocumentLoaded(object sender, EventArgs e)
+        {
+            mrtxt_cuerpoMail.Document.DefaultCharacterProperties.FontSize = 10;
+            mrtxt_cuerpoMail.Document.DefaultCharacterProperties.FontName = "Arial";
+            mrtxt_cuerpoMail.Document.DefaultCharacterProperties.ForeColor = Color.Black;
+
+            mrtxt_cuerpoMail.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
+            mrtxt_cuerpoMail.Options.VerticalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
+            mrtxt_cuerpoMail.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            mrtxt_cuerpoMail.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            mrtxt_cuerpoMail.Views.SimpleView.Padding = new DevExpress.Portable.PortablePadding(10);
+            mrtxt_cuerpoMail.Margin = new Padding(0);
+            mrtxt_cuerpoMail.Padding = new Padding(0);
+            mrtxt_cuerpoMail.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+        }
     }
 }

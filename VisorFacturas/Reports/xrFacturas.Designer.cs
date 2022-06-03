@@ -1419,7 +1419,7 @@
             this.xrTableCell4.StylePriority.UseFont = false;
             this.xrTableCell4.StylePriority.UsePadding = false;
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
-            this.xrTableCell4.Text = "- Descuento: 30% en compensación por gastos de Aduana";
+            this.xrTableCell4.Text = "- Descuento: en compensación por gastos de Aduana";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell4.Weight = 2.1855229687757385D;
             // 
@@ -1623,7 +1623,7 @@
             this.DataSource = this.mhead_bndsrc;
             this.Margins = new System.Drawing.Printing.Margins(75, 71, 32, 87);
             this.SnapGridStepCount = 1;
-            this.Version = "19.1";
+            this.Version = "21.2";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrFacturas_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable12)).EndInit();

@@ -45,6 +45,7 @@
             this.colfac_amo_do = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfac_amount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfac_dolcor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcli_regimen1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tipomoneda_ricmb = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.tipofactura_ricmb = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
@@ -160,7 +161,6 @@
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.colcli_regimen1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcFacturas)).BeginInit();
@@ -480,6 +480,19 @@
             this.colfac_dolcor.VisibleIndex = 8;
             this.colfac_dolcor.Width = 100;
             // 
+            // colcli_regimen1
+            // 
+            this.colcli_regimen1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colcli_regimen1.AppearanceHeader.Options.UseFont = true;
+            this.colcli_regimen1.AppearanceHeader.Options.UseTextOptions = true;
+            this.colcli_regimen1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colcli_regimen1.Caption = "Régimen";
+            this.colcli_regimen1.FieldName = "cli_regimen";
+            this.colcli_regimen1.Name = "colcli_regimen1";
+            this.colcli_regimen1.Visible = true;
+            this.colcli_regimen1.VisibleIndex = 9;
+            this.colcli_regimen1.Width = 115;
+            // 
             // coltipo
             // 
             this.coltipo.AppearanceCell.Options.UseTextOptions = true;
@@ -604,7 +617,6 @@
             this.speAnno.Name = "speAnno";
             this.speAnno.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.speAnno.Properties.Appearance.Options.UseFont = true;
-            this.speAnno.Properties.BeepOnError = false;
             this.speAnno.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.speAnno.Properties.IsFloatValue = false;
@@ -963,6 +975,7 @@
             this.mrtxt_cuerpoMail.Size = new System.Drawing.Size(445, 290);
             this.mrtxt_cuerpoMail.TabIndex = 18;
             this.mrtxt_cuerpoMail.Text = "richEditControl1";
+            this.mrtxt_cuerpoMail.DocumentLoaded += new System.EventHandler(this.mrtxt_cuerpoMail_DocumentLoaded);
             // 
             // LstCorreosIndiv
             // 
@@ -1523,7 +1536,7 @@
             this.xtcCuerpoMail.Location = new System.Drawing.Point(0, 0);
             this.xtcCuerpoMail.Name = "xtcCuerpoMail";
             this.xtcCuerpoMail.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.xtcCuerpoMail.SelectedTabPage = this.xtpTextoNormal;
+            this.xtcCuerpoMail.SelectedTabPage = this.xtpTextoEnriquecido;
             this.xtcCuerpoMail.Size = new System.Drawing.Size(455, 323);
             this.xtcCuerpoMail.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.xtpTextoNormal,
@@ -1868,19 +1881,6 @@
             // dxErrProv
             // 
             this.dxErrProv.ContainerControl = this;
-            // 
-            // colcli_regimen1
-            // 
-            this.colcli_regimen1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.colcli_regimen1.AppearanceHeader.Options.UseFont = true;
-            this.colcli_regimen1.AppearanceHeader.Options.UseTextOptions = true;
-            this.colcli_regimen1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colcli_regimen1.Caption = "Régimen";
-            this.colcli_regimen1.FieldName = "cli_regimen";
-            this.colcli_regimen1.Name = "colcli_regimen1";
-            this.colcli_regimen1.Visible = true;
-            this.colcli_regimen1.VisibleIndex = 9;
-            this.colcli_regimen1.Width = 115;
             // 
             // frmFacturas
             // 
