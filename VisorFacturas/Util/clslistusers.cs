@@ -70,15 +70,15 @@ namespace VisorFacturas.Util
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "cobando@cnzf.gob.ni";
                     break;
-                case @"zfrancas\ejaenz":
+                case @"zfrancas\cmarin":
                     createcurrentuser.username = pausername;
-                    createcurrentuser.fullname = "Esperanza Jaenz";
+                    createcurrentuser.fullname = "Carlos Marin";
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = false;
                     createcurrentuser.indVerSistInf = false;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CZF;
                     createcurrentuser.indCambiarEmpresa = false;
-                    createcurrentuser.email = "ejaenz@czf.com.ni";
+                    createcurrentuser.email = "cmarin@czf.com.ni";
                     break;
                 default:
                     createcurrentuser.username = "Usuario Inválido";
