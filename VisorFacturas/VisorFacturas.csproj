@@ -234,6 +234,30 @@
     <Compile Include="Reports\CNZF\xrantiguedad_saldo.Designer.cs">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CZF\rptFacturasCZF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\rptFacturasCZF.designer.cs">
+      <DependentUpon>rptFacturasCZF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\rptFacturasCZF_SinF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\rptFacturasCZF_SinF.designer.cs">
+      <DependentUpon>rptFacturasCZF_SinF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\xrantiguedad_saldo_CZF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\xrantiguedad_saldo_CZF.designer.cs">
+      <DependentUpon>xrantiguedad_saldo_CZF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\xrestado_cta_cliente_CZF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\xrestado_cta_cliente_CZF.designer.cs">
+      <DependentUpon>xrestado_cta_cliente_CZF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptBienes.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -354,6 +378,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CNZF\xrantiguedad_saldo.resx">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\rptFacturasCZF.resx">
+      <DependentUpon>rptFacturasCZF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\rptFacturasCZF_SinF.resx">
+      <DependentUpon>rptFacturasCZF_SinF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\xrantiguedad_saldo_CZF.resx">
+      <DependentUpon>xrantiguedad_saldo_CZF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\xrestado_cta_cliente_CZF.resx">
+      <DependentUpon>xrestado_cta_cliente_CZF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBienes.resx">
       <DependentUpon>rptBienes.cs</DependentUpon>
@@ -1987,6 +2023,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\myServiceReference_TC\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataNota\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

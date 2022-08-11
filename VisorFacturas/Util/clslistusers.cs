@@ -21,6 +21,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = true;
                     createcurrentuser.indVerSistInf = true;
+                    createcurrentuser.indVerNotas = true;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = true;
                     createcurrentuser.email = "adavila@czf.com.ni";
@@ -36,6 +37,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = true;
                     createcurrentuser.indVerSistInf = true;
+                    createcurrentuser.indVerNotas = true;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = true;
                     createcurrentuser.email = "wmejia@czf.com.ni";
@@ -46,6 +48,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = false;
                     createcurrentuser.indVerSistInf = true;
+                    createcurrentuser.indVerNotas = false;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "rblanco@cnzf.gob.ni";
@@ -56,6 +59,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = true;
                     createcurrentuser.indVerSistInf = true;
+                    createcurrentuser.indVerNotas = false;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "dgonzalez@cnzf.gob.ni";
@@ -66,6 +70,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = false;
                     createcurrentuser.indVerSistInf = false;
+                    createcurrentuser.indVerNotas = false;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "cobando@cnzf.gob.ni";
@@ -76,6 +81,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactura = true;
                     createcurrentuser.indVerActFij = false;
                     createcurrentuser.indVerSistInf = false;
+                    createcurrentuser.indVerNotas = true;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "cmarin@czf.com.ni";
@@ -86,12 +92,14 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactura = false;
                     createcurrentuser.indVerActFij = false;
                     createcurrentuser.indVerSistInf = false;
+                    createcurrentuser.indVerNotas = false;
                     createcurrentuser.idEmpresa = 0;
                     createcurrentuser.indCambiarEmpresa = false;
                     break;
             }
             return createcurrentuser;
         }
-                
+
     }
 }
+

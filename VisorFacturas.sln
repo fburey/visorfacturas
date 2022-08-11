@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisorFacturas", "VisorFacturas\VisorFacturas.csproj", "{E1EFBFAE-E9D0-44AA-9F6D-C62D4F937434}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisorFacturas", "..\VISORFACT\VisorFacturas\VisorFacturas.csproj", "{E1EFBFAE-E9D0-44AA-9F6D-C62D4F937434}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C992C41A-4EDE-4825-B59F-DC483A42628F}
 	EndGlobalSection
 EndGlobal
