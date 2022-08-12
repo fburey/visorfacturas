@@ -40,11 +40,11 @@
             this.milcImage3232 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribPag_Facturas = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpag_ActivosFijo = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpag_Reportes = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpag_estilos = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.xtabmdiman_Main)).BeginInit();
@@ -81,7 +81,7 @@
             this.ribbonMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonMain.ShowToolbarCustomizeItem = false;
-            this.ribbonMain.Size = new System.Drawing.Size(884, 116);
+            this.ribbonMain.Size = new System.Drawing.Size(884, 126);
             this.ribbonMain.Toolbar.ShowCustomizeItem = false;
             this.ribbonMain.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -171,50 +171,50 @@
             // 
             this.ribPag_Facturas.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup5,
             this.ribbonPageGroup2});
             this.ribPag_Facturas.Name = "ribPag_Facturas";
             this.ribPag_Facturas.Text = "Facturas";
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbi_visorfactura);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Vista de Facturas";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbi_Salir);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Visible = false;
-            // 
-            // ribpag_ActivosFijo
-            // 
-            this.ribpag_ActivosFijo.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
-            this.ribpag_ActivosFijo.Name = "ribpag_ActivosFijo";
-            this.ribpag_ActivosFijo.Text = "Activo Fijo";
             // 
             // ribbonPageGroup3
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.bbi_ActivosAsignados);
+            this.ribbonPageGroup3.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonPageGroup3.ItemLinks.Add(this.bbi_ActivosAsignados, true);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Visor de Activos Fijos";
-            // 
-            // ribpag_Reportes
-            // 
-            this.ribpag_Reportes.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup5});
-            this.ribpag_Reportes.Name = "ribpag_Reportes";
-            this.ribpag_Reportes.Text = "Reportes";
             // 
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.bbi_SistInf);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Reportes";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbi_Salir);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Visible = false;
+            // 
+            // ribpag_ActivosFijo
+            // 
+            this.ribpag_ActivosFijo.Name = "ribpag_ActivosFijo";
+            this.ribpag_ActivosFijo.Text = "Activo Fijo";
+            this.ribpag_ActivosFijo.Visible = false;
+            // 
+            // ribpag_Reportes
+            // 
+            this.ribpag_Reportes.Name = "ribpag_Reportes";
+            this.ribpag_Reportes.Text = "Reportes";
+            this.ribpag_Reportes.Visible = false;
             // 
             // ribpag_estilos
             // 
@@ -235,9 +235,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.ribbonMain);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmMDI.IconOptions.Icon")));
             this.IsMdiContainer = true;
-            this.MinimumSize = new System.Drawing.Size(894, 593);
+            this.MinimumSize = new System.Drawing.Size(886, 593);
             this.Name = "frmMDI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SISTEMA DE CONSULTAS DBF";

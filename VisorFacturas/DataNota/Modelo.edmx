@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SAFWINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NotasDC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Cont" Type="int" Nullable="false" />
+          <Property Name="Num_nota" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Anno" Type="int" Nullable="false" />
+          <Property Name="mes" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cliente" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Ruc" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Concepto" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="ConceptoR" Type="varbinary(max)" />
+          <Property Name="Monto" Type="decimal" Precision="19" Scale="6" Nullable="false" />
+          <Property Name="MontoLetra" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Elaborado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Revisado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Autorizado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="Id_empresa" Type="int" Nullable="false" />
+          <Property Name="NumMoneda" Type="int" Nullable="false" />
+        </EntityType>
+        <Function Name="dbo_pro_lst_NotasDC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pauidcia" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SAFWINModelStoreContainer">
+          <EntitySet Name="NotasDC" EntityType="Self.NotasDC" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SAFWINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="NotasDC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Cont" Type="Int32" Nullable="false" />
+          <Property Name="Num_nota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Anno" Type="Int32" Nullable="false" />
+          <Property Name="mes" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cliente" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ruc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Concepto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConceptoR" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Monto" Type="Decimal" Precision="19" Scale="6" Nullable="false" />
+          <Property Name="MontoLetra" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Elaborado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Revisado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Autorizado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="Id_empresa" Type="Int32" Nullable="false" />
+          <Property Name="NumMoneda" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SAFWINEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NotasDC" EntityType="Self.NotasDC" />
+          <FunctionImport Name="dbo_pro_lst_NotasDC" ReturnType="Collection(SAFWINModel.dbo_pro_lst_NotasDC_Result)">
+            <Parameter Name="pauidcia" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="dbo_pro_lst_NotasDC_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Tipo" Nullable="false" />
+          <Property Type="Int32" Name="Cont" Nullable="false" />
+          <Property Type="String" Name="Num_nota" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" />
+          <Property Type="Int32" Name="Anno" Nullable="false" />
+          <Property Type="Int32" Name="Num_Mes" Nullable="false" />
+          <Property Type="String" Name="Nom_Mes" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Cliente" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Ruc" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Concepto" Nullable="false" MaxLength="500" />
+          <Property Type="Binary" Name="ConceptoR" Nullable="true" />
+          <Property Type="Decimal" Name="Monto" Nullable="false" Precision="19" Scale="6" />
+          <Property Type="String" Name="MontoLetra" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Elaborado" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Revisado" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Autorizado" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="Moneda" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="simmon" Nullable="true" MaxLength="5" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SAFWINModelStoreContainer" CdmEntityContainer="SAFWINEntities">
+          <EntitySetMapping Name="NotasDC">
+            <EntityTypeMapping TypeName="SAFWINModel.NotasDC">
+              <MappingFragment StoreEntitySet="NotasDC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+                <ScalarProperty Name="Num_nota" ColumnName="Num_nota" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Anno" ColumnName="Anno" />
+                <ScalarProperty Name="mes" ColumnName="mes" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="ConceptoR" ColumnName="ConceptoR" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="MontoLetra" ColumnName="MontoLetra" />
+                <ScalarProperty Name="Elaborado" ColumnName="Elaborado" />
+                <ScalarProperty Name="Revisado" ColumnName="Revisado" />
+                <ScalarProperty Name="Autorizado" ColumnName="Autorizado" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+                <ScalarProperty Name="NumMoneda" ColumnName="NumMoneda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="dbo_pro_lst_NotasDC" FunctionName="SAFWINModel.Store.dbo_pro_lst_NotasDC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAFWINModel.dbo_pro_lst_NotasDC_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+                <ScalarProperty Name="Num_nota" ColumnName="Num_nota" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Anno" ColumnName="Anno" />
+                <ScalarProperty Name="Num_Mes" ColumnName="Num_Mes" />
+                <ScalarProperty Name="Nom_Mes" ColumnName="Nom_Mes" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="ConceptoR" ColumnName="ConceptoR" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="MontoLetra" ColumnName="MontoLetra" />
+                <ScalarProperty Name="Elaborado" ColumnName="Elaborado" />
+                <ScalarProperty Name="Revisado" ColumnName="Revisado" />
+                <ScalarProperty Name="Autorizado" ColumnName="Autorizado" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+                <ScalarProperty Name="simmon" ColumnName="simmon" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

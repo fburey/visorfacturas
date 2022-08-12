@@ -41,11 +41,30 @@ namespace VisorFacturas.Forms
                 if (moCurrentUser.indVerFactura || moCurrentUser.indVerActFij)
                 {
                     //// Puede ver facturas ?
-                    ribPag_Facturas.Visible = moCurrentUser.indVerFactura;
+                    if(moCurrentUser.indVerFactura)
+                        bbi_visorfactura.Visibility = BarItemVisibility.Always;
+                    else
+                        bbi_visorfactura.Visibility= BarItemVisibility.Never;
                     //// Puede ver Activos Fijos ?
-                    ribpag_ActivosFijo.Visible = moCurrentUser.indVerActFij;
+                    if (moCurrentUser.indVerActFij)                    
+                        bbi_ActivosAsignados.Visibility = BarItemVisibility.Always;
+                    else
+                        bbi_ActivosAsignados.Visibility = BarItemVisibility.Never;
                     //// Puede ver Reportes ?
-                    ribpag_Reportes.Visible = moCurrentUser.indVerSistInf;
+                    if (moCurrentUser.indVerNotas)
+                    {
+                        //bbi_SistInf.Visibility = BarItemVisibility.Always;
+                    }
+                    else
+                    {
+                        //bbi_SistInf.Visibility = BarItemVisibility.Never;
+                    }
+                    //// Puede ver Reportes ?
+                    if (moCurrentUser.indVerSistInf)
+                        bbi_SistInf.Visibility = BarItemVisibility.Always;
+                    else
+                        bbi_SistInf.Visibility = BarItemVisibility.Never;
+                    
                     //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
                     var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
                     if (idselectempresa != moCurrentUser.idEmpresa)
