@@ -36,8 +36,10 @@ namespace VisorFacturas.Forms
         String mocadenaconexOLEDB;
 
         /* Variables de Correo Electrónico */
-        String smtpCZF = "ns.czf.com.ni";
-        String smtpCNZF = "mail.cnzf.gob.ni";
+        //String smtpCZF = "ns.czf.com.ni";
+        String smtpCZF = "mail.czf.com.ni";
+        //String smtpCNZF = "mail.cnzf.gob.ni";
+        String smtpCNZF = "mail.czf.com.ni";
         String smtpCORREO;
 
         /* Variables para el envio de correos */
@@ -749,6 +751,8 @@ namespace VisorFacturas.Forms
                     pathTablaRemisionTemp = Settings.Default.DirectorioTablasRemisionCNZF;
                     smtpCORREO = smtpCNZF;
                 }
+
+                mlbl_smtp.Text = "SMTP: " + smtpCORREO;
 
                 // Ocultamos los titulos de las pestañas
                 xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;

@@ -1262,7 +1262,7 @@ namespace VisorFacturas.Forms
                     aoety_exist_act.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
                     aoety_exist_act.pag_fecha += Environment.NewLine + DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy");
                     aoety_exist_act.pag_totd += Decimal.Parse(item["pag_totd"].ToString());
-                    aoety_exist_act.sdototd -= Decimal.Parse(item["pag_totd"].ToString());
+                    aoety_exist_act.sdototd -= Decimal.Parse(item["pag_totd"].ToString());                    
 
                     // Esto lo hacemos porque hay registros de pagos que superan al monto de la factura por centavos,
                     // entonces para evitar que queden saldos en negativos, seteamos a cero los saldos
@@ -1321,6 +1321,14 @@ namespace VisorFacturas.Forms
 
                     // Revivimos el saldo de esa factura en caso de que tenga
                     aoety_exist_act.sdototd = aoety_exist_act.factotd - aoety_exist_act.pag_totd;
+
+                    // Preguntamos si en la query viene el saldo inicial, si es así, después de haber calculado el sdototD,
+                    // limpiamos el factotd y el pag_totd para q no sumen en el reporte de estado de cuenta
+                    if (aoety_exist_act.fac_debe == 7 && aoregistrocount == 1)
+                    {
+                        aoety_exist_act.factotd = 0;
+                        aoety_exist_act.pag_totd = 0;
+                    }
 
                     // Esto lo hacemos porque hay registros de pagos que superan al monto de la factura por centavos,
                     // entonces para evitar que queden saldos en negativos, seteamos a cero los saldos
