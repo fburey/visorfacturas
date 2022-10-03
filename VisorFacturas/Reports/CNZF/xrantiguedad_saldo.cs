@@ -11,16 +11,12 @@ namespace VisorFacturas.Reports.CNZF
 {
     public partial class xrantiguedad_saldo : DevExpress.XtraReports.UI.XtraReport
     {
-        List<view_rpt_saldoclientes> aoListRPT;
-        Boolean aovisibleDetail = false;
-        Boolean aovisibleDetailGroup = false;
+        
         int rowcount = 0;
-        bool ind_va_A_contar = true;
 
-        public xrantiguedad_saldo(List<view_rpt_saldoclientes> paList)
+        public xrantiguedad_saldo()
         {
             InitializeComponent();
-            aoListRPT = paList;
         }
 
         public void mpxSetTittle(string patittle02 = "", string patittle03 = "", string paTC = "")
@@ -39,52 +35,38 @@ namespace VisorFacturas.Reports.CNZF
             }
         }
 
-
-        private void gh_cliente_AfterPrint(object sender, EventArgs e)
+        private void gh_regimen_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            // Obtengo el ord_numero actual
-            String cli_cod_current = this.GetCurrentColumnValue("cli_cod").ToString();
-            // Filtro las Facturas por Cliente y Lleno el binding source de Detail
-            mdetail_bndsrc.DataSource = aoListRPT.Where(s => s.cli_cod.Trim() == cli_cod_current.Trim()).ToList();
-            aovisibleDetail = true;
-            aovisibleDetailGroup = true;
-        }
-
-        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            Detail.Visible = aovisibleDetail;
-        }
-
-        private void Detail_AfterPrint(object sender, EventArgs e)
-        {
-            aovisibleDetail = false;
-            aovisibleDetailGroup = true;
-        }
-
-        private void GroupHeader1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            GroupHeader1.Visible = aovisibleDetailGroup;
-        }
-
-        private void Detail1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            Detail1.Visible = aovisibleDetailGroup;
-        }
-
-        private void GroupFooter1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            GroupFooter1.Visible = aovisibleDetailGroup;
-            aovisibleDetailGroup = false;
+            if (gh_cliente.DrillDownExpanded == true && gh_cliente.DrillDownControl.Name == "mchk_expandcollapseRegimen")
+            {
+                mchk_expandcollapseRegimen.Checked = false;
+            }
+            else if (gh_cliente.DrillDownExpanded == false && gh_cliente.DrillDownControl.Name == "mchk_expandcollapseRegimen")
+            {
+                mchk_expandcollapseRegimen.Checked = true;
+            }
         }
 
         private void gh_cliente_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+
             xrtc_contador.Text = (++rowcount).ToString();
-        }
+
+            if (gh_DetailHeaders.DrillDownExpanded == true && gh_DetailHeaders.DrillDownControl.Name == "mchk_expandcollapseCliente")
+            {
+                mchk_expandcollapseCliente.Checked = false;
+            }
+            else if (gh_DetailHeaders.DrillDownExpanded == false && gh_DetailHeaders.DrillDownControl.Name == "mchk_expandcollapseCliente")
+            {
+                mchk_expandcollapseCliente.Checked = true;
+            }
+        }        
 
         private void ReportFooter_AfterPrint(object sender, EventArgs e)
         {
             rowcount = 0;
         }
+
+       
     }
 }

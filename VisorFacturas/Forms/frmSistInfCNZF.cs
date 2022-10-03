@@ -859,7 +859,7 @@ namespace VisorFacturas.Forms
 
                         // Imprimimos el reporte
                         aolistrpt_104 = aolistrpt_104.Where(x => x.sdototd > 0).ToList();
-                        Reports.CNZF.xrantiguedad_saldo aorpt_104 = new Reports.CNZF.xrantiguedad_saldo(aolistrpt_104);
+                        Reports.CNZF.xrantiguedad_saldo aorpt_104 = new Reports.CNZF.xrantiguedad_saldo();
                         aorpt_104.DataSource = aolistrpt_104;
                         aorpt_104.mpxSetTittle(""
                                                , "Al " + aofiltro_mesyearfin.ToString("dd") + " de " + aofiltro_mesyearfin.ToString("MMMM") + " del " + aofiltro_mesyearfin.ToString("yyyy")
