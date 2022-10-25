@@ -83,6 +83,7 @@
             this.xtpFacturas = new DevExpress.XtraTab.XtraTabPage();
             this.xtpCorreos = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mlbl_smtp = new DevExpress.XtraEditors.LabelControl();
             this.mrtxt_cuerpoMail = new DevExpress.XtraRichEdit.RichEditControl();
             this.LstCorreosIndiv = new DevExpress.XtraEditors.ListBoxControl();
             this.txtNombreRem = new DevExpress.XtraEditors.TextEdit();
@@ -133,8 +134,10 @@
             this.xtpTextoNormal = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem34 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup15 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.xtcTipoEnvio = new DevExpress.XtraLayout.TabbedControlGroup();
             this.xtpEnvioMasivo = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -161,9 +164,6 @@
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.mlbl_smtp = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem34 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcFacturas)).BeginInit();
@@ -234,8 +234,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtpTextoNormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtcTipoEnvio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtpEnvioMasivo)).BeginInit();
@@ -256,8 +258,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem34)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // mspsmForm
@@ -326,6 +326,13 @@
             // 
             // gvFacturas
             // 
+            this.gvFacturas.Appearance.FooterPanel.BackColor = System.Drawing.Color.Moccasin;
+            this.gvFacturas.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.Moccasin;
+            this.gvFacturas.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvFacturas.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Blue;
+            this.gvFacturas.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.gvFacturas.Appearance.FooterPanel.Options.UseFont = true;
+            this.gvFacturas.Appearance.FooterPanel.Options.UseForeColor = true;
             this.gvFacturas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colfac_fac_nu,
             this.colcli_nom,
@@ -341,10 +348,11 @@
             this.gvFacturas.GridControl = this.gcFacturas;
             this.gvFacturas.Name = "gvFacturas";
             this.gvFacturas.OptionsBehavior.Editable = false;
-            this.gvFacturas.OptionsCustomization.AllowColumnMoving = false;
             this.gvFacturas.OptionsCustomization.AllowGroup = false;
+            this.gvFacturas.OptionsFind.AllowFindPanel = false;
             this.gvFacturas.OptionsView.ColumnAutoWidth = false;
             this.gvFacturas.OptionsView.ShowAutoFilterRow = true;
+            this.gvFacturas.OptionsView.ShowFooter = true;
             this.gvFacturas.OptionsView.ShowGroupPanel = false;
             this.gvFacturas.OptionsView.ShowViewCaption = true;
             this.gvFacturas.ViewCaption = "Total de Facturas Encontradas:";
@@ -451,6 +459,8 @@
             this.colfac_amo_do.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colfac_amo_do.FieldName = "fac_amo_do";
             this.colfac_amo_do.Name = "colfac_amo_do";
+            this.colfac_amo_do.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "fac_amo_do", "U$ {0:#,0.00}")});
             this.colfac_amo_do.Visible = true;
             this.colfac_amo_do.VisibleIndex = 6;
             this.colfac_amo_do.Width = 120;
@@ -466,6 +476,8 @@
             this.colfac_amount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colfac_amount.FieldName = "fac_amount";
             this.colfac_amount.Name = "colfac_amount";
+            this.colfac_amount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "fac_amount", "C$ {0:#,0.00}")});
             this.colfac_amount.Visible = true;
             this.colfac_amount.VisibleIndex = 7;
             this.colfac_amount.Width = 120;
@@ -973,6 +985,15 @@
             this.layoutControl1.Size = new System.Drawing.Size(971, 677);
             this.layoutControl1.TabIndex = 13;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // mlbl_smtp
+            // 
+            this.mlbl_smtp.Location = new System.Drawing.Point(15, 624);
+            this.mlbl_smtp.Name = "mlbl_smtp";
+            this.mlbl_smtp.Size = new System.Drawing.Size(33, 13);
+            this.mlbl_smtp.StyleController = this.layoutControl1;
+            this.mlbl_smtp.TabIndex = 19;
+            this.mlbl_smtp.Text = "SMTP: ";
             // 
             // mrtxt_cuerpoMail
             // 
@@ -1598,14 +1619,6 @@
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(67, 588);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(128, 42);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.btnVolver;
@@ -1617,6 +1630,31 @@
             this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextVisible = false;
+            // 
+            // layoutControlItem34
+            // 
+            this.layoutControlItem34.Control = this.mlbl_smtp;
+            this.layoutControlItem34.Location = new System.Drawing.Point(0, 588);
+            this.layoutControlItem34.Name = "layoutControlItem34";
+            this.layoutControlItem34.Size = new System.Drawing.Size(37, 17);
+            this.layoutControlItem34.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem34.TextVisible = false;
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 605);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(37, 25);
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(37, 588);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(158, 42);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup15
             // 
@@ -1890,32 +1928,6 @@
             // 
             this.dxErrProv.ContainerControl = this;
             // 
-            // mlbl_smtp
-            // 
-            this.mlbl_smtp.Location = new System.Drawing.Point(15, 624);
-            this.mlbl_smtp.Name = "mlbl_smtp";
-            this.mlbl_smtp.Size = new System.Drawing.Size(33, 13);
-            this.mlbl_smtp.StyleController = this.layoutControl1;
-            this.mlbl_smtp.TabIndex = 19;
-            this.mlbl_smtp.Text = "SMTP: ";
-            // 
-            // layoutControlItem34
-            // 
-            this.layoutControlItem34.Control = this.mlbl_smtp;
-            this.layoutControlItem34.Location = new System.Drawing.Point(0, 588);
-            this.layoutControlItem34.Name = "layoutControlItem34";
-            this.layoutControlItem34.Size = new System.Drawing.Size(37, 17);
-            this.layoutControlItem34.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem34.TextVisible = false;
-            // 
-            // emptySpaceItem5
-            // 
-            this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 605);
-            this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(67, 25);
-            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1996,8 +2008,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtpTextoNormal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtcTipoEnvio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtpEnvioMasivo)).EndInit();
@@ -2018,8 +2032,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem34)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -406,6 +406,8 @@ namespace VisorFacturas.Forms
                     return;
                 }
 
+                mpxShowSplashForm();                
+
                 // Identificamos que reporte vamos a imprimir para asignar la query SQL
                 switch (aoCodReporte)
                 {
@@ -433,11 +435,10 @@ namespace VisorFacturas.Forms
 
                         if (acDT_temp.Rows.Count == 0)
                         {
-                            XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            mpxCloseSplashForm();
+                            XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);                            
                             return;
-                        }
-
-                        mpxShowSplashForm();
+                        }                        
 
                         // Rellenamos la lista que se enviara al reporte
                         foreach (DataRow item in acDT_temp.Rows)
@@ -503,8 +504,6 @@ namespace VisorFacturas.Forms
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_metrajeanual> aolistrpt_102 = new List<view_rpt_metrajeanual>();
                         acSql_01 = String.Format(Resources.xr_proc_metraje_anual, aofiltro_anyo_entero);
-
-                        mpxShowSplashForm();
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
                         using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
@@ -688,8 +687,6 @@ namespace VisorFacturas.Forms
                         acSql_01 = String.Format(Resources.xr_proc_facturas_compara_mes_act_ant, aofiltro_anyo_entero, aofiltro_mes_entero,
                                                                                                   aoanyo_entero_ANT, aoMES_entero_ANT);
 
-                        mpxShowSplashForm();
-
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
                         using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
                         {
@@ -807,8 +804,6 @@ namespace VisorFacturas.Forms
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_saldoclientes> aolistrpt_104 = new List<view_rpt_saldoclientes>();
 
-                        mpxShowSplashForm();
-
                         // Obtenemos la tasa del día del Mes Year Final
                         Tipo_Cambio_BCN aoWebService = new Tipo_Cambio_BCN();
                         try
@@ -878,8 +873,6 @@ namespace VisorFacturas.Forms
                         #region RPT 105
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_saldoclientes> aolistrpt_105 = new List<view_rpt_saldoclientes>();
-
-                        mpxShowSplashForm();
 
                         // Obtenemos la tasa del día del Mes Year Final
                         Tipo_Cambio_BCN aoWebService_105 = new Tipo_Cambio_BCN();
