@@ -1043,7 +1043,7 @@ namespace VisorFacturas.Forms
             foreach (DataRow item in acDT_temp.Rows)
             {
                 //// Para prueba
-                //if (Convert.ToInt32(item["fac_numfac"]) == 36197)
+                //if (Convert.ToInt32(item["fac_numfac"]) == 4788)
                 //{
                 //    MessageBox.Show("Test");
                 //}
@@ -1066,6 +1066,20 @@ namespace VisorFacturas.Forms
                     // entonces para evitar que queden saldos en negativos, seteamos a cero los saldos
                     if (aoety_exist_act.sdototd <= 0)
                     {
+                        aoety_exist_act.sdototccalc = 0;
+                        aoety_exist_act.sdototc = 0;
+                        aoety_exist_act.sdo_30 = 0;
+                        aoety_exist_act.sdo_60 = 0;
+                        aoety_exist_act.sdo_90 = 0;
+                        aoety_exist_act.sdo_mas90 = 0;
+                    }
+                    /*****************************************************************************************************/
+                    /* Este bloque else if sirve por el tema de la depuracion de contab (centavos que se acarreaban en el saldo). Como eso pasaba en las facturas viejas,
+                     * se añadió el filtro de que todas las facturas que tengan saldo menor a $1 y que se emitieron antes del 2018, se pondran en cero el saldo*/
+                    /*****************************************************************************************************/
+                    else if ((aoety_exist_act.sdototd > 0 && aoety_exist_act.sdototd <= (decimal)0.99) && (aoety_exist_act.fac_fecha.Year < 2018))
+                    {
+                        aoety_exist_act.sdototd = 0;
                         aoety_exist_act.sdototccalc = 0;
                         aoety_exist_act.sdototc = 0;
                         aoety_exist_act.sdo_30 = 0;
@@ -1122,6 +1136,20 @@ namespace VisorFacturas.Forms
                     // entonces para evitar que queden saldos en negativos, seteamos a cero los saldos
                     if (aoety_exist_act.sdototd <= 0)
                     {
+                        aoety_exist_act.sdototccalc = 0;
+                        aoety_exist_act.sdototc = 0;
+                        aoety_exist_act.sdo_30 = 0;
+                        aoety_exist_act.sdo_60 = 0;
+                        aoety_exist_act.sdo_90 = 0;
+                        aoety_exist_act.sdo_mas90 = 0;
+                    }
+                    /*****************************************************************************************************/
+                    /* Este bloque else if sirve por el tema de la depuracion de contab (centavos que se acarreaban en el saldo). Como eso pasaba en las facturas viejas,
+                     * se añadió el filtro de que todas las facturas que tengan saldo menor a $1 y que se emitieron antes del 2018, se pondran en cero el saldo*/
+                    /*****************************************************************************************************/
+                    else if ((aoety_exist_act.sdototd > 0 && aoety_exist_act.sdototd <= (decimal)0.99) && (aoety_exist_act.fac_fecha.Year < 2018))
+                    {
+                        aoety_exist_act.sdototd = 0;
                         aoety_exist_act.sdototccalc = 0;
                         aoety_exist_act.sdototc = 0;
                         aoety_exist_act.sdo_30 = 0;

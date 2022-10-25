@@ -272,7 +272,7 @@ WHERE
 FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; '' 
 AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
 AND (FAC.cli_codig LIKE '0112%')
-AND ((FAC.Debe = 0 AND PAG.pg_fecpag IS NULL) OR (FAC.Debe Between 1 AND 2))
+AND (FAC.Debe Between 0 AND 2)
 ORDER BY FAC.fecha, FAC.fac_fac_nu, PAG.pg_recnum</value>
     <comment>Query para obtener la antiguedad de saldos de los clientes a partir de una fecha especificada:
 
