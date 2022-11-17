@@ -346,9 +346,10 @@
             this.colcli_regimen1,
             this.coltipo});
             this.gvFacturas.GridControl = this.gcFacturas;
+            this.gvFacturas.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "cli_nom", null, "(Cliente: Recuento={0})")});
             this.gvFacturas.Name = "gvFacturas";
             this.gvFacturas.OptionsBehavior.Editable = false;
-            this.gvFacturas.OptionsCustomization.AllowGroup = false;
             this.gvFacturas.OptionsFind.AllowFindPanel = false;
             this.gvFacturas.OptionsView.ColumnAutoWidth = false;
             this.gvFacturas.OptionsView.ShowAutoFilterRow = true;

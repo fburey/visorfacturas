@@ -813,12 +813,23 @@ namespace VisorFacturas.Forms
                             //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
 
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                             mpxCloseSplashForm();
-                            XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se obtuvieron datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            //XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show(ex.Message, "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            string msg = "¿Desea visualizar el reporte sin la tasa de cambio?";
+                            if (XtraMessageBox.Show(msg, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            {
+                                aoTasaCambio = 0;
+                                mpxShowSplashForm();
+                            }                                
+                            else
+                                return;
+
                         }
+
 
                         //// Rellenamos la consulta SQL
                         //aofechaini_cadena = "{^" + aofiltro_mesyearini.ToString("yyyy/MM/dd") + "}";
@@ -883,11 +894,21 @@ namespace VisorFacturas.Forms
                             //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
 
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                             mpxCloseSplashForm();
-                            XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se obtuvieron datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            //XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show(ex.Message, "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            string msg = "¿Desea visualizar el reporte sin la tasa de cambio?";
+                            if (XtraMessageBox.Show(msg, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            {
+                                aoTasaCambio = 0;
+                                mpxShowSplashForm();
+                            }
+                            else
+                                return;
+
                         }
 
                         // Rellenamos la consulta SQL
