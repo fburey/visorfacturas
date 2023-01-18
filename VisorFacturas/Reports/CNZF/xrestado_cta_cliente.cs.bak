@@ -29,7 +29,7 @@ namespace VisorFacturas.Reports.CNZF
             }            
         }
 
-        private void Detail_BeforePrint(object sender, CancelEventArgs e)
+        private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             view_rpt_saldoclientes aocurrent = (view_rpt_saldoclientes)this.GetCurrentRow();
             if (aocurrent != null)
@@ -63,7 +63,7 @@ namespace VisorFacturas.Reports.CNZF
             //    aosdo_ACUM += 0;
         }
 
-        private void GroupFooter1_BeforePrint(object sender, CancelEventArgs e)
+        private void GroupFooter1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrtc_SUMSDOTOTD.Text = aosdo_ACUM.ToString("#,0.00");
             xrtc_SDOFIN.Text = (aosdo_ACUM + aosdo_ANT).ToString("#,0.00");

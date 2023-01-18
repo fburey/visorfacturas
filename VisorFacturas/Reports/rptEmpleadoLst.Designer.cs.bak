@@ -104,7 +104,7 @@
             // 
             this.xrTableCell7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "c_codigo")});
-            this.xrTableCell7.Font = new DevExpress.Drawing.DXFont("Times New Roman", 8F);
+            this.xrTableCell7.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0, 100F);
             this.xrTableCell7.StylePriority.UseFont = false;
@@ -115,7 +115,7 @@
             // 
             this.xrTableCell8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "nombre")});
-            this.xrTableCell8.Font = new DevExpress.Drawing.DXFont("Times New Roman", 8F);
+            this.xrTableCell8.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0, 100F);
             this.xrTableCell8.StylePriority.UseFont = false;
@@ -126,7 +126,7 @@
             // 
             this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cargo")});
-            this.xrTableCell10.Font = new DevExpress.Drawing.DXFont("Times New Roman", 8F);
+            this.xrTableCell10.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0, 100F);
             this.xrTableCell10.StylePriority.UseFont = false;
@@ -137,7 +137,7 @@
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "departamento")});
-            this.xrTableCell2.Font = new DevExpress.Drawing.DXFont("Times New Roman", 8F);
+            this.xrTableCell2.Font = new System.Drawing.Font("Times New Roman", 8F);
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 0, 0, 0, 100F);
             this.xrTableCell2.StylePriority.UseFont = false;
@@ -203,7 +203,7 @@
             // 
             // mtblcelTit010
             // 
-            this.mtblcelTit010.Font = new DevExpress.Drawing.DXFont("Times New Roman", 16F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblcelTit010.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
             this.mtblcelTit010.Name = "mtblcelTit010";
             this.mtblcelTit010.StylePriority.UseFont = false;
             this.mtblcelTit010.StylePriority.UseTextAlignment = false;
@@ -220,7 +220,7 @@
             // 
             // mtblcelTit020
             // 
-            this.mtblcelTit020.Font = new DevExpress.Drawing.DXFont("Times New Roman", 12F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblcelTit020.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.mtblcelTit020.Name = "mtblcelTit020";
             this.mtblcelTit020.StylePriority.UseFont = false;
             this.mtblcelTit020.StylePriority.UseTextAlignment = false;
@@ -237,7 +237,7 @@
             // 
             // xrTableCell6
             // 
-            this.xrTableCell6.Font = new DevExpress.Drawing.DXFont("Times New Roman", 12F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTableCell6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseFont = false;
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
@@ -246,7 +246,7 @@
             // 
             // mtblHeaCol
             // 
-            this.mtblHeaCol.Font = new DevExpress.Drawing.DXFont("Times New Roman", 11F);
+            this.mtblHeaCol.Font = new System.Drawing.Font("Times New Roman", 11F);
             this.mtblHeaCol.LocationFloat = new DevExpress.Utils.PointFloat(0F, 75F);
             this.mtblHeaCol.Name = "mtblHeaCol";
             this.mtblHeaCol.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -267,7 +267,7 @@
             // mtblrowHeaCol010_celcoddepart
             // 
             this.mtblrowHeaCol010_celcoddepart.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)));
-            this.mtblrowHeaCol010_celcoddepart.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celcoddepart.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celcoddepart.Name = "mtblrowHeaCol010_celcoddepart";
             this.mtblrowHeaCol010_celcoddepart.StylePriority.UseBorders = false;
             this.mtblrowHeaCol010_celcoddepart.StylePriority.UseFont = false;
@@ -279,7 +279,7 @@
             // mtblrowHeaCol010_celdscdepart
             // 
             this.mtblrowHeaCol010_celdscdepart.Borders = DevExpress.XtraPrinting.BorderSide.Top;
-            this.mtblrowHeaCol010_celdscdepart.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celdscdepart.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celdscdepart.Name = "mtblrowHeaCol010_celdscdepart";
             this.mtblrowHeaCol010_celdscdepart.StylePriority.UseBorders = false;
             this.mtblrowHeaCol010_celdscdepart.StylePriority.UseFont = false;
@@ -291,7 +291,7 @@
             // mtblrowHeaCol010_celdscestcnf
             // 
             this.mtblrowHeaCol010_celdscestcnf.Borders = DevExpress.XtraPrinting.BorderSide.Top;
-            this.mtblrowHeaCol010_celdscestcnf.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celdscestcnf.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celdscestcnf.Name = "mtblrowHeaCol010_celdscestcnf";
             this.mtblrowHeaCol010_celdscestcnf.StylePriority.UseBorders = false;
             this.mtblrowHeaCol010_celdscestcnf.StylePriority.UseFont = false;
@@ -303,7 +303,7 @@
             // mtblrowHeaCol010_celdscdepart_rto
             // 
             this.mtblrowHeaCol010_celdscdepart_rto.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right)));
-            this.mtblrowHeaCol010_celdscdepart_rto.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celdscdepart_rto.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celdscdepart_rto.Name = "mtblrowHeaCol010_celdscdepart_rto";
             this.mtblrowHeaCol010_celdscdepart_rto.StylePriority.UseBorders = false;
             this.mtblrowHeaCol010_celdscdepart_rto.StylePriority.UseFont = false;
@@ -397,7 +397,7 @@
             this.PageHeader,
             this.PageFooter});
             this.DataSource = this.mreport_bndsrc;
-            this.Margins = new DevExpress.Drawing.DXMargins(31, 33, 24, 20);
+            this.Margins = new System.Drawing.Printing.Margins(31, 33, 24, 20);
             this.Version = "17.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaTit)).EndInit();

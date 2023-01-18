@@ -97,7 +97,7 @@ namespace VisorFacturas.Reports
             //report.Watermark.PageRange = "2,4";
         }
 
-        private void rptFacturasCZF_BeforePrint(object sender, CancelEventArgs e)
+        private void rptFacturasCZF_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             SetPictureWatermark((XtraReport)sender);
         }

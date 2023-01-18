@@ -111,7 +111,7 @@
             // 
             this.xrTableCell1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cli_nom")});
-            this.xrTableCell1.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTableCell1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell1.Multiline = true;
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.StylePriority.UseFont = false;
@@ -124,7 +124,7 @@
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cli_email1")});
-            this.xrTableCell2.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTableCell2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.StylePriority.UseFont = false;
@@ -137,7 +137,7 @@
             // 
             this.xrTableCell3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cli_email2")});
-            this.xrTableCell3.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTableCell3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell3.Multiline = true;
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.StylePriority.UseFont = false;
@@ -150,7 +150,7 @@
             // 
             this.xrTableCell4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "cli_dir")});
-            this.xrTableCell4.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrTableCell4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell4.Multiline = true;
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseFont = false;
@@ -171,7 +171,7 @@
             // 
             // mtblHeaCol
             // 
-            this.mtblHeaCol.Font = new DevExpress.Drawing.DXFont("Times New Roman", 11F);
+            this.mtblHeaCol.Font = new System.Drawing.Font("Times New Roman", 11F);
             this.mtblHeaCol.LocationFloat = new DevExpress.Utils.PointFloat(0F, 74.99998F);
             this.mtblHeaCol.Name = "mtblHeaCol";
             this.mtblHeaCol.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -194,7 +194,7 @@
             this.mtblrowHeaCol010_celcoddepart.BackColor = System.Drawing.Color.Gainsboro;
             this.mtblrowHeaCol010_celcoddepart.BorderColor = System.Drawing.Color.Black;
             this.mtblrowHeaCol010_celcoddepart.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)));
-            this.mtblrowHeaCol010_celcoddepart.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celcoddepart.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celcoddepart.Name = "mtblrowHeaCol010_celcoddepart";
             this.mtblrowHeaCol010_celcoddepart.StylePriority.UseBackColor = false;
             this.mtblrowHeaCol010_celcoddepart.StylePriority.UseBorderColor = false;
@@ -210,7 +210,7 @@
             this.mtblrowHeaCol010_celdscdepart.BackColor = System.Drawing.Color.Gainsboro;
             this.mtblrowHeaCol010_celdscdepart.BorderColor = System.Drawing.Color.Black;
             this.mtblrowHeaCol010_celdscdepart.Borders = DevExpress.XtraPrinting.BorderSide.Top;
-            this.mtblrowHeaCol010_celdscdepart.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celdscdepart.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celdscdepart.Name = "mtblrowHeaCol010_celdscdepart";
             this.mtblrowHeaCol010_celdscdepart.StylePriority.UseBackColor = false;
             this.mtblrowHeaCol010_celdscdepart.StylePriority.UseBorderColor = false;
@@ -226,7 +226,7 @@
             this.mtblrowHeaCol010_celdscestcnf.BackColor = System.Drawing.Color.Gainsboro;
             this.mtblrowHeaCol010_celdscestcnf.BorderColor = System.Drawing.Color.Black;
             this.mtblrowHeaCol010_celdscestcnf.Borders = DevExpress.XtraPrinting.BorderSide.Top;
-            this.mtblrowHeaCol010_celdscestcnf.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celdscestcnf.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celdscestcnf.Name = "mtblrowHeaCol010_celdscestcnf";
             this.mtblrowHeaCol010_celdscestcnf.StylePriority.UseBackColor = false;
             this.mtblrowHeaCol010_celdscestcnf.StylePriority.UseBorderColor = false;
@@ -242,7 +242,7 @@
             this.mtblrowHeaCol010_celdscdepart_rto.BackColor = System.Drawing.Color.Gainsboro;
             this.mtblrowHeaCol010_celdscdepart_rto.BorderColor = System.Drawing.Color.Black;
             this.mtblrowHeaCol010_celdscdepart_rto.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right)));
-            this.mtblrowHeaCol010_celdscdepart_rto.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblrowHeaCol010_celdscdepart_rto.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.mtblrowHeaCol010_celdscdepart_rto.Name = "mtblrowHeaCol010_celdscdepart_rto";
             this.mtblrowHeaCol010_celdscdepart_rto.StylePriority.UseBackColor = false;
             this.mtblrowHeaCol010_celdscdepart_rto.StylePriority.UseBorderColor = false;
@@ -272,7 +272,7 @@
             // 
             // mtblcelTit010
             // 
-            this.mtblcelTit010.Font = new DevExpress.Drawing.DXFont("Times New Roman", 16F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblcelTit010.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
             this.mtblcelTit010.Name = "mtblcelTit010";
             this.mtblcelTit010.StylePriority.UseFont = false;
             this.mtblcelTit010.StylePriority.UseTextAlignment = false;
@@ -289,7 +289,7 @@
             // 
             // mtblcelTit020
             // 
-            this.mtblcelTit020.Font = new DevExpress.Drawing.DXFont("Times New Roman", 12F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.mtblcelTit020.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.mtblcelTit020.Name = "mtblcelTit020";
             this.mtblcelTit020.StylePriority.UseFont = false;
             this.mtblcelTit020.StylePriority.UseTextAlignment = false;
@@ -306,7 +306,7 @@
             // 
             // xrTableCell6
             // 
-            this.xrTableCell6.Font = new DevExpress.Drawing.DXFont("Times New Roman", 12F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTableCell6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseFont = false;
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
@@ -416,9 +416,9 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.mreport_bndsrc});
             this.DataSource = this.mreport_bndsrc;
-            this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
+            this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Landscape = true;
-            this.Margins = new DevExpress.Drawing.DXMargins(30, 30, 30, 30);
+            this.Margins = new System.Drawing.Printing.Margins(30, 30, 30, 30);
             this.PageHeight = 850;
             this.PageWidth = 1100;
             this.SnapGridSize = 2F;

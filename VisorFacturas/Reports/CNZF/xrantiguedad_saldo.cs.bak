@@ -35,7 +35,7 @@ namespace VisorFacturas.Reports.CNZF
             }
         }
 
-        private void gh_regimen_BeforePrint(object sender, CancelEventArgs e)
+        private void gh_regimen_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             if (gh_cliente.DrillDownExpanded == true && gh_cliente.DrillDownControl.Name == "mchk_expandcollapseRegimen")
             {
@@ -47,7 +47,7 @@ namespace VisorFacturas.Reports.CNZF
             }
         }
 
-        private void gh_cliente_BeforePrint(object sender, CancelEventArgs e)
+        private void gh_cliente_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
 
             xrtc_contador.Text = (++rowcount).ToString();

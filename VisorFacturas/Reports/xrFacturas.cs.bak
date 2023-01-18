@@ -5,13 +5,13 @@ using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using System.Collections.Generic;
 using VisorFacturas.Clases;
-using VisorFacturas.Enums;
 using System.Linq;
+using VisorFacturas.Enums;
 using DevExpress.XtraPrinting.Drawing;
 
 namespace VisorFacturas.Reports
 {
-    public partial class rptFacturasCZF : DevExpress.XtraReports.UI.XtraReport
+    public partial class xrFacturas : DevExpress.XtraReports.UI.XtraReport
     {
         List<viewRemision> ListRem;    // Estos son todos los datos de Remision de todas las Facturas
         List<viewRemision> ListRemDet; // Estos son todos los datos de Remision de una Factura (iteración)
@@ -19,17 +19,16 @@ namespace VisorFacturas.Reports
         String FacturacionMes;
         clsAppEnum moclsAppEnum = new clsAppEnum();
         String FormatoNumerico;
-        String TotalFact = "";
-        String MonedaFact;
-        String SimboloMoneda;
-
-        public rptFacturasCZF(List<viewRemision> List, String padescfact)
+        
+        public xrFacturas(List<viewRemision> List, String MesFacturado)
         {
             InitializeComponent();
+            //mdetail_bndsrc.DataSource = List;
             this.ListRem = List;
             mdetail_bndsrc.DataSource = List;
-            FacturacionMes = padescfact;
+            FacturacionMes = "Facturación del Mes de " + MesFacturado;
             xrTableCell_FacturacionMes.Text = FacturacionMes;
+            
         }
 
         private void GroupHeader1_AfterPrint(object sender, EventArgs e)
@@ -47,23 +46,10 @@ namespace VisorFacturas.Reports
             else
                 xrtable_descuento.Visible = false;
 
+            // Obtenemos el total de la factura
+            String TotalFact = this.GetCurrentColumnValue("fac_amo_do").ToString();
             // Obtenemos la moneda de la factura
-            MonedaFact = this.GetCurrentColumnValue("fac_dolcor").ToString();            
-
-            // Obtenemos el formato numérico y total de la fact. conforme la moneda de la factura
-            if (MonedaFact.Substring(0, 1).ToUpper() == "D")
-            {
-                TotalFact = this.GetCurrentColumnValue("fac_amo_do").ToString();
-                FormatoNumerico = "{0:U$  #,0.00}";
-                SimboloMoneda = "U$";
-            }
-            else
-            {
-                TotalFact = this.GetCurrentColumnValue("fac_amount").ToString();
-                FormatoNumerico = "{0:C$  #,0.00}";
-                SimboloMoneda = "C$";
-            }   
-
+            String MonedaFact = this.GetCurrentColumnValue("fac_dolcor").ToString();
             // Obtenemos el valor en letras del monto total de la factura (Params: Monto Total, Moneda)
             xrlabel_ValorEnLetras.Text = moclsAppEnum.enletras(TotalFact, MonedaFact);
 
@@ -71,33 +57,31 @@ namespace VisorFacturas.Reports
             //if (ListRemDet.AsEnumerable().Where(s => s.rem_desc.ToLower().Contains("directorio")).ToList().Count > 0)
             //    xrlab_Revisado.Text = "Mauricio Abarca";
             //else
-            //    xrlab_Revisado.Text = "";
+            //    xrlab_Revisado.Text = "Estrellita Blanco";
 
-            ////Formateamos los campos de totales, descuento e IVA
-            //xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
-            //xrlab_fac_total_2.DataBindings["Text"].FormatString = FormatoNumerico;
-            //xrlab_rem_descue.DataBindings["Text"].FormatString = FormatoNumerico;
-            //xrlab_rem_impues.DataBindings["Text"].FormatString = FormatoNumerico;
-            xtcmon_sub.Text = SimboloMoneda;
-            xtcmon_desc.Text = SimboloMoneda;
-            xtcmon_iva.Text = SimboloMoneda;
-            xtcmon_tot.Text = SimboloMoneda;
+            // Obtenemos el formato numérico conforme la moneda de la factura
+            if (MonedaFact.Substring(0, 1).ToUpper() == "D")
+                FormatoNumerico = "{0:U$  #,0.00}";
+            else
+                FormatoNumerico = "{0:C$  #,0.00}";
 
+            xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
+            xrlab_fac_total_2.DataBindings["Text"].FormatString = FormatoNumerico;            
         }
 
         public void SetPictureWatermark(XtraReport report)
         {
             // Adjust image watermark settings.
-            report.Watermark.Image = VisorFacturas.Properties.Resources.Watermark_CZF_Logo;
+            report.Watermark.Image = VisorFacturas.Properties.Resources.Watermark_Comisión_Nacional_de_Zonas_Francas;
             report.Watermark.ImageAlign = ContentAlignment.MiddleCenter;
             report.Watermark.ImageTiling = false;
             report.Watermark.ImageViewMode = ImageViewMode.Clip;
-            report.Watermark.ImageTransparency = 217;//215;
-            report.Watermark.ShowBehind = false;
+            report.Watermark.ImageTransparency = 210;
+            report.Watermark.ShowBehind = false;            
             //report.Watermark.PageRange = "2,4";
         }
 
-        private void rptFacturasCZF_BeforePrint(object sender, CancelEventArgs e)
+        private void xrFacturas_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             SetPictureWatermark((XtraReport)sender);
         }

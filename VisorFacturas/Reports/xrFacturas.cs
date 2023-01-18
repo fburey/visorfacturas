@@ -81,7 +81,7 @@ namespace VisorFacturas.Reports
             //report.Watermark.PageRange = "2,4";
         }
 
-        private void xrFacturas_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrFacturas_BeforePrint(object sender, CancelEventArgs e)
         {
             SetPictureWatermark((XtraReport)sender);
         }

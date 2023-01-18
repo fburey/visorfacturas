@@ -23,7 +23,7 @@ namespace VisorFacturas.Reports
           //  this.mtblcelTit030.Text = pctitle3;
         }
 
-        private void mtblcel_dsccatitm_BeforePrint(object sender, CancelEventArgs e)
+        private void mtblcel_dsccatitm_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             //XRTableCell aosender = (XRTableCell)sender;
             //mpxareasdestinosgetlst_cpt aoety = (mpxareasdestinosgetlst_cpt)this.GetCurrentRow();

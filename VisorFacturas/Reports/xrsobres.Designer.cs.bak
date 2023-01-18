@@ -105,7 +105,7 @@
             // 
             // xrTableCell3
             // 
-            this.xrTableCell3.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F);
+            this.xrTableCell3.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.xrTableCell3.Multiline = true;
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.StylePriority.UseFont = false;
@@ -124,7 +124,7 @@
             // 
             this.xrTableCell1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[calfld_NOMBRE]")});
-            this.xrTableCell1.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTableCell1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
             this.xrTableCell1.Multiline = true;
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.StylePriority.UseFont = false;
@@ -144,7 +144,7 @@
             // 
             this.xrTableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[calfld_DIR]")});
-            this.xrTableCell2.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F);
+            this.xrTableCell2.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.StylePriority.UseFont = false;
@@ -162,7 +162,7 @@
             // 
             // xrTableCell4
             // 
-            this.xrTableCell4.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F);
+            this.xrTableCell4.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.xrTableCell4.Multiline = true;
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseFont = false;
@@ -179,7 +179,7 @@
             // 
             // xrTableCell5
             // 
-            this.xrTableCell5.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F);
+            this.xrTableCell5.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.xrTableCell5.Multiline = true;
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.StylePriority.UseFont = false;
@@ -196,7 +196,7 @@
             // 
             // xrTableCell6
             // 
-            this.xrTableCell6.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F);
+            this.xrTableCell6.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.xrTableCell6.Multiline = true;
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseFont = false;
@@ -213,7 +213,7 @@
             // 
             // xrTableCell7
             // 
-            this.xrTableCell7.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F);
+            this.xrTableCell7.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.xrTableCell7.Multiline = true;
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseFont = false;
@@ -230,7 +230,7 @@
             // 
             // xrTableCell8
             // 
-            this.xrTableCell8.Font = new DevExpress.Drawing.DXFont("Times New Roman", 14F);
+            this.xrTableCell8.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.xrTableCell8.Multiline = true;
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.StylePriority.UseFont = false;
@@ -265,8 +265,8 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.mbndsrc_report});
             this.DataSource = this.mbndsrc_report;
-            this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(80, 80, 100, 100);
+            this.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.Margins = new System.Drawing.Printing.Margins(80, 80, 100, 100);
             this.PageHeight = 412;
             this.PageWidth = 950;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
