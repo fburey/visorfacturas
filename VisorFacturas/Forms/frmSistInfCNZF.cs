@@ -484,8 +484,6 @@ namespace VisorFacturas.Forms
                             }
                         }
 
-                        mpxCloseSplashForm();
-
                         Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
                         aorpt_101.DataSource = aolistrpt_101;
                         aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
@@ -495,6 +493,8 @@ namespace VisorFacturas.Forms
                         aofrmviewer.MdiParent = this.MdiParent;
                         aofrmviewer.WindowState = FormWindowState.Maximized;
                         aofrmviewer.Show();
+
+                        mpxCloseSplashForm();
 
                         break;
                     #endregion

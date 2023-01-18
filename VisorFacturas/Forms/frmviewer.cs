@@ -36,7 +36,8 @@ namespace VisorFacturas.Forms
             if (this.moreport != null)
             {
                 mptcForm.PrintingSystem = moreport.PrintingSystem;
-                moreport.CreateDocument();
+                //DevExpress.XtraReports.UI.ReportPrintTool tool = new DevExpress.XtraReports.UI.ReportPrintTool(moreport);
+                moreport.CreateDocument(true);
             }
         }
 
