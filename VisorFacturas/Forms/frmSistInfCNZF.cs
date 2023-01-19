@@ -490,7 +490,7 @@ namespace VisorFacturas.Forms
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
                         aofrmviewer = new frmviewer(aorpt_101);
                         aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
-                        aofrmviewer.MdiParent = this.MdiParent;
+                        //aofrmviewer.MdiParent = this.MdiParent;
                         aofrmviewer.WindowState = FormWindowState.Maximized;
                         aofrmviewer.Show();
 
