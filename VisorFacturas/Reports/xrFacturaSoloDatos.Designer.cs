@@ -1059,7 +1059,7 @@
             this.xrLabel45.StylePriority.UseFont = false;
             this.xrLabel45.StylePriority.UsePadding = false;
             this.xrLabel45.StylePriority.UseTextAlignment = false;
-            this.xrLabel45.Text = "Cartera y Cobro";
+            this.xrLabel45.Text = "Oficina Cartera y Cobro";
             this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // xrlab_Revisado
@@ -1074,8 +1074,8 @@
             this.xrlab_Revisado.StylePriority.UseFont = false;
             this.xrlab_Revisado.StylePriority.UsePadding = false;
             this.xrlab_Revisado.StylePriority.UseTextAlignment = false;
-            this.xrlab_Revisado.Text = "Gerencia de Operaciones";
-            this.xrlab_Revisado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
+            this.xrlab_Revisado.Text = "Dirección de Operaciones y Facilitación";
+            this.xrlab_Revisado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
             // xrLabel47
             // 
@@ -1089,8 +1089,8 @@
             this.xrLabel47.StylePriority.UseFont = false;
             this.xrLabel47.StylePriority.UsePadding = false;
             this.xrLabel47.StylePriority.UseTextAlignment = false;
-            this.xrLabel47.Text = "Vice-Gte. Adva-Financiera";
-            this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
+            this.xrLabel47.Text = "Sub Director División Administrativa Financiera";
+            this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
             // xrLabel48
             // 
@@ -1282,7 +1282,8 @@
             this.xrlab_fac_total_2.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrlab_fac_total_2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "calcfield_fac_total")});
-            this.xrlab_fac_total_2.Font = new DevExpress.Drawing.DXFont("Times New Roman", 9.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
+            this.xrlab_fac_total_2.Font = new DevExpress.Drawing.DXFont("Times New Roman", 9.75F, DevExpress.Drawing.DXFontStyle.Bold, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
+            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
             this.xrlab_fac_total_2.LocationFloat = new DevExpress.Utils.PointFloat(533.7501F, 84F);
             this.xrlab_fac_total_2.Name = "xrlab_fac_total_2";
             this.xrlab_fac_total_2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 28, 0, 4, 100F);
@@ -1524,9 +1525,9 @@
             this.calcfield_rem_descripcion,
             this.calcfield_fac_total});
             this.DataSource = this.mhead_bndsrc;
-            this.Margins = new DevExpress.Drawing.DXMargins(0, 134, 32, 87);
+            this.Margins = new DevExpress.Drawing.DXMargins(0F, 134F, 32F, 87F);
             this.SnapGridSize = 2F;
-            this.Version = "21.2";
+            this.Version = "22.2";
             ((System.ComponentModel.ISupportInitialize)(this.mhead_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();

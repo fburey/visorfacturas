@@ -1292,7 +1292,7 @@
             this.xrLabel47.StylePriority.UseFont = false;
             this.xrLabel47.StylePriority.UsePadding = false;
             this.xrLabel47.StylePriority.UseTextAlignment = false;
-            this.xrLabel47.Text = "Vice-Gte. Adva-Financiera";
+            this.xrLabel47.Text = "Sub Director División Administrativa Financiera";
             this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
             // xrlab_Revisado
@@ -1310,7 +1310,7 @@
             this.xrlab_Revisado.StylePriority.UseFont = false;
             this.xrlab_Revisado.StylePriority.UsePadding = false;
             this.xrlab_Revisado.StylePriority.UseTextAlignment = false;
-            this.xrlab_Revisado.Text = "Gerencia de Operaciones";
+            this.xrlab_Revisado.Text = "Dirección de Operaciones y Facilitación";
             this.xrlab_Revisado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
             // xrLabel45
@@ -1328,7 +1328,7 @@
             this.xrLabel45.StylePriority.UseFont = false;
             this.xrLabel45.StylePriority.UsePadding = false;
             this.xrLabel45.StylePriority.UseTextAlignment = false;
-            this.xrLabel45.Text = "Cartera y Cobro";
+            this.xrLabel45.Text = "Oficina Cartera y Cobro";
             this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
             // xrTable3
@@ -1621,9 +1621,9 @@
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.mhead_bndsrc});
             this.DataSource = this.mhead_bndsrc;
-            this.Margins = new DevExpress.Drawing.DXMargins(75, 71, 32, 87);
+            this.Margins = new DevExpress.Drawing.DXMargins(75F, 71F, 32F, 87F);
             this.SnapGridStepCount = 1;
-            this.Version = "21.2";
+            this.Version = "22.2";
             this.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.xrFacturas_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable12)).EndInit();
