@@ -97,6 +97,17 @@ namespace VisorFacturas.Util
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "cmarin@czf.com.ni";
                     break;
+                case @"zfrancas\mpineda":
+                    createcurrentuser.username = pausername;
+                    createcurrentuser.fullname = "Marjoury Pineda";
+                    createcurrentuser.indVerFactura = true;
+                    createcurrentuser.indVerActFij = false;
+                    createcurrentuser.indVerSistInf = false;
+                    createcurrentuser.indVerNotas = false;
+                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
+                    createcurrentuser.indCambiarEmpresa = false;
+                    createcurrentuser.email = "mpineda@cnzf.gob.ni";
+                    break;
                 default:
                     createcurrentuser.username = "Usuario Inválido";
                     createcurrentuser.fullname = "Usuario No Autorizado";
