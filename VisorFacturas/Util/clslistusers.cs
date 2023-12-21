@@ -75,16 +75,16 @@ namespace VisorFacturas.Util
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "dgonzalez@cnzf.gob.ni";
                     break;
-                case @"zfrancas\cobando":
+                case @"zfrancas\mpineda":
                     createcurrentuser.username = pausername;
-                    createcurrentuser.fullname = "Sofía Carolina Obando";
+                    createcurrentuser.fullname = "Marjoury Pineda";
                     createcurrentuser.indVerFactura = true;
-                    createcurrentuser.indVerActFij = false;
-                    createcurrentuser.indVerSistInf = false;
+                    createcurrentuser.indVerActFij = true;
+                    createcurrentuser.indVerSistInf = true;
                     createcurrentuser.indVerNotas = false;
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     createcurrentuser.indCambiarEmpresa = false;
-                    createcurrentuser.email = "cobando@cnzf.gob.ni";
+                    createcurrentuser.email = "mpineda@cnzf.gob.ni";
                     break;
                 case @"zfrancas\cmarin":
                     createcurrentuser.username = pausername;
@@ -96,18 +96,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "cmarin@czf.com.ni";
-                    break;
-                case @"zfrancas\mpineda":
-                    createcurrentuser.username = pausername;
-                    createcurrentuser.fullname = "Marjoury Pineda";
-                    createcurrentuser.indVerFactura = true;
-                    createcurrentuser.indVerActFij = false;
-                    createcurrentuser.indVerSistInf = false;
-                    createcurrentuser.indVerNotas = false;
-                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
-                    createcurrentuser.indCambiarEmpresa = false;
-                    createcurrentuser.email = "mpineda@cnzf.gob.ni";
-                    break;
+                    break;                
                 default:
                     createcurrentuser.username = "Usuario Inválido";
                     createcurrentuser.fullname = "Usuario No Autorizado";

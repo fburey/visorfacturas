@@ -20,13 +20,22 @@ namespace VisorFacturas.Reports
         clsAppEnum moclsAppEnum = new clsAppEnum();
         String FormatoNumerico;
         
-        public xrFacturas(List<viewRemision> List, String MesFacturado)
+        public xrFacturas(List<viewRemision> List, String MesFacturado, bool ind_EntMes, string Meses)
         {
             InitializeComponent();
             //mdetail_bndsrc.DataSource = List;
             this.ListRem = List;
             mdetail_bndsrc.DataSource = List;
+
+            if(ind_EntMes)
+            {
+                FacturacionMes = Meses;
+
+            }
+            else
             FacturacionMes = "Facturación del Mes de " + MesFacturado;
+
+
             xrTableCell_FacturacionMes.Text = FacturacionMes;
             
         }
@@ -67,8 +76,12 @@ namespace VisorFacturas.Reports
 
             xrlab_fac_total_1.DataBindings["Text"].FormatString = FormatoNumerico;
             xrlab_fac_total_2.DataBindings["Text"].FormatString = FormatoNumerico;            
-        }
+        }        
 
+        private void xrFacturas_BeforePrint(object sender, CancelEventArgs e)
+        {
+            SetPictureWatermark((XtraReport)sender);
+        }
         public void SetPictureWatermark(XtraReport report)
         {
             // Adjust image watermark settings.
@@ -77,13 +90,8 @@ namespace VisorFacturas.Reports
             report.Watermark.ImageTiling = false;
             report.Watermark.ImageViewMode = ImageViewMode.Clip;
             report.Watermark.ImageTransparency = 210;
-            report.Watermark.ShowBehind = false;            
+            report.Watermark.ShowBehind = false;
             //report.Watermark.PageRange = "2,4";
-        }
-
-        private void xrFacturas_BeforePrint(object sender, CancelEventArgs e)
-        {
-            SetPictureWatermark((XtraReport)sender);
         }
     }
 }

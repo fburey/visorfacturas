@@ -19,13 +19,19 @@ namespace VisorFacturas.Reports
         clsAppEnum moclsAppEnum = new clsAppEnum();
         String FormatoNumerico;
 
-        public xrFacturaSoloDatos(List<viewRemision> List, String MesFacturado)
+        public xrFacturaSoloDatos(List<viewRemision> List, String MesFacturado, bool ind_EntMes, string Meses)
         {
             InitializeComponent();
             //mdetail_bndsrc.DataSource = List;
             this.ListRem = List;
             mdetail_bndsrc.DataSource = List;
-            FacturacionMes = "Facturación del Mes de " + MesFacturado;
+            if (ind_EntMes)
+            {
+                FacturacionMes = Meses;
+
+            }
+            else
+                FacturacionMes = "Facturación del Mes de " + MesFacturado;
             xrTableCell_FacturacionMes.Text = FacturacionMes;
         }
 

@@ -12,6 +12,7 @@ using DevExpress.XtraBars;
 using VisorFacturas.Forms;
 using VisorFacturas.Clases;
 using VisorFacturas.Util;
+using VisorFacturas.Enums;
 
 namespace VisorFacturas.Forms
 {
@@ -71,6 +72,11 @@ namespace VisorFacturas.Forms
                     {
                         moCurrentUser = clsusuarios.GetUserSystem(username, (Int16)idselectempresa);
                     }
+
+                    if(moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    this.Text = this.Text + " - CZF";
+                    else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                        this.Text = this.Text + " - CNZF";
                 }
                 else
                 {

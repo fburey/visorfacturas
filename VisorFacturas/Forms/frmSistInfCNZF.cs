@@ -934,9 +934,9 @@ namespace VisorFacturas.Forms
 
                         // Query Principal
                         acSql_01 = String.Format(Resources.xr_proc_estado_cuenta, aofechaini_cadena,
-                                                                              aofechafin_cadena,
-                                                                              aoSentenciaAND_1,
-                                                                              aoSentenciaAND_2);
+                                                                                  aofechafin_cadena,
+                                                                                  aoSentenciaAND_1,
+                                                                                  aoSentenciaAND_2);
 
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal

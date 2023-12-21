@@ -148,19 +148,19 @@ namespace VisorFacturas.Forms
         /// <returns></returns>
         private Boolean VerificarRutas()
         {
-            if (!System.IO.Directory.Exists(pathTablas))
+            if (!Directory.Exists(pathTablas))
             {
                 XtraMessageBox.Show("Verifique la ruta de los archivos de datos: \n\n" + pathTablas, "La ruta no existe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            if (!System.IO.Directory.Exists(pathTablaRemisionTemp))
+            if (!Directory.Exists(pathTablaRemisionTemp))
             {
                 XtraMessageBox.Show("Verifique la ruta de los archivos de datos: \n\n" + pathTablaRemisionTemp, "La ruta no existe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            if (!System.IO.Directory.Exists(pathFact))
+            if (!Directory.Exists(pathFact))
             {
                 System.IO.Directory.CreateDirectory(pathFact);
             }
@@ -809,6 +809,8 @@ namespace VisorFacturas.Forms
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             CargarFacturas();
+            chkEntreMES.Enabled = true;
+            chkEntreMES.CheckState = CheckState.Unchecked;
         }
 
         /// <summary>
@@ -864,9 +866,10 @@ namespace VisorFacturas.Forms
                     }
                     else
                     {
-                        Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
+                        String descfact = txt_Mese.Text;// + " " + speAnno.Text;
+                        Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text, chkEntreMES.Checked, descfact);
                         aorpt.DataSource = factura;
-                        aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
+                        aorpt.picLogo.Image = Resources.Comisión_Nacional_de_Zonas_Francas;
                         frmviewer aofrmviewer = new frmviewer(aorpt);
                         aofrmviewer.Text = TituloReporteFactura;
                         aofrmviewer.MdiParent = this.MdiParent;
@@ -879,7 +882,7 @@ namespace VisorFacturas.Forms
                 {
                     if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                     {
-                        String descfact = "Facturación del mes de " + cmbMes.Text + " - " + speAnno.Text;
+                        String descfact = "Facturación del mes de " + cmbMes.Text + " - " + speAnno.Text;//<<<<<<aqui hay que tocar
                         Reports.rptFacturasSoloDatosCZF aorpt = new Reports.rptFacturasSoloDatosCZF(remision, descfact);
                         aorpt.DataSource = factura;
                         //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
@@ -891,7 +894,8 @@ namespace VisorFacturas.Forms
                     }
                     else
                     {
-                        Reports.xrFacturaSoloDatos aorpt = new Reports.xrFacturaSoloDatos(remision, cmbMes.Text);
+                        String descfact = txt_Mese.Text;// + " " + speAnno.Text;
+                        Reports.xrFacturaSoloDatos aorpt = new Reports.xrFacturaSoloDatos(remision, cmbMes.Text, chkEntreMES.Checked, descfact);
                         aorpt.DataSource = factura;
                         aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
                         frmviewer aofrmviewer = new frmviewer(aorpt);
@@ -1112,7 +1116,7 @@ namespace VisorFacturas.Forms
                             GetData(fac_selected.ord_numero);
 
                             // Creamos el reporte pero no  lo imprimimos
-                            Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
+                            Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text, false, string.Empty);
                             aorpt.DataSource = factura;
                             aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
                             // Exportamos el reporte en PDF
@@ -1241,7 +1245,7 @@ namespace VisorFacturas.Forms
                                 if (factura.ToList().Count() > 0)
                                 {
                                     //Creamos el reporte, sin imprimirlo
-                                    Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text);
+                                    Reports.xrFacturas aorpt = new Reports.xrFacturas(remision, cmbMes.Text, false, string.Empty);
                                     aorpt.DataSource = factura;
                                     aorpt.picLogo.Image = VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas;
                                     // Exportamos el reporte en formato PDF
@@ -1470,6 +1474,35 @@ namespace VisorFacturas.Forms
             mrtxt_cuerpoMail.Margin = new Padding(0);
             mrtxt_cuerpoMail.Padding = new Padding(0);
             mrtxt_cuerpoMail.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+        }
+        /// <summary>
+        /// Aqui controlo si se muestran el campo entre meses
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkEntreMES_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit aosender = sender as CheckEdit;
+            if ((aosender.EditValue != DBNull.Value) && (aosender.EditValue != null) && (Convert.ToString(aosender.EditValue) != ""))
+            {                
+                    switch (aosender.Checked)
+                    {
+                        //Entra cuando esta seleccionado
+                        case true:
+                        chkImpresionMasiva.CheckState = CheckState.Unchecked;
+                        chkImpresionMasiva.Enabled = false;
+                        //txt_Mese.Text = "";
+                        txt_meses.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        break;
+                        //Entra cuando esta deseleccionado
+                        case false:
+                        //txt_Mese.Text = "";
+                        chkImpresionMasiva.Enabled = true;
+                        txt_meses.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        
+                        break;
+                    }
+            }
         }
     }
 }
