@@ -16,14 +16,18 @@ using VisorFacturas.ni.gob.bcn.servicios;
 using System.Xml.Serialization;
 using VisorFacturas.Util;
 using System.IO;
+using VisorFacturas.Enums;
 
 namespace VisorFacturas.Forms
 {
     public partial class frmSistInfCNZF : DevExpress.XtraEditors.XtraForm
     {
-        public frmSistInfCNZF(tblUser pocurrentuser)
+        // Usuario del sistema
+        tblUser moCurrentUser;
+        public frmSistInfCNZF(tblUser paCurrentUser)
         {
             InitializeComponent();
+            this.moCurrentUser = paCurrentUser;
         }
 
         #region VARIABLES GLOBALES  
@@ -35,7 +39,7 @@ namespace VisorFacturas.Forms
         DevExpress.XtraLayout.Utils.LayoutVisibility aoNever = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
         DateTime aoFecha2000 = new DateTime(2000, 1, 1);
         List<viewClientes> aoclientes_lst;
-        String sqlClientes_TODOS = "SELECT cli_cod, cli_nom, UPPER(cli_regime) as 'tipo_reg' FROM CLIENTE";
+        String sqlClientes_TODOS = "";
 
         // Variables de Filtros - Parametros
         short aofiltro_mes_entero;
@@ -51,7 +55,7 @@ namespace VisorFacturas.Forms
         bool aofiltroind_solofactpendientes;
 
         // Otras variables
-        String aosql_clientes_gle = "Select cli_cod, cli_nom from CLIENTE WHERE tip_regime > 0";
+        String aosql_clientes_gle = "";
         DataTable acDT_temp;
         DataTable acDT_temp_02;
 
@@ -180,7 +184,22 @@ namespace VisorFacturas.Forms
         private void mpxFillLoadDta()
         {
             acDT_temp = new DataTable();
-            using (OleDbDataAdapter adapt = new OleDbDataAdapter(aosql_clientes_gle, Settings.Default.mCnxCNZF_TablasCXC))
+            var Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+            //Cargamos los clientes
+            if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+            {
+                aosql_clientes_gle = "Select cli_cod, cli_nom from CLIENTE";
+                sqlClientes_TODOS = "SELECT cli_cod, cli_nom, 'Usuaria' as 'tipo_reg' FROM CLIENTE";
+                Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
+            }
+            else
+            {
+                aosql_clientes_gle = "Select cli_cod, cli_nom from CLIENTE WHERE tip_regime > 0";
+                sqlClientes_TODOS = "SELECT cli_cod, cli_nom, UPPER(cli_regime) as 'tipo_reg' FROM CLIENTE";
+                Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+            }
+
+            using (OleDbDataAdapter adapt = new OleDbDataAdapter(aosql_clientes_gle, Str_Ruta))
             {
                 adapt.Fill(acDT_temp);
             }
@@ -201,7 +220,7 @@ namespace VisorFacturas.Forms
             // Cargamos un listado general de todos los clientes
             acDT_temp = new DataTable();
             aoclientes_lst = new List<viewClientes>();
-            using (OleDbDataAdapter adapt = new OleDbDataAdapter(sqlClientes_TODOS, Settings.Default.mCnxCNZF_TablasCXC))
+            using (OleDbDataAdapter adapt = new OleDbDataAdapter(sqlClientes_TODOS, Str_Ruta))
             {
                 adapt.Fill(acDT_temp);
             }
@@ -415,23 +434,54 @@ namespace VisorFacturas.Forms
                         #region RPT101          
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_facturasmes> aolistrpt_101 = new List<view_rpt_facturasmes>();
-                        // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
-                        if (aofiltroind_pagosfechaact)
+
+                        //Cargamos los clientes
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                         {
-                            acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, "");
+                            // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
+                            if (aofiltroind_pagosfechaact)
+                            {
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, "");
+                            }
+                            else
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                            }
+                            // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                            using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCZF_TablasCXC))
+                            {
+                                adapt.Fill(acDT_temp);
+                            }
                         }
                         else
                         {
-                            // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
-                            aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
-                            acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                            // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
+                            if (aofiltroind_pagosfechaact)
+                            {
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, "");
+                            }
+                            else
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                            }
+                            // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                            using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
+                            {
+                                adapt.Fill(acDT_temp);
+                            }
                         }
 
-                        // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
-                        {
-                            adapt.Fill(acDT_temp);
-                        }
+                        
+
+                        //// Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                        //using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
+                        //{
+                        //    adapt.Fill(acDT_temp);
+                        //}
 
                         if (acDT_temp.Rows.Count == 0)
                         {
@@ -484,15 +534,41 @@ namespace VisorFacturas.Forms
                             }
                         }
 
-                        Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
-                        aorpt_101.DataSource = aolistrpt_101;
-                        aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
-                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        aofrmviewer = new frmviewer(aorpt_101);
-                        aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
-                        //aofrmviewer.MdiParent = this.MdiParent;
-                        aofrmviewer.WindowState = FormWindowState.Maximized;
-                        aofrmviewer.Show();
+                        //Cargamos los clientes
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Reports.CZF.xrfacturasmes aorpt_101 = new Reports.CZF.xrfacturasmes();
+                            aorpt_101.DataSource = aolistrpt_101;
+                            aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_101);
+                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                            //aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
+                        else
+                        {
+                            Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
+                            aorpt_101.DataSource = aolistrpt_101;
+                            aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_101);
+                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                            //aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
+
+                        //Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
+                        //aorpt_101.DataSource = aolistrpt_101;
+                        //aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                        ////aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                        //aofrmviewer = new frmviewer(aorpt_101);
+                        //aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                        ////aofrmviewer.MdiParent = this.MdiParent;
+                        //aofrmviewer.WindowState = FormWindowState.Maximized;
+                        //aofrmviewer.Show();
 
                         mpxCloseSplashForm();
 
@@ -502,11 +578,23 @@ namespace VisorFacturas.Forms
                     case "RPT102":
                         #region RPT102
                         // Creamos la lista del reporte a imprimir
+
+                        var Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
                         List<view_rpt_metrajeanual> aolistrpt_102 = new List<view_rpt_metrajeanual>();
                         acSql_01 = String.Format(Resources.xr_proc_metraje_anual, aofiltro_anyo_entero);
 
+                        //Cargamos los clientes
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
+                        }
+                        else
+                        {
+                            Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+                        }
+
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Str_Ruta))
                         {
                             adapt.Fill(acDT_temp);
                         }

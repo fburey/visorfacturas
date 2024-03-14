@@ -211,7 +211,7 @@
             this.Margins = new DevExpress.Drawing.DXMargins(80, 80, 100, 100);
             this.PageHeight = 412;
             this.PageWidth = 950;
-            this.PaperKind = System.Drawing.Printing.PaperKind.Number10Envelope;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Number10Envelope;
             this.SnapGridSize = 2F;
             this.Version = "19.1";
             ((System.ComponentModel.ISupportInitialize)(this.mbndsrc_report)).EndInit();

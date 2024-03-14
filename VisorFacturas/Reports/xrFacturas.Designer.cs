@@ -1292,7 +1292,7 @@
             this.xrLabel47.StylePriority.UseFont = false;
             this.xrLabel47.StylePriority.UsePadding = false;
             this.xrLabel47.StylePriority.UseTextAlignment = false;
-            this.xrLabel47.Text = "Sub Director División Administrativa Financiera";
+            this.xrLabel47.Text = "Division Administrativa Financiera";
             this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
             // xrlab_Revisado
@@ -1310,7 +1310,7 @@
             this.xrlab_Revisado.StylePriority.UseFont = false;
             this.xrlab_Revisado.StylePriority.UsePadding = false;
             this.xrlab_Revisado.StylePriority.UseTextAlignment = false;
-            this.xrlab_Revisado.Text = "Dirección de Operaciones y Facilitación";
+            this.xrlab_Revisado.Text = "Dirección de Operaciones";
             this.xrlab_Revisado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
             // 
             // xrLabel45
@@ -1623,7 +1623,7 @@
             this.DataSource = this.mhead_bndsrc;
             this.Margins = new DevExpress.Drawing.DXMargins(75F, 71F, 32F, 87F);
             this.SnapGridStepCount = 1;
-            this.Version = "22.2";
+            this.Version = "23.2";
             this.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.xrFacturas_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable12)).EndInit();

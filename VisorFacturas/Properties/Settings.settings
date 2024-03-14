@@ -32,5 +32,8 @@
     <Setting Name="VisorFacturas_ni_gob_bcn_servicios_Tipo_Cambio_BCN" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx</Value>
     </Setting>
+    <Setting Name="mCnxCZF_TablasCXC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Provider=VFPOLEDB.1;Data Source=\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\INVENT\CZF;Extended Properties=dBASE IV;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

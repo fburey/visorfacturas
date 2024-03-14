@@ -269,7 +269,7 @@
             this.Margins = new DevExpress.Drawing.DXMargins(80, 80, 100, 100);
             this.PageHeight = 412;
             this.PageWidth = 950;
-            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Custom;
             this.SnapGridSize = 2F;
             this.Version = "19.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();

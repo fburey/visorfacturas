@@ -49,9 +49,9 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerActFij = false;
                     createcurrentuser.indVerSistInf = true;
                     createcurrentuser.indVerNotas = false;
-                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
+                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CZF;
                     createcurrentuser.indCambiarEmpresa = false;
-                    createcurrentuser.email = "rblanco@cnzf.gob.ni";
+                    createcurrentuser.email = "rblanco@czf.com.ni";
                     break;
                 case @"zfrancas\aaviles":
                     createcurrentuser.username = pausername;

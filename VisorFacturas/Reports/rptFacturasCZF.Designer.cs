@@ -41,6 +41,7 @@
             this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.mdetail_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
@@ -159,8 +160,8 @@
             this.caclfield_rem_descripcion = new DevExpress.XtraReports.UI.CalculatedField();
             this.calcfield_rem_total = new DevExpress.XtraReports.UI.CalculatedField();
             this.calcfield_fac_moneda_str = new DevExpress.XtraReports.UI.CalculatedField();
-            this.mdetail_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.mhead_bndsrc = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
@@ -173,7 +174,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrtable_descuento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mhead_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -315,6 +315,10 @@
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "xrLabel16";
             this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            // 
+            // mdetail_bndsrc
+            // 
+            this.mdetail_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewRemision);
             // 
             // xrLabel13
             // 
@@ -1519,8 +1523,9 @@
             this.xrLabel47.StylePriority.UseFont = false;
             this.xrLabel47.StylePriority.UsePadding = false;
             this.xrLabel47.StylePriority.UseTextAlignment = false;
-            this.xrLabel47.Text = "Luisa Molina";
+            this.xrLabel47.Text = "Gerente Administrativo Financiero";
             this.xrLabel47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            this.xrLabel47.Visible = false;
             // 
             // xrlab_Revisado
             // 
@@ -1554,8 +1559,9 @@
             this.xrLabel45.StylePriority.UseFont = false;
             this.xrLabel45.StylePriority.UsePadding = false;
             this.xrLabel45.StylePriority.UseTextAlignment = false;
-            this.xrLabel45.Text = "Esperanza Jaenz";
+            this.xrLabel45.Text = "Oficina Cartera y Cobro";
             this.xrLabel45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            this.xrLabel45.Visible = false;
             // 
             // xrTable3
             // 
@@ -1832,10 +1838,6 @@
     ")";
             this.calcfield_fac_moneda_str.Name = "calcfield_fac_moneda_str";
             // 
-            // mdetail_bndsrc
-            // 
-            this.mdetail_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewRemision);
-            // 
             // mhead_bndsrc
             // 
             this.mhead_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewFactura);
@@ -1860,10 +1862,11 @@
             this.mhead_bndsrc,
             this.mdetail_bndsrc});
             this.DataSource = this.mhead_bndsrc;
-            this.Margins = new DevExpress.Drawing.DXMargins(75, 71, 32, 87);
+            this.Margins = new DevExpress.Drawing.DXMargins(75F, 71F, 32F, 87F);
             this.SnapGridSize = 2F;
-            this.Version = "19.1";
+            this.Version = "23.2";
             this.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.rptFacturasCZF_BeforePrint);
+            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
@@ -1876,7 +1879,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrtable_descuento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mhead_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

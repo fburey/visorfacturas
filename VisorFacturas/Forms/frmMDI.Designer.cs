@@ -47,6 +47,7 @@
             this.ribpag_Reportes = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribpag_estilos = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnmenuCam = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtabmdiman_Main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.milcImage3232)).BeginInit();
@@ -63,16 +64,17 @@
             this.ribbonMain.ExpandCollapseItem.Id = 0;
             this.ribbonMain.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonMain.ExpandCollapseItem,
-            this.ribbonMain.SearchEditItem,
             this.bbi_visorfactura,
             this.bbi_Salir,
             this.bbi_ActivosAsignados,
             this.skinRibbonGalleryBarItem1,
-            this.bbi_SistInf});
+            this.bbi_SistInf,
+            this.btnmenuCam});
             this.ribbonMain.LargeImages = this.milcImage3232;
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 7;
+            this.ribbonMain.MaxItemId = 10;
             this.ribbonMain.Name = "ribbonMain";
+            this.ribbonMain.PageHeaderItemLinks.Add(this.btnmenuCam);
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribPag_Facturas,
             this.ribpag_ActivosFijo,
@@ -229,6 +231,15 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Estilos del sistema";
             // 
+            // btnmenuCam
+            // 
+            this.btnmenuCam.Caption = "barButtonItem1";
+            this.btnmenuCam.Id = 9;
+            this.btnmenuCam.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.Image")));
+            this.btnmenuCam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.LargeImage")));
+            this.btnmenuCam.Name = "btnmenuCam";
+            this.btnmenuCam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnmenuCam_ItemClick);
+            // 
             // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,5 +281,6 @@
         private DevExpress.XtraBars.BarButtonItem bbi_SistInf;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribpag_Reportes;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem btnmenuCam;
     }
 }

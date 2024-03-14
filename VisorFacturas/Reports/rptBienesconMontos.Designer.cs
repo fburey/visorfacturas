@@ -1146,7 +1146,7 @@
             this.Margins = new DevExpress.Drawing.DXMargins(30, 30, 30, 30);
             this.PageHeight = 850;
             this.PageWidth = 1400;
-            this.PaperKind = System.Drawing.Printing.PaperKind.Legal;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Legal;
             this.SnapGridSize = 2F;
             this.Tag = "Asignación de Activos Fijos";
             this.Version = "18.1";

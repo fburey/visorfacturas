@@ -88,6 +88,44 @@ namespace VisorFacturas.Util
                 fldimageidx = 1
             });
 
+            //// Nodo padre Contabilidad
+            //aoTreelst.Add(new viewTreeSistInf()
+            //{
+            //    fldidxrep = 500,
+            //    fldcodrep = "RPT500",
+            //    fldnamrep = "Reportes de Contabilidad",
+            //    fldcia = 1,
+            //    fldidxrepReportaA = 0,
+            //    fldimageidx = 0
+            //});
+            aoTreelst.Add(new viewTreeSistInf()
+            {
+                fldidxrep = 500,
+                fldcodrep = "RPT501",
+                fldnamrep = "Anexos Financieros",
+                fldcia = 1,
+                fldidxrepReportaA = 0,
+                fldimageidx = 0
+            });            
+            aoTreelst.Add(new viewTreeSistInf()
+            {
+                fldidxrep = 501,
+                fldcodrep = "RPT501",
+                fldnamrep = "Detalles Comprobantes Contables",
+                fldcia = 1,
+                fldidxrepReportaA = 500,
+                fldimageidx = 1
+            });
+            aoTreelst.Add(new viewTreeSistInf()
+            {
+                fldidxrep = 600,
+                fldcodrep = "RPT501",
+                fldnamrep = "Estados Financieros",
+                fldcia = 1,
+                fldidxrepReportaA = 0,
+                fldimageidx = 0
+            });
+
             return aoTreelst.OrderBy(f => f.fldidxrep).ToList();
         }
 

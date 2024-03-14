@@ -369,6 +369,23 @@ namespace VisorFacturas.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select FAC.fac_fac_nu AS &apos;fac_numfac&apos;
+        ///,FAC.fecha AS &apos;fac_fecha&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,CLI.cli_pais AS &apos;cli_pais&apos;
+        ///,CLI.cli_ciudad AS &apos;cli_ciudad&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti, 0)) AS NUMERIC(10,2)) AS &apos;rem_cant&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_precio&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_cantprecio&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;,  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_facturas_mes_czf {
+            get {
+                return ResourceManager.GetString("xr_proc_facturas_mes_czf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select CLI.cli_cod AS &apos;cli_cod&apos;
         ///,CLI.cli_nom AS &apos;cli_nombre&apos;
         ///,MONTH(FAC.fecha) AS &apos;fac_mesfact&apos;

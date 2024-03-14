@@ -20,7 +20,8 @@ namespace VisorFacturas.Forms
     {
         tblUser moCurrentUser;
         clslistusers clsusuarios = new clslistusers();
-
+        String username = string.Empty;
+        String PantTitle = "SISTEMA DE CONSULTAS DBF";
         public frmMDI()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace VisorFacturas.Forms
 
             //// Obtener el usuario de Windows
             //XtraMessageBox.Show(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\').Last());
-            String username = System.Security.Principal.WindowsIdentity.GetCurrent().Name;  // PARA SABER NOMBRE DE USUARIO CON DOMINIO
+            username = System.Security.Principal.WindowsIdentity.GetCurrent().Name;  // PARA SABER NOMBRE DE USUARIO CON DOMINIO
             //String username = Environment.UserName; // PARA SABER SOLO EL NOMBRE DE USUARIO
 
             moCurrentUser = clsusuarios.GetUserSystem(username, null);
@@ -67,16 +68,23 @@ namespace VisorFacturas.Forms
                         bbi_SistInf.Visibility = BarItemVisibility.Never;
                     
                     //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
-                    var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
-                    if (idselectempresa != moCurrentUser.idEmpresa)
+                    //var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
+                    //if (idselectempresa != moCurrentUser.idEmpresa)
+                    //{
+                    //    moCurrentUser = clsusuarios.GetUserSystem(username, (Int16)idselectempresa);
+                    //}
+                    if(moCurrentUser.indCambiarEmpresa)
                     {
-                        moCurrentUser = clsusuarios.GetUserSystem(username, (Int16)idselectempresa);
+                        btnmenuCam.Visibility = BarItemVisibility.Always;
                     }
+                    else
+                        btnmenuCam.Visibility = BarItemVisibility.Never;
 
-                    if(moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
-                    this.Text = this.Text + " - CZF";
+
+                    if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    this.Text = PantTitle + " - CZF";
                     else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
-                        this.Text = this.Text + " - CNZF";
+                        this.Text = PantTitle + " - CNZF";
                 }
                 else
                 {
@@ -204,6 +212,21 @@ namespace VisorFacturas.Forms
             {
                 return pauser.idEmpresa;
             }
+        }
+
+        private void btnmenuCam_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
+            var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
+            if (idselectempresa != moCurrentUser.idEmpresa)
+            {
+                moCurrentUser = clsusuarios.GetUserSystem(username, (Int16)idselectempresa);
+            }
+
+            if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                this.Text = PantTitle + " - CZF";
+            else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                this.Text = PantTitle + " - CNZF";
         }
     }
 }

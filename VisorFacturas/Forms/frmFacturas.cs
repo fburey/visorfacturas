@@ -76,6 +76,7 @@ namespace VisorFacturas.Forms
         List<viewFactura> ListFacturas; // Se usa en el Grid Facturas
         List<viewClientes> ListClientes_Err;
 
+
         //DataAdapters
         OleDbDataAdapter adapter;
 
@@ -171,7 +172,7 @@ namespace VisorFacturas.Forms
         /// <summary>
         /// Carga los datos de las tablas de Visual Fox Pro y los datos los guardamos en las tablas del dataset del proyecto
         /// </summary>
-        private void CargarDatosTablasDBF()
+        private void CargarDatosTablasDBF()  //Se carga el dataset
         {
             try
             {

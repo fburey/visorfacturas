@@ -138,5 +138,15 @@ namespace VisorFacturas.Properties {
                 return ((string)(this["VisorFacturas_ni_gob_bcn_servicios_Tipo_Cambio_BCN"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE" +
+            "\\INVENT\\CZF;Extended Properties=dBASE IV;")]
+        public string mCnxCZF_TablasCXC {
+            get {
+                return ((string)(this["mCnxCZF_TablasCXC"]));
+            }
+        }
     }
 }

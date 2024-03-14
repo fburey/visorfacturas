@@ -333,4 +333,28 @@ Parámetros:
 {2}: Filtra por un Cliente
 {3}: Corte de fechas de Pago (a la fecha final especificada)</comment>
   </data>
+  <data name="xr_proc_facturas_mes_czf" xml:space="preserve">
+    <value>Select FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fecha AS 'fac_fecha'
+,CLI.cli_nom AS 'cli_nombre'
+,CLI.cli_pais AS 'cli_pais'
+,CLI.cli_ciudad AS 'cli_ciudad'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_precio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
+,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
+,NVL(PAG.pg_amo_dol, 0) AS 'pag_amount'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,FAC.fac_amo_do as 'fac_total' ,"Usuaria" AS 'tipo_regimen'
+from FACTURA AS FAC 
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)  {2}
+group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total
+order by fac_numfac
+HAVING FAC.fac_amo_do &gt; 0
+where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
+  </data>
 </root>
