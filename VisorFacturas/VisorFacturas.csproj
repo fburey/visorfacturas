@@ -24,9 +24,9 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>2024.02.23.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2024.03.18.1</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2024.02.23.%2a</ApplicationVersion>
+    <ApplicationVersion>2024.03.18.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\clsCnfParameterLogin.cs" />
+    <Compile Include="Clases\clsMenuMDI.cs" />
     <Compile Include="Clases\tblUser.cs" />
     <Compile Include="Clases\viewBIENES.cs" />
     <Compile Include="Clases\viewEmpleados.cs" />
@@ -201,6 +202,12 @@
     </Compile>
     <Compile Include="Forms\frmActivoFijo.designer.cs">
       <DependentUpon>frmActivoFijo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEmpresaSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEmpresaSelect.designer.cs">
+      <DependentUpon>frmEmpresaSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmFacturas.cs">
       <SubType>Form</SubType>
@@ -361,6 +368,9 @@
     <EmbeddedResource Include="Forms\frmActivoFijo.resx">
       <DependentUpon>frmActivoFijo.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEmpresaSelect.resx">
+      <DependentUpon>frmEmpresaSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmFacturas.resx">
       <DependentUpon>frmFacturas.cs</DependentUpon>

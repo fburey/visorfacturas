@@ -13,13 +13,18 @@ using VisorFacturas.Forms;
 using VisorFacturas.Clases;
 using VisorFacturas.Util;
 using VisorFacturas.Enums;
+using VisorFacturas.Forms;
 
 namespace VisorFacturas.Forms
 {
     public partial class frmMDI : DevExpress.XtraEditors.XtraForm
     {
-        tblUser moCurrentUser;
+        /// <summary>
+        /// Clase tblUser
+        /// </summary>
+        tblUser moCurrentUser;// = new tblUser();
         clslistusers clsusuarios = new clslistusers();
+        clsCnfParameterLogin moClsCnfParameter = new clsCnfParameterLogin();
         String username = string.Empty;
         String PantTitle = "SISTEMA DE CONSULTAS DBF";
         public frmMDI()
@@ -38,99 +43,74 @@ namespace VisorFacturas.Forms
             //String username = Environment.UserName; // PARA SABER SOLO EL NOMBRE DE USUARIO
 
             moCurrentUser = clsusuarios.GetUserSystem(username, null);
-            if (moCurrentUser.idEmpresa != 0 || moCurrentUser.username != "Usuario Inválido")
+
+            //if (moCurrentUser.indCambiarEmpresa)
+            //{
+            //    //AQUI OBTENGO LOS PERMISOS DEL USUARIO
+            //    moCurrentUser = clsusuarios.GetUserSystem(username, moClsCnfParameter.mcIdEmpresa);
+            //    btnmenuCam.Visibility = BarItemVisibility.Always;
+            //}
+            //else
+            //{
+            //    //AQUI OBTENGO LOS PERMISOS DEL USUARIO
+            //    moCurrentUser = clsusuarios.GetUserSystem(username, null);
+            //    btnmenuCam.Visibility = BarItemVisibility.Never;
+            //}
+            moClsCnfParameter.mcIdEmpresa = moCurrentUser.idEmpresa;
+            mpxGetPermiso();
+            
+        }
+
+        private void mpxGetPermiso()
+        {            
+            if (moCurrentUser.indVerFactura || moCurrentUser.indVerActFij)
             {
-                if (moCurrentUser.indVerFactura || moCurrentUser.indVerActFij)
+                //// Puede ver facturas ?
+                if (moCurrentUser.indVerFactura)
+                    bbi_visorfactura.Visibility = BarItemVisibility.Always;
+                else
+                    bbi_visorfactura.Visibility = BarItemVisibility.Never;
+                //// Puede ver Activos Fijos ?
+                if (moCurrentUser.indVerActFij)
+                    bbi_ActivosAsignados.Visibility = BarItemVisibility.Always;
+                else
+                    bbi_ActivosAsignados.Visibility = BarItemVisibility.Never;
+                //// Puede ver Reportes ?
+                if (moCurrentUser.indVerNotas)
                 {
-                    //// Puede ver facturas ?
-                    if(moCurrentUser.indVerFactura)
-                        bbi_visorfactura.Visibility = BarItemVisibility.Always;
-                    else
-                        bbi_visorfactura.Visibility= BarItemVisibility.Never;
-                    //// Puede ver Activos Fijos ?
-                    if (moCurrentUser.indVerActFij)                    
-                        bbi_ActivosAsignados.Visibility = BarItemVisibility.Always;
-                    else
-                        bbi_ActivosAsignados.Visibility = BarItemVisibility.Never;
-                    //// Puede ver Reportes ?
-                    if (moCurrentUser.indVerNotas)
-                    {
-                        //bbi_SistInf.Visibility = BarItemVisibility.Always;
-                    }
-                    else
-                    {
-                        //bbi_SistInf.Visibility = BarItemVisibility.Never;
-                    }
-                    //// Puede ver Reportes ?
-                    if (moCurrentUser.indVerSistInf)
-                        bbi_SistInf.Visibility = BarItemVisibility.Always;
-                    else
-                        bbi_SistInf.Visibility = BarItemVisibility.Never;
-                    
-                    //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
-                    //var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
-                    //if (idselectempresa != moCurrentUser.idEmpresa)
-                    //{
-                    //    moCurrentUser = clsusuarios.GetUserSystem(username, (Int16)idselectempresa);
-                    //}
-                    if(moCurrentUser.indCambiarEmpresa)
-                    {
-                        btnmenuCam.Visibility = BarItemVisibility.Always;
-                    }
-                    else
-                        btnmenuCam.Visibility = BarItemVisibility.Never;
-
-
-                    if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
-                    this.Text = PantTitle + " - CZF";
-                    else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
-                        this.Text = PantTitle + " - CNZF";
+                    //bbi_SistInf.Visibility = BarItemVisibility.Always;
                 }
                 else
                 {
-                    ribPag_Facturas.Visible = false;
-                    ribpag_ActivosFijo.Visible = false;
-                    XtraMessageBox.Show("Usted no puede visualizar ningún módulo del sistema!", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    Application.Exit();
+                    //bbi_SistInf.Visibility = BarItemVisibility.Never;
                 }
+                //// Puede ver Reportes ?
+                if (moCurrentUser.indVerSistInf)
+                    bbi_SistInf.Visibility = BarItemVisibility.Always;
+                else
+                    bbi_SistInf.Visibility = BarItemVisibility.Never;
+
+                ////// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
+                //var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
+                ////if (idselectempresa != moCurrentUser.idEmpresa)
+                ////{
+                //  moCurrentUser = clsusuarios.GetUserSystem(username, (Int16)idselectempresa);
+                ////}
+
+
+
+                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    this.Text = PantTitle + " - CZF";
+                else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                    this.Text = PantTitle + " - CNZF";
             }
             else
             {
                 ribPag_Facturas.Visible = false;
                 ribpag_ActivosFijo.Visible = false;
-                XtraMessageBox.Show("Usted no pertenece a los usuarios autorizados para usar el sistema!", "El Usuario no Existe", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                XtraMessageBox.Show("Usted no puede visualizar ningún módulo del sistema!", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 Application.Exit();
             }
-
-            //switch (username.ToLower())
-            //{
-            //    case "zfrancas\\adavila":
-            //        ribPag_Facturas.Visible = true;
-            //        ribpag_ActivosFijo.Visible = true;             
-            //        break;
-            //    case "zfrancas\\wmejia":
-            //        ribPag_Facturas.Visible = true;
-            //        ribpag_ActivosFijo.Visible = true;
-            //        break;
-            //    case "zfrancas\\rsblanco":
-            //        ribPag_Facturas.Visible = true;
-            //        ribpag_ActivosFijo.Visible = false;
-            //        break;
-            //    case "zfrancas\\dgonzalez":
-            //        ribPag_Facturas.Visible = true;
-            //        ribpag_ActivosFijo.Visible = true;
-            //        break;
-            //    case "zfrancas\\cobando":
-            //        ribPag_Facturas.Visible = true;
-            //        ribpag_ActivosFijo.Visible = false;
-            //        break;
-            //    default:
-            //        ribPag_Facturas.Visible = false;
-            //        ribpag_ActivosFijo.Visible = false;
-            //        XtraMessageBox.Show("Usted no puede visualizar ningún módulo del sistema!", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            //        Application.Exit();
-            //        break;
-            //}
         }
 
         private void bbi_visorfactura_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -177,8 +157,10 @@ namespace VisorFacturas.Forms
 
         private Int16 mvxCambiarEmpresa(tblUser pauser)
         {
+            
             if (pauser.indCambiarEmpresa == true)
             {
+
                 //// Inicializando el XtraInputBox
                 XtraInputBoxArgs args = new XtraInputBoxArgs();
                 args.Caption = "Seleccionar Empresa";
@@ -216,17 +198,20 @@ namespace VisorFacturas.Forms
 
         private void btnmenuCam_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
-            var idselectempresa = mvxCambiarEmpresa(moCurrentUser);
-            if (idselectempresa != moCurrentUser.idEmpresa)
-            {
-                moCurrentUser = clsusuarios.GetUserSystem(username, (Int16)idselectempresa);
-            }
+            XtraForm aofrmchild;
+            moClsCnfParameter.orden_interna = true;
 
+            aofrmchild = new frmEmpresaSelect(moClsCnfParameter);
+            aofrmchild.ShowDialog();
+            //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
+            moCurrentUser = clsusuarios.GetUserSystem(username, moClsCnfParameter.mcIdEmpresa);
+            
             if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                 this.Text = PantTitle + " - CZF";
             else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
                 this.Text = PantTitle + " - CNZF";
+
+            mpxGetPermiso();
         }
     }
 }
