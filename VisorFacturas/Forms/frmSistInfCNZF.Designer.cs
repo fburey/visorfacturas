@@ -78,6 +78,8 @@
             this.mempty_filtros = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.msplashfrm_wait = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DxSAFRHH.inv.forms.frmWaitForm), true, true);
+            this.mchk_ctaAuditoria = new DevExpress.XtraEditors.CheckEdit();
+            this.mlytitm_CtaAuditoria = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mrdg_Param_cli_buscarpor.Properties)).BeginInit();
@@ -86,8 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mclientes_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mgle_Param_cliente_grv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_solofactpendientes.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearini.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearini.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearini.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_comparamesanyoant.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_pagosfechaactual.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speAnno.Properties)).BeginInit();
@@ -95,8 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mtree_sistinf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtree_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mimlFormx16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearfin.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearfin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdte_Param_mesyearfin.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_filtros)).BeginInit();
@@ -121,10 +123,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_ctaAuditoria.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_CtaAuditoria)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.mchk_ctaAuditoria);
             this.layoutControl1.Controls.Add(this.mrdg_Param_cli_buscarpor);
             this.layoutControl1.Controls.Add(this.mtxt_Param_codcliente);
             this.layoutControl1.Controls.Add(this.mgle_Param_cliente);
@@ -244,7 +249,7 @@
             // 
             // mchk_solofactpendientes
             // 
-            this.mchk_solofactpendientes.Location = new System.Drawing.Point(344, 374);
+            this.mchk_solofactpendientes.Location = new System.Drawing.Point(356, 407);
             this.mchk_solofactpendientes.Name = "mchk_solofactpendientes";
             this.mchk_solofactpendientes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mchk_solofactpendientes.Properties.Appearance.Options.UseFont = true;
@@ -260,7 +265,6 @@
             this.mdte_Param_mesyearini.Name = "mdte_Param_mesyearini";
             this.mdte_Param_mesyearini.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mdte_Param_mesyearini.Properties.Appearance.Options.UseFont = true;
-            this.mdte_Param_mesyearini.Properties.BeepOnError = false;
             this.mdte_Param_mesyearini.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.mdte_Param_mesyearini.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -277,7 +281,7 @@
             // 
             // mchk_comparamesanyoant
             // 
-            this.mchk_comparamesanyoant.Location = new System.Drawing.Point(344, 347);
+            this.mchk_comparamesanyoant.Location = new System.Drawing.Point(356, 380);
             this.mchk_comparamesanyoant.Name = "mchk_comparamesanyoant";
             this.mchk_comparamesanyoant.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mchk_comparamesanyoant.Properties.Appearance.Options.UseFont = true;
@@ -288,12 +292,12 @@
             // 
             // mchk_pagosfechaactual
             // 
-            this.mchk_pagosfechaactual.Location = new System.Drawing.Point(344, 317);
+            this.mchk_pagosfechaactual.Location = new System.Drawing.Point(356, 350);
             this.mchk_pagosfechaactual.Name = "mchk_pagosfechaactual";
             this.mchk_pagosfechaactual.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mchk_pagosfechaactual.Properties.Appearance.Options.UseFont = true;
             this.mchk_pagosfechaactual.Properties.Caption = "Pagos a la fecha actual";
-            this.mchk_pagosfechaactual.Size = new System.Drawing.Size(462, 23);
+            this.mchk_pagosfechaactual.Size = new System.Drawing.Size(229, 23);
             this.mchk_pagosfechaactual.StyleController = this.layoutControl1;
             this.mchk_pagosfechaactual.TabIndex = 10;
             // 
@@ -302,7 +306,7 @@
             this.mbtn_salir.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mbtn_salir.Appearance.Options.UseFont = true;
             this.mbtn_salir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.TraExt_btn;
-            this.mbtn_salir.Location = new System.Drawing.Point(465, 392);
+            this.mbtn_salir.Location = new System.Drawing.Point(465, 491);
             this.mbtn_salir.Name = "mbtn_salir";
             this.mbtn_salir.Size = new System.Drawing.Size(117, 53);
             this.mbtn_salir.StyleController = this.layoutControl1;
@@ -367,7 +371,7 @@
             this.mbtn_imprimir.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mbtn_imprimir.Appearance.Options.UseFont = true;
             this.mbtn_imprimir.ImageOptions.Image = global::VisorFacturas.Properties.Resources.printer_32x32;
-            this.mbtn_imprimir.Location = new System.Drawing.Point(344, 392);
+            this.mbtn_imprimir.Location = new System.Drawing.Point(344, 491);
             this.mbtn_imprimir.Name = "mbtn_imprimir";
             this.mbtn_imprimir.Size = new System.Drawing.Size(117, 53);
             this.mbtn_imprimir.StyleController = this.layoutControl1;
@@ -443,7 +447,6 @@
             this.mdte_Param_mesyearfin.Name = "mdte_Param_mesyearfin";
             this.mdte_Param_mesyearfin.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.mdte_Param_mesyearfin.Properties.Appearance.Options.UseFont = true;
-            this.mdte_Param_mesyearfin.Properties.BeepOnError = false;
             this.mdte_Param_mesyearfin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.mdte_Param_mesyearfin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -497,7 +500,7 @@
             this.mlcg_indicadores});
             this.mlcg_filtros.Location = new System.Drawing.Point(330, 0);
             this.mlcg_filtros.Name = "mlcg_filtros";
-            this.mlcg_filtros.Size = new System.Drawing.Size(514, 357);
+            this.mlcg_filtros.Size = new System.Drawing.Size(514, 456);
             this.mlcg_filtros.Text = "<b>Filtros</b>";
             // 
             // mlcg_Params
@@ -675,14 +678,14 @@
             // mlcg_indicadores
             // 
             this.mlcg_indicadores.ExpandButtonVisible = true;
-            this.mlcg_indicadores.Expanded = false;
             this.mlcg_indicadores.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.mlytitm_pagosfechaactual,
             this.mlytitm_comparamesanyoant,
-            this.mlytitm_solofactpendientes});
+            this.mlytitm_solofactpendientes,
+            this.mlytitm_CtaAuditoria});
             this.mlcg_indicadores.Location = new System.Drawing.Point(0, 282);
             this.mlcg_indicadores.Name = "mlcg_indicadores";
-            this.mlcg_indicadores.Size = new System.Drawing.Size(490, 30);
+            this.mlcg_indicadores.Size = new System.Drawing.Size(490, 129);
             this.mlcg_indicadores.Text = "Indicadores";
             // 
             // mlytitm_pagosfechaactual
@@ -692,7 +695,7 @@
             this.mlytitm_pagosfechaactual.MaxSize = new System.Drawing.Size(0, 30);
             this.mlytitm_pagosfechaactual.MinSize = new System.Drawing.Size(197, 30);
             this.mlytitm_pagosfechaactual.Name = "mlytitm_pagosfechaactual";
-            this.mlytitm_pagosfechaactual.Size = new System.Drawing.Size(466, 30);
+            this.mlytitm_pagosfechaactual.Size = new System.Drawing.Size(233, 30);
             this.mlytitm_pagosfechaactual.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.mlytitm_pagosfechaactual.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.mlytitm_pagosfechaactual.TextSize = new System.Drawing.Size(0, 0);
@@ -720,7 +723,7 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(596, 357);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(596, 456);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(417, 102);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -732,7 +735,7 @@
             this.mlcg_botonesacc.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.layoutControlItem3});
-            this.mlcg_botonesacc.Location = new System.Drawing.Point(330, 357);
+            this.mlcg_botonesacc.Location = new System.Drawing.Point(330, 456);
             this.mlcg_botonesacc.Name = "mlcg_botonesacc";
             this.mlcg_botonesacc.Size = new System.Drawing.Size(266, 102);
             this.mlcg_botonesacc.Text = "Botones de Acción";
@@ -770,20 +773,40 @@
             this.mempty_filtros.AllowHotTrack = false;
             this.mempty_filtros.Location = new System.Drawing.Point(844, 0);
             this.mempty_filtros.Name = "mempty_filtros";
-            this.mempty_filtros.Size = new System.Drawing.Size(169, 357);
+            this.mempty_filtros.Size = new System.Drawing.Size(169, 456);
             this.mempty_filtros.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(330, 459);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(330, 558);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(683, 224);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(683, 125);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // msplashfrm_wait
             // 
             this.msplashfrm_wait.ClosingDelay = 500;
+            // 
+            // mchk_ctaAuditoria
+            // 
+            this.mchk_ctaAuditoria.Location = new System.Drawing.Point(589, 350);
+            this.mchk_ctaAuditoria.Name = "mchk_ctaAuditoria";
+            this.mchk_ctaAuditoria.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.mchk_ctaAuditoria.Properties.Appearance.Options.UseFont = true;
+            this.mchk_ctaAuditoria.Properties.Caption = "Reporte para Auditoria";
+            this.mchk_ctaAuditoria.Size = new System.Drawing.Size(229, 23);
+            this.mchk_ctaAuditoria.StyleController = this.layoutControl1;
+            this.mchk_ctaAuditoria.TabIndex = 17;
+            // 
+            // mlytitm_CtaAuditoria
+            // 
+            this.mlytitm_CtaAuditoria.Control = this.mchk_ctaAuditoria;
+            this.mlytitm_CtaAuditoria.Location = new System.Drawing.Point(233, 0);
+            this.mlytitm_CtaAuditoria.Name = "mlytitm_CtaAuditoria";
+            this.mlytitm_CtaAuditoria.Size = new System.Drawing.Size(233, 30);
+            this.mlytitm_CtaAuditoria.TextSize = new System.Drawing.Size(0, 0);
+            this.mlytitm_CtaAuditoria.TextVisible = false;
             // 
             // frmSistInfCNZF
             // 
@@ -837,6 +860,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_ctaAuditoria.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_CtaAuditoria)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -891,5 +916,7 @@
         private DevExpress.XtraEditors.RadioGroup mrdg_Param_cli_buscarpor;
         private DevExpress.XtraLayout.LayoutControlItem mlytitm_Param_cli_buscarpor;
         private DevExpress.XtraLayout.LayoutControlGroup mlcg_cliente;
+        private DevExpress.XtraEditors.CheckEdit mchk_ctaAuditoria;
+        private DevExpress.XtraLayout.LayoutControlItem mlytitm_CtaAuditoria;
     }
 }

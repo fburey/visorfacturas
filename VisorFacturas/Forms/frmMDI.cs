@@ -62,19 +62,32 @@ namespace VisorFacturas.Forms
         }
 
         private void mpxGetPermiso()
-        {            
+        {
             if (moCurrentUser.indVerFactura || moCurrentUser.indVerActFij)
             {
                 //// Puede ver facturas ?
                 if (moCurrentUser.indVerFactura)
+                {
+                    ribbonPageGroup1.Visible = true;
                     bbi_visorfactura.Visibility = BarItemVisibility.Always;
+                }
                 else
+                {
+                    ribbonPageGroup1.Visible = false;
                     bbi_visorfactura.Visibility = BarItemVisibility.Never;
+                }
                 //// Puede ver Activos Fijos ?
                 if (moCurrentUser.indVerActFij)
+                {
+                    ribbonPageGroup3.Visible = true;
                     bbi_ActivosAsignados.Visibility = BarItemVisibility.Always;
+
+                }
                 else
+                {
+                    ribbonPageGroup3.Visible = false;
                     bbi_ActivosAsignados.Visibility = BarItemVisibility.Never;
+                }
                 //// Puede ver Reportes ?
                 if (moCurrentUser.indVerNotas)
                 {
@@ -86,9 +99,15 @@ namespace VisorFacturas.Forms
                 }
                 //// Puede ver Reportes ?
                 if (moCurrentUser.indVerSistInf)
+                {
+                    ribbonPageGroup5.Visible = true;
                     bbi_SistInf.Visibility = BarItemVisibility.Always;
+                }
                 else
+                {
+                    ribbonPageGroup5.Visible = false;
                     bbi_SistInf.Visibility = BarItemVisibility.Never;
+                }
 
                 ////// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
                 //var idselectempresa = mvxCambiarEmpresa(moCurrentUser);

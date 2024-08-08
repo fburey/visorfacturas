@@ -433,12 +433,11 @@
             // 
             // mpicboxEscNic
             // 
-            this.mpicboxEscNic.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("mpicboxEscNic.ImageSource"));
+            this.mpicboxEscNic.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::VisorFacturas.Properties.Resources.Escudo_de_Nicaragua, true);
             this.mpicboxEscNic.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.mpicboxEscNic.Name = "mpicboxEscNic";
             this.mpicboxEscNic.SizeF = new System.Drawing.SizeF(95F, 75F);
             this.mpicboxEscNic.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.mpicboxEscNic.Visible = false;
             // 
             // mtblHeaCol
             // 

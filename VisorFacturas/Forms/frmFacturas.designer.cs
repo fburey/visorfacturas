@@ -42,6 +42,7 @@
             this.colcli_nom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcli_codig = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfechaVence = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colord_numero = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfac_tasa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfac_amo_do = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -168,6 +169,7 @@
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.bsCorreos = new System.Windows.Forms.BindingSource(this.components);
             this.dxErrProv = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.bsVerificacion = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Mese.Properties)).BeginInit();
@@ -266,6 +268,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVerificacion)).BeginInit();
             this.SuspendLayout();
             // 
             // mspsmForm
@@ -369,6 +372,7 @@
             this.colcli_nom,
             this.colcli_codig,
             this.colfecha,
+            this.colfechaVence,
             this.colord_numero,
             this.colfac_tasa,
             this.colfac_amo_do,
@@ -448,6 +452,17 @@
             this.colfecha.Visible = true;
             this.colfecha.VisibleIndex = 3;
             this.colfecha.Width = 100;
+            // 
+            // colfechaVence
+            // 
+            this.colfechaVence.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.colfechaVence.AppearanceHeader.Options.UseFont = true;
+            this.colfechaVence.AppearanceHeader.Options.UseTextOptions = true;
+            this.colfechaVence.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colfechaVence.Caption = "Fecha Ven.";
+            this.colfechaVence.FieldName = "fechaVence";
+            this.colfechaVence.Name = "colfechaVence";
+            this.colfechaVence.Width = 100;
             // 
             // colord_numero
             // 
@@ -1052,6 +1067,7 @@
             // 
             this.mrtxt_cuerpoMail.Location = new System.Drawing.Point(21, 324);
             this.mrtxt_cuerpoMail.Name = "mrtxt_cuerpoMail";
+            this.mrtxt_cuerpoMail.Options.DocumentSaveOptions.CurrentFormat = DevExpress.XtraRichEdit.DocumentFormat.PlainText;
             this.mrtxt_cuerpoMail.Size = new System.Drawing.Size(393, 290);
             this.mrtxt_cuerpoMail.TabIndex = 18;
             this.mrtxt_cuerpoMail.Text = "richEditControl1";
@@ -2089,6 +2105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCorreos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrProv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVerificacion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2232,5 +2249,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem35;
         private DevExpress.XtraEditors.TextEdit txt_Mese;
         private DevExpress.XtraLayout.LayoutControlItem txt_meses;
+        private DevExpress.XtraGrid.Columns.GridColumn colfechaVence;
+        private System.Windows.Forms.BindingSource bsVerificacion;
     }
 }

@@ -21,6 +21,8 @@ using DevExpress.XtraLayout;
 using DevExpress.Utils;
 using System.Net.Mime;
 using static VisorFacturas.Util.clsSendmail_richtext;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 namespace VisorFacturas.Forms
 {
@@ -37,11 +39,14 @@ namespace VisorFacturas.Forms
 
         /* Variables de Correo Electrónico */
         //String smtpCZF = "ns.czf.com.ni";
-        String smtpCZF = "mail.czf.com.ni";
+        String smtpCZF = "186.1.30.111";//"smtp.czf.com.ni";
         //String smtpCNZF = "mail.cnzf.gob.ni";
-        String smtpCNZF = "mail.czf.com.ni";
+        String smtpCNZF = "186.1.30.111";//"smtp.czf.com.ni";
         String smtpCORREO;
 
+        string UserCorreo;
+        string UserPass;
+        String correoRemitent;
         /* Variables para el envio de correos */
         //String NombreRemitenteCNZF = "Ramona Blanco Lezama";
         //String CorreoremitenteCNZF = "rblanco@cnzf.gob.ni";
@@ -176,7 +181,7 @@ namespace VisorFacturas.Forms
         {
             try
             {
-                //OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties=dBASE IV;User ID=;Password=");
+                                 //OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties=dBASE IV;User ID=;Password=");
                 con = new OleDbConnection("Provider=VFPOLEDB.1;Data Source=" + pathTablas + ";Extended Properties=dBASE IV;");
                 OleDbConnection con2 = new OleDbConnection("Provider=VFPOLEDB.1;Data Source=" + pathTablaRemisionTemp + ";Extended Properties=dBASE IV;");
 
@@ -248,6 +253,7 @@ namespace VisorFacturas.Forms
 
                 IEnumerable<viewFactura> data = from fac in tbl_facturas.AsEnumerable()
                                                 join client in tbl_clientes.AsEnumerable() on fac.cli_codig equals client.cli_cod
+                                                //join rem in tbl_remision on fac.fac_fac_nu equals rem.rem_numero
                                                 where (fac.fecha >= fechaini && fac.fecha <= fechafin)
                                                 select new viewFactura
                                                 {
@@ -255,6 +261,7 @@ namespace VisorFacturas.Forms
                                                     cli_nom = client.cli_nom,
                                                     ord_numero = fac.ord_numero,
                                                     fecha = fac.fecha,
+                                                    //fechaVence = rem.rem_fec_ve,
                                                     fac_fac_nu = fac.fac_fac_nu,
                                                     fac_tasa = fac.fac_tasa,
                                                     fac_amo_do = fac.fac_amo_do,
@@ -274,13 +281,86 @@ namespace VisorFacturas.Forms
                 gvFacturas.ViewCaption = "Total de Facturas Encontradas: " + gvFacturas.DataRowCount; //+ bsGrid.List.Count;
 
                 VerificarDuplicados();
+                VerificarVerificar();
             }
             catch (Exception ex)
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        /// <summary>
+        /// Verifica las facturas que estén repetidas, en caso de que encuentre repetidas, imprime un mensaje de ALERTA
+        /// </summary>
+        private void VerificarVerificar()
+        {
+            String MensajeRepetidos = "";
+            List<viewVerificadas> ListFacturasV;
+            var obj = new viewVerificadas() { };
+            ListFacturasV = new List<viewVerificadas>() { };
+            //viewRemision remision;
+            if (ListFacturas.Count > 0)
+            {
+                var dataFacturas = ListFacturas;
+                viewRemision remisionTBL;
+                int con = 0;
+                foreach (var item in dataFacturas)
+                {
+                    //if(item.fac_fac_nu == 35192)
+                    //{
 
+                    //}
+                    GetData(item.ord_numero);
+                    if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    {
+                        remisionTBL = remision.Where(s => s.rem_fec_ve != (item.fecha.AddDays(5)) ).ToList().FirstOrDefault();
+                    }
+                    else
+                    {
+                        remisionTBL = remision.Where(s => s.rem_fec_ve != (item.fecha.AddDays(9))).ToList().FirstOrDefault();
+                    }
+
+                    if (remisionTBL != null)
+                    {                         
+                        con += 1;
+                        MensajeRepetidos += "No. Factura: "+item.fac_fac_nu+", Fecha: " + item.fecha.ToString("d") + ", Fecha/Ven.: " + remisionTBL.rem_fec_ve.ToString("d") + " \n";
+                        string item2 = "No. Factura: " + item.fac_fac_nu + ", Fecha: " + item.fecha.ToString("d") + ", Fecha/Ven.: " + remisionTBL.rem_fec_ve.ToString("d") + " \n";
+
+                        
+                        obj.FacturasV = item2;
+                        ListFacturasV.Add(obj);
+                        //ListFacturasV.Add(item2);
+                    }
+                }
+                //ListFacturasV = MensajeRepetidos;
+
+
+                if (MensajeRepetidos != "")
+                {
+                    //XtraMessageBox.Show("Las siguientes " + con + " facturas no cumplen con el parametro de fecha de vencimiento:\n" + MensajeRepetidos, "Fecha Vencimiento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //bsVerificacion.DataSource = obj;
+                    //ListFacturasV.Add(obj);
+                    modal_frmVerificadas frm = new modal_frmVerificadas(ListFacturasV);
+                    frm.ShowDialog();
+                }
+            }
+        }
+        /// <summary>
+        /// Verifica las facturas que estén repetidas, en caso de que encuentre repetidas, imprime un mensaje de ALERTA
+        /// </summary>
+        private void VerificarDuplicados()
+        {
+            String MensajeRepetidos = "";
+            if (ListFacturas.Count > 0)
+            {
+                var dataFacturas = ListFacturas.GroupBy(s => s.fac_fac_nu).Where(s => s.Count() != 1).ToList();
+                foreach (var item in dataFacturas)
+                    MensajeRepetidos += "No. Factura: " + item.Key + "\n";
+
+                if (MensajeRepetidos != "")
+                    XtraMessageBox.Show("Las siguientes facturas se encuentran repetidas:\n" + MensajeRepetidos, "Facturas Repetidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
         /// <summary>
         /// Función que obtiene los registros del Grid, ya sea todos, o solamente el que tiene seleccionado
         /// </summary>
@@ -393,7 +473,8 @@ namespace VisorFacturas.Forms
                     if (mchk_copia_remitente.Checked)
                     {
                         // Si lo tiene activo, se agregara el correo del remitente en CC del correo
-                        mail.CC.Add(new MailAddress(From));
+                        mail.CC.Add(new MailAddress(correoRemitent));
+                        //mail.CC.Add(new MailAddress(From)); //correoRemitent
                         // Y se desactiva la notificación
                         mail.DeliveryNotificationOptions = DeliveryNotificationOptions.Never;
                     }
@@ -443,10 +524,16 @@ namespace VisorFacturas.Forms
                 using (var mailSender = new SmtpClient())
                 {
                     mailSender.Host = smtpCORREO; //"ns.czf.com.ni";// "mail.cnzf.gob.ni";// smtpCORREO;
-                    mailSender.EnableSsl = false;
+
+
+                    mailSender.UseDefaultCredentials = false;
                     mailSender.Port = 25;
+                    mailSender.Credentials = new System.Net.NetworkCredential(From, UserPass);
+                    ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors) { return true; };
                     mailSender.DeliveryFormat = SmtpDeliveryFormat.International;
                     mailSender.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    mailSender.EnableSsl = true;
+
                     mailSender.Send(mail);
                 }
 
@@ -542,22 +629,7 @@ namespace VisorFacturas.Forms
             }            
         }
 
-        /// <summary>
-        /// Verifica las facturas que estén repetidas, en caso de que encuentre repetidas, imprime un mensaje de ALERTA
-        /// </summary>
-        private void VerificarDuplicados() {
-            String MensajeRepetidos = "";
-            if (ListFacturas.Count > 0)
-            {
-                var dataFacturas = ListFacturas.GroupBy(s => s.fac_fac_nu).Where(s => s.Count() != 1).ToList();
-                foreach (var item in dataFacturas)
-                    MensajeRepetidos += "No. Factura: " + item.Key + "\n";
-
-                if (MensajeRepetidos != "")
-                    XtraMessageBox.Show("Las siguientes facturas se encuentran repetidas:\n" + MensajeRepetidos, "Facturas Repetidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            
-        }
+        
 
         /// <summary>
         /// Rellena los datos por defecto del correo
@@ -632,7 +704,9 @@ namespace VisorFacturas.Forms
             }
 
             txtNombreRem.Text = moCurrentUser.fullname;
-            txtCorreoRem.Text = moCurrentUser.email;
+            txtCorreoRem.Text = "impresora@cnzf.gob.ni";// moCurrentUser.email; //"impresora@cnzf.gob.ni";//
+            UserCorreo = "impresora@cnzf.gob.ni";
+            UserPass = "CnzF_cnzf4dm1ni$tr@Print.";
             //if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
             //{
             //    txtNombreRem.Text = NombreRemitenteCZF;
@@ -685,7 +759,7 @@ namespace VisorFacturas.Forms
         private void mpxAvisoClientesSinEnvioFact(List<viewClientes> listClientes_Err)
         {
             String nombreRemitent = moCurrentUser.fullname;
-            String correoRemitent = moCurrentUser.email;
+            correoRemitent = moCurrentUser.email;
             String titulocorreo;
             String cuerpocorreo;
             String[] arrayAdjuntos = new String[1];
@@ -694,6 +768,8 @@ namespace VisorFacturas.Forms
             String[] CorreosDestinos = new String[2];
             CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
             CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
+            CorreosDestinos[2] = new Util.clslistusers().GetUserSystem(@"zfrancas\aaviles", null).email;
+            CorreosDestinos[3] = new Util.clslistusers().GetUserSystem(@"zfrancas\wmejia", null).email;
             //CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\adavila", null).email;
 
             //Creamos el reporte, sin imprimirlo
@@ -725,8 +801,9 @@ namespace VisorFacturas.Forms
             // Adjuntamos el archivo PDF en la variable adjuntos (type Array String)
 
             // Enviamos el correo
-            isErrorSendMail = true;
-            EnviarCorreo(correoRemitent, nombreRemitent, CorreosDestinos, titulocorreo, cuerpocorreo, arrayAdjuntos);
+            isErrorSendMail = true; //UserCorreo
+            //EnviarCorreo(correoRemitent, nombreRemitent, CorreosDestinos, titulocorreo, cuerpocorreo, arrayAdjuntos);
+            EnviarCorreo(UserCorreo, nombreRemitent, CorreosDestinos, titulocorreo, cuerpocorreo, arrayAdjuntos);
 
         }
 
@@ -938,6 +1015,7 @@ namespace VisorFacturas.Forms
             // Se activa por defecto la CC al remitente
             mchk_copia_remitente.Checked = true;
             mchk_copia_remitente.Visible = true;
+            mchk_copia_remitente.Enabled = false;
 
             try
             {
@@ -1011,7 +1089,7 @@ namespace VisorFacturas.Forms
             }
             catch (Exception ex)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1105,7 +1183,7 @@ namespace VisorFacturas.Forms
                     // Añadimos los correos que están en la Lista
                     for (int i = 0; i < LstCorreosIndiv.Items.Count; i++)
                     {
-                        CorreosCli[i] = LstCorreosIndiv.Items[i].ToString().Trim();
+                        CorreosCli[i] = LstCorreosIndiv.Items[i].ToString().ToLower().Trim();
                     }
 
                     if (!String.IsNullOrEmpty(CorreosCli[0]) || !String.IsNullOrEmpty(CorreosCli[1]))
@@ -1502,8 +1580,14 @@ namespace VisorFacturas.Forms
                         txt_meses.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         
                         break;
+                       
                     }
             }
+        }
+
+        private void mtofileFcVence(string v1, string v2)
+        {
+            StreamWriter escribir = new StreamWriter(@"C:\LogMesFcVen\"+ v1 + "");
         }
     }
 }

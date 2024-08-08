@@ -88,6 +88,7 @@
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.mdetail_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
@@ -164,7 +165,6 @@
             this.calcfield_rem_descripcion = new DevExpress.XtraReports.UI.CalculatedField();
             this.calcfield_fac_total = new DevExpress.XtraReports.UI.CalculatedField();
             this.calcfield_fac_moneda_str = new DevExpress.XtraReports.UI.CalculatedField();
-            this.mdetail_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.mhead_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
@@ -172,6 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
@@ -179,7 +180,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrtable_descuento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mhead_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -903,6 +903,10 @@
             this.xrLabel16.StylePriority.UseTextAlignment = false;
             this.xrLabel16.Text = "xrLabel16";
             this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // mdetail_bndsrc
+            // 
+            this.mdetail_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewRemision);
             // 
             // xrLabel13
             // 
@@ -1893,10 +1897,6 @@
     ")";
             this.calcfield_fac_moneda_str.Name = "calcfield_fac_moneda_str";
             // 
-            // mdetail_bndsrc
-            // 
-            this.mdetail_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewRemision);
-            // 
             // mhead_bndsrc
             // 
             this.mhead_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewFactura);
@@ -1930,6 +1930,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).EndInit();
@@ -1937,7 +1938,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrtable_descuento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mdetail_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mhead_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

@@ -163,6 +163,16 @@ namespace VisorFacturas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Escudo_de_Nicaragua {
+            get {
+                object obj = ResourceManager.GetObject("Escudo_de_Nicaragua", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap export_spreadsheet_32x32 {
             get {
                 object obj = ResourceManager.GetObject("export_spreadsheet_32x32", resourceCulture);
@@ -316,6 +326,29 @@ namespace VisorFacturas.Properties {
         ///   Busca una cadena traducida similar a SELECT 
         ///CLI.cli_cod AS &apos;cli_cod&apos;
         ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,&quot;USUARIA&quot; AS &apos;tipo_reg&apos;
+        ///,FAC.fecha AS &apos;fac_fecha&apos;
+        ///,FAC.fac_fac_nu AS &apos;fac_numfac&apos;
+        ///,FAC.fac_amo_do as &apos;factotd&apos;
+        ///,NVL(PAG.pg_amo_dol, 0) as &apos;pag_totd&apos;
+        ///,NVL(PAG.pg_recnum, &apos;&apos;) AS &apos;pag_numroc&apos;
+        ///,NVL(PAG.pg_fecpag, CTOD(&apos;&apos;)) AS &apos;pag_fecha&apos;
+        ///,FAC.Debe as &apos;fac_debe&apos;
+        ///FROM FACTURA AS FAC
+        ///INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+        ///LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod_cli {2})
+        ///W [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_antiguedad_sdo_czf {
+            get {
+                return ResourceManager.GetString("xr_proc_antiguedad_sdo_czf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT 
+        ///CLI.cli_cod AS &apos;cli_cod&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
         ///,UPPER(CLI.cli_regime) AS &apos;tipo_reg&apos;
         ///,&apos;Saldo Inicial&apos; as &apos;concept&apos;
         ///,CTOD(&apos;&apos;) AS &apos;fac_fecha&apos;
@@ -332,6 +365,30 @@ namespace VisorFacturas.Properties {
         internal static string xr_proc_estado_cuenta {
             get {
                 return ResourceManager.GetString("xr_proc_estado_cuenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT 
+        ///CLI.cli_cod AS &apos;cli_cod&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,&quot;USUARIA&quot; AS &apos;tipo_reg&apos;
+        ///,&apos;Saldo Inicial&apos; as &apos;concept&apos;
+        ///,CTOD(&apos;&apos;) AS &apos;fac_fecha&apos;
+        ///,1 AS &apos;fac_numfac&apos;
+        ///,SUM(FAC.fac_amo_do) as &apos;fac_totd&apos; 
+        ///,SUM(NVL((SELECT SUM(PAG.pg_amo_dol) from PAGOS as PAG where PAG.pg_factura=FAC.fac_fac_nu AND FAC.CLI_CODIG = PAG.pg_cod_cli), 0)) as &apos;pag_totd&apos;
+        ///,&apos;&apos; AS &apos;pag_numroc&apos;
+        ///,CTOD(&apos;&apos;) AS &apos;pag_fecha&apos;
+        ///,7 as &apos;fac_debe&apos;
+        ///FROM CLIENTE AS CLI 
+        ///LEFT JOIN FACTURA AS FAC ON FAC.CLI_CODIG = CLI.CLI_COD
+        ///WHERE 
+        ///(CLI.cli [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_estado_cuenta_czf {
+            get {
+                return ResourceManager.GetString("xr_proc_estado_cuenta_czf", resourceCulture);
             }
         }
         
@@ -365,6 +422,23 @@ namespace VisorFacturas.Properties {
         internal static string xr_proc_facturas_mes {
             get {
                 return ResourceManager.GetString("xr_proc_facturas_mes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select FAC.fac_fac_nu AS &apos;fac_numfac&apos;
+        ///,FAC.fecha AS &apos;fac_fecha&apos;
+        ///,CLI.cli_nom AS &apos;cli_nombre&apos;
+        ///,CLI.cli_pais AS &apos;cli_pais&apos;
+        ///,CLI.cli_ciudad AS &apos;cli_ciudad&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti, 0)) AS NUMERIC(10,2)) AS &apos;rem_cant&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_precio&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_cantprecio&apos;
+        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;,  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_facturas_mes_AUD {
+            get {
+                return ResourceManager.GetString("xr_proc_facturas_mes_AUD", resourceCulture);
             }
         }
         

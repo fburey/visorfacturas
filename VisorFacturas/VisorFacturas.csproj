@@ -24,9 +24,9 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>2024.03.18.1</MinimumRequiredVersion>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2024.03.18.%2a</ApplicationVersion>
+    <MinimumRequiredVersion>2024.07.05.2</MinimumRequiredVersion>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>2024.07.05.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -158,6 +158,7 @@
     <Compile Include="Clases\viewRemision.cs" />
     <Compile Include="Clases\viewTreeSistInf.cs" />
     <Compile Include="Clases\viewTSUBDIR.cs" />
+    <Compile Include="Clases\viewVerificadas.cs" />
     <Compile Include="Clases\view_rpt_facturacomparames_act_ant.cs" />
     <Compile Include="Clases\view_rpt_facturasmes.cs" />
     <Compile Include="Clases\view_rpt_metrajeanual.cs" />
@@ -245,6 +246,12 @@
     <Compile Include="Forms\frmWaitForm.Designer.cs">
       <DependentUpon>frmWaitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\modal_frmVerificadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\modal_frmVerificadas.Designer.cs">
+      <DependentUpon>modal_frmVerificadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\CNZF\xrclientsinfact.cs">
@@ -289,11 +296,35 @@
     <Compile Include="Reports\CNZF\xrantiguedad_saldo.Designer.cs">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CZF\xrantiguedad_saldo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\xrantiguedad_saldo.designer.cs">
+      <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\xrestado_cta_cliente.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\xrestado_cta_cliente.designer.cs">
+      <DependentUpon>xrestado_cta_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\xrfacturacomparames_act_ant.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\xrfacturacomparames_act_ant.designer.cs">
+      <DependentUpon>xrfacturacomparames_act_ant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CZF\xrfacturasmes.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\CZF\xrfacturasmes.designer.cs">
       <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\xrmetrajeanual.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\xrmetrajeanual.designer.cs">
+      <DependentUpon>xrmetrajeanual.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptBienes.cs">
       <SubType>Component</SubType>
@@ -355,6 +386,12 @@
     <Compile Include="Reports\xrsobresVertical.designer.cs">
       <DependentUpon>xrsobresVertical.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\XtraFacturasV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraFacturasV.Designer.cs">
+      <DependentUpon>XtraFacturasV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\clsApp.cs" />
     <Compile Include="Util\clslistusers.cs" />
     <Compile Include="Util\clsSendmail_richtext.cs" />
@@ -390,6 +427,9 @@
     <EmbeddedResource Include="Forms\frmWaitForm.resx">
       <DependentUpon>frmWaitForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\modal_frmVerificadas.resx">
+      <DependentUpon>modal_frmVerificadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -422,8 +462,20 @@
     <EmbeddedResource Include="Reports\CNZF\xrantiguedad_saldo.resx">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\xrantiguedad_saldo.resx">
+      <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\xrestado_cta_cliente.resx">
+      <DependentUpon>xrestado_cta_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\xrfacturacomparames_act_ant.resx">
+      <DependentUpon>xrfacturacomparames_act_ant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CZF\xrfacturasmes.resx">
       <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\xrmetrajeanual.resx">
+      <DependentUpon>xrmetrajeanual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptBienes.resx">
       <DependentUpon>rptBienes.cs</DependentUpon>
@@ -454,6 +506,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\xrsobresVertical.resx">
       <DependentUpon>xrsobresVertical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XtraFacturasV.resx">
+      <DependentUpon>XtraFacturasV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Connected Services\myServiceReference_TC\ServicioTC.wsdl" />
@@ -488,6 +543,7 @@
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewRemision.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewTreeSistInf.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.viewTSUBDIR.datasource" />
+    <None Include="Properties\DataSources\VisorFacturas.Clases.viewVerificadas.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturacomparames_act_ant.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturasmes.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_metrajeanual.datasource" />
@@ -521,6 +577,7 @@
     <None Include="Resources\remove_32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Escudo_de_Nicaragua.png" />
     <None Include="Web References\ni.gob.bcn.servicios\ServicioTC.disco" />
     <None Include="Resources\Gobierno.png" />
     <None Include="Resources\export_spreadsheet_32x32.png" />

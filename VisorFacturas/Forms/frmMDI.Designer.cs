@@ -37,6 +37,7 @@
             this.bbi_ActivosAsignados = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.bbi_SistInf = new DevExpress.XtraBars.BarButtonItem();
+            this.btnmenuCam = new DevExpress.XtraBars.BarButtonItem();
             this.milcImage3232 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribPag_Facturas = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -47,7 +48,6 @@
             this.ribpag_Reportes = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribpag_estilos = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnmenuCam = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtabmdiman_Main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.milcImage3232)).BeginInit();
@@ -130,6 +130,15 @@
             this.bbi_SistInf.Name = "bbi_SistInf";
             this.bbi_SistInf.Tag = "frmSistInf";
             this.bbi_SistInf.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_visorfactura_ItemClick);
+            // 
+            // btnmenuCam
+            // 
+            this.btnmenuCam.Caption = "barButtonItem1";
+            this.btnmenuCam.Id = 9;
+            this.btnmenuCam.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.Image")));
+            this.btnmenuCam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.LargeImage")));
+            this.btnmenuCam.Name = "btnmenuCam";
+            this.btnmenuCam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnmenuCam_ItemClick);
             // 
             // milcImage3232
             // 
@@ -230,15 +239,6 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Estilos del sistema";
-            // 
-            // btnmenuCam
-            // 
-            this.btnmenuCam.Caption = "barButtonItem1";
-            this.btnmenuCam.Id = 9;
-            this.btnmenuCam.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.Image")));
-            this.btnmenuCam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.LargeImage")));
-            this.btnmenuCam.Name = "btnmenuCam";
-            this.btnmenuCam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnmenuCam_ItemClick);
             // 
             // frmMDI
             // 

@@ -271,7 +271,8 @@ namespace VisorFacturas.Forms
                         case "mvxPrintAFMasivos":
                             // Imprime la lista de los Activos Fijos Asignados a cada empleado
                             ListEmpleadosConBienes = new List<viewEmpleados>();
-                            ListEmpleados.ForEach(delegate(viewEmpleados item) {
+                            ListEmpleados.ForEach(delegate(viewEmpleados item) 
+                            {
                                 if (ListBienesAll.Where(s => s.bi_codemp.Contains(item.c_codigo)).Count() > 0)
                                     ListEmpleadosConBienes.Add(item);
                             });

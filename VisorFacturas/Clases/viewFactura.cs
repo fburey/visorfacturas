@@ -17,6 +17,7 @@ namespace VisorFacturas.Clases
         public String cli_regimen { get; set; }
         public String ord_numero { get; set; }
         public DateTime fecha { get; set; }
+        public DateTime fechaVence { get; set; }
         public int fac_fac_nu { get; set; }
         public Double fac_tasa { get; set; }
         public Double fac_amo_do { get; set; }

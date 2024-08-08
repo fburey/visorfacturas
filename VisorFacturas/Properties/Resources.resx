@@ -118,98 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TraFin_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TraFin_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_blue_goto_previous_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_blue_goto_previous_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="print_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_blue_arrow_left_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_blue_arrow_left_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Comisión_Nacional_de_Zonas_Francas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Comisión-Nacional-de-Zonas-Francas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_circle_blue_right_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_circle_blue_right_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="filter_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="printer_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\printer_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_circle_blue_left_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_circle_blue_left_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_blue_goto_next_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_blue_goto_next_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Watermark_Comisión_Nacional_de_Zonas_Francas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Watermark-Comisión-Nacional-de-Zonas-Francas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_circle_blue_first_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_circle_blue_first_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_circle_blue_last_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_circle_blue_last_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_blue_arrow_right_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_blue_arrow_right_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="remove_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\remove_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="send_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\send_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="prev_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prev_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TraExt_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TraExt_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CZF_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CZF-Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Watermark_CZF_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Watermark-CZF-Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="export_spreadsheet_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\export_spreadsheet_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="xr_proc_facturas_mes" xml:space="preserve">
-    <value>Select FAC.fac_fac_nu AS 'fac_numfac'
-,FAC.fecha AS 'fac_fecha'
-,CLI.cli_nom AS 'cli_nombre'
-,CLI.cli_pais AS 'cli_pais'
-,CLI.cli_ciudad AS 'cli_ciudad'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_precio'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
-,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
-,NVL(PAG.pg_amo_dol, 0) AS 'pag_amount'
-,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
-,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
-,FAC.fac_amo_do as 'fac_total' 
-,IIF(CLI.cli_regime='', NVL(TAR.nom_regime, ''), CLI.cli_regime) AS 'tipo_regimen'
-from FACTURA AS FAC 
-INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
-INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
-LEFT JOIN TARIFA AS TAR ON (CLI.tip_regime = TAR.tip_regime) AND ((CLI.can_metraj &gt;= TAR.desde AND CLI.can_metraj &lt;= TAR.hasta AND CLI.can_metraj &gt; 0) OR (CLI.callc_esta &gt;= TAR.desde AND CLI.callc_esta &lt;= TAR.hasta AND CLI.callc_esta &gt; 0))
-LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)  {2}
-group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total, tipo_regimen 
-order by fac_numfac
-HAVING FAC.fac_amo_do &gt; 0
-where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
-    <comment>Procedimiento para reporte de Listado de Empresas Facturadas en un Año y Mes especificado (este reporte ademas contiene información acerca del pago a esta factura: ROC)</comment>
+  <data name="Gobierno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gobierno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="xr_proc_metraje_anual" xml:space="preserve">
     <value>Select CLI.cli_cod AS 'cli_cod'
@@ -225,39 +135,36 @@ HAVING rem_cant &gt; 0
 where YEAR(FAC.fecha) = {0}</value>
     <comment>Procedimiento para reporte de Metraje Anual por empresas</comment>
   </data>
-  <data name="xr_proc_facturas_compara_mes_act_ant" xml:space="preserve">
-    <value>Select
-CLI.cli_cod AS 'cli_cod'
-,CLI.cli_nom AS 'cli_nombre'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
-,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
-,FAC.fac_amo_do as 'fac_total'
-,MONTH(FAC.fecha) AS 'fac_mesfact'
-,YEAR(FAC.fecha) AS 'fac_yearfact'
-from FACTURA AS FAC 
-INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
-INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha)) 
-group by cli_cod, cli_nombre, fac_total, fac_mesfact, fac_yearfact
-order by cli_nombre
-HAVING FAC.fac_amo_do &gt; 0
-where (YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1})
-OR   (YEAR(FAC.fecha) = {2} AND MONTH(FAC.fecha) = {3})</value>
-    <comment>Reporte comparativo de Facturas Mes Actual (del filtro seleccionado) VS Mes Anterior (al filtro seleccionado):
-{0}: Año Actual
-{1}: Mes Actual
-{2}: Año Anterior
-{3}: Mes Anterior</comment>
+  <data name="info_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Gobierno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gobierno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="xr_proc_antiguedad_sdo" xml:space="preserve">
+  <data name="xr_proc_estado_cuenta_czf" xml:space="preserve">
     <value>SELECT 
 CLI.cli_cod AS 'cli_cod'
 ,CLI.cli_nom AS 'cli_nombre'
-,UPPER(CLI.cli_regime) AS 'tipo_reg'
+,"USUARIA" AS 'tipo_reg'
+,'Saldo Inicial' as 'concept'
+,CTOD('') AS 'fac_fecha'
+,1 AS 'fac_numfac'
+,SUM(FAC.fac_amo_do) as 'fac_totd' 
+,SUM(NVL((SELECT SUM(PAG.pg_amo_dol) from PAGOS as PAG where PAG.pg_factura=FAC.fac_fac_nu AND FAC.CLI_CODIG = PAG.pg_cod_cli), 0)) as 'pag_totd'
+,'' AS 'pag_numroc'
+,CTOD('') AS 'pag_fecha'
+,7 as 'fac_debe'
+FROM CLIENTE AS CLI 
+LEFT JOIN FACTURA AS FAC ON FAC.CLI_CODIG = CLI.CLI_COD
+WHERE 
+(CLI.cli_cod LIKE '0112%' {2})
+AND FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; ''  
+AND (FAC.fecha &lt; {0})
+AND (FAC.Debe Between 1 AND 2)
+GROUP BY CLI.cli_cod, CLI.cli_nom
+UNION ALL
+SELECT 
+CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,"USUARIA" AS 'tipo_reg'
+,IIF(FAC.Tipo == '1', 'Factura Mensual', IIF(FAC.Tipo == 'D', 'Nota de Débito', '')) as 'concept'
 ,FAC.fecha AS 'fac_fecha'
 ,FAC.fac_fac_nu AS 'fac_numfac'
 ,FAC.fac_amo_do as 'factotd'
@@ -267,21 +174,22 @@ CLI.cli_cod AS 'cli_cod'
 ,FAC.Debe as 'fac_debe'
 FROM FACTURA AS FAC
 INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
-LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod_cli {2})
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod_cli {3})
 WHERE 
 FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; '' 
 AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
-AND (FAC.cli_codig LIKE '0112%')
-AND (FAC.Debe Between 0 AND 2)
-ORDER BY FAC.fecha, FAC.fac_fac_nu, PAG.pg_recnum</value>
-    <comment>Query para obtener la antiguedad de saldos de los clientes a partir de una fecha especificada:
-
-
-
-Parámetros:
-{0}: Fecha Inicial
-{1}: Fecha Final
-{2}: Corte de fechas de Pago (a la fecha final especificada)</comment>
+AND (FAC.cli_codig LIKE '0112%' {2})
+AND ((FAC.Debe = 0) OR (FAC.Debe Between 1 AND 2))
+ORDER BY CLI.cli_cod, FAC.fecha, FAC.fac_fac_nu</value>
+  </data>
+  <data name="remove_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\remove_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CZF_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CZF-Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_blue_goto_previous_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_goto_previous_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="xr_proc_estado_cuenta" xml:space="preserve">
     <value>SELECT 
@@ -333,6 +241,162 @@ Parámetros:
 {2}: Filtra por un Cliente
 {3}: Corte de fechas de Pago (a la fecha final especificada)</comment>
   </data>
+  <data name="printer_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_circle_blue_first_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_circle_blue_first_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_circle_blue_right_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_circle_blue_right_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="export_spreadsheet_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\export_spreadsheet_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xr_proc_antiguedad_sdo" xml:space="preserve">
+    <value>SELECT 
+CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,UPPER(CLI.cli_regime) AS 'tipo_reg'
+,FAC.fecha AS 'fac_fecha'
+,FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fac_amo_do as 'factotd'
+,NVL(PAG.pg_amo_dol, 0) as 'pag_totd'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,FAC.Debe as 'fac_debe'
+FROM FACTURA AS FAC
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod_cli {2})
+WHERE 
+FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; '' 
+AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
+AND (FAC.cli_codig LIKE '0112%')
+AND (FAC.Debe Between 0 AND 2)
+ORDER BY FAC.fecha, FAC.fac_fac_nu, PAG.pg_recnum</value>
+    <comment>Query para obtener la antiguedad de saldos de los clientes a partir de una fecha especificada:
+
+
+
+Parámetros:
+{0}: Fecha Inicial
+{1}: Fecha Final
+{2}: Corte de fechas de Pago (a la fecha final especificada)</comment>
+  </data>
+  <data name="prev_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prev_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="print_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filter_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_circle_blue_left_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_circle_blue_left_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_blue_goto_next_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_goto_next_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TraFin_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TraFin_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_blue_arrow_right_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_arrow_right_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TraExt_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TraExt_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xr_proc_facturas_mes" xml:space="preserve">
+    <value>Select FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fecha AS 'fac_fecha'
+,CLI.cli_nom AS 'cli_nombre'
+,CLI.cli_pais AS 'cli_pais'
+,CLI.cli_ciudad AS 'cli_ciudad'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_precio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
+,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
+,NVL(PAG.pg_amo_dol, 0) AS 'pag_amount'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,FAC.fac_amo_do as 'fac_total' 
+,IIF(CLI.cli_regime='', NVL(TAR.nom_regime, ''), CLI.cli_regime) AS 'tipo_regimen'
+from FACTURA AS FAC 
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
+LEFT JOIN TARIFA AS TAR ON (CLI.tip_regime = TAR.tip_regime) AND ((CLI.can_metraj &gt;= TAR.desde AND CLI.can_metraj &lt;= TAR.hasta AND CLI.can_metraj &gt; 0) OR (CLI.callc_esta &gt;= TAR.desde AND CLI.callc_esta &lt;= TAR.hasta AND CLI.callc_esta &gt; 0))
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)  {2}
+group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total, tipo_regimen 
+order by fac_numfac
+HAVING FAC.fac_amo_do &gt; 0
+where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
+    <comment>Procedimiento para reporte de Listado de Empresas Facturadas en un Año y Mes especificado (este reporte ademas contiene información acerca del pago a esta factura: ROC)</comment>
+  </data>
+  <data name="Watermark_Comisión_Nacional_de_Zonas_Francas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Watermark-Comisión-Nacional-de-Zonas-Francas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="send_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\send_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_blue_arrow_left_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_arrow_left_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xr_proc_facturas_compara_mes_act_ant" xml:space="preserve">
+    <value>Select
+CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
+,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
+,FAC.fac_amo_do as 'fac_total'
+,MONTH(FAC.fecha) AS 'fac_mesfact'
+,YEAR(FAC.fecha) AS 'fac_yearfact'
+from FACTURA AS FAC 
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha)) 
+group by cli_cod, cli_nombre, fac_total, fac_mesfact, fac_yearfact
+order by cli_nombre
+HAVING FAC.fac_amo_do &gt; 0
+where (YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1})
+OR   (YEAR(FAC.fecha) = {2} AND MONTH(FAC.fecha) = {3})</value>
+    <comment>Reporte comparativo de Facturas Mes Actual (del filtro seleccionado) VS Mes Anterior (al filtro seleccionado):
+{0}: Año Actual
+{1}: Mes Actual
+{2}: Año Anterior
+{3}: Mes Anterior</comment>
+  </data>
+  <data name="xr_proc_antiguedad_sdo_czf" xml:space="preserve">
+    <value>SELECT 
+CLI.cli_cod AS 'cli_cod'
+,CLI.cli_nom AS 'cli_nombre'
+,"USUARIA" AS 'tipo_reg'
+,FAC.fecha AS 'fac_fecha'
+,FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fac_amo_do as 'factotd'
+,NVL(PAG.pg_amo_dol, 0) as 'pag_totd'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,FAC.Debe as 'fac_debe'
+FROM FACTURA AS FAC
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura AND FAC.CLI_CODIG = PAG.pg_cod_cli {2})
+WHERE 
+FAC.fac_amo_do &gt; 0 AND FAC.tipo &lt;&gt; '' 
+AND (FAC.fecha &gt;= {0} AND FAC.fecha &lt;= {1})
+AND (FAC.cli_codig LIKE '0112%')
+AND (FAC.Debe Between 0 AND 2)
+AND (FAC.cli_codig &lt;&gt; '01120211801000' AND FAC.cli_codig &lt;&gt; '01120211851000')
+ORDER BY FAC.fecha, FAC.fac_fac_nu, PAG.pg_recnum</value>
+  </data>
+  <data name="Watermark_CZF_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Watermark-CZF-Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Comisión_Nacional_de_Zonas_Francas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Comisión-Nacional-de-Zonas-Francas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="xr_proc_facturas_mes_czf" xml:space="preserve">
     <value>Select FAC.fac_fac_nu AS 'fac_numfac'
 ,FAC.fecha AS 'fac_fecha'
@@ -350,11 +414,44 @@ Parámetros:
 ,FAC.fac_amo_do as 'fac_total' ,"Usuaria" AS 'tipo_regimen'
 from FACTURA AS FAC 
 INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
-INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
+LEFT JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
 LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)  {2}
 group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total
 order by fac_numfac
 HAVING FAC.fac_amo_do &gt; 0
 where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
+  </data>
+  <data name="button_circle_blue_last_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_circle_blue_last_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Escudo_de_Nicaragua" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Escudo_de_Nicaragua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="xr_proc_facturas_mes_AUD" xml:space="preserve">
+    <value>Select FAC.fac_fac_nu AS 'fac_numfac'
+,FAC.fecha AS 'fac_fecha'
+,CLI.cli_nom AS 'cli_nombre'
+,CLI.cli_pais AS 'cli_pais'
+,CLI.cli_ciudad AS 'cli_ciudad'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_precio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
+,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
+,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
+,NVL(PAG.pg_amo_dol, 0) AS 'pag_amount'
+,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
+,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
+,FAC.fac_amo_do as 'fac_total' 
+,IIF(CLI.cli_regime='', NVL(TAR.nom_regime, ''), CLI.cli_regime) AS 'tipo_regimen'
+from .\TempRemision\FACTURA AS FAC 
+INNER JOIN CLIENTE AS CLI ON FAC.CLI_CODIG = CLI.CLI_COD
+INNER JOIN .\TempRemision\REMISION AS REM ON (FAC.ord_numero = REM.rem_numero AND MONTH(FAC.fecha) = MONTH(REM.rem_fecha))
+LEFT JOIN TARIFA AS TAR ON (CLI.tip_regime = TAR.tip_regime) AND ((CLI.can_metraj &gt;= TAR.desde AND CLI.can_metraj &lt;= TAR.hasta AND CLI.can_metraj &gt; 0) OR (CLI.callc_esta &gt;= TAR.desde AND CLI.callc_esta &lt;= TAR.hasta AND CLI.callc_esta &gt; 0))
+LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)  {2}
+group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total, tipo_regimen 
+order by fac_numfac
+HAVING FAC.fac_amo_do &gt; 0
+where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
+    <comment>Procedimiento para reporte de Listado de Empresas Facturadas en un Año y Mes especificado (este reporte ademas contiene información acerca del pago a esta factura: ROC)</comment>
   </data>
 </root>

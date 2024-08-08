@@ -51,6 +51,7 @@ namespace VisorFacturas.Forms
 
         // Variables de Filtros - Indicadores
         bool aofiltroind_pagosfechaact;
+        bool aofiltroind_CtaAuditoria;
         bool aofiltroind_comparamesyearANT;
         bool aofiltroind_solofactpendientes;
 
@@ -59,6 +60,7 @@ namespace VisorFacturas.Forms
         DataTable acDT_temp;
         DataTable acDT_temp_02;
 
+        string Str_Ruta = "";
         #endregion
 
         #region EVENTOS
@@ -66,13 +68,24 @@ namespace VisorFacturas.Forms
         private void frmSistInfCNZF_Load(object sender, EventArgs e)
         {
             // Poblamos el TreeList
-            mtree_bndsrc.DataSource = clsTreeListSistInf.mfxGetTreeList();
+            mtree_bndsrc.DataSource = clsTreeListSistInf.mfxGetTreeList(moCurrentUser);
             mtree_sistinf.ExpandAll();
+
+            //Cargamos los permisos del usuario en la pantalla
+            //mpxCargarPermisosUsuario();
 
             mpxInitControls();
 
             mpxFillLoadDta();
+
         }
+        /// <summary>
+        /// Cargamos los permisos del usuario en la pantalla
+        /// </summary>
+        //private void mpxCargarPermisosUsuario()
+        //{
+            
+        //}
 
         private void mtree_sistinf_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
@@ -184,19 +197,22 @@ namespace VisorFacturas.Forms
         private void mpxFillLoadDta()
         {
             acDT_temp = new DataTable();
-            var Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+            Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
             //Cargamos los clientes
             if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
             {
                 aosql_clientes_gle = "Select cli_cod, cli_nom from CLIENTE";
                 sqlClientes_TODOS = "SELECT cli_cod, cli_nom, 'Usuaria' as 'tipo_reg' FROM CLIENTE";
                 Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
+
+                mlytitm_Param_cliente.Text = "Cliente CZF:";
             }
             else
             {
                 aosql_clientes_gle = "Select cli_cod, cli_nom from CLIENTE WHERE tip_regime > 0";
                 sqlClientes_TODOS = "SELECT cli_cod, cli_nom, UPPER(cli_regime) as 'tipo_reg' FROM CLIENTE";
                 Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+                mlytitm_Param_cliente.Text = "Cliente CNZF:";
             }
 
             using (OleDbDataAdapter adapt = new OleDbDataAdapter(aosql_clientes_gle, Str_Ruta))
@@ -255,6 +271,7 @@ namespace VisorFacturas.Forms
             mlcg_Params.Visibility = aoNever;
 
             mlytitm_pagosfechaactual.Visibility = aoNever;
+            mlytitm_CtaAuditoria.Visibility = aoNever;
             mlytitm_comparamesanyoant.Visibility = aoNever;
             mlytitm_solofactpendientes.Visibility = aoNever;
             mlcg_indicadores.Visibility = aoNever;
@@ -283,6 +300,7 @@ namespace VisorFacturas.Forms
                     mlcg_Params.Visibility = aoAlways;
 
                     mlytitm_pagosfechaactual.Visibility = aoAlways;
+                    mlytitm_CtaAuditoria.Visibility = aoAlways;
                     mlcg_indicadores.Visibility = aoAlways;
                     break;
 
@@ -389,6 +407,7 @@ namespace VisorFacturas.Forms
             //    aofiltroind_pagosfechaact = false;
 
             aofiltroind_pagosfechaact = mchk_pagosfechaactual.Checked;
+            aofiltroind_CtaAuditoria = mchk_ctaAuditoria.Checked;
             aofiltroind_comparamesyearANT = mchk_comparamesanyoant.Checked;
             aofiltroind_solofactpendientes = mchk_solofactpendientes.Checked;
             #endregion
@@ -404,6 +423,7 @@ namespace VisorFacturas.Forms
                 // Declaramos las variables locales a ocupar
                 string acSql_01 = "";
                 string acSql_02 = "";
+                Str_Ruta = "";
                 acDT_temp = new DataTable();
                 acDT_temp_02 = new DataTable();
                 short aoanyo_entero_ANT = 0;
@@ -425,21 +445,26 @@ namespace VisorFacturas.Forms
                     return;
                 }
 
-                mpxShowSplashForm();                
+                mpxShowSplashForm();
 
                 // Identificamos que reporte vamos a imprimir para asignar la query SQL
                 switch (aoCodReporte)
                 {
                     case "RPT101":
-                        #region RPT101          
+                        #region RPT101
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_facturasmes> aolistrpt_101 = new List<view_rpt_facturasmes>();
-
-                        //Cargamos los clientes
+                        
                         if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                         {
-                            // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
-                            if (aofiltroind_pagosfechaact)
+                            if (aofiltroind_CtaAuditoria)
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_AUD, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                            }
+                                // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
+                            else if (aofiltroind_pagosfechaact)
                             {
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, "");
                             }
@@ -449,16 +474,18 @@ namespace VisorFacturas.Forms
                                 aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
                             }
-                            // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                            using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCZF_TablasCXC))
-                            {
-                                adapt.Fill(acDT_temp);
-                            }
+                            Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
                         }
                         else
                         {
+                            if (aofiltroind_CtaAuditoria)
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_AUD, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                            }
                             // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
-                            if (aofiltroind_pagosfechaact)
+                            else if (aofiltroind_pagosfechaact)
                             {
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, "");
                             }
@@ -468,27 +495,20 @@ namespace VisorFacturas.Forms
                                 aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
                             }
-                            // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                            using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
-                            {
-                                adapt.Fill(acDT_temp);
-                            }
+                            Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
                         }
-
-                        
-
-                        //// Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        //using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
-                        //{
-                        //    adapt.Fill(acDT_temp);
-                        //}
+                        // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Str_Ruta))
+                        {
+                            adapt.Fill(acDT_temp);
+                        }
 
                         if (acDT_temp.Rows.Count == 0)
                         {
                             mpxCloseSplashForm();
-                            XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);                            
+                            XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
-                        }                        
+                        }
 
                         // Rellenamos la lista que se enviara al reporte
                         foreach (DataRow item in acDT_temp.Rows)
@@ -537,27 +557,58 @@ namespace VisorFacturas.Forms
                         //Cargamos los clientes
                         if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                         {
-                            Reports.CZF.xrfacturasmes aorpt_101 = new Reports.CZF.xrfacturasmes();
-                            aorpt_101.DataSource = aolistrpt_101;
-                            aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
-                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                            aofrmviewer = new frmviewer(aorpt_101);
-                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
-                            //aofrmviewer.MdiParent = this.MdiParent;
-                            aofrmviewer.WindowState = FormWindowState.Maximized;
-                            aofrmviewer.Show();
+                            if(aofiltroind_CtaAuditoria)
+                            {
+                                Reports.CZF.xrfacturasmes aorpt_101 = new Reports.CZF.xrfacturasmes();
+                                aorpt_101.DataSource = aolistrpt_101;
+                                aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                                //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                                aofrmviewer = new frmviewer(aorpt_101);
+                                aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                                //aofrmviewer.MdiParent = this.MdiParent;
+                                aofrmviewer.WindowState = FormWindowState.Maximized;
+                                aofrmviewer.Show();
+                            }
+                            else
+                            {
+                                Reports.CZF.xrfacturasmes aorpt_101 = new Reports.CZF.xrfacturasmes();
+                                aorpt_101.DataSource = aolistrpt_101;
+                                aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                                //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                                aofrmviewer = new frmviewer(aorpt_101);
+                                aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                                //aofrmviewer.MdiParent = this.MdiParent;
+                                aofrmviewer.WindowState = FormWindowState.Maximized;
+                                aofrmviewer.Show();
+                            }
                         }
                         else
                         {
-                            Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
-                            aorpt_101.DataSource = aolistrpt_101;
-                            aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
-                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                            aofrmviewer = new frmviewer(aorpt_101);
-                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
-                            //aofrmviewer.MdiParent = this.MdiParent;
-                            aofrmviewer.WindowState = FormWindowState.Maximized;
-                            aofrmviewer.Show();
+                            if (aofiltroind_CtaAuditoria)
+                            {
+                                Reports.CNZF.xrfacturasmes_Copia aorpt_101 = new Reports.CNZF.xrfacturasmes_Copia();
+                                aorpt_101.DataSource = aolistrpt_101;
+                                aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                                //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                                aofrmviewer = new frmviewer(aorpt_101);
+                                aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                                //aofrmviewer.MdiParent = this.MdiParent;
+                                aofrmviewer.WindowState = FormWindowState.Maximized;
+                                aofrmviewer.Show();
+                            }
+                            else
+                            {
+                                Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
+                                aorpt_101.DataSource = aolistrpt_101;
+                                aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                                //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                                aofrmviewer = new frmviewer(aorpt_101);
+                                aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                                //aofrmviewer.MdiParent = this.MdiParent;
+                                aofrmviewer.WindowState = FormWindowState.Maximized;
+                                aofrmviewer.Show();
+                            }
+                            
                         }
 
                         //Reports.CNZF.xrfacturasmes aorpt_101 = new Reports.CNZF.xrfacturasmes();
@@ -577,9 +628,7 @@ namespace VisorFacturas.Forms
 
                     case "RPT102":
                         #region RPT102
-                        // Creamos la lista del reporte a imprimir
-
-                        var Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+                        // Creamos la lista del reporte a imprimir                        
                         List<view_rpt_metrajeanual> aolistrpt_102 = new List<view_rpt_metrajeanual>();
                         acSql_01 = String.Format(Resources.xr_proc_metraje_anual, aofiltro_anyo_entero);
 
@@ -730,22 +779,35 @@ namespace VisorFacturas.Forms
 
                         mpxCloseSplashForm();
 
-                        Reports.CNZF.xrmetrajeanual aorpt_102 = new Reports.CNZF.xrmetrajeanual();
-                        aorpt_102.DataSource = aolistrpt_102;
-                        aorpt_102.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString());
-                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        aofrmviewer = new frmviewer(aorpt_102);
-                        aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_anyo_entero.ToString();
-                        aofrmviewer.MdiParent = this.MdiParent;
-                        aofrmviewer.WindowState = FormWindowState.Maximized;
-                        aofrmviewer.Show();
-
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Reports.CZF.xrmetrajeanual aorpt_102 = new Reports.CZF.xrmetrajeanual();
+                            aorpt_102.DataSource = aolistrpt_102;
+                            aorpt_102.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString());
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_102);
+                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_anyo_entero.ToString();
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
+                        else
+                        {
+                            Reports.CNZF.xrmetrajeanual aorpt_102 = new Reports.CNZF.xrmetrajeanual();
+                            aorpt_102.DataSource = aolistrpt_102;
+                            aorpt_102.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString());
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_102);
+                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_anyo_entero.ToString();
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
                         break;
                     #endregion
 
                     case "RPT103":
                         #region RPT103
-
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_facturacomparames_act_ant> aolistrpt_103 = new List<view_rpt_facturacomparames_act_ant>();
                         // Preguntamos si esta seleccionado el check Comparar Mismo mes Año Actual vs Año Anterior
@@ -772,11 +834,20 @@ namespace VisorFacturas.Forms
                         }
 
                         // Creamos la consulta
-                        acSql_01 = String.Format(Resources.xr_proc_facturas_compara_mes_act_ant, aofiltro_anyo_entero, aofiltro_mes_entero,
-                                                                                                  aoanyo_entero_ANT, aoMES_entero_ANT);
+                        acSql_01 = String.Format(Resources.xr_proc_facturas_compara_mes_act_ant, aofiltro_anyo_entero, aofiltro_mes_entero, aoanyo_entero_ANT, aoMES_entero_ANT);
+
+                        //Cargamos los clientes
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
+                        }
+                        else
+                        {
+                            Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+                        }
 
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Str_Ruta))
                         {
                             adapt.Fill(acDT_temp);
                         }
@@ -868,20 +939,36 @@ namespace VisorFacturas.Forms
                         }
 
                         mpxCloseSplashForm();
-
-                        Reports.CNZF.xrfacturacomparames_act_ant aorpt_103 = new Reports.CNZF.xrfacturacomparames_act_ant();
-                        aorpt_103.DataSource = aolistrpt_103;
-                        aotittle2 = Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString() + " vs " +
-                                    Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString() + "  Moneda: Dólares (US$)";
-                        aorpt_103.mpxSetTittle("", aotittle2, Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString(),
-                            Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString());
-                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        aofrmviewer = new frmviewer(aorpt_103);
-                        aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
-                        aofrmviewer.MdiParent = this.MdiParent;
-                        aofrmviewer.WindowState = FormWindowState.Maximized;
-                        aofrmviewer.Show();
-
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Reports.CZF.xrfacturacomparames_act_ant aorpt_103 = new Reports.CZF.xrfacturacomparames_act_ant();
+                            aorpt_103.DataSource = aolistrpt_103;
+                            aotittle2 = Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString() + " vs " +
+                                        Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString() + "  Moneda: Dólares (US$)";
+                            aorpt_103.mpxSetTittle("", aotittle2, Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString(),
+                                Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString());
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_103);
+                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
+                        else
+                        {
+                            Reports.CNZF.xrfacturacomparames_act_ant aorpt_103 = new Reports.CNZF.xrfacturacomparames_act_ant();
+                            aorpt_103.DataSource = aolistrpt_103;
+                            aotittle2 = Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString() + " vs " +
+                                        Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString() + "  Moneda: Dólares (US$)";
+                            aorpt_103.mpxSetTittle("", aotittle2, Util.clsApp.mfxMesCadena(aoMES_entero_ANT) + " " + aoanyo_entero_ANT.ToString(),
+                                Util.clsApp.mfxMesCadena(aofiltro_mes_entero) + " " + aofiltro_anyo_entero.ToString());
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_103);
+                            aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
 
                         break;
                     #endregion
@@ -929,13 +1016,23 @@ namespace VisorFacturas.Forms
                             aoSentenciaAND_1 = "AND PAG.pg_fecpag <= " + aofechafin_cadena;
                         }
 
-                        acSql_01 = String.Format(Resources.xr_proc_antiguedad_sdo, aofechaini_cadena,
-                                                                              aofechafin_cadena,
-                                                                              aoSentenciaAND_1);
+                        //acSql_01 = String.Format(Resources.xr_proc_antiguedad_sdo, aofechaini_cadena,
+                        //                                                      aofechafin_cadena,
+                        //                                                      aoSentenciaAND_1);
 
-
+                        //Cargamos los clientes
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
+                            acSql_01 = String.Format(Resources.xr_proc_antiguedad_sdo_czf, aofechaini_cadena, aofechafin_cadena, aoSentenciaAND_1);
+                        }
+                        else
+                        {
+                            Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+                            acSql_01 = String.Format(Resources.xr_proc_antiguedad_sdo, aofechaini_cadena, aofechafin_cadena, aoSentenciaAND_1);
+                        }
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Str_Ruta))
                         {
                             adapt.Fill(acDT_temp);
                         }
@@ -951,20 +1048,38 @@ namespace VisorFacturas.Forms
 
                         mpxCloseSplashForm();
 
-                        // Imprimimos el reporte
-                        aolistrpt_104 = aolistrpt_104.Where(x => x.sdototd > 0).ToList();
-                        Reports.CNZF.xrantiguedad_saldo aorpt_104 = new Reports.CNZF.xrantiguedad_saldo();
-                        aorpt_104.DataSource = aolistrpt_104;
-                        aorpt_104.mpxSetTittle(""
-                                               , "Al " + aofiltro_mesyearfin.ToString("dd") + " de " + aofiltro_mesyearfin.ToString("MMMM") + " del " + aofiltro_mesyearfin.ToString("yyyy")
-                                               , "T/C: " + aoTasaCambio.ToString("#,0.0000"));
-                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        aofrmviewer = new frmviewer(aorpt_104);
-                        aofrmviewer.Text = aoNombreReporte;
-                        aofrmviewer.MdiParent = this.MdiParent;
-                        aofrmviewer.WindowState = FormWindowState.Maximized;
-                        aofrmviewer.Show();
-
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            // Imprimimos el reporte
+                            aolistrpt_104 = aolistrpt_104.Where(x => x.sdototd > 0).ToList();
+                            Reports.CZF.xrantiguedad_saldo aorpt_104 = new Reports.CZF.xrantiguedad_saldo();
+                            aorpt_104.DataSource = aolistrpt_104;
+                            aorpt_104.mpxSetTittle(""
+                                                   , "Al " + aofiltro_mesyearfin.ToString("dd") + " de " + aofiltro_mesyearfin.ToString("MMMM") + " del " + aofiltro_mesyearfin.ToString("yyyy")
+                                                   , "T/C: " + aoTasaCambio.ToString("#,0.0000"));
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_104);
+                            aofrmviewer.Text = aoNombreReporte;
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
+                        else
+                        {
+                            // Imprimimos el reporte
+                            aolistrpt_104 = aolistrpt_104.Where(x => x.sdototd > 0).ToList();
+                            Reports.CNZF.xrantiguedad_saldo aorpt_104 = new Reports.CNZF.xrantiguedad_saldo();
+                            aorpt_104.DataSource = aolistrpt_104;
+                            aorpt_104.mpxSetTittle(""
+                                                   , "Al " + aofiltro_mesyearfin.ToString("dd") + " de " + aofiltro_mesyearfin.ToString("MMMM") + " del " + aofiltro_mesyearfin.ToString("yyyy")
+                                                   , "T/C: " + aoTasaCambio.ToString("#,0.0000"));
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_104);
+                            aofrmviewer.Text = aoNombreReporte;
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
                         break;
                     #endregion
 
@@ -1018,17 +1133,21 @@ namespace VisorFacturas.Forms
                         if (aofiltroind_pagosfechaact == false)
                         {
                             aoSentenciaAND_2 = "AND PAG.pg_fecpag <= " + aofechafin_cadena;
+                        }                        
+
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
+                            // Query Principal
+                            acSql_01 = String.Format(Resources.xr_proc_estado_cuenta_czf, aofechaini_cadena, aofechafin_cadena, aoSentenciaAND_1, aoSentenciaAND_2);
                         }
-
-                        // Query Principal
-                        acSql_01 = String.Format(Resources.xr_proc_estado_cuenta, aofechaini_cadena,
-                                                                                  aofechafin_cadena,
-                                                                                  aoSentenciaAND_1,
-                                                                                  aoSentenciaAND_2);
-
-
+                        else
+                        {
+                            Str_Ruta = Settings.Default.mCnxCNZF_TablasCXC;
+                            acSql_01 = String.Format(Resources.xr_proc_estado_cuenta, aofechaini_cadena, aofechafin_cadena, aoSentenciaAND_1, aoSentenciaAND_2);
+                        }
                         // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
-                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Settings.Default.mCnxCNZF_TablasCXC))
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Str_Ruta))
                         {
                             adapt.Fill(acDT_temp);
                         }
@@ -1044,27 +1163,50 @@ namespace VisorFacturas.Forms
                         aolistrpt_105 = mpxFillListRPT105(aoTasaCambio);
 
                         mpxCloseSplashForm();
-
-                        // Imprimimos el reporte
-                        Reports.CNZF.xrestado_cta_cliente aorpt_105 = new Reports.CNZF.xrestado_cta_cliente();
-                        aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MM/yyyy"));
-                        if (aofiltroind_solofactpendientes)
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                         {
-                            aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd > 0).ToList();
-                            aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
+                            // Imprimimos el reporte
+                            Reports.CZF.xrestado_cta_cliente aorpt_105 = new Reports.CZF.xrestado_cta_cliente();
+                            aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MM/yyyy"));
+                            if (aofiltroind_solofactpendientes)
+                            {
+                                aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd > 0).ToList();
+                                aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
+                            }
+                            else
+                            {
+                                aorpt_105.DataSource = aolistrpt_105;
+                            }
+
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_105);
+                            aofrmviewer.Text = aoNombreReporte;
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
                         }
                         else
                         {
-                            aorpt_105.DataSource = aolistrpt_105;
+                            // Imprimimos el reporte
+                            Reports.CNZF.xrestado_cta_cliente aorpt_105 = new Reports.CNZF.xrestado_cta_cliente();
+                            aorpt_105.mpxSetTittle("", "Del: " + aofiltro_mesyearini.ToString("dd/MM/yyyy") + "  Al: " + aofiltro_mesyearfin.ToString("dd/MM/yyyy"));
+                            if (aofiltroind_solofactpendientes)
+                            {
+                                aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd > 0).ToList();
+                                aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
+                            }
+                            else
+                            {
+                                aorpt_105.DataSource = aolistrpt_105;
+                            }
+
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_105);
+                            aofrmviewer.Text = aoNombreReporte;
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
                         }
-
-                        //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
-                        aofrmviewer = new frmviewer(aorpt_105);
-                        aofrmviewer.Text = aoNombreReporte;
-                        aofrmviewer.MdiParent = this.MdiParent;
-                        aofrmviewer.WindowState = FormWindowState.Maximized;
-                        aofrmviewer.Show();
-
                         break;
                         #endregion
                 }
@@ -1199,15 +1341,30 @@ namespace VisorFacturas.Forms
                     else
                     {
                         aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
-
-                        if (aodifday <= 1)
-                            aoety_exist_act.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
-                        else if (aodifday > 1 && aodifday <= 2)
-                            aoety_exist_act.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
-                        else if (aodifday > 2 && aodifday <= 3)
-                            aoety_exist_act.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                        {
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 2 && aodifday <= 3)
+                                aoety_exist_act.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else
+                                aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        }
                         else
-                            aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        {
+                            aoety_exist_act.sdo_90 = 0;
+
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                            //else if (aodifday > 2 && aodifday <= 3)
+                            //    aoety_exist_act.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else
+                                aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        }
                     }                        
 
                 }
@@ -1269,15 +1426,31 @@ namespace VisorFacturas.Forms
                     else
                     {
                         aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
-
-                        if (aodifday <= 1)
-                            aoety_exist_act.sdo_30 = aoety_exist_act.sdototd;
-                        else if (aodifday > 1 && aodifday <= 2)
-                            aoety_exist_act.sdo_60 = aoety_exist_act.sdototd;
-                        else if (aodifday > 2 && aodifday <= 3)
-                            aoety_exist_act.sdo_90 = aoety_exist_act.sdototd;
+                        
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                        {
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 = aoety_exist_act.sdototd;
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 = aoety_exist_act.sdototd;
+                            else if (aodifday > 2 && aodifday <= 3)
+                                aoety_exist_act.sdo_90 = aoety_exist_act.sdototd;
+                            else
+                                aoety_exist_act.sdo_mas90 = aoety_exist_act.sdototd;
+                        }
                         else
-                            aoety_exist_act.sdo_mas90 = aoety_exist_act.sdototd;
+                        {
+                            aoety_exist_act.sdo_90 = 0;
+
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 = aoety_exist_act.sdototd;
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 = aoety_exist_act.sdototd;
+                            //else if (aodifday > 2 && aodifday <= 3)
+                            //    aoety_exist_act.sdo_90 = aoety_exist_act.sdototd;
+                            else
+                                aoety_exist_act.sdo_mas90 = aoety_exist_act.sdototd;
+                        }
                     }
 
                     // Formateamos la fecha
@@ -1409,14 +1582,30 @@ namespace VisorFacturas.Forms
                     {
                         aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
 
-                        if (aodifday <= 1)
-                            aoety_exist_act.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
-                        else if (aodifday > 1 && aodifday <= 2)
-                            aoety_exist_act.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
-                        else if (aodifday > 2 && aodifday <= 3)
-                            aoety_exist_act.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                        {
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 2 && aodifday <= 3)
+                                aoety_exist_act.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else
+                                aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        }
                         else
-                            aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        {
+                            aoety_exist_act.sdo_90 = 0;
+
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 -= Decimal.Parse(item["pag_totd"].ToString());
+                            //else if (aodifday > 2 && aodifday <= 3)
+                            //    aoety_exist_act.sdo_90 -= Decimal.Parse(item["pag_totd"].ToString());
+                            else
+                                aoety_exist_act.sdo_mas90 -= Decimal.Parse(item["pag_totd"].ToString());
+                        }    
                     }
 
                 }
@@ -1474,15 +1663,30 @@ namespace VisorFacturas.Forms
                     else
                     {
                         aoety_exist_act.sdototccalc = aoety_exist_act.sdototd * paTasaCambio;
-
-                        if (aodifday <= 1)
-                            aoety_exist_act.sdo_30 = aoety_exist_act.sdototd;
-                        else if (aodifday > 1 && aodifday <= 2)
-                            aoety_exist_act.sdo_60 = aoety_exist_act.sdototd;
-                        else if (aodifday > 2 && aodifday <= 3)
-                            aoety_exist_act.sdo_90 = aoety_exist_act.sdototd;
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+                        {
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 = aoety_exist_act.sdototd;
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 = aoety_exist_act.sdototd;
+                            else if (aodifday > 2 && aodifday <= 3)
+                                aoety_exist_act.sdo_90 = aoety_exist_act.sdototd;
+                            else
+                                aoety_exist_act.sdo_mas90 = aoety_exist_act.sdototd;
+                        }
                         else
-                            aoety_exist_act.sdo_mas90 = aoety_exist_act.sdototd;
+                        {
+                            aoety_exist_act.sdo_90 = 0;
+
+                            if (aodifday <= 1)
+                                aoety_exist_act.sdo_30 = aoety_exist_act.sdototd;
+                            else if (aodifday > 1 && aodifday <= 2)
+                                aoety_exist_act.sdo_60 = aoety_exist_act.sdototd;
+                            //else if (aodifday > 2 && aodifday <= 3)
+                            //    aoety_exist_act.sdo_90 = aoety_exist_act.sdototd;
+                            else
+                                aoety_exist_act.sdo_mas90 = aoety_exist_act.sdototd;
+                        }
                     }
 
                     // Formateamos la fecha

@@ -1,0 +1,38 @@
+﻿using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using DevExpress.XtraReports.UI;
+
+namespace VisorFacturas.Reports.CZF
+{
+    public partial class xrfacturacomparames_act_ant : DevExpress.XtraReports.UI.XtraReport
+    {
+        public xrfacturacomparames_act_ant()
+        {
+            InitializeComponent();
+        }
+
+        public void mpxSetTittle(string patittle02 = "", string patittle03 = "", string pacoltit_ANT = "", string pacoltit_ACT = "")
+        {
+            if (!String.IsNullOrEmpty(patittle02))
+            {
+                mtblcelTit020.Text = patittle02;
+            }
+            if (!String.IsNullOrEmpty(patittle03))
+            {
+                mtblcelTit030.Text = patittle03;
+            }
+            //mceltittle_01
+            if (!String.IsNullOrEmpty(patittle03))
+            {
+                mceltittle_ANT.Text = pacoltit_ANT;
+            }
+            if (!String.IsNullOrEmpty(patittle03))
+            {
+                mceltittle_ACT.Text = pacoltit_ACT;
+            }
+        }
+
+    }
+}

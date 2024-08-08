@@ -1,4 +1,4 @@
-﻿namespace VisorFacturas.Reports.CNZF
+﻿namespace VisorFacturas.Reports.CZF
 {
     partial class xrfacturacomparames_act_ant
     {
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xrfacturacomparames_act_ant));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -645,7 +644,7 @@
             // 
             // mpicboxLogCia
             // 
-            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("mpicboxLogCia.ImageSource"));
+            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::VisorFacturas.Properties.Resources.Watermark_CZF_Logo, true);
             this.mpicboxLogCia.LocationFloat = new DevExpress.Utils.PointFloat(945F, 0F);
             this.mpicboxLogCia.Name = "mpicboxLogCia";
             this.mpicboxLogCia.SizeF = new System.Drawing.SizeF(95F, 75F);
@@ -682,7 +681,7 @@
             this.mtblcelTit010.Name = "mtblcelTit010";
             this.mtblcelTit010.StylePriority.UseFont = false;
             this.mtblcelTit010.StylePriority.UseTextAlignment = false;
-            this.mtblcelTit010.Text = "Comisión Nacional de Zonas Francas";
+            this.mtblcelTit010.Text = "Corporación de Zonas Francas";
             this.mtblcelTit010.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.mtblcelTit010.Weight = 3D;
             // 
