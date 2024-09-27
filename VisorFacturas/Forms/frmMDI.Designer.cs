@@ -38,6 +38,9 @@
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.bbi_SistInf = new DevExpress.XtraBars.BarButtonItem();
             this.btnmenuCam = new DevExpress.XtraBars.BarButtonItem();
+            this.mchk_ctaAuditoria = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.bbi_visorfactura1 = new DevExpress.XtraBars.BarButtonItem();
             this.milcImage3232 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribPag_Facturas = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -50,6 +53,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.xtabmdiman_Main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.milcImage3232)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,10 +73,12 @@
             this.bbi_ActivosAsignados,
             this.skinRibbonGalleryBarItem1,
             this.bbi_SistInf,
-            this.btnmenuCam});
+            this.btnmenuCam,
+            this.mchk_ctaAuditoria,
+            this.bbi_visorfactura1});
             this.ribbonMain.LargeImages = this.milcImage3232;
             this.ribbonMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMain.MaxItemId = 10;
+            this.ribbonMain.MaxItemId = 12;
             this.ribbonMain.Name = "ribbonMain";
             this.ribbonMain.PageHeaderItemLinks.Add(this.btnmenuCam);
             this.ribbonMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -80,6 +86,8 @@
             this.ribpag_ActivosFijo,
             this.ribpag_Reportes,
             this.ribpag_estilos});
+            this.ribbonMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit1});
             this.ribbonMain.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonMain.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonMain.ShowToolbarCustomizeItem = false;
@@ -140,6 +148,27 @@
             this.btnmenuCam.Name = "btnmenuCam";
             this.btnmenuCam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnmenuCam_ItemClick);
             // 
+            // mchk_ctaAuditoria
+            // 
+            this.mchk_ctaAuditoria.Caption = "Para Auditoria";
+            this.mchk_ctaAuditoria.Edit = this.repositoryItemCheckEdit1;
+            this.mchk_ctaAuditoria.Id = 10;
+            this.mchk_ctaAuditoria.Name = "mchk_ctaAuditoria";
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
+            // bbi_visorfactura1
+            // 
+            this.bbi_visorfactura1.Caption = "Historial de Facturas";
+            this.bbi_visorfactura1.Id = 11;
+            this.bbi_visorfactura1.ImageOptions.LargeImageIndex = 12;
+            this.bbi_visorfactura1.Name = "bbi_visorfactura1";
+            this.bbi_visorfactura1.Tag = "frmFacturasAUD";
+            this.bbi_visorfactura1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_visorfactura_ItemClick);
+            // 
             // milcImage3232
             // 
             this.milcImage3232.ImageSize = new System.Drawing.Size(32, 32);
@@ -192,6 +221,7 @@
             // 
             this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbi_visorfactura);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbi_visorfactura1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Vista de Facturas";
             // 
@@ -256,6 +286,7 @@
             this.Load += new System.EventHandler(this.frmMDI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtabmdiman_Main)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.milcImage3232)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -282,5 +313,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribpag_Reportes;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btnmenuCam;
+        private DevExpress.XtraBars.BarEditItem mchk_ctaAuditoria;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraBars.BarButtonItem bbi_visorfactura1;
     }
 }

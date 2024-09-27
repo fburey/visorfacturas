@@ -234,7 +234,7 @@ namespace VisorFacturas.Forms
             }
             catch (Exception ex)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -245,6 +245,15 @@ namespace VisorFacturas.Forms
         {
             try
             {
+
+                //// Si Imprime varias facturas
+                // Por si ya estaba abierto, cerramos el splash form
+                if (mspsmForm.IsSplashFormVisible) { mspsmForm.CloseWaitForm(); }
+
+                //Formulario de espera abierto
+                mspsmForm.ShowWaitForm();
+                mspsmForm.SetWaitFormCaption("Obteniendo las Facturas...");
+
                 //tbl_facturas.Clear();
                 //String Sqlwhere = "";
                 aoisfacturasgeneradas = false;
@@ -282,10 +291,18 @@ namespace VisorFacturas.Forms
 
                 VerificarDuplicados();
                 VerificarVerificar();
+
+                //// Si Imprime varias facturas
+                // Por si ya estaba abierto, cerramos el splash form
+                if (mspsmForm.IsSplashFormVisible) { mspsmForm.CloseWaitForm(); }
+
             }
             catch (Exception ex)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //// Si Imprime varias facturas
+                // Por si ya estaba abierto, cerramos el splash form
+                if (mspsmForm.IsSplashFormVisible) { mspsmForm.CloseWaitForm(); }
+                XtraMessageBox.Show(ex.Message, "Error No: " + ex.HResult, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>
@@ -623,9 +640,9 @@ namespace VisorFacturas.Forms
         private void CrearCarpetasFacturas()
         {            
             // Si no existe la carpeta con ese año y ese mes, la crea
-            if (!System.IO.Directory.Exists(pathFact + "\\" + Year + "\\" + Month))
+            if (!Directory.Exists(pathFact + "\\" + Year + "\\" + Month))
             {
-                System.IO.Directory.CreateDirectory(pathFact + "\\" + Year + "\\" + Month);
+                Directory.CreateDirectory(pathFact + "\\" + Year + "\\" + Month);
             }            
         }
 
@@ -704,9 +721,9 @@ namespace VisorFacturas.Forms
             }
 
             txtNombreRem.Text = moCurrentUser.fullname;
-            txtCorreoRem.Text = "impresora@cnzf.gob.ni";// moCurrentUser.email; //"impresora@cnzf.gob.ni";//
-            UserCorreo = "impresora@cnzf.gob.ni";
-            UserPass = "CnzF_cnzf4dm1ni$tr@Print.";
+            txtCorreoRem.Text = "aaviles@cnzf.gob.ni";// moCurrentUser.email; //"impresora@cnzf.gob.ni";//
+            UserCorreo = "aaviles@cnzf.gob.ni";
+            UserPass = "@uCZNf_Avil3z";
             //if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
             //{
             //    txtNombreRem.Text = NombreRemitenteCZF;
@@ -1006,6 +1023,7 @@ namespace VisorFacturas.Forms
 
             txtAdjuntar.Text = string.Empty;
             //btnAdjun.Enabled = true;
+            correoRemitent = moCurrentUser.email;
 
             if (chkAviso.Checked)
                 btnAdjun.Enabled = true;

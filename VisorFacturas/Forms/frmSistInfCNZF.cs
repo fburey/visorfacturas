@@ -428,7 +428,7 @@ namespace VisorFacturas.Forms
                 acDT_temp_02 = new DataTable();
                 short aoanyo_entero_ANT = 0;
                 short aoMES_entero_ANT = 0;
-                decimal aoTasaCambio = 0;
+                decimal aoTasaCambio = 36.6243M;
                 string aotittle2 = "";
                 String aofechaini_cadena = "";
                 String aofechafin_cadena = "";
@@ -979,31 +979,31 @@ namespace VisorFacturas.Forms
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_saldoclientes> aolistrpt_104 = new List<view_rpt_saldoclientes>();
 
-                        // Obtenemos la tasa del día del Mes Year Final
-                        Tipo_Cambio_BCN aoWebService = new Tipo_Cambio_BCN();
-                        try
-                        {
-                            // Hacemos la consulta al Web Service del BCN para obtener la tasa de cambio
-                            aoTasaCambio = (decimal)aoWebService.RecuperaTC_Dia(aofiltro_mesyearfin.Year, aofiltro_mesyearfin.Month, aofiltro_mesyearfin.Day);
-                            //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
+                        //////// Obtenemos la tasa del día del Mes Year Final
+                        //////Tipo_Cambio_BCN aoWebService = new Tipo_Cambio_BCN();
+                        //////try
+                        //////{
+                        //////    // Hacemos la consulta al Web Service del BCN para obtener la tasa de cambio
+                        //////    aoTasaCambio = (decimal)aoWebService.RecuperaTC_Dia(aofiltro_mesyearfin.Year, aofiltro_mesyearfin.Month, aofiltro_mesyearfin.Day);
+                        //////    //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
 
-                        }
-                        catch (Exception ex)
-                        {
-                            mpxCloseSplashForm();
-                            //XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            XtraMessageBox.Show(ex.Message, "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //////}
+                        //////catch (Exception ex)
+                        //////{
+                        //////    mpxCloseSplashForm();
+                        //////    //XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //////    XtraMessageBox.Show(ex.Message, "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                            string msg = "¿Desea visualizar el reporte sin la tasa de cambio?";
-                            if (XtraMessageBox.Show(msg, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                            {
-                                aoTasaCambio = 0;
-                                mpxShowSplashForm();
-                            }                                
-                            else
-                                return;
+                        //////    string msg = "¿Desea visualizar el reporte sin la tasa de cambio?";
+                        //////    if (XtraMessageBox.Show(msg, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        //////    {
+                        //////        aoTasaCambio = 0;
+                        //////        mpxShowSplashForm();
+                        //////    }                                
+                        //////    else
+                        //////        return;
 
-                        }
+                        //////}
 
 
                         //// Rellenamos la consulta SQL
@@ -1088,31 +1088,31 @@ namespace VisorFacturas.Forms
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_saldoclientes> aolistrpt_105 = new List<view_rpt_saldoclientes>();
 
-                        // Obtenemos la tasa del día del Mes Year Final
-                        Tipo_Cambio_BCN aoWebService_105 = new Tipo_Cambio_BCN();
-                        try
-                        {
-                            // Hacemos la consulta al Web Service del BCN para obtener la tasa de cambio
-                            aoTasaCambio = (decimal)aoWebService_105.RecuperaTC_Dia(aofiltro_mesyearfin.Year, aofiltro_mesyearfin.Month, aofiltro_mesyearfin.Day);
-                            //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
+                        //////// Obtenemos la tasa del día del Mes Year Final
+                        //////Tipo_Cambio_BCN aoWebService_105 = new Tipo_Cambio_BCN();
+                        //////try
+                        //////{
+                        //////    // Hacemos la consulta al Web Service del BCN para obtener la tasa de cambio
+                        //////    aoTasaCambio = (decimal)aoWebService_105.RecuperaTC_Dia(aofiltro_mesyearfin.Year, aofiltro_mesyearfin.Month, aofiltro_mesyearfin.Day);
+                        //////    //XtraMessageBox.Show(String.Format("La Tasa del día es: {0}", aoTasaDia.ToString("#,0.0000")));
 
-                        }
-                        catch (Exception ex)
-                        {
-                            mpxCloseSplashForm();
-                            //XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            XtraMessageBox.Show(ex.Message, "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //////}
+                        //////catch (Exception ex)
+                        //////{
+                        //////    mpxCloseSplashForm();
+                        //////    //XtraMessageBox.Show(String.Format("La tasa del día {0} no existe", aoTasaCambio.ToString("dd/MMM/yyyy")), "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //////    XtraMessageBox.Show(ex.Message, "No se pudo obtener la tasa", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                            string msg = "¿Desea visualizar el reporte sin la tasa de cambio?";
-                            if (XtraMessageBox.Show(msg, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                            {
-                                aoTasaCambio = 0;
-                                mpxShowSplashForm();
-                            }
-                            else
-                                return;
+                        //////    string msg = "¿Desea visualizar el reporte sin la tasa de cambio?";
+                        //////    if (XtraMessageBox.Show(msg, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        //////    {
+                        //////        aoTasaCambio = 0;
+                        //////        mpxShowSplashForm();
+                        //////    }
+                        //////    else
+                        //////        return;
 
-                        }
+                        //////}
 
                         // Rellenamos la consulta SQL
                         //Para ello hacemos algunas preguntas IF

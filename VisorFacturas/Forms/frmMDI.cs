@@ -70,11 +70,13 @@ namespace VisorFacturas.Forms
                 {
                     ribbonPageGroup1.Visible = true;
                     bbi_visorfactura.Visibility = BarItemVisibility.Always;
+                    bbi_visorfactura1.Visibility = BarItemVisibility.Always;
                 }
                 else
                 {
                     ribbonPageGroup1.Visible = false;
                     bbi_visorfactura.Visibility = BarItemVisibility.Never;
+                    bbi_visorfactura1.Visibility = BarItemVisibility.Never;
                 }
                 //// Puede ver Activos Fijos ?
                 if (moCurrentUser.indVerActFij)
@@ -140,6 +142,13 @@ namespace VisorFacturas.Forms
             {
                 case "frmfacturas":
                     aofrmchild = new frmFacturas(moCurrentUser);
+                    aofrmchild.MdiParent = this;
+                    aofrmchild.WindowState = FormWindowState.Maximized;
+                    aofrmchild.CloseBox = false;
+                    aofrmchild.Show();
+                    break;
+                case "frmfacturasaud":
+                    aofrmchild = new frmFacturasAUD(moCurrentUser);
                     aofrmchild.MdiParent = this;
                     aofrmchild.WindowState = FormWindowState.Maximized;
                     aofrmchild.CloseBox = false;
