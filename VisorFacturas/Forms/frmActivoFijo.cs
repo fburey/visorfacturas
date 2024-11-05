@@ -39,12 +39,15 @@ namespace VisorFacturas.Forms
 
         // Consultas SQL
         //string nurestring = "99";
-        string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, '' AS nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d != '99' order by TSECCION.c";
+        //string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d == '01' OR TSECCION.d == '99' order by TSECCION.c ";
+        string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip, CLI.descrip AS Depart FROM TSECCION INNER JOIN TSUBDIR AS CLI ON TSECCION.c = CLI.codigo and TSECCION.d = CLI.dir WHERE TSECCION.d == '01' order by TSECCION.c";//"SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d == '01' order by TSECCION.c";
         string SqlEmpleadoCNZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d != '99' order by TSECCION.c";
         
         string SqlSelect_depart = "SELECT TSUBDIR.dir, TSUBDIR.codigo, TSUBDIR.descrip FROM TSUBDIR WHERE TSUBDIR.dir != '99'";
-        string SqlSelect_Bienes = "SELECT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, BIENES.bi_valor, BIENES.bi_depacu, BIENES.bi_saldo, BIENES.bi_vidautl, BIENES.bi_cantdep, BIENES.bi_depmes FROM BIENES order by  BIENES.bi_ubic1"; 
-        
+        string SqlSelect_Bienes = "SELECT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, BIENES.bi_valor, BIENES.bi_depacu, BIENES.bi_saldo, BIENES.bi_vidautl, BIENES.bi_cantdep, BIENES.bi_depmes FROM BIENES order by  BIENES.bi_ubic1";
+        //string SqlSelect_BienesCZF = "SELECT DISTINCT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, BIENES.bi_valor, BIENES.bi_depacu, BIENES.bi_saldo, BIENES.bi_vidautl, BIENES.bi_cantdep, BIENES.bi_depmes FROM BIENES WHERE BIENES.bi_ubic1 == '01' OR BIENES.bi_ubic1 == '99' order by  BIENES.bi_ubic1";
+        string SqlSelect_BienesCZF = "SELECT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, SUM(BIENES.bi_valor) as bi_valor, SUM(BIENES.bi_depacu) as bi_depacu, SUM(BIENES.bi_saldo) as bi_saldo, SUM(BIENES.bi_vidautl) as bi_vidautl, SUM(BIENES.bi_cantdep) as bi_cantdep, SUM(BIENES.bi_depmes) as bi_depmes FROM BIENES WHERE BIENES.bi_ubic1 == '01' OR BIENES.bi_ubic1 == '99' group by BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie order by  BIENES.bi_ubic1";
+
         dsModel.BIENESDataTable tbl_BIENES = new dsModel.BIENESDataTable();
         dsModel.TSECCIONDataTable tbl_EMPLEADO = new dsModel.TSECCIONDataTable();
         dsModel.TSUBDIRDataTable tbl_DEPART = new dsModel.TSUBDIRDataTable();
@@ -95,50 +98,81 @@ namespace VisorFacturas.Forms
 
                     // Cargamos los Empleados a la tabla del DATASET: TSECTION
                     if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    {
                         command = new OleDbCommand(SqlEmpleadoCZF, dbConn);
+
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(tbl_EMPLEADO);
+
+                        // Cargamos los departamentos a la tabla del dataset: TSUBDIR
+                        command = new OleDbCommand(SqlSelect_depart, dbConn);
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(tbl_DEPART);
+
+                        // Cargamos los bienes a la tabla del dataset: BIENES
+                        command = new OleDbCommand(SqlSelect_BienesCZF, dbConn);
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(tbl_BIENES);
+                    }
                     else
+                    {
                         command = new OleDbCommand(SqlEmpleadoCNZF, dbConn);
 
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(tbl_EMPLEADO);
 
-                    command.CommandType = CommandType.Text;
-                    adapter = new OleDbDataAdapter(command);
-                    adapter.Fill(tbl_EMPLEADO);
+                        // Cargamos los departamentos a la tabla del dataset: TSUBDIR
+                        command = new OleDbCommand(SqlSelect_depart, dbConn);
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(tbl_DEPART);
 
-                    // Cargamos los departamentos a la tabla del dataset: TSUBDIR
-                    command = new OleDbCommand(SqlSelect_depart, dbConn);
-                    command.CommandType = CommandType.Text;
-                    adapter = new OleDbDataAdapter(command);
-                    adapter.Fill(tbl_DEPART);
+                        // Cargamos los bienes a la tabla del dataset: BIENES
+                        command = new OleDbCommand(SqlSelect_Bienes, dbConn);
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(tbl_BIENES);
+                    }
 
-                    // Cargamos los bienes a la tabla del dataset: BIENES
-                    command = new OleDbCommand(SqlSelect_Bienes, dbConn);
-                    command.CommandType = CommandType.Text;
-                    adapter = new OleDbDataAdapter(command);
-                    adapter.Fill(tbl_BIENES);
+                    
 
                     // Llenamos el Grid Empleados
                     ListEmpleados = (from emp in tbl_EMPLEADO.AsQueryable()
-                                     join dep in tbl_DEPART.AsQueryable() on emp.c equals dep.codigo
-                               select new viewEmpleados {
+                                         //join dep in tbl_DEPART.AsQueryable() on emp.c equals dep.codigo
+                                         //join dep in tbl_DEPART.AsQueryable() on new { X1 = dep.codigo, X2 = m.uidemplea } equals new { X1 = aoemp.uidcia, X2 = aoemp.uidemplea }
+                                     select new viewEmpleados {
                                    c_codigo = (emp.c + emp.codigo),                                   
                                    nombre = emp.nombre,
                                    cargo = emp.descrip,
                                    c = emp.c,
                                    codigo = emp.codigo,
-                                   departamento = dep.descrip
+                                         //departamento = dep.descrip,
+                                         departamento = emp.Depart,
+                                         d = emp.d
                                }).ToList();
 
                     bndsrc_Emplea.DataSource = ListEmpleados;
 
                     // Llenamos todos los Activos Fijos en una lista para impresión masiva de Bienes x Empleado
                     ListBienesAll = (from b in tbl_BIENES.AsQueryable()
+                                     //where b.bi_ubic2.Contains(EmpleadoSelect.c) && b.bi_ubic3.Contains(EmpleadoSelect.codigo)
                                      select new viewBIENES {
                                          bicodigo = (b.bi_ubic1.Trim() + "-" + b.bi_ubic2.Trim() + "-" + b.bi_ubic3.Trim() + "-" + b.bi_art.Trim() + "-" + b.bi_codsec.Trim()),
                                          bi_descrip = b.bi_descrip,
                                          bi_marca = b.bi_marca,
                                          bi_modelo = b.bi_modelo,
                                          bi_serie = b.bi_serie,
-                                         bi_codemp = (b.bi_ubic2.Trim() + b.bi_ubic3.Trim())
+                                         bi_codemp = (b.bi_ubic2.Trim() + b.bi_ubic3.Trim()),
+                                         bi_valor = 0,//b.bi_valor,
+                                         bi_depacu = b.bi_depacu,
+                                         bi_saldo = b.bi_saldo,
+                                         bi_vidautl = b.bi_vidautl,
+                                         bi_cantdep = b.bi_cantdep,
+                                         bi_depmes = b.bi_depmes
                                      }).ToList();
 
                     dbConn.Close();
@@ -277,15 +311,53 @@ namespace VisorFacturas.Forms
                                     ListEmpleadosConBienes.Add(item);
                             });
 
-                            if (ListEmpleadosConBienes != null)
+                            if (ListEmpleadosConBienes != null && !mchkincluirmontos.Checked)
+                            {                                
+                                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                                {
+                                    Reports.CZF.rptBienesAll aorpt2 = new Reports.CZF.rptBienesAll(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+                                else
+                                {
+                                    Reports.rptBienesAll aorpt2 = new Reports.rptBienesAll(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+
+                            }
+                            else if(ListEmpleadosConBienes != null && mchkincluirmontos.Checked)
                             {
-                                Reports.rptBienesAll aorpt2 = new Reports.rptBienesAll(ListBienesAll);
-                                aorpt2.DataSource = ListEmpleadosConBienes;
-                                frmviewer aofrmviewer2 = new frmviewer(aorpt2);
-                                aofrmviewer2.Text = "Listado de Bienes por Empleado";
-                                aofrmviewer2.MdiParent = this.MdiParent;
-                                aofrmviewer2.WindowState = FormWindowState.Maximized;
-                                aofrmviewer2.Show();
+                                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                                {
+                                    Reports.CZF.rptBienesAllconMontos aorpt2 = new Reports.CZF.rptBienesAllconMontos(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+                                else
+                                {
+                                    Reports.CNZF.rptBienesAllconMontos aorpt2 = new Reports.CNZF.rptBienesAllconMontos(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+                                
                             }
                             else
                             {
@@ -380,25 +452,55 @@ namespace VisorFacturas.Forms
 
             if (mchkincluirmontos.Checked)
             {
-                Reports.rptBienesconMontos aorpt = new Reports.rptBienesconMontos(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
-                aorpt.DataSource = ListBienes;
-                //aorpt.mpxsettitle(string.Empty);
-                frmviewer aofrmviewer = new frmviewer(aorpt);
-                aofrmviewer.Text = "AF con Montos - " + EmpleadoSelect.c_codigo.Trim();
-                aofrmviewer.MdiParent = this.MdiParent;
-                aofrmviewer.WindowState = FormWindowState.Maximized;
-                aofrmviewer.Show();
+                
+                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                {
+                    Reports.CZF.rptBienesconMontos aorpt = new Reports.CZF.rptBienesconMontos(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    //aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF con Montos - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
+                else
+                {
+                    Reports.rptBienesconMontos aorpt = new Reports.rptBienesconMontos(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    //aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF con Montos - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
             }
             else
             {
-                Reports.rptBienes aorpt = new Reports.rptBienes(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
-                aorpt.DataSource = ListBienes;
-                aorpt.mpxsettitle(string.Empty);
-                frmviewer aofrmviewer = new frmviewer(aorpt);
-                aofrmviewer.Text = "AF - " + EmpleadoSelect.c_codigo.Trim();
-                aofrmviewer.MdiParent = this.MdiParent;
-                aofrmviewer.WindowState = FormWindowState.Maximized;
-                aofrmviewer.Show();
+                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                {
+                    Reports.CZF.rptBienes aorpt = new Reports.CZF.rptBienes(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
+                else
+                {
+                    Reports.rptBienes aorpt = new Reports.rptBienes(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
+                
             }            
         }
 

@@ -24,9 +24,9 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>2024.09.27.2</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2024.11.01.2</MinimumRequiredVersion>
     <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>2024.09.27.%2a</ApplicationVersion>
+    <ApplicationVersion>2024.11.01.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -260,6 +260,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CNZF\rptBienesAllconMontos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CNZF\rptBienesAllconMontos.designer.cs">
+      <DependentUpon>rptBienesAllconMontos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CNZF\xrclientsinfact.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -301,6 +307,30 @@
     </Compile>
     <Compile Include="Reports\CNZF\xrantiguedad_saldo.Designer.cs">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienes.designer.cs">
+      <DependentUpon>rptBienes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienesAll.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienesAll.designer.cs">
+      <DependentUpon>rptBienesAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienesAllconMontos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienesAllconMontos.designer.cs">
+      <DependentUpon>rptBienesAllconMontos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienesconMontos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBienesconMontos.designer.cs">
+      <DependentUpon>rptBienesconMontos.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\CZF\xrantiguedad_saldo.cs">
       <SubType>Component</SubType>
@@ -450,6 +480,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\CNZF\rptBienesAllconMontos.resx">
+      <DependentUpon>rptBienesAllconMontos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CNZF\xrclientsinfact.resx">
       <DependentUpon>xrclientsinfact.cs</DependentUpon>
     </EmbeddedResource>
@@ -470,6 +503,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CNZF\xrantiguedad_saldo.resx">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\rptBienes.resx">
+      <DependentUpon>rptBienes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\rptBienesAll.resx">
+      <DependentUpon>rptBienesAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\rptBienesAllconMontos.resx">
+      <DependentUpon>rptBienesAllconMontos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\rptBienesconMontos.resx">
+      <DependentUpon>rptBienesconMontos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CZF\xrantiguedad_saldo.resx">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>

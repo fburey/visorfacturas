@@ -15,5 +15,6 @@ namespace VisorFacturas.Clases
         public String nombre { get; set; }
         public String c_codigo { get; set; }
         public String departamento { get; set; }
+        public String d { get; set; }
     }
 }

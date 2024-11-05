@@ -1,4 +1,4 @@
-﻿namespace VisorFacturas.Reports
+﻿namespace VisorFacturas.Reports.CZF
 {
     partial class rptBienes
     {
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBienes));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
@@ -228,7 +227,7 @@
             // 
             // mpicboxLogCia
             // 
-            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("mpicboxLogCia.ImageSource"));
+            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::VisorFacturas.Properties.Resources.CZF_Logo, true);
             this.mpicboxLogCia.LocationFloat = new DevExpress.Utils.PointFloat(944.9999F, 0F);
             this.mpicboxLogCia.Name = "mpicboxLogCia";
             this.mpicboxLogCia.SizeF = new System.Drawing.SizeF(95F, 75F);
