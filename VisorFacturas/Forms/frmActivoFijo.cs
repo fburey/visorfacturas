@@ -41,7 +41,7 @@ namespace VisorFacturas.Forms
         //string nurestring = "99";
         //string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d == '01' OR TSECCION.d == '99' order by TSECCION.c ";
         string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip, CLI.descrip AS Depart FROM TSECCION INNER JOIN TSUBDIR AS CLI ON TSECCION.c = CLI.codigo and TSECCION.d = CLI.dir WHERE TSECCION.d == '01' order by TSECCION.c";//"SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d == '01' order by TSECCION.c";
-        string SqlEmpleadoCNZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d != '99' order by TSECCION.c";
+        string SqlEmpleadoCNZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip, 'Depart' AS Depart FROM TSECCION WHERE TSECCION.d != '99' order by TSECCION.c";
         
         string SqlSelect_depart = "SELECT TSUBDIR.dir, TSUBDIR.codigo, TSUBDIR.descrip FROM TSUBDIR WHERE TSUBDIR.dir != '99'";
         string SqlSelect_Bienes = "SELECT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, BIENES.bi_valor, BIENES.bi_depacu, BIENES.bi_saldo, BIENES.bi_vidautl, BIENES.bi_cantdep, BIENES.bi_depmes FROM BIENES order by  BIENES.bi_ubic1";
@@ -138,22 +138,44 @@ namespace VisorFacturas.Forms
                         adapter.Fill(tbl_BIENES);
                     }
 
-                    
 
-                    // Llenamos el Grid Empleados
-                    ListEmpleados = (from emp in tbl_EMPLEADO.AsQueryable()
-                                         //join dep in tbl_DEPART.AsQueryable() on emp.c equals dep.codigo
-                                         //join dep in tbl_DEPART.AsQueryable() on new { X1 = dep.codigo, X2 = m.uidemplea } equals new { X1 = aoemp.uidcia, X2 = aoemp.uidemplea }
-                                     select new viewEmpleados {
-                                   c_codigo = (emp.c + emp.codigo),                                   
-                                   nombre = emp.nombre,
-                                   cargo = emp.descrip,
-                                   c = emp.c,
-                                   codigo = emp.codigo,
-                                         //departamento = dep.descrip,
-                                         departamento = emp.Depart,
-                                         d = emp.d
-                               }).ToList();
+                    if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    {
+                        // Llenamos el Grid Empleados
+                        ListEmpleados = (from emp in tbl_EMPLEADO.AsQueryable()
+                                             //join dep in tbl_DEPART.AsQueryable() on emp.c equals dep.codigo
+                                             //join dep in tbl_DEPART.AsQueryable() on new { X1 = dep.codigo, X2 = m.uidemplea } equals new { X1 = aoemp.uidcia, X2 = aoemp.uidemplea }
+                                         select new viewEmpleados
+                                         {
+                                             c_codigo = (emp.c + emp.codigo),
+                                             nombre = emp.nombre,
+                                             cargo = emp.descrip,
+                                             c = emp.c,
+                                             codigo = emp.codigo,
+                                             //departamento = dep.descrip,
+                                             departamento = emp.Depart,
+                                             d = emp.d
+                                         }).ToList();
+                    }
+                    else
+                    {
+                        // Llenamos el Grid Empleados
+                        ListEmpleados = (from emp in tbl_EMPLEADO.AsQueryable()
+                                         join dep in tbl_DEPART.AsQueryable() on emp.c equals dep.codigo
+                                             //join dep in tbl_DEPART.AsQueryable() on new { X1 = dep.codigo, X2 = m.uidemplea } equals new { X1 = aoemp.uidcia, X2 = aoemp.uidemplea }
+                                         select new viewEmpleados
+                                         {
+                                             c_codigo = (emp.c + emp.codigo),
+                                             nombre = emp.nombre,
+                                             cargo = emp.descrip,
+                                             c = emp.c,
+                                             codigo = emp.codigo,
+                                             departamento = dep.descrip,
+                                             //departamento = emp.Depart,
+                                             d = emp.d
+                                         }).ToList();
+                    }
+                        
 
                     bndsrc_Emplea.DataSource = ListEmpleados;
 
@@ -311,7 +333,7 @@ namespace VisorFacturas.Forms
                                     ListEmpleadosConBienes.Add(item);
                             });
 
-                            if (ListEmpleadosConBienes != null && !mchkincluirmontos.Checked)
+                            if (ListEmpleadosConBienes != null && !mchkincluirmontos.Checked && !mchkincluirCTA.Checked)
                             {                                
                                 if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                                 {
@@ -335,7 +357,7 @@ namespace VisorFacturas.Forms
                                 }
 
                             }
-                            else if(ListEmpleadosConBienes != null && mchkincluirmontos.Checked)
+                            else if (ListEmpleadosConBienes != null && mchkincluirmontos.Checked && !mchkincluirCTA.Checked)
                             {
                                 if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                                 {
@@ -350,6 +372,30 @@ namespace VisorFacturas.Forms
                                 else
                                 {
                                     Reports.CNZF.rptBienesAllconMontos aorpt2 = new Reports.CNZF.rptBienesAllconMontos(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+
+                            }
+                            else if(ListEmpleadosConBienes != null && !mchkincluirmontos.Checked && mchkincluirCTA.Checked)
+                            {
+                                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                                {
+                                    Reports.CZF.rptBienesAllconMontosCTA aorpt2 = new Reports.CZF.rptBienesAllconMontosCTA(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+                                else
+                                {
+                                    Reports.CZF.rptBienesAllconMontosCTA aorpt2 = new Reports.CZF.rptBienesAllconMontosCTA(ListBienesAll);
                                     aorpt2.DataSource = ListEmpleadosConBienes;
                                     frmviewer aofrmviewer2 = new frmviewer(aorpt2);
                                     aofrmviewer2.Text = "Listado de Bienes por Empleado";

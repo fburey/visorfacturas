@@ -1593,6 +1593,8 @@ namespace VisorFacturas.Datasets {
             
             private global::System.Data.DataColumn columnnombre;
             
+            private global::System.Data.DataColumn columnDepart;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TSECCIONDataTable() {
@@ -1676,6 +1678,14 @@ namespace VisorFacturas.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DepartColumn {
+                get {
+                    return this.columnDepart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1711,7 +1721,7 @@ namespace VisorFacturas.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TSECCIONRow AddTSECCIONRow(string dir, string d, string c, string codigo, string descrip, string nombre) {
+            public TSECCIONRow AddTSECCIONRow(string dir, string d, string c, string codigo, string descrip, string nombre, string Depart) {
                 TSECCIONRow rowTSECCIONRow = ((TSECCIONRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         dir,
@@ -1719,7 +1729,8 @@ namespace VisorFacturas.Datasets {
                         c,
                         codigo,
                         descrip,
-                        nombre};
+                        nombre,
+                        Depart};
                 rowTSECCIONRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTSECCIONRow);
                 return rowTSECCIONRow;
@@ -1748,6 +1759,7 @@ namespace VisorFacturas.Datasets {
                 this.columncodigo = base.Columns["codigo"];
                 this.columndescrip = base.Columns["descrip"];
                 this.columnnombre = base.Columns["nombre"];
+                this.columnDepart = base.Columns["Depart"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1765,6 +1777,8 @@ namespace VisorFacturas.Datasets {
                 base.Columns.Add(this.columndescrip);
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
+                this.columnDepart = new global::System.Data.DataColumn("Depart", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepart);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3921,6 +3935,22 @@ namespace VisorFacturas.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Depart {
+                get {
+                    try {
+                        return ((string)(this[this.tableTSECCION.DepartColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Depart\' de la tabla \'TSECCION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTSECCION.DepartColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdirNull() {
                 return this.IsNull(this.tableTSECCION.dirColumn);
             }
@@ -3989,6 +4019,18 @@ namespace VisorFacturas.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnombreNull() {
                 this[this.tableTSECCION.nombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDepartNull() {
+                return this.IsNull(this.tableTSECCION.DepartColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDepartNull() {
+                this[this.tableTSECCION.DepartColumn] = global::System.Convert.DBNull;
             }
         }
         
