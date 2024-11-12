@@ -20,5 +20,6 @@ namespace VisorFacturas.Clases
         public Decimal bi_vidautl { get; set; }
         public Decimal bi_cantdep { get; set; }
         public Decimal bi_depmes { get; set; }
+        public String bi_cuecont { get; set; }
     }
 }

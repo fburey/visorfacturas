@@ -346,6 +346,31 @@ namespace VisorFacturas.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +&apos; &apos;+ trim(BAC.concepto2) +&apos; &apos;) AS Concepto01, (trim(BAC.concepto3) +&apos; &apos;+ trim(BAC.concepto4)) AS Concepto02, 
+        ///BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = &apos;15&apos;, &apos;LC$&apos;, IIF(BAC.cuenco = &apos;03&apos;, &apos;L$&apos;, &apos;Vacio&apos;))  as Banco
+        ///FROM CON{0} AS BAC
+        ///INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.debito &lt;&gt; 0
+        ///WHERE BAC.tcom == &apos;25&apos; [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_bancos_cnzf_sdo {
+            get {
+                return ResourceManager.GetString("xr_proc_bancos_cnzf_sdo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +&apos; &apos;+ trim(BAC.concepto2) +&apos; &apos;) AS Concepto01, (trim(BAC.concepto3) +&apos; &apos;+ trim(BAC.concepto4)) AS Concepto02, 
+        ///BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = &apos;11&apos;, &apos;LC$&apos;, IIF(BAC.cuenco = &apos;22&apos;, &apos;LaFise L$&apos;, IIF(BAC.cuenco = &apos;17&apos;, &apos;BC$&apos;, IIF(BAC.cuenco = &apos;26&apos;, &apos;B$&apos;, &apos;Vacio&apos;)))) as Banco 
+        ///FROM CON{0} AS BAC
+        ///INNER JOIN MOV{0} AS MOV  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string xr_proc_bancos_czf_sdo {
+            get {
+                return ResourceManager.GetString("xr_proc_bancos_czf_sdo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a SELECT 
         ///CLI.cli_cod AS &apos;cli_cod&apos;
         ///,CLI.cli_nom AS &apos;cli_nombre&apos;

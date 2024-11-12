@@ -1,4 +1,4 @@
-﻿namespace VisorFacturas.Reports.CZF
+﻿namespace VisorFacturas.Reports.CNZF
 {
     partial class rptBienesAllconMontosCTA
     {
@@ -96,6 +96,7 @@
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.mactivos_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
@@ -111,15 +112,14 @@
             this.xrTableCell39 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.mactivos_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             this.mempleado_bndsrc = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaTit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaCol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblFoo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mactivos_bndsrc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempleado_bndsrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -337,7 +337,7 @@
             // 
             // mpicboxLogCia
             // 
-            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::VisorFacturas.Properties.Resources.CZF_Logo, true);
+            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::VisorFacturas.Properties.Resources.Comisión_Nacional_de_Zonas_Francas, true);
             this.mpicboxLogCia.LocationFloat = new DevExpress.Utils.PointFloat(1213.505F, 0F);
             this.mpicboxLogCia.Name = "mpicboxLogCia";
             this.mpicboxLogCia.SizeF = new System.Drawing.SizeF(95F, 75F);
@@ -794,6 +794,10 @@
             this.Detail1.HeightF = 20.83333F;
             this.Detail1.Name = "Detail1";
             // 
+            // mactivos_bndsrc
+            // 
+            this.mactivos_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewBIENES);
+            // 
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -1032,10 +1036,6 @@
             this.PageHeader.HeightF = 109.6805F;
             this.PageHeader.Name = "PageHeader";
             // 
-            // mactivos_bndsrc
-            // 
-            this.mactivos_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewBIENES);
-            // 
             // mempleado_bndsrc
             // 
             this.mempleado_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewEmpleados);
@@ -1070,8 +1070,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaTit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaCol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblFoo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mactivos_bndsrc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempleado_bndsrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

@@ -118,7 +118,7 @@ namespace VisorFacturas.Util
             aoTreelst.Add(new viewTreeSistInf()
             {
                 fldidxrep = 500,
-                fldcodrep = "RPT501",
+                fldcodrep = "RPT500",
                 fldnamrep = "Anexos Financieros",
                 fldcia = 1,
                 fldidxrepReportaA = 0,
@@ -135,8 +135,17 @@ namespace VisorFacturas.Util
             });
             aoTreelst.Add(new viewTreeSistInf()
             {
+                fldidxrep = 502,
+                fldcodrep = "RPT502",
+                fldnamrep = "Comprobantes de Bancos",
+                fldcia = 1,
+                fldidxrepReportaA = 500,
+                fldimageidx = 1
+            });
+            aoTreelst.Add(new viewTreeSistInf()
+            {
                 fldidxrep = 600,
-                fldcodrep = "RPT501",
+                fldcodrep = "RPT600",
                 fldnamrep = "Estados Financieros",
                 fldcia = 1,
                 fldidxrepReportaA = 0,

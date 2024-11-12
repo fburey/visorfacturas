@@ -1,6 +1,6 @@
-﻿namespace VisorFacturas.Reports
+﻿namespace VisorFacturas.Reports.CZF
 {
-    partial class rptBienes
+    partial class rptBienesCTA
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptBienes));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
@@ -39,6 +38,7 @@
             this.mtblcel_dscestado = new DevExpress.XtraReports.UI.XRTableCell();
             this.mtblcel_dsccatitm_rto = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
@@ -76,6 +76,7 @@
             this.mtblrowHeaCol010_celdscestcnf = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.mtblrowHeaCol010_celdscdepart_rto = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.mtblrowHeaCol020 = new DevExpress.XtraReports.UI.XRTableRow();
             this.mtblrowHeaCol020_cel010 = new DevExpress.XtraReports.UI.XRTableCell();
             this.mtblrowHeaCol020_cel020 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -131,7 +132,8 @@
             this.mtblcel_dsccatitm,
             this.mtblcel_dscestado,
             this.mtblcel_dsccatitm_rto,
-            this.xrTableCell9});
+            this.xrTableCell9,
+            this.xrTableCell16});
             this.xrTableRow1.Name = "xrTableRow1";
             this.xrTableRow1.Weight = 1D;
             // 
@@ -159,7 +161,7 @@
             this.mtblcel_dsccatitm.StylePriority.UseFont = false;
             this.mtblcel_dsccatitm.StylePriority.UseTextAlignment = false;
             this.mtblcel_dsccatitm.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.mtblcel_dsccatitm.Weight = 4.1784619265318383D;
+            this.mtblcel_dsccatitm.Weight = 3.4820516036134546D;
             this.mtblcel_dsccatitm.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.mtblcel_dsccatitm_BeforePrint);
             // 
             // mtblcel_dscestado
@@ -173,7 +175,7 @@
             this.mtblcel_dscestado.StylePriority.UseFont = false;
             this.mtblcel_dscestado.StylePriority.UseTextAlignment = false;
             this.mtblcel_dscestado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.mtblcel_dscestado.Weight = 1.5917950994047D;
+            this.mtblcel_dscestado.Weight = 1.4923079104163597D;
             // 
             // mtblcel_dsccatitm_rto
             // 
@@ -186,7 +188,7 @@
             this.mtblcel_dsccatitm_rto.StylePriority.UseFont = false;
             this.mtblcel_dsccatitm_rto.StylePriority.UseTextAlignment = false;
             this.mtblcel_dsccatitm_rto.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.mtblcel_dsccatitm_rto.Weight = 1.5917949843749877D;
+            this.mtblcel_dsccatitm_rto.Weight = 1.4923084026082596D;
             // 
             // xrTableCell9
             // 
@@ -199,7 +201,21 @@
             this.xrTableCell9.StylePriority.UseFont = false;
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell9.Weight = 1.9897438912423098D;
+            this.xrTableCell9.Weight = 1.442563992457881D;
+            // 
+            // xrTableCell16
+            // 
+            this.xrTableCell16.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrTableCell16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "bi_cuecont")});
+            this.xrTableCell16.Font = new DevExpress.Drawing.DXFont("Arial", 8F);
+            this.xrTableCell16.Multiline = true;
+            this.xrTableCell16.Name = "xrTableCell16";
+            this.xrTableCell16.StylePriority.UseBorders = false;
+            this.xrTableCell16.StylePriority.UseFont = false;
+            this.xrTableCell16.StylePriority.UseTextAlignment = false;
+            this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrTableCell16.Weight = 1.442563992457881D;
             // 
             // TopMargin
             // 
@@ -228,7 +244,7 @@
             // 
             // mpicboxLogCia
             // 
-            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("mpicboxLogCia.ImageSource"));
+            this.mpicboxLogCia.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::VisorFacturas.Properties.Resources.CZF_Logo, true);
             this.mpicboxLogCia.LocationFloat = new DevExpress.Utils.PointFloat(944.9999F, 0F);
             this.mpicboxLogCia.Name = "mpicboxLogCia";
             this.mpicboxLogCia.SizeF = new System.Drawing.SizeF(95F, 75F);
@@ -526,7 +542,8 @@
             this.mtblrowHeaCol010_celdscdepart,
             this.mtblrowHeaCol010_celdscestcnf,
             this.xrTableCell1,
-            this.mtblrowHeaCol010_celdscdepart_rto});
+            this.mtblrowHeaCol010_celdscdepart_rto,
+            this.xrTableCell14});
             this.mtblrowHeaCol010.Name = "mtblrowHeaCol010";
             this.mtblrowHeaCol010.Weight = 1D;
             // 
@@ -552,7 +569,7 @@
             this.mtblrowHeaCol010_celdscdepart.StylePriority.UseTextAlignment = false;
             this.mtblrowHeaCol010_celdscdepart.Text = "Descripción";
             this.mtblrowHeaCol010_celdscdepart.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.mtblrowHeaCol010_celdscdepart.Weight = 4.1784605655434364D;
+            this.mtblrowHeaCol010_celdscdepart.Weight = 3.4820507430352969D;
             // 
             // mtblrowHeaCol010_celdscestcnf
             // 
@@ -564,7 +581,7 @@
             this.mtblrowHeaCol010_celdscestcnf.StylePriority.UseTextAlignment = false;
             this.mtblrowHeaCol010_celdscestcnf.Text = "Marca";
             this.mtblrowHeaCol010_celdscestcnf.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.mtblrowHeaCol010_celdscestcnf.Weight = 1.5917939249252311D;
+            this.mtblrowHeaCol010_celdscestcnf.Weight = 1.492307371272549D;
             // 
             // xrTableCell1
             // 
@@ -576,7 +593,7 @@
             this.xrTableCell1.StylePriority.UseTextAlignment = false;
             this.xrTableCell1.Text = "Modelo";
             this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell1.Weight = 1.5917951393681127D;
+            this.xrTableCell1.Weight = 1.492307371272549D;
             // 
             // mtblrowHeaCol010_celdscdepart_rto
             // 
@@ -588,7 +605,20 @@
             this.mtblrowHeaCol010_celdscdepart_rto.StylePriority.UseTextAlignment = false;
             this.mtblrowHeaCol010_celdscdepart_rto.Text = "Numero de Serie";
             this.mtblrowHeaCol010_celdscdepart_rto.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.mtblrowHeaCol010_celdscdepart_rto.Weight = 1.9897434506840441D;
+            this.mtblrowHeaCol010_celdscdepart_rto.Weight = 1.4425637974702146D;
+            // 
+            // xrTableCell14
+            // 
+            this.xrTableCell14.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell14.Font = new DevExpress.Drawing.DXFont("Times New Roman", 10F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrTableCell14.Multiline = true;
+            this.xrTableCell14.Name = "xrTableCell14";
+            this.xrTableCell14.StylePriority.UseBorders = false;
+            this.xrTableCell14.StylePriority.UseFont = false;
+            this.xrTableCell14.StylePriority.UseTextAlignment = false;
+            this.xrTableCell14.Text = "CTA";
+            this.xrTableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell14.Weight = 1.4425637974702146D;
             // 
             // mtblrowHeaCol020
             // 
@@ -766,7 +796,7 @@
             // 
             this.mactivos_bndsrc.DataSource = typeof(VisorFacturas.Clases.viewBIENES);
             // 
-            // rptBienes
+            // rptBienesCTA
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
@@ -861,5 +891,7 @@
         private System.Windows.Forms.BindingSource mempleado_bndsrc;
         private System.Windows.Forms.BindingSource mactivos_bndsrc;
         private DevExpress.XtraReports.UI.XRPictureBox mpicboxEscNic;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
     }
 }

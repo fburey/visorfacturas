@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActivoFijo));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mchkincluirCTA = new DevExpress.XtraEditors.CheckEdit();
             this.mchkincluirmontos = new DevExpress.XtraEditors.CheckEdit();
             this.lblList = new DevExpress.XtraEditors.LabelControl();
             this.mActivos_ctlnav = new DevExpress.XtraEditors.ControlNavigator();
@@ -49,11 +50,11 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colc_codigo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcargo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldepartament = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GridArea = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.GrivArea = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -69,10 +70,10 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mchkincluirmontos_lyt = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mchkincluirCTA = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mchkincluirCTA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchkincluirmontos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.miglForm2424)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -96,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchkincluirmontos_lyt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchkincluirCTA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,6 +117,15 @@
             this.layoutControl1.Size = new System.Drawing.Size(1036, 368);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // mchkincluirCTA
+            // 
+            this.mchkincluirCTA.Location = new System.Drawing.Point(434, 126);
+            this.mchkincluirCTA.Name = "mchkincluirCTA";
+            this.mchkincluirCTA.Properties.Caption = "Incluir Cuenta";
+            this.mchkincluirCTA.Size = new System.Drawing.Size(90, 20);
+            this.mchkincluirCTA.StyleController = this.layoutControl1;
+            this.mchkincluirCTA.TabIndex = 5;
             // 
             // mchkincluirmontos
             // 
@@ -391,6 +400,21 @@
             this.colcodigo.FieldName = "codigo";
             this.colcodigo.Name = "colcodigo";
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.Caption = "Niv 1";
+            this.gridColumn1.FieldName = "d";
+            this.gridColumn1.MaxWidth = 50;
+            this.gridColumn1.MinWidth = 50;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 50;
+            // 
             // colc_codigo
             // 
             this.colc_codigo.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -442,21 +466,6 @@
             this.coldepartament.Visible = true;
             this.coldepartament.VisibleIndex = 4;
             this.coldepartament.Width = 200;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn1.Caption = "Niv 1";
-            this.gridColumn1.FieldName = "d";
-            this.gridColumn1.MaxWidth = 50;
-            this.gridColumn1.MinWidth = 50;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 50;
             // 
             // GridArea
             // 
@@ -599,28 +608,23 @@
             // 
             this.mchkincluirmontos_lyt.Control = this.mchkincluirmontos;
             this.mchkincluirmontos_lyt.Location = new System.Drawing.Point(328, 114);
-            this.mchkincluirmontos_lyt.MinSize = new System.Drawing.Size(77, 23);
+            this.mchkincluirmontos_lyt.MaxSize = new System.Drawing.Size(94, 36);
+            this.mchkincluirmontos_lyt.MinSize = new System.Drawing.Size(94, 36);
             this.mchkincluirmontos_lyt.Name = "mchkincluirmontos_lyt";
             this.mchkincluirmontos_lyt.Size = new System.Drawing.Size(94, 36);
             this.mchkincluirmontos_lyt.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.mchkincluirmontos_lyt.TextSize = new System.Drawing.Size(0, 0);
             this.mchkincluirmontos_lyt.TextVisible = false;
             // 
-            // mchkincluirCTA
-            // 
-            this.mchkincluirCTA.Location = new System.Drawing.Point(434, 126);
-            this.mchkincluirCTA.Name = "mchkincluirCTA";
-            this.mchkincluirCTA.Properties.Caption = "Incluir Cuenta";
-            this.mchkincluirCTA.Size = new System.Drawing.Size(90, 20);
-            this.mchkincluirCTA.StyleController = this.layoutControl1;
-            this.mchkincluirCTA.TabIndex = 5;
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.mchkincluirCTA;
             this.layoutControlItem6.Location = new System.Drawing.Point(422, 114);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(94, 36);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(94, 36);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(94, 36);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -635,6 +639,7 @@
             this.Load += new System.EventHandler(this.XtraForm1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mchkincluirCTA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchkincluirmontos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.miglForm2424)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
@@ -658,7 +663,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchkincluirmontos_lyt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchkincluirCTA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
 

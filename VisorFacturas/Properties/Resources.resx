@@ -454,4 +454,20 @@ HAVING FAC.fac_amo_do &gt; 0
 where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
     <comment>Procedimiento para reporte de Listado de Empresas Facturadas en un Año y Mes especificado (este reporte ademas contiene información acerca del pago a esta factura: ROC)</comment>
   </data>
+  <data name="xr_proc_bancos_czf_sdo" xml:space="preserve">
+    <value>SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +' '+ trim(BAC.concepto2) +' ') AS Concepto01, (trim(BAC.concepto3) +' '+ trim(BAC.concepto4)) AS Concepto02, 
+BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = '11', 'LC$', IIF(BAC.cuenco = '22', 'LaFise L$', IIF(BAC.cuenco = '17', 'BC$', IIF(BAC.cuenco = '26', 'B$', 'Vacio')))) as Banco 
+FROM CON{0} AS BAC
+INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.debito &lt;&gt; 0
+WHERE BAC.tcom == '25' AND (BAC.cuenco == '11' OR BAC.cuenco == '22' OR BAC.cuenco == '17' OR BAC.cuenco == '26') AND MOV.tmoneda = {1} order by BAC.fecha, BAC.nodoc</value>
+    <comment>Procedimiento para traer los cheques de banco</comment>
+  </data>
+  <data name="xr_proc_bancos_cnzf_sdo" xml:space="preserve">
+    <value>SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +' '+ trim(BAC.concepto2) +' ') AS Concepto01, (trim(BAC.concepto3) +' '+ trim(BAC.concepto4)) AS Concepto02, 
+BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = '15', 'LC$', IIF(BAC.cuenco = '03', 'L$', 'Vacio'))  as Banco
+FROM CON{0} AS BAC
+INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.debito &lt;&gt; 0
+WHERE BAC.tcom == '25' AND (BAC.cuenco == '03' OR BAC.cuenco == '15') AND MOV.tmoneda = {1} order by BAC.fecha, BAC.nodoc</value>
+    <comment>Procedimiento para traer los cheques de banco</comment>
+  </data>
 </root>

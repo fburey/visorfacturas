@@ -10,12 +10,12 @@ using System.Linq;
 
 namespace VisorFacturas.Reports.CNZF
 {
-    public partial class rptBienesAll : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptBienesAllCTA : DevExpress.XtraReports.UI.XtraReport
     {
         List<viewBIENES> ListBienes;    // Estos son todos los datos de Activos Fijos de todos los Empleados
         List<viewBIENES> ListBienesDet; // Estos son todos los datos de Activos Fijos de un Empleado (iteración)
         String c_codigo;
-        public rptBienesAll(List<viewBIENES> paListBIENES)//(mstcia pocia)
+        public rptBienesAllCTA(List<viewBIENES> paListBIENES)//(mstcia pocia)
         {
             InitializeComponent();            
             ListBienes = paListBIENES;

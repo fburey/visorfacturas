@@ -24,6 +24,12 @@ namespace VisorFacturas.Forms
     {
         // Usuario del sistema
         tblUser moCurrentUser;
+        string mocadenaconexOLEDB;
+        //DataAdapters
+        OleDbDataAdapter adapter;
+
+        //Commands
+        OleDbCommand command;
         public frmSistInfCNZF(tblUser paCurrentUser)
         {
             InitializeComponent();
@@ -344,6 +350,28 @@ namespace VisorFacturas.Forms
                     mlytitm_solofactpendientes.Visibility = aoAlways;
                     mlytitm_pagosfechaactual.Visibility = aoAlways;
                     mlcg_indicadores.Visibility = aoAlways;
+                    break;
+                case "RPT501":
+                    // Saldo de Clientes detallado
+                    mlytitm_Param_mesyearini.Visibility = aoAlways;
+                    mlytitm_Param_mesyearfin.Visibility = aoAlways;
+                    //mlytitm_Param_cliente.Visibility = aoAlways;
+                    mlcg_cliente.Visibility = aoAlways;
+                    mlcg_Params.Visibility = aoAlways;
+
+                    mlytitm_solofactpendientes.Visibility = aoAlways;
+                    mlytitm_pagosfechaactual.Visibility = aoAlways;
+                    mlcg_indicadores.Visibility = aoAlways;
+                    break;
+                case "RPT502":
+                    // Metraje Anual de Clientes
+                    mlytitm_speanno.Visibility = aoAlways;
+                    mempty_speanno.Visibility = aoAlways;
+                    mlytitm_cmbMes.Visibility = aoAlways;
+                    mempty_cmbmes.Visibility = aoAlways;
+                    mlcg_Params.Visibility = aoAlways;
+
+
                     break;
             }
 
@@ -1207,8 +1235,183 @@ namespace VisorFacturas.Forms
                             aofrmviewer.WindowState = FormWindowState.Maximized;
                             aofrmviewer.Show();
                         }
-                        break;
                         #endregion
+                        break;
+                    
+
+                    case "RPT502":
+                        #region RPT 502
+                        string Moneda = "'C'";
+                        int C_CNZF = 15;
+                        int D_CNZF = 03;
+                        int CL_CZF = 11;
+                        int CB_CZF = 17;
+                        int DL_CZF = 22;
+                        int DB_CZF = 26;
+                        int cont = 0;
+                        string patittle01 = string.Empty;
+                        string patittle02 = string.Empty;
+                        // Creamos la lista del reporte a imprimir
+                        List<view_rpt_BANCOS> aolistrpt_502 = new List<view_rpt_BANCOS>();
+                        if (aofiltro_mes_entero < 10)
+                        {
+                            aofechaini_cadena = "0" + aofiltro_mes_entero.ToString() + aofiltro_anyo_entero.ToString().Substring(2);
+                        }
+                        else
+                        {
+                            aofechaini_cadena = aofiltro_mes_entero.ToString() + aofiltro_anyo_entero.ToString().Substring(2);
+                        }
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            Str_Ruta = Settings.Default.mCnxCZF_TablasBANCO;
+                            // Query Principal
+                            acSql_01 = String.Format(Resources.xr_proc_bancos_czf_sdo, aofechaini_cadena, Moneda);
+                            //if (Moneda == 1)
+                            //{
+                            //    acSql_01 = acSql_01 + String.Format("AND BAC.cuenco == {0} OR BAC.cuenco == {1}", CL_CZF, CB_CZF) + " order by BAC.fecha ";
+                            //}
+                            //else if (Moneda == 2)
+                            //{
+                            //    acSql_01 = acSql_01 + String.Format("AND BAC.cuenco == {0} OR BAC.cuenco == {1}", DL_CZF, DB_CZF) + " order by BAC.fecha ";
+                            //}
+                        }
+                        else
+                        {
+                            acSql_01 = String.Format(Resources.xr_proc_bancos_cnzf_sdo, aofechaini_cadena, Moneda);
+                            //if (Moneda == 1)
+                            //{
+                            //    acSql_01 = acSql_01 + String.Format("AND BAC.cuenco == {0}", C_CNZF) + " order by BAC.fecha ";
+                            //}
+                            //else if (Moneda == 2)
+                            //{
+                            //    acSql_01 = acSql_01 + String.Format("AND BAC.cuenco == {0}", D_CNZF) + " order by BAC.fecha ";
+                            //}
+
+                            Str_Ruta = Settings.Default.mCnxCNZF_TablasBANCO;
+
+                            
+                        }
+                        //mpxCargarDatosTablasDBF(acSql_01);
+                        // Hacemos la conexión a las tablas y lo llenamos al DATATABLE Temporal
+                        using (OleDbDataAdapter adapt = new OleDbDataAdapter(acSql_01, Str_Ruta))
+                        {
+                            adapt.Fill(acDT_temp);
+                        }
+
+                        if (acDT_temp.Rows.Count == 0)
+                        {
+                            mpxCloseSplashForm();
+                            XtraMessageBox.Show("No se encontraron datos en los filtros especificados", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        //Rellenamos la lista que se enviara al reporte
+                        foreach (DataRow item in acDT_temp.Rows)
+                        {
+                            cont += 1;
+                            if (cont == 1)
+                            {
+                                if(item["banco"].ToString().Trim() == "LC$")
+                                {
+                                    patittle01 = "LaFise";
+                                    patittle02 = "Córdobas";
+                                }
+                                else
+                                {
+                                    patittle01 = "LaFise";
+                                    patittle02 = "Dólares";
+                                }
+                                
+                            }
+                            
+                            // Variable para capturar registros repetidos, y actualizar valores
+                            List<view_rpt_BANCOS> aoexistregistro = new List<view_rpt_BANCOS>();
+                            // Consulta para ubicar registro repetidos
+                            aoexistregistro = (from t in aolistrpt_502.AsQueryable()
+                                               where t.nodoc.Trim() == item["nodoc"].ToString().Trim()
+                                               select t).ToList();
+
+                            if (aoexistregistro.Count > 0)
+                            {
+                                view_rpt_BANCOS aoety_exist = aoexistregistro[0];
+                                Int32 posety = aolistrpt_502.IndexOf(aoety_exist);
+                                aolistrpt_502.RemoveAt(posety);
+
+                                //aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
+                                //aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
+                                //aoety_exist.pag_amount += Double.Parse(item["pag_amount"].ToString());
+                                //aolistrpt_502.Insert(posety, aoety_exist);
+                            }
+                            else
+                            {
+                                aolistrpt_502.Add(new view_rpt_BANCOS()
+                                {
+                                    fecha = DateTime.Parse(item["fecha"].ToString()),
+                                    nodoc = item["nodoc"].ToString(),
+                                    numcom = item["numcom"].ToString(),
+                                    Beneficiario = item["Beneficiario"].ToString(),
+                                    Concepto01 = item["Concepto01"].ToString().TrimEnd()+" "+ item["Concepto02"].ToString().TrimStart(),
+                                    Concepto02 = item["Concepto02"].ToString(),
+                                    tasaC = Decimal.Parse(item["tasaC"].ToString()),
+                                    valche = Decimal.Parse(item["valche"].ToString()),
+                                    MTO_C = Decimal.Parse(item["MTO_C"].ToString()),
+                                    MTO_D = Decimal.Parse(item["MTO_D"].ToString()),
+                                    tmoneda = item["tmoneda"].ToString(),
+                                    aplicado = item["aplicado"].ToString(),
+                                    cuenco = item["cuenco"].ToString(),
+                                    Banco = item["Banco"].ToString(),
+                                });
+                            }
+                        }
+
+                        mpxCloseSplashForm();
+                        if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                        {
+                            // Imprimimos el reporte
+                            Reports.CZF.rptBancos aorpt_105 = new Reports.CZF.rptBancos();
+                            aorpt_105.mpxSetTittle(patittle01, patittle02, "Mes " + aofiltro_mes_entero.ToString());
+                            //if (aofiltroind_solofactpendientes)
+                            //{
+                            //    aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd > 0).ToList();
+                            //    aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
+                            //}
+                            //else
+                            //{
+                                aorpt_105.DataSource = aolistrpt_502;
+                            //}
+
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_105);
+                            aofrmviewer.Text = aoNombreReporte;
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
+                        else
+                        {
+                            // Imprimimos el reporte
+                            Reports.CZF.rptBancos aorpt_105 = new Reports.CZF.rptBancos();
+                            aorpt_105.mpxSetTittle(patittle01, patittle02, "Mes " + aofiltro_mes_entero.ToString());
+                            //if (aofiltroind_solofactpendientes)
+                            //{
+                            //    aorpt_105.DataSource = aolistrpt_502.ToList();
+                            //    aorpt_105.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.None;
+                            //}
+                            //else
+                            //{
+                            aorpt_105.DataSource = aolistrpt_502;
+                            //}
+
+                            //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                            aofrmviewer = new frmviewer(aorpt_105);
+                            aofrmviewer.Text = aoNombreReporte;
+                            aofrmviewer.MdiParent = this.MdiParent;
+                            aofrmviewer.WindowState = FormWindowState.Maximized;
+                            aofrmviewer.Show();
+                        }
+                        #endregion
+                        break;
+                        
                 }
 
             }
@@ -1218,7 +1421,96 @@ namespace VisorFacturas.Forms
                 XtraMessageBox.Show(ex.Message, "Mensaje del Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        /// <summary>
+        /// Mandamos a cargar los datos de las tablas DBF
+        /// </summary>
+        private void mpxCargarDatosTablasDBF(string SqlEmpleadoCZF)
+        {
+            // Cadena de conexion            
+            String aorutadiractfij = "";
+            if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+            {
+                mocadenaconexOLEDB = String.Format(@"Provider=VFPOLEDB.1;Data Source={0}; Extended Properties = dBase IV", Settings.Default.DirectorioCZF_TablasBANCO);
+                aorutadiractfij = Settings.Default.DirectorioActivosFijosCZF;
+            }
+            else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)
+            {
+                mocadenaconexOLEDB = String.Format(@"Provider=VFPOLEDB.1;Data Source={0}; Extended Properties = dBase IV", Settings.Default.DirectorioCNZF_TablasBANCO);
+                aorutadiractfij = Settings.Default.DirectorioActivosFijosCNZF;
+            }
+            //Mandamos a cargar
+            using (OleDbConnection dbConn = new OleDbConnection(mocadenaconexOLEDB))
+            {
+                try
+                {
+                    dbConn.Open();
 
+                    // Cargamos los Empleados a la tabla del DATASET: TSECTION
+                    if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    {
+                        command = new OleDbCommand(SqlEmpleadoCZF, dbConn);
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(acDT_temp);
+                    }
+                    else
+                    {
+                        command = new OleDbCommand(SqlEmpleadoCZF, dbConn);
+
+                        command.CommandType = CommandType.Text;
+                        adapter = new OleDbDataAdapter(command);
+                        adapter.Fill(acDT_temp);
+                    }
+
+
+                    //if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                    //{
+                    //    // Llenamos el Grid Empleados
+                    //    ListEmpleados = (from emp in tbl_EMPLEADO.AsQueryable()
+                    //                         //join dep in tbl_DEPART.AsQueryable() on emp.c equals dep.codigo
+                    //                         //join dep in tbl_DEPART.AsQueryable() on new { X1 = dep.codigo, X2 = m.uidemplea } equals new { X1 = aoemp.uidcia, X2 = aoemp.uidemplea }
+                    //                     select new viewEmpleados
+                    //                     {
+                    //                         c_codigo = (emp.c + emp.codigo),
+                    //                         nombre = emp.nombre,
+                    //                         cargo = emp.descrip,
+                    //                         c = emp.c,
+                    //                         codigo = emp.codigo,
+                    //                         //departamento = dep.descrip,
+                    //                         departamento = emp.Depart,
+                    //                         d = emp.d
+                    //                     }).ToList();
+                    //}
+                    //else
+                    //{
+                    //    // Llenamos el Grid Empleados
+                    //    ListEmpleados = (from emp in tbl_EMPLEADO.AsQueryable()
+                    //                     join dep in tbl_DEPART.AsQueryable() on emp.c equals dep.codigo
+                    //                     //join dep in tbl_DEPART.AsQueryable() on new { X1 = dep.codigo, X2 = m.uidemplea } equals new { X1 = aoemp.uidcia, X2 = aoemp.uidemplea }
+                    //                     select new viewEmpleados
+                    //                     {
+                    //                         c_codigo = (emp.c + emp.codigo),
+                    //                         nombre = emp.nombre,
+                    //                         cargo = emp.descrip,
+                    //                         c = emp.c,
+                    //                         codigo = emp.codigo,
+                    //                         departamento = dep.descrip,
+                    //                         //departamento = emp.Depart,
+                    //                         d = emp.d
+                    //                     }).ToList();
+                    //}
+
+                                        
+
+                    dbConn.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al abrir la base de datos" + ex.Message);
+                }
+            }
+        }
         private void mpxShowSplashForm()
         {
             if (msplashfrm_wait.IsSplashFormVisible)

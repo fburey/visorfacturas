@@ -148,5 +148,49 @@ namespace VisorFacturas.Properties {
                 return ((string)(this["mCnxCZF_TablasCXC"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\contabilidad-cnzf\\Sisintfi\\CONTAB" +
+            "\\CNZF;Extended Properties=dBASE IV;")]
+        public string mCnxCNZF_TablasBANCO {
+            get {
+                return ((string)(this["mCnxCNZF_TablasBANCO"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE" +
+            "\\CONTAB\\CZF;Extended Properties=dBASE IV;")]
+        public string mCnxCZF_TablasBANCO {
+            get {
+                return ((string)(this["mCnxCZF_TablasBANCO"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\contabilidad-cnzf\\Sisintfi\\CONTAB\\CNZF")]
+        public string DirectorioCNZF_TablasBANCO {
+            get {
+                return ((string)(this["DirectorioCNZF_TablasBANCO"]));
+            }
+            set {
+                this["DirectorioCNZF_TablasBANCO"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE\\CONTAB\\CZF")]
+        public string DirectorioCZF_TablasBANCO {
+            get {
+                return ((string)(this["DirectorioCZF_TablasBANCO"]));
+            }
+            set {
+                this["DirectorioCZF_TablasBANCO"] = value;
+            }
+        }
     }
 }

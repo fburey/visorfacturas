@@ -7,11 +7,11 @@ using DevExpress.XtraReports.UI;
 using VisorFacturas.Clases;
 using System.Collections.Generic;
 
-namespace VisorFacturas.Reports
+namespace VisorFacturas.Reports.CNZF
 {
-    public partial class rptBienes : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptBienesCTA : DevExpress.XtraReports.UI.XtraReport
     {
-        public rptBienes(viewEmpleados paEMPLEADO, String paestnica, string pacompani)//(mstcia pocia)
+        public rptBienesCTA(viewEmpleados paEMPLEADO, String paestnica, string pacompani)//(mstcia pocia)
         {
             InitializeComponent();
             mempleado_bndsrc.DataSource = paEMPLEADO;

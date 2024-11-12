@@ -40,13 +40,13 @@ namespace VisorFacturas.Forms
         // Consultas SQL
         //string nurestring = "99";
         //string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d == '01' OR TSECCION.d == '99' order by TSECCION.c ";
-        string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip, CLI.descrip AS Depart FROM TSECCION INNER JOIN TSUBDIR AS CLI ON TSECCION.c = CLI.codigo and TSECCION.d = CLI.dir WHERE TSECCION.d == '01' order by TSECCION.c";//"SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d == '01' order by TSECCION.c";
+        string SqlEmpleadoCZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip, NVL(CLI.descrip, '') AS Depart FROM TSECCION LEFT JOIN TSUBDIR AS CLI ON TSECCION.c = CLI.codigo and TSECCION.d = CLI.dir WHERE TSECCION.d == '01' order by TSECCION.c";//"SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip FROM TSECCION WHERE TSECCION.d == '01' order by TSECCION.c";
         string SqlEmpleadoCNZF = "SELECT TSECCION.dir, TSECCION.d, TSECCION.c, TSECCION.codigo, TSECCION.nombre, TSECCION.descrip, 'Depart' AS Depart FROM TSECCION WHERE TSECCION.d != '99' order by TSECCION.c";
         
         string SqlSelect_depart = "SELECT TSUBDIR.dir, TSUBDIR.codigo, TSUBDIR.descrip FROM TSUBDIR WHERE TSUBDIR.dir != '99'";
         string SqlSelect_Bienes = "SELECT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, BIENES.bi_valor, BIENES.bi_depacu, BIENES.bi_saldo, BIENES.bi_vidautl, BIENES.bi_cantdep, BIENES.bi_depmes FROM BIENES order by  BIENES.bi_ubic1";
         //string SqlSelect_BienesCZF = "SELECT DISTINCT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, BIENES.bi_valor, BIENES.bi_depacu, BIENES.bi_saldo, BIENES.bi_vidautl, BIENES.bi_cantdep, BIENES.bi_depmes FROM BIENES WHERE BIENES.bi_ubic1 == '01' OR BIENES.bi_ubic1 == '99' order by  BIENES.bi_ubic1";
-        string SqlSelect_BienesCZF = "SELECT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, SUM(BIENES.bi_valor) as bi_valor, SUM(BIENES.bi_depacu) as bi_depacu, SUM(BIENES.bi_saldo) as bi_saldo, SUM(BIENES.bi_vidautl) as bi_vidautl, SUM(BIENES.bi_cantdep) as bi_cantdep, SUM(BIENES.bi_depmes) as bi_depmes FROM BIENES WHERE BIENES.bi_ubic1 == '01' OR BIENES.bi_ubic1 == '99' group by BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie order by  BIENES.bi_ubic1";
+        string SqlSelect_BienesCZF = "SELECT BIENES.bi_cuecont, BIENES.bi_ubic1, BIENES.bi_ubic2, BIENES.bi_ubic3, BIENES.bi_art, BIENES.bi_codsec, BIENES.bi_descrip, BIENES.bi_marca, BIENES.bi_modelo, BIENES.bi_serie, BIENES.bi_valor, BIENES.bi_depacu, BIENES.bi_saldo, BIENES.bi_vidautl, BIENES.bi_cantdep, BIENES.bi_depmes FROM BIENES WHERE BIENES.bi_ubic1 == '01' OR BIENES.bi_ubic1 == '99' order by  BIENES.bi_ubic1";
 
         dsModel.BIENESDataTable tbl_BIENES = new dsModel.BIENESDataTable();
         dsModel.TSECCIONDataTable tbl_EMPLEADO = new dsModel.TSECCIONDataTable();
@@ -188,13 +188,14 @@ namespace VisorFacturas.Forms
                                          bi_marca = b.bi_marca,
                                          bi_modelo = b.bi_modelo,
                                          bi_serie = b.bi_serie,
+                                         bi_cuecont = b.bi_cuecont, 
                                          bi_codemp = (b.bi_ubic2.Trim() + b.bi_ubic3.Trim()),
-                                         bi_valor = 0,//b.bi_valor,
+                                         bi_valor = b.bi_valor,
                                          bi_depacu = b.bi_depacu,
                                          bi_saldo = b.bi_saldo,
                                          bi_vidautl = b.bi_vidautl,
                                          bi_cantdep = b.bi_cantdep,
-                                         bi_depmes = b.bi_depmes
+                                         bi_depmes = b.bi_depmes,
                                      }).ToList();
 
                     dbConn.Close();
@@ -229,6 +230,7 @@ namespace VisorFacturas.Forms
                                       bi_marca = b.bi_marca,
                                       bi_modelo = b.bi_modelo,
                                       bi_serie = b.bi_serie,
+                                      bi_cuecont = b.bi_cuecont,
                                       bi_codemp = (b.bi_ubic2.Trim() + b.bi_ubic3.Trim()),
                                       bi_valor = b.bi_valor,
                                       bi_depacu = b.bi_depacu,
@@ -292,7 +294,6 @@ namespace VisorFacturas.Forms
         /// <param name="e"></param>
         private void mEmpleado_ctlnav_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
         {
-
             switch (e.Button.ButtonType)
             {
                 case NavigatorButtonType.First:
@@ -385,6 +386,30 @@ namespace VisorFacturas.Forms
                             {
                                 if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                                 {
+                                    Reports.CZF.rptBienesAllCTA aorpt2 = new Reports.CZF.rptBienesAllCTA(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+                                else
+                                {
+                                    Reports.CNZF.rptBienesAllCTA aorpt2 = new Reports.CNZF.rptBienesAllCTA(ListBienesAll);
+                                    aorpt2.DataSource = ListEmpleadosConBienes;
+                                    frmviewer aofrmviewer2 = new frmviewer(aorpt2);
+                                    aofrmviewer2.Text = "Listado de Bienes por Empleado";
+                                    aofrmviewer2.MdiParent = this.MdiParent;
+                                    aofrmviewer2.WindowState = FormWindowState.Maximized;
+                                    aofrmviewer2.Show();
+                                }
+                                
+                            }
+                            else if (ListEmpleadosConBienes != null && mchkincluirmontos.Checked && mchkincluirCTA.Checked)
+                            {
+                                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                                {
                                     Reports.CZF.rptBienesAllconMontosCTA aorpt2 = new Reports.CZF.rptBienesAllconMontosCTA(ListBienesAll);
                                     aorpt2.DataSource = ListEmpleadosConBienes;
                                     frmviewer aofrmviewer2 = new frmviewer(aorpt2);
@@ -395,7 +420,7 @@ namespace VisorFacturas.Forms
                                 }
                                 else
                                 {
-                                    Reports.CZF.rptBienesAllconMontosCTA aorpt2 = new Reports.CZF.rptBienesAllconMontosCTA(ListBienesAll);
+                                    Reports.CNZF.rptBienesAllconMontosCTA aorpt2 = new Reports.CNZF.rptBienesAllconMontosCTA(ListBienesAll);
                                     aorpt2.DataSource = ListEmpleadosConBienes;
                                     frmviewer aofrmviewer2 = new frmviewer(aorpt2);
                                     aofrmviewer2.Text = "Listado de Bienes por Empleado";
@@ -403,7 +428,7 @@ namespace VisorFacturas.Forms
                                     aofrmviewer2.WindowState = FormWindowState.Maximized;
                                     aofrmviewer2.Show();
                                 }
-                                
+
                             }
                             else
                             {
@@ -496,7 +521,7 @@ namespace VisorFacturas.Forms
             string mcEscNic = Application.StartupPath + @"\Archivo\EscNic.png";
             string mnNumCia = Application.StartupPath + @"\Archivo\LogCiaCNZF.png";
 
-            if (mchkincluirmontos.Checked)
+            if (mchkincluirmontos.Checked && !mchkincluirCTA.Checked)
             {
                 
                 if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
@@ -522,6 +547,58 @@ namespace VisorFacturas.Forms
                     aofrmviewer.Show();
                 }
             }
+            else if (!mchkincluirmontos.Checked && mchkincluirCTA.Checked)
+            {
+
+                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                {
+                    Reports.CZF.rptBienesCTA aorpt = new Reports.CZF.rptBienesCTA(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    //aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF con Montos - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
+                else
+                {
+                    Reports.CNZF.rptBienesCTA aorpt = new Reports.CNZF.rptBienesCTA(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    //aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF con Montos - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
+            }
+            else if (mchkincluirmontos.Checked && mchkincluirCTA.Checked)
+            {
+
+                if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
+                {
+                    Reports.CZF.rptBienesconMontosCTA aorpt = new Reports.CZF.rptBienesconMontosCTA(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    //aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF con Montos - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
+                else
+                {
+                    Reports.CNZF.rptBienesconMontosCTA aorpt = new Reports.CNZF.rptBienesconMontosCTA(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    aorpt.DataSource = ListBienes;
+                    //aorpt.mpxsettitle(string.Empty);
+                    frmviewer aofrmviewer = new frmviewer(aorpt);
+                    aofrmviewer.Text = "AF con Montos - " + EmpleadoSelect.c_codigo.Trim();
+                    aofrmviewer.MdiParent = this.MdiParent;
+                    aofrmviewer.WindowState = FormWindowState.Maximized;
+                    aofrmviewer.Show();
+                }
+            }
             else
             {
                 if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
@@ -537,7 +614,7 @@ namespace VisorFacturas.Forms
                 }
                 else
                 {
-                    Reports.rptBienes aorpt = new Reports.rptBienes(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
+                    Reports.CNZF.rptBienes aorpt = new Reports.CNZF.rptBienes(EmpleadoSelect, mcEscNic, mnNumCia);//(moctx.mstcia.Find(moclscnfapp.mouidcia.Value));                                 
                     aorpt.DataSource = ListBienes;
                     aorpt.mpxsettitle(string.Empty);
                     frmviewer aofrmviewer = new frmviewer(aorpt);

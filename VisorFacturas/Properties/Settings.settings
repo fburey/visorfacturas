@@ -35,5 +35,17 @@
     <Setting Name="mCnxCZF_TablasCXC" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Provider=VFPOLEDB.1;Data Source=\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\INVENT\CZF;Extended Properties=dBASE IV;</Value>
     </Setting>
+    <Setting Name="mCnxCNZF_TablasBANCO" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Provider=VFPOLEDB.1;Data Source=\\192.168.25.23\contabilidad-cnzf\Sisintfi\CONTAB\CNZF;Extended Properties=dBASE IV;</Value>
+    </Setting>
+    <Setting Name="mCnxCZF_TablasBANCO" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Provider=VFPOLEDB.1;Data Source=\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\CONTAB\CZF;Extended Properties=dBASE IV;</Value>
+    </Setting>
+    <Setting Name="DirectorioCNZF_TablasBANCO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\contabilidad-cnzf\Sisintfi\CONTAB\CNZF</Value>
+    </Setting>
+    <Setting Name="DirectorioCZF_TablasBANCO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\192.168.25.23\contabilidad\APLIC\SISINTFI\PRICE\CONTAB\CZF</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
