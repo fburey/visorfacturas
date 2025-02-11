@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace VisorFacturas.Reports.CZF
 {
-    public partial class xrfacturasmes : DevExpress.XtraReports.UI.XtraReport
+    public partial class xrfacturasmesDet : DevExpress.XtraReports.UI.XtraReport
     {
-        public xrfacturasmes()
+        public xrfacturasmesDet()
         {
             InitializeComponent();
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.Letter;

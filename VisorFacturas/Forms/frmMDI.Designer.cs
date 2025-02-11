@@ -141,7 +141,7 @@
             // 
             // btnmenuCam
             // 
-            this.btnmenuCam.Caption = "barButtonItem1";
+            this.btnmenuCam.Caption = "Cambiar de Empresa";
             this.btnmenuCam.Id = 9;
             this.btnmenuCam.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.Image")));
             this.btnmenuCam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnmenuCam.ImageOptions.LargeImage")));

@@ -403,12 +403,17 @@ ORDER BY FAC.fecha, FAC.fac_fac_nu, PAG.pg_recnum</value>
 ,CLI.cli_nom AS 'cli_nombre'
 ,CLI.cli_pais AS 'cli_pais'
 ,CLI.cli_ciudad AS 'cli_ciudad'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rem_cant'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_precio'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_cantprecio'
-,CAST(SUM(IIF(REM.rem_codig &lt;&gt; '05TRAM01', REM.rem_descue, 0)) AS NUMERIC(10,2)) * -1 AS 'rem_descuen'
-,CAST(SUM(IIF(REM.rem_codig = '05TRAM01', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rem_tramit'
+,CAST(SUM(IIF(REM.rem_desc1 = 'ALQUILER' OR REM.rem_desc1 = 'POSTES ARRENDAMIENTO', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'rent_cant'
+,CAST(SUM(IIF(REM.rem_desc1 = 'ALQUILER' OR REM.rem_desc1 = 'POSTES ARRENDAMIENTO', REM.rem_precio, 0)) AS NUMERIC(10,4)) AS 'rent_precio'
+,CAST(SUM(IIF(REM.rem_desc1 = 'ALQUILER' OR REM.rem_desc1 = 'POSTES ARRENDAMIENTO', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'rent_cantprecio'
+,CAST(SUM(IIF(REM.rem_desc1 = 'MANTENIMIENTO' OR REM.rem_desc1 = 'POSTES', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'mant_cant'
+,CAST(SUM(IIF(REM.rem_desc1 = 'MANTENIMIENTO' OR REM.rem_desc1 = 'POSTES', REM.rem_precio, 0)) AS NUMERIC(10,4)) AS 'mant_precio'
+,CAST(SUM(IIF(REM.rem_desc1 = 'MANTENIMIENTO' OR REM.rem_desc1 = 'POSTES', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'mant_cantprecio'
+,CAST(SUM(IIF(REM.rem_desc1 = 'COMEDOR', REM.rem_canti, 0)) AS NUMERIC(10,2)) AS 'comd_cant'
+,CAST(SUM(IIF(REM.rem_desc1 = 'COMEDOR', REM.rem_precio, 0)) AS NUMERIC(10,4)) AS 'comd_precio'
+,CAST(SUM(IIF(REM.rem_desc1 = 'COMEDOR', REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS 'comd_cantprecio'
 ,NVL(PAG.pg_amo_dol, 0) AS 'pag_amount'
+,SUM(NVL(REM.rem_impues, 0)) AS 'IVA'
 ,NVL(PAG.pg_recnum, '') AS 'pag_numroc'
 ,NVL(PAG.pg_fecpag, CTOD('')) AS 'pag_fecha'
 ,FAC.fac_amo_do as 'fac_total' ,"Usuaria" AS 'tipo_regimen'
@@ -419,7 +424,7 @@ LEFT JOIN PAGOS AS PAG ON (FAC.fac_fac_nu = PAG.pg_factura)  {2}
 group by fac_numfac, fac_fecha, cli_nombre, cli_pais, cli_ciudad, pag_amount, pag_numroc, pag_fecha, fac_total
 order by fac_numfac
 HAVING FAC.fac_amo_do &gt; 0
-where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
+where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1} {3}</value>
   </data>
   <data name="button_circle_blue_last_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_circle_blue_last_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -456,17 +461,23 @@ where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
   </data>
   <data name="xr_proc_bancos_czf_sdo" xml:space="preserve">
     <value>SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +' '+ trim(BAC.concepto2) +' ') AS Concepto01, (trim(BAC.concepto3) +' '+ trim(BAC.concepto4)) AS Concepto02, 
-BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = '11', 'LC$', IIF(BAC.cuenco = '22', 'LaFise L$', IIF(BAC.cuenco = '17', 'BC$', IIF(BAC.cuenco = '26', 'B$', 'Vacio')))) as Banco 
+BAC.valtasa as tasaC, MOV.tmoneda, MOV.aplicado, BAC.cuenco, BAC.valche,
+CAST(IIF(BAC.cuenco = '11' OR BAC.cuenco = '17', BAC.valche, IIF(BAC.cuenco = '22' OR BAC.cuenco = '26', (BAC.valche*BAC.valtasa), '0'))AS NUMERIC(10,2)) AS MTO_C,
+CAST(IIF(BAC.cuenco = '22' OR BAC.cuenco = '26', BAC.valche, IIF(BAC.cuenco = '11' OR BAC.cuenco = '17', (BAC.valche*BAC.valtasa), '0'))AS NUMERIC(10,2)) AS MTO_D,
+IIF(BAC.cuenco = '11', 'LC$', IIF(BAC.cuenco = '22', 'LaFise L$', IIF(BAC.cuenco = '17', 'BC$', IIF(BAC.cuenco = '26', 'B$', 'Vacio')))) as Banco
 FROM CON{0} AS BAC
-INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.debito &lt;&gt; 0
+INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.niv1 = '0111'
 WHERE BAC.tcom == '25' AND (BAC.cuenco == '11' OR BAC.cuenco == '22' OR BAC.cuenco == '17' OR BAC.cuenco == '26') AND MOV.tmoneda = {1} order by BAC.fecha, BAC.nodoc</value>
     <comment>Procedimiento para traer los cheques de banco</comment>
   </data>
   <data name="xr_proc_bancos_cnzf_sdo" xml:space="preserve">
     <value>SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +' '+ trim(BAC.concepto2) +' ') AS Concepto01, (trim(BAC.concepto3) +' '+ trim(BAC.concepto4)) AS Concepto02, 
-BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = '15', 'LC$', IIF(BAC.cuenco = '03', 'L$', 'Vacio'))  as Banco
+BAC.valtasa as tasaC, MOV.tmoneda, MOV.aplicado, BAC.cuenco, BAC.valche, 
+CAST(IIF(BAC.cuenco = '15', BAC.valche, IIF(BAC.cuenco = '03', (BAC.valche*BAC.valtasa), '0'))AS NUMERIC(10,2)) AS MTO_C,
+CAST(IIF(BAC.cuenco = '03', BAC.valche, IIF(BAC.cuenco = '15', (BAC.valche/BAC.valtasa), '0'))AS NUMERIC(10,2)) AS MTO_D,
+IIF(BAC.cuenco = '15', 'LC$', IIF(BAC.cuenco = '03', 'L$', 'Vacio'))  as Banco
 FROM CON{0} AS BAC
-INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.debito &lt;&gt; 0
+INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.niv1 = '0111'
 WHERE BAC.tcom == '25' AND (BAC.cuenco == '03' OR BAC.cuenco == '15') AND MOV.tmoneda = {1} order by BAC.fecha, BAC.nodoc</value>
     <comment>Procedimiento para traer los cheques de banco</comment>
   </data>

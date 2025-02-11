@@ -24,9 +24,9 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <MinimumRequiredVersion>2024.11.12.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2025.02.10.1</MinimumRequiredVersion>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2024.11.12.%2a</ApplicationVersion>
+    <ApplicationVersion>2025.02.10.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -162,6 +162,7 @@
     <Compile Include="Clases\view_rpt_BANCOS.cs" />
     <Compile Include="Clases\view_rpt_facturacomparames_act_ant.cs" />
     <Compile Include="Clases\view_rpt_facturasmes.cs" />
+    <Compile Include="Clases\view_rpt_facturasmes_czf.cs" />
     <Compile Include="Clases\view_rpt_metrajeanual.cs" />
     <Compile Include="Clases\view_rpt_saldoclientes.cs" />
     <Compile Include="Connected Services\myServiceReference_TC\Reference.cs">
@@ -261,6 +262,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CNZF\rptBanco.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CNZF\rptBanco.designer.cs">
+      <DependentUpon>rptBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CNZF\rptBancos.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -351,6 +358,12 @@
     <Compile Include="Reports\CNZF\xrantiguedad_saldo.Designer.cs">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CZF\rptBanco.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\rptBanco.designer.cs">
+      <DependentUpon>rptBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CZF\rptBancos.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -428,6 +441,12 @@
     </Compile>
     <Compile Include="Reports\CZF\xrfacturasmes.designer.cs">
       <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CZF\xrfacturasmesDet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CZF\xrfacturasmesDet.designer.cs">
+      <DependentUpon>xrfacturasmesDet.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\CZF\xrmetrajeanual.cs">
       <SubType>Component</SubType>
@@ -547,6 +566,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\CNZF\rptBanco.resx">
+      <DependentUpon>rptBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CNZF\rptBancos.resx">
       <DependentUpon>rptBancos.cs</DependentUpon>
     </EmbeddedResource>
@@ -592,6 +614,9 @@
     <EmbeddedResource Include="Reports\CNZF\xrantiguedad_saldo.resx">
       <DependentUpon>xrantiguedad_saldo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\rptBanco.resx">
+      <DependentUpon>rptBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CZF\rptBancos.resx">
       <DependentUpon>rptBancos.cs</DependentUpon>
     </EmbeddedResource>
@@ -630,6 +655,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CZF\xrfacturasmes.resx">
       <DependentUpon>xrfacturasmes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CZF\xrfacturasmesDet.resx">
+      <DependentUpon>xrfacturasmesDet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CZF\xrmetrajeanual.resx">
       <DependentUpon>xrmetrajeanual.cs</DependentUpon>
@@ -701,6 +729,7 @@
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_BANCOS.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturacomparames_act_ant.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturasmes.datasource" />
+    <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_facturasmes_czf.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_metrajeanual.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.Clases.view_rpt_saldoclientes.datasource" />
     <None Include="Properties\DataSources\VisorFacturas.DataNota.dbo_pro_lst_NotasDC_Result.datasource" />

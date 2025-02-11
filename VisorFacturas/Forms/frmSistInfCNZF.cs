@@ -17,6 +17,7 @@ using System.Xml.Serialization;
 using VisorFacturas.Util;
 using System.IO;
 using VisorFacturas.Enums;
+using System.Globalization;
 
 namespace VisorFacturas.Forms
 {
@@ -58,6 +59,8 @@ namespace VisorFacturas.Forms
         // Variables de Filtros - Indicadores
         bool aofiltroind_pagosfechaact;
         bool aofiltroind_CtaAuditoria;
+        bool aofiltroind_SoloCliIndustr;
+        bool aofiltroind_PgoOrg;
         bool aofiltroind_comparamesyearANT;
         bool aofiltroind_solofactpendientes;
 
@@ -189,6 +192,8 @@ namespace VisorFacturas.Forms
             mdte_Param_mesyearfin.DateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
             mrdg_Param_cli_buscarpor.EditValue = 1;
             mrdg_Param_cli_buscarpor.SelectedIndex = 0;
+            mrdg_Param_cli_mon.EditValue = 1;
+            mrdg_Param_cli_mon.SelectedIndex = 0;
 
             mlcg_Params.ExpandButtonVisible = false;
             mlcg_indicadores.ExpandButtonVisible = false;
@@ -270,6 +275,7 @@ namespace VisorFacturas.Forms
             mempty_speanno.Visibility = aoNever;
             mlytitm_cmbMes.Visibility = aoNever;
             mempty_cmbmes.Visibility = aoNever;
+            mlytitm_Param_cli_mon.Visibility = aoNever;
             mlytitm_Param_mesyearini.Visibility = aoNever;
             mlytitm_Param_mesyearfin.Visibility = aoNever;
             //mlytitm_Param_cliente.Visibility = aoNever;
@@ -278,6 +284,7 @@ namespace VisorFacturas.Forms
 
             mlytitm_pagosfechaactual.Visibility = aoNever;
             mlytitm_CtaAuditoria.Visibility = aoNever;
+            mlytitm_SoloCliIndustr.Visibility = aoNever;
             mlytitm_comparamesanyoant.Visibility = aoNever;
             mlytitm_solofactpendientes.Visibility = aoNever;
             mlcg_indicadores.Visibility = aoNever;
@@ -307,6 +314,7 @@ namespace VisorFacturas.Forms
 
                     mlytitm_pagosfechaactual.Visibility = aoAlways;
                     mlytitm_CtaAuditoria.Visibility = aoAlways;
+                    mlytitm_SoloCliIndustr.Visibility = aoAlways;
                     mlcg_indicadores.Visibility = aoAlways;
                     break;
 
@@ -369,6 +377,7 @@ namespace VisorFacturas.Forms
                     mempty_speanno.Visibility = aoAlways;
                     mlytitm_cmbMes.Visibility = aoAlways;
                     mempty_cmbmes.Visibility = aoAlways;
+                    mlytitm_Param_cli_mon.Visibility = aoAlways;
                     mlcg_Params.Visibility = aoAlways;
 
 
@@ -436,6 +445,8 @@ namespace VisorFacturas.Forms
 
             aofiltroind_pagosfechaact = mchk_pagosfechaactual.Checked;
             aofiltroind_CtaAuditoria = mchk_ctaAuditoria.Checked;
+            aofiltroind_SoloCliIndustr = mchk_SoloCliIndustr.Checked;
+            aofiltroind_PgoOrg = mchk_PgoOrg.Checked;
             aofiltroind_comparamesyearANT = mchk_comparamesanyoant.Checked;
             aofiltroind_solofactpendientes = mchk_solofactpendientes.Checked;
             #endregion
@@ -482,9 +493,11 @@ namespace VisorFacturas.Forms
                         #region RPT101
                         // Creamos la lista del reporte a imprimir
                         List<view_rpt_facturasmes> aolistrpt_101 = new List<view_rpt_facturasmes>();
-                        
+                        List<view_rpt_facturasmes_czf> aolistrpt_101CZF = new List<view_rpt_facturasmes_czf>();
+
                         if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
-                        {
+                        {                           
+
                             if (aofiltroind_CtaAuditoria)
                             {
                                 // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
@@ -492,15 +505,36 @@ namespace VisorFacturas.Forms
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes_AUD, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
                             }
                                 // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
-                            else if (aofiltroind_pagosfechaact)
+                            else if ((aofiltroind_pagosfechaact) && (!aofiltroind_SoloCliIndustr) && (!aofiltroind_PgoOrg))
                             {
-                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, "");
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, "", "");
                             }
-                            else
+                            else if ((aofiltroind_pagosfechaact) && (aofiltroind_SoloCliIndustr) && (aofiltroind_PgoOrg))
                             {
                                 // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
                                 aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
-                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
+                                string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, aoLIKE);
+                            }
+                            else if ((!aofiltroind_pagosfechaact) && (aofiltroind_SoloCliIndustr) && (!aofiltroind_PgoOrg))
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, aoLIKE);
+                            }
+                            else if ((!aofiltroind_pagosfechaact) && (!aofiltroind_SoloCliIndustr) && (aofiltroind_PgoOrg))
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                //string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, "");
+                            }
+                            else
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado    + 
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();                                
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, "");
                             }
                             Str_Ruta = Settings.Default.mCnxCZF_TablasCXC;
                         }
@@ -541,51 +575,101 @@ namespace VisorFacturas.Forms
                         // Rellenamos la lista que se enviara al reporte
                         foreach (DataRow item in acDT_temp.Rows)
                         {
-                            // Variable para capturar registros repetidos, y actualizar valores
-                            List<view_rpt_facturasmes> aoexistregistro = new List<view_rpt_facturasmes>();
-                            // Consulta para ubicar registro repetidos
-                            aoexistregistro = (from t in aolistrpt_101.AsQueryable()
-                                               where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
-                                               select t).ToList();
-
-                            if (aoexistregistro.Count > 0)
+                            if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                             {
-                                view_rpt_facturasmes aoety_exist = aoexistregistro[0];
-                                Int32 posety = aolistrpt_101.IndexOf(aoety_exist);
-                                aolistrpt_101.RemoveAt(posety);
+                                // Variable para capturar registros repetidos, y actualizar valores
+                                List<view_rpt_facturasmes_czf> aoexistregistro = new List<view_rpt_facturasmes_czf>();
+                                // Consulta para ubicar registro repetidos
+                                aoexistregistro = (from t in aolistrpt_101CZF.AsQueryable()
+                                                   where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
+                                                   select t).ToList();
 
-                                aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
-                                aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
-                                aoety_exist.pag_amount += Double.Parse(item["pag_amount"].ToString());
-                                aolistrpt_101.Insert(posety, aoety_exist);
+                                if (aoexistregistro.Count > 0)
+                                {
+                                    view_rpt_facturasmes_czf aoety_exist = aoexistregistro[0];
+                                    Int32 posety = aolistrpt_101CZF.IndexOf(aoety_exist);
+                                    aolistrpt_101CZF.RemoveAt(posety);
+
+                                    aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
+                                    aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
+                                    aoety_exist.pag_amount_sub += Double.Parse(item["pag_amount"].ToString());
+                                    aolistrpt_101CZF.Insert(posety, aoety_exist);
+                                }
+                                else
+                                {
+                                    aolistrpt_101CZF.Add(new view_rpt_facturasmes_czf()
+                                    {
+                                        fac_numfac = item["fac_numfac"].ToString(),
+                                        fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
+                                        cli_nombre = item["cli_nombre"].ToString(),
+                                        cli_pais = item["cli_pais"].ToString(),
+                                        cli_ciudad = item["cli_ciudad"].ToString(),
+                                        rem_cant = Double.Parse(item["rent_cant"].ToString()),
+                                        rem_precio = Double.Parse(item["rent_precio"].ToString()),
+                                        rem_cantprecio = Double.Parse(item["rent_cantprecio"].ToString()),
+                                        man_cant = Double.Parse(item["mant_cant"].ToString()),
+                                        man_precio = Double.Parse(item["mant_precio"].ToString()),
+                                        man_cantprecio = Double.Parse(item["mant_cantprecio"].ToString()),
+                                        com_cant = Double.Parse(item["comd_cant"].ToString()),
+                                        com_precio = Double.Parse(item["comd_precio"].ToString()),
+                                        com_cantprecio = Double.Parse(item["comd_cantprecio"].ToString()),
+                                        impuesto = Double.Parse(item["iva"].ToString()),
+                                        pag_amount_sub = (Double.Parse(item["mant_cantprecio"].ToString()) + Double.Parse(item["rent_cantprecio"].ToString()) + Double.Parse(item["comd_cantprecio"].ToString())),
+                                        pag_numroc = item["pag_numroc"].ToString(),
+                                        pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
+                                        fac_total = Double.Parse(item["fac_total"].ToString()),
+                                        tipo_regimen = item["tipo_regimen"].ToString()
+                                    });
+                                }
                             }
                             else
                             {
-                                aolistrpt_101.Add(new view_rpt_facturasmes()
+                                // Variable para capturar registros repetidos, y actualizar valores
+                                List<view_rpt_facturasmes> aoexistregistro = new List<view_rpt_facturasmes>();
+                                // Consulta para ubicar registro repetidos
+                                aoexistregistro = (from t in aolistrpt_101.AsQueryable()
+                                                   where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
+                                                   select t).ToList();
+
+                                if (aoexistregistro.Count > 0)
                                 {
-                                    fac_numfac = item["fac_numfac"].ToString(),
-                                    fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
-                                    cli_nombre = item["cli_nombre"].ToString(),
-                                    cli_pais = item["cli_pais"].ToString(),
-                                    cli_ciudad = item["cli_ciudad"].ToString(),
-                                    rem_cant = Double.Parse(item["rem_cant"].ToString()),
-                                    rem_precio = Double.Parse(item["rem_precio"].ToString()),
-                                    rem_cantprecio = Double.Parse(item["rem_cantprecio"].ToString()),
-                                    rem_descuen = Double.Parse(item["rem_descuen"].ToString()),
-                                    rem_tramit = Double.Parse(item["rem_tramit"].ToString()),
-                                    pag_amount = Double.Parse(item["pag_amount"].ToString()),
-                                    pag_numroc = item["pag_numroc"].ToString(),
-                                    pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
-                                    fac_total = Double.Parse(item["fac_total"].ToString()),
-                                    tipo_regimen = item["tipo_regimen"].ToString()
-                                });
+                                    view_rpt_facturasmes aoety_exist = aoexistregistro[0];
+                                    Int32 posety = aolistrpt_101.IndexOf(aoety_exist);
+                                    aolistrpt_101.RemoveAt(posety);
+
+                                    aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
+                                    aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
+                                    aoety_exist.pag_amount += Double.Parse(item["pag_amount"].ToString());
+                                    aolistrpt_101.Insert(posety, aoety_exist);
+                                }
+                                else
+                                {
+                                    aolistrpt_101.Add(new view_rpt_facturasmes()
+                                    {
+                                        fac_numfac = item["fac_numfac"].ToString(),
+                                        fac_fecha = DateTime.Parse(item["fac_fecha"].ToString()),
+                                        cli_nombre = item["cli_nombre"].ToString(),
+                                        cli_pais = item["cli_pais"].ToString(),
+                                        cli_ciudad = item["cli_ciudad"].ToString(),
+                                        rem_cant = Double.Parse(item["rem_cant"].ToString()),
+                                        rem_precio = Double.Parse(item["rem_precio"].ToString()),
+                                        rem_cantprecio = Double.Parse(item["rem_cantprecio"].ToString()),
+                                        rem_descuen = Double.Parse(item["rem_descuen"].ToString()),
+                                        rem_tramit = Double.Parse(item["rem_tramit"].ToString()),
+                                        pag_amount = Double.Parse(item["pag_amount"].ToString()),
+                                        pag_numroc = item["pag_numroc"].ToString(),
+                                        pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
+                                        fac_total = Double.Parse(item["fac_total"].ToString()),
+                                        tipo_regimen = item["tipo_regimen"].ToString()
+                                    });
+                                }
                             }
                         }
 
                         //Cargamos los clientes
                         if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                         {
-                            if(aofiltroind_CtaAuditoria)
+                            if (aofiltroind_CtaAuditoria)
                             {
                                 Reports.CZF.xrfacturasmes aorpt_101 = new Reports.CZF.xrfacturasmes();
                                 aorpt_101.DataSource = aolistrpt_101;
@@ -595,18 +679,33 @@ namespace VisorFacturas.Forms
                                 aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
                                 //aofrmviewer.MdiParent = this.MdiParent;
                                 aofrmviewer.WindowState = FormWindowState.Maximized;
+                                aorpt_101.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                                aofrmviewer.Show();
+                            }
+                            else if (!aofiltroind_PgoOrg)
+                            {
+                                Reports.CZF.xrfacturasmes aorpt_101 = new Reports.CZF.xrfacturasmes();
+                                aorpt_101.DataSource = aolistrpt_101CZF;
+                                aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
+                                //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
+                                aofrmviewer = new frmviewer(aorpt_101);
+                                aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
+                                //aofrmviewer.MdiParent = this.MdiParent;
+                                aofrmviewer.WindowState = FormWindowState.Maximized;
+                                aorpt_101.PrintingSystem.Document.AutoFitToPagesWidth = 1;
                                 aofrmviewer.Show();
                             }
                             else
                             {
-                                Reports.CZF.xrfacturasmes aorpt_101 = new Reports.CZF.xrfacturasmes();
-                                aorpt_101.DataSource = aolistrpt_101;
+                                Reports.CZF.xrfacturasmesDet aorpt_101 = new Reports.CZF.xrfacturasmesDet();
+                                aorpt_101.DataSource = aolistrpt_101CZF;
                                 aorpt_101.mpxSetTittle("", "Año: " + aofiltro_anyo_entero.ToString() + "  Mes: " + aofiltro_mes_cadena + "  Moneda: Dólares (US$)");
                                 //aorpt.picLogo.Image = VisorFacturas.Properties.Resources.CZF_Logo;
                                 aofrmviewer = new frmviewer(aorpt_101);
                                 aofrmviewer.Text = aoNombreReporte + " - " + aofiltro_mes_cadena + " " + aofiltro_anyo_entero.ToString();
                                 //aofrmviewer.MdiParent = this.MdiParent;
                                 aofrmviewer.WindowState = FormWindowState.Maximized;
+                                aorpt_101.PrintingSystem.Document.AutoFitToPagesWidth = 1;
                                 aofrmviewer.Show();
                             }
                         }
@@ -1248,6 +1347,17 @@ namespace VisorFacturas.Forms
                         int CB_CZF = 17;
                         int DL_CZF = 22;
                         int DB_CZF = 26;
+
+                        if (Convert.ToInt16(mrdg_Param_cli_mon.EditValue) == 1)
+                        {
+                            Moneda = "'C'";
+                        }
+                        else if (Convert.ToInt16(mrdg_Param_cli_mon.EditValue) == 2)
+                        {
+                            Moneda = "'D'";
+                        }
+                        //DateTime DATE = string.Empty;
+                        string strMonthName = string.Empty;
                         int cont = 0;
                         string patittle01 = string.Empty;
                         string patittle02 = string.Empty;
@@ -1321,7 +1431,11 @@ namespace VisorFacturas.Forms
                                     patittle01 = "LaFise";
                                     patittle02 = "Dólares";
                                 }
-                                
+                                   
+                                strMonthName = new DateTime(aofiltro_anyo_entero, aofiltro_mes_entero, 1).ToString("MMMM");
+                                strMonthName = (CultureInfo.InvariantCulture.TextInfo.ToTitleCase(strMonthName));
+
+
                             }
                             
                             // Variable para capturar registros repetidos, y actualizar valores
@@ -1368,8 +1482,8 @@ namespace VisorFacturas.Forms
                         if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                         {
                             // Imprimimos el reporte
-                            Reports.CZF.rptBancos aorpt_105 = new Reports.CZF.rptBancos();
-                            aorpt_105.mpxSetTittle(patittle01, patittle02, "Mes " + aofiltro_mes_entero.ToString());
+                            Reports.CZF.rptBanco aorpt_105 = new Reports.CZF.rptBanco();
+                            aorpt_105.mpxSetTittle(patittle01, patittle02, "Mes de " + strMonthName, strMonthName);
                             //if (aofiltroind_solofactpendientes)
                             //{
                             //    aorpt_105.DataSource = aolistrpt_105.Where(x => x.sdototd > 0).ToList();
@@ -1390,8 +1504,8 @@ namespace VisorFacturas.Forms
                         else
                         {
                             // Imprimimos el reporte
-                            Reports.CZF.rptBancos aorpt_105 = new Reports.CZF.rptBancos();
-                            aorpt_105.mpxSetTittle(patittle01, patittle02, "Mes " + aofiltro_mes_entero.ToString());
+                            Reports.CNZF.rptBanco aorpt_105 = new Reports.CNZF.rptBanco();
+                            aorpt_105.mpxSetTittle(patittle01, patittle02, "Mes de " + strMonthName, strMonthName);
                             //if (aofiltroind_solofactpendientes)
                             //{
                             //    aorpt_105.DataSource = aolistrpt_502.ToList();

@@ -347,10 +347,9 @@ namespace VisorFacturas.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +&apos; &apos;+ trim(BAC.concepto2) +&apos; &apos;) AS Concepto01, (trim(BAC.concepto3) +&apos; &apos;+ trim(BAC.concepto4)) AS Concepto02, 
-        ///BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = &apos;15&apos;, &apos;LC$&apos;, IIF(BAC.cuenco = &apos;03&apos;, &apos;L$&apos;, &apos;Vacio&apos;))  as Banco
-        ///FROM CON{0} AS BAC
-        ///INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.debito &lt;&gt; 0
-        ///WHERE BAC.tcom == &apos;25&apos; [resto de la cadena truncado]&quot;;.
+        ///BAC.valtasa as tasaC, MOV.tmoneda, MOV.aplicado, BAC.cuenco, BAC.valche, 
+        ///CAST(IIF(BAC.cuenco = &apos;15&apos;, BAC.valche, IIF(BAC.cuenco = &apos;03&apos;, (BAC.valche*BAC.valtasa), &apos;0&apos;))AS NUMERIC(10,2)) AS MTO_C,
+        ///CAST(IIF(BAC.cuenco = &apos;03&apos;, BAC.valche, IIF(BAC.cuenco = &apos;15&apos;, (BAC.valche/BAC.valtasa), &apos;0&apos;))AS NUMERIC(10,2))  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string xr_proc_bancos_cnzf_sdo {
             get {
@@ -360,9 +359,9 @@ namespace VisorFacturas.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +&apos; &apos;+ trim(BAC.concepto2) +&apos; &apos;) AS Concepto01, (trim(BAC.concepto3) +&apos; &apos;+ trim(BAC.concepto4)) AS Concepto02, 
-        ///BAC.valtasa as tasaC, BAC.valche, MOV.debito AS MTO_C, MOV.debito_d AS MTO_D, MOV.tmoneda, MOV.aplicado, BAC.cuenco, IIF(BAC.cuenco = &apos;11&apos;, &apos;LC$&apos;, IIF(BAC.cuenco = &apos;22&apos;, &apos;LaFise L$&apos;, IIF(BAC.cuenco = &apos;17&apos;, &apos;BC$&apos;, IIF(BAC.cuenco = &apos;26&apos;, &apos;B$&apos;, &apos;Vacio&apos;)))) as Banco 
-        ///FROM CON{0} AS BAC
-        ///INNER JOIN MOV{0} AS MOV  [resto de la cadena truncado]&quot;;.
+        ///BAC.valtasa as tasaC, MOV.tmoneda, MOV.aplicado, BAC.cuenco, BAC.valche,
+        ///CAST(IIF(BAC.cuenco = &apos;11&apos; OR BAC.cuenco = &apos;17&apos;, BAC.valche, IIF(BAC.cuenco = &apos;22&apos; OR BAC.cuenco = &apos;26&apos;, (BAC.valche*BAC.valtasa), &apos;0&apos;))AS NUMERIC(10,2)) AS MTO_C,
+        ///CAST(IIF(BAC.cuenco = &apos;22&apos; OR BAC.cuenco = &apos;26&apos;, BAC.valche, IIF(BAC.cu [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string xr_proc_bancos_czf_sdo {
             get {
@@ -473,10 +472,9 @@ namespace VisorFacturas.Properties {
         ///,CLI.cli_nom AS &apos;cli_nombre&apos;
         ///,CLI.cli_pais AS &apos;cli_pais&apos;
         ///,CLI.cli_ciudad AS &apos;cli_ciudad&apos;
-        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti, 0)) AS NUMERIC(10,2)) AS &apos;rem_cant&apos;
-        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_precio&apos;
-        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;, REM.rem_canti * REM.rem_precio, 0)) AS NUMERIC(10,2)) AS &apos;rem_cantprecio&apos;
-        ///,CAST(SUM(IIF(REM.rem_codig &lt;&gt; &apos;05TRAM01&apos;,  [resto de la cadena truncado]&quot;;.
+        ///,CAST(SUM(IIF(REM.rem_desc1 = &apos;ALQUILER&apos; OR REM.rem_desc1 = &apos;POSTES ARRENDAMIENTO&apos;, REM.rem_canti, 0)) AS NUMERIC(10,2)) AS &apos;rent_cant&apos;
+        ///,CAST(SUM(IIF(REM.rem_desc1 = &apos;ALQUILER&apos; OR REM.rem_desc1 = &apos;POSTES ARRENDAMIENTO&apos;, REM.rem_precio, 0)) AS NUMERIC(10,4)) AS &apos;rent_precio&apos;
+        ///,CAST(SUM(IIF(REM.rem_desc1 = &apos;ALQUILER&apos; OR REM.rem_desc1 = &apos;POSTES ARRENDAMI [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string xr_proc_facturas_mes_czf {
             get {
