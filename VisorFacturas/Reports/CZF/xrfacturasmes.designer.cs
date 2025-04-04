@@ -129,6 +129,7 @@
             this.calfld_Fecha = new DevExpress.XtraReports.UI.CalculatedField();
             this.calcfld_preciounit = new DevExpress.XtraReports.UI.CalculatedField();
             this.mbndsrc_report = new System.Windows.Forms.BindingSource(this.components);
+            this.calcfld_Subtot = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaTit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtblHeaCol)).BeginInit();
@@ -337,7 +338,7 @@
             // xrTableCell35
             // 
             this.xrTableCell35.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[pag_amount_sub]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[calcfld_Subtot]")});
             this.xrTableCell35.Font = new DevExpress.Drawing.DXFont("Arial", 7.5F);
             this.xrTableCell35.Multiline = true;
             this.xrTableCell35.Name = "xrTableCell35";
@@ -1113,7 +1114,7 @@
             // 
             this.xrTableCell44.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell44.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([pag_amount_sub])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([calcfld_Subtot])")});
             this.xrTableCell44.Font = new DevExpress.Drawing.DXFont("Times New Roman", 7.5F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrTableCell44.Multiline = true;
             this.xrTableCell44.Name = "xrTableCell44";
@@ -1247,6 +1248,12 @@
             // 
             this.mbndsrc_report.DataSource = typeof(VisorFacturas.Clases.view_rpt_facturasmes_czf);
             // 
+            // calcfld_Subtot
+            // 
+            this.calcfld_Subtot.Expression = "[fac_total]-[impuesto]";
+            this.calcfld_Subtot.FieldType = DevExpress.XtraReports.UI.FieldType.Decimal;
+            this.calcfld_Subtot.Name = "calcfld_Subtot";
+            // 
             // xrfacturasmes
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1259,7 +1266,8 @@
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.calfld_Estado,
             this.calfld_Fecha,
-            this.calcfld_preciounit});
+            this.calcfld_preciounit,
+            this.calcfld_Subtot});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.mbndsrc_report});
             this.DataSource = this.mbndsrc_report;
@@ -1373,5 +1381,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell24;
+        private DevExpress.XtraReports.UI.CalculatedField calcfld_Subtot;
     }
 }

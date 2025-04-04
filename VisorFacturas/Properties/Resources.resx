@@ -463,7 +463,7 @@ where YEAR(FAC.fecha) = {0} AND MONTH(FAC.fecha) = {1}</value>
     <value>SELECT BAC.fecha, BAC.nodoc, BAC.numcom, BAC.nomben as Beneficiario, (trim(BAC.concepto1) +' '+ trim(BAC.concepto2) +' ') AS Concepto01, (trim(BAC.concepto3) +' '+ trim(BAC.concepto4)) AS Concepto02, 
 BAC.valtasa as tasaC, MOV.tmoneda, MOV.aplicado, BAC.cuenco, BAC.valche,
 CAST(IIF(BAC.cuenco = '11' OR BAC.cuenco = '17', BAC.valche, IIF(BAC.cuenco = '22' OR BAC.cuenco = '26', (BAC.valche*BAC.valtasa), '0'))AS NUMERIC(10,2)) AS MTO_C,
-CAST(IIF(BAC.cuenco = '22' OR BAC.cuenco = '26', BAC.valche, IIF(BAC.cuenco = '11' OR BAC.cuenco = '17', (BAC.valche*BAC.valtasa), '0'))AS NUMERIC(10,2)) AS MTO_D,
+CAST(IIF(BAC.cuenco = '22' OR BAC.cuenco = '26', BAC.valche, IIF(BAC.cuenco = '11' OR BAC.cuenco = '17', (BAC.valche/BAC.valtasa), '0'))AS NUMERIC(10,2)) AS MTO_D,
 IIF(BAC.cuenco = '11', 'LC$', IIF(BAC.cuenco = '22', 'LaFise L$', IIF(BAC.cuenco = '17', 'BC$', IIF(BAC.cuenco = '26', 'B$', 'Vacio')))) as Banco
 FROM CON{0} AS BAC
 INNER JOIN MOV{0} AS MOV ON BAC.nodoc = MOV.nodoc AND MOV.niv1 = '0111'

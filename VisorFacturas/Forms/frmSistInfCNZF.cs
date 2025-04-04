@@ -504,12 +504,19 @@ namespace VisorFacturas.Forms
                                 aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes_AUD, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1);
                             }
-                                // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
+                            else if ((aofiltroind_pagosfechaact) && (aofiltroind_SoloCliIndustr) && (aofiltroind_PgoOrg))
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, aoLIKE);
+                            }
+                            // Preguntamos si esta seleccionado los pagos hasta el dia de hoy
                             else if ((aofiltroind_pagosfechaact) && (!aofiltroind_SoloCliIndustr) && (!aofiltroind_PgoOrg))
                             {
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, "", "");
                             }
-                            else if ((aofiltroind_pagosfechaact) && (aofiltroind_SoloCliIndustr) && (aofiltroind_PgoOrg))
+                            else if ((aofiltroind_pagosfechaact) && (!aofiltroind_SoloCliIndustr) && (aofiltroind_PgoOrg))
                             {
                                 // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
                                 aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
@@ -523,12 +530,26 @@ namespace VisorFacturas.Forms
                                 string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, aoLIKE);
                             }
+                            else if ((!aofiltroind_pagosfechaact) && (aofiltroind_SoloCliIndustr) && (aofiltroind_PgoOrg))
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, aoLIKE);
+                            }
                             else if ((!aofiltroind_pagosfechaact) && (!aofiltroind_SoloCliIndustr) && (aofiltroind_PgoOrg))
                             {
                                 // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
                                 aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
                                 //string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
                                 acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, "");
+                            }
+                            else if ((aofiltroind_pagosfechaact) && (aofiltroind_SoloCliIndustr) && (!aofiltroind_PgoOrg))
+                            {
+                                // Si no está seleccionado, solo mostrará pagos que se hayan efectuados el mismo mes filtrado
+                                aoSentenciaAND_1 = "AND YEAR(PAG.pg_fecpag) = " + aofiltro_anyo_entero.ToString() + " AND MONTH(PAG.pg_fecpag) = " + aofiltro_mes_entero.ToString();
+                                string aoLIKE = " AND CLI.cli_nom NOT Like 'FLOTA%' AND CLI.cli_nom NOT Like 'PARASOL%'";
+                                acSql_01 = String.Format(Resources.xr_proc_facturas_mes_czf, aofiltro_anyo_entero, aofiltro_mes_entero, aoSentenciaAND_1, aoLIKE);
                             }
                             else
                             {
@@ -575,6 +596,11 @@ namespace VisorFacturas.Forms
                         // Rellenamos la lista que se enviara al reporte
                         foreach (DataRow item in acDT_temp.Rows)
                         {
+                            if(item["fac_numfac"].ToString().Trim() == "36087")
+                            {
+                                var Temp = item["fac_numfac"].ToString().Trim();
+                            }
+
                             if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                             {
                                 // Variable para capturar registros repetidos, y actualizar valores
@@ -584,15 +610,21 @@ namespace VisorFacturas.Forms
                                                    where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
                                                    select t).ToList();
 
+                              
+
                                 if (aoexistregistro.Count > 0)
                                 {
+                                    
                                     view_rpt_facturasmes_czf aoety_exist = aoexistregistro[0];
                                     Int32 posety = aolistrpt_101CZF.IndexOf(aoety_exist);
                                     aolistrpt_101CZF.RemoveAt(posety);
 
+                                    var Pru = aoety_exist.rem_cantprecio;
+
                                     aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
-                                    aoety_exist.pag_fecha = DateTime.Parse(item["pag_fecha"].ToString());
-                                    aoety_exist.pag_amount_sub += Double.Parse(item["pag_amount"].ToString());
+                                    //aoety_exist.pag_fecha += DateTime.Parse(item["pag_fecha"].ToString());
+                                    aoety_exist.impuesto += Double.Parse(item["iva"].ToString());
+                                    //aoety_exist.pag_amount_sub = Double.Parse(item["pag_amount"].ToString());
                                     aolistrpt_101CZF.Insert(posety, aoety_exist);
                                 }
                                 else
@@ -614,7 +646,7 @@ namespace VisorFacturas.Forms
                                         com_precio = Double.Parse(item["comd_precio"].ToString()),
                                         com_cantprecio = Double.Parse(item["comd_cantprecio"].ToString()),
                                         impuesto = Double.Parse(item["iva"].ToString()),
-                                        pag_amount_sub = (Double.Parse(item["mant_cantprecio"].ToString()) + Double.Parse(item["rent_cantprecio"].ToString()) + Double.Parse(item["comd_cantprecio"].ToString())),
+                                        pag_amount_sub = Double.Parse(item["pag_amount"].ToString()),//Double.Parse(item["fac_total"].ToString()) - Double.Parse(item["iva"].ToString()),
                                         pag_numroc = item["pag_numroc"].ToString(),
                                         pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
                                         fac_total = Double.Parse(item["fac_total"].ToString()),

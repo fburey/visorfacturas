@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSistInfCNZF));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.mchk_PgoOrg = new DevExpress.XtraEditors.CheckEdit();
             this.mchk_SoloCliIndustr = new DevExpress.XtraEditors.CheckEdit();
             this.mchk_ctaAuditoria = new DevExpress.XtraEditors.CheckEdit();
             this.mrdg_Param_cli_buscarpor = new DevExpress.XtraEditors.RadioGroup();
@@ -77,6 +78,7 @@
             this.mlytitm_solofactpendientes = new DevExpress.XtraLayout.LayoutControlItem();
             this.mlytitm_CtaAuditoria = new DevExpress.XtraLayout.LayoutControlItem();
             this.mlytitm_SoloCliIndustr = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mlytitm_PgoOrg = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mlcg_botonesacc = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -84,10 +86,9 @@
             this.mempty_filtros = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.msplashfrm_wait = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DxSAFRHH.inv.forms.frmWaitForm), true, true);
-            this.mchk_PgoOrg = new DevExpress.XtraEditors.CheckEdit();
-            this.mlytitm_PgoOrg = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_PgoOrg.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_SoloCliIndustr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_ctaAuditoria.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mrdg_Param_cli_buscarpor.Properties)).BeginInit();
@@ -129,14 +130,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_solofactpendientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_CtaAuditoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_SoloCliIndustr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_PgoOrg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_botonesacc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchk_PgoOrg.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_PgoOrg)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -166,6 +166,18 @@
             this.layoutControl1.Size = new System.Drawing.Size(1013, 683);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // mchk_PgoOrg
+            // 
+            this.mchk_PgoOrg.EditValue = true;
+            this.mchk_PgoOrg.Location = new System.Drawing.Point(589, 416);
+            this.mchk_PgoOrg.Name = "mchk_PgoOrg";
+            this.mchk_PgoOrg.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.mchk_PgoOrg.Properties.Appearance.Options.UseFont = true;
+            this.mchk_PgoOrg.Properties.Caption = "Pago Origen";
+            this.mchk_PgoOrg.Size = new System.Drawing.Size(229, 23);
+            this.mchk_PgoOrg.StyleController = this.layoutControl1;
+            this.mchk_PgoOrg.TabIndex = 19;
             // 
             // mchk_SoloCliIndustr
             // 
@@ -813,6 +825,15 @@
             this.mlytitm_SoloCliIndustr.TextSize = new System.Drawing.Size(0, 0);
             this.mlytitm_SoloCliIndustr.TextVisible = false;
             // 
+            // mlytitm_PgoOrg
+            // 
+            this.mlytitm_PgoOrg.Control = this.mchk_PgoOrg;
+            this.mlytitm_PgoOrg.Location = new System.Drawing.Point(233, 30);
+            this.mlytitm_PgoOrg.Name = "mlytitm_PgoOrg";
+            this.mlytitm_PgoOrg.Size = new System.Drawing.Size(233, 27);
+            this.mlytitm_PgoOrg.TextSize = new System.Drawing.Size(0, 0);
+            this.mlytitm_PgoOrg.TextVisible = false;
+            // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
@@ -881,26 +902,6 @@
             // 
             this.msplashfrm_wait.ClosingDelay = 500;
             // 
-            // mchk_PgoOrg
-            // 
-            this.mchk_PgoOrg.Location = new System.Drawing.Point(589, 416);
-            this.mchk_PgoOrg.Name = "mchk_PgoOrg";
-            this.mchk_PgoOrg.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.mchk_PgoOrg.Properties.Appearance.Options.UseFont = true;
-            this.mchk_PgoOrg.Properties.Caption = "Pago Origen";
-            this.mchk_PgoOrg.Size = new System.Drawing.Size(229, 23);
-            this.mchk_PgoOrg.StyleController = this.layoutControl1;
-            this.mchk_PgoOrg.TabIndex = 19;
-            // 
-            // mlytitm_PgoOrg
-            // 
-            this.mlytitm_PgoOrg.Control = this.mchk_PgoOrg;
-            this.mlytitm_PgoOrg.Location = new System.Drawing.Point(233, 30);
-            this.mlytitm_PgoOrg.Name = "mlytitm_PgoOrg";
-            this.mlytitm_PgoOrg.Size = new System.Drawing.Size(233, 27);
-            this.mlytitm_PgoOrg.TextSize = new System.Drawing.Size(0, 0);
-            this.mlytitm_PgoOrg.TextVisible = false;
-            // 
             // frmSistInfCNZF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -912,6 +913,7 @@
             this.Load += new System.EventHandler(this.frmSistInfCNZF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mchk_PgoOrg.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_SoloCliIndustr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mchk_ctaAuditoria.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mrdg_Param_cli_buscarpor.Properties)).EndInit();
@@ -953,14 +955,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_solofactpendientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_CtaAuditoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlytitm_SoloCliIndustr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_PgoOrg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mlcg_botonesacc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mempty_filtros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mchk_PgoOrg.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mlytitm_PgoOrg)).EndInit();
             this.ResumeLayout(false);
 
         }
