@@ -596,10 +596,11 @@ namespace VisorFacturas.Forms
                         // Rellenamos la lista que se enviara al reporte
                         foreach (DataRow item in acDT_temp.Rows)
                         {
-                            if(item["fac_numfac"].ToString().Trim() == "36087")
-                            {
-                                var Temp = item["fac_numfac"].ToString().Trim();
-                            }
+                            //if(item["fac_numfac"].ToString().Trim() == "36087")
+                            //{
+                            //    var Temp = item["fac_numfac"].ToString().Trim();
+                            //}
+                            item["cli_nombre"] = item["cli_nombre"].ToString().Replace('¥', 'Ñ');
 
                             if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                             {
@@ -610,8 +611,7 @@ namespace VisorFacturas.Forms
                                                    where t.fac_numfac.Trim() == item["fac_numfac"].ToString().Trim()
                                                    select t).ToList();
 
-                              
-
+        
                                 if (aoexistregistro.Count > 0)
                                 {
                                     
@@ -622,9 +622,9 @@ namespace VisorFacturas.Forms
                                     var Pru = aoety_exist.rem_cantprecio;
 
                                     aoety_exist.pag_numroc += Environment.NewLine + item["pag_numroc"].ToString();
-                                    //aoety_exist.pag_fecha += DateTime.Parse(item["pag_fecha"].ToString());
+                                    aoety_exist.pag_fecha_ += Environment.NewLine + DateTime.Parse(item["pag_fecha"].ToString()).ToString("dd/MM/yyyy");
                                     aoety_exist.impuesto += Double.Parse(item["iva"].ToString());
-                                    //aoety_exist.pag_amount_sub = Double.Parse(item["pag_amount"].ToString());
+                                    aoety_exist.pag_amount_sub += Double.Parse(item["pag_amount"].ToString());
                                     aolistrpt_101CZF.Insert(posety, aoety_exist);
                                 }
                                 else
@@ -649,6 +649,7 @@ namespace VisorFacturas.Forms
                                         pag_amount_sub = Double.Parse(item["pag_amount"].ToString()),//Double.Parse(item["fac_total"].ToString()) - Double.Parse(item["iva"].ToString()),
                                         pag_numroc = item["pag_numroc"].ToString(),
                                         pag_fecha = item["pag_fecha"] != null ? DateTime.Parse(item["pag_fecha"].ToString()) : new DateTime(),
+                                        pag_fecha_ = Convert.ToDateTime(item["pag_fecha"]).ToString("dd/MM/yyyy"),
                                         fac_total = Double.Parse(item["fac_total"].ToString()),
                                         tipo_regimen = item["tipo_regimen"].ToString()
                                     });
@@ -820,6 +821,9 @@ namespace VisorFacturas.Forms
                             // Variable para capturar registros repetidos, y actualizar valores
                             List<view_rpt_metrajeanual> aoexistregistro = new List<view_rpt_metrajeanual>();
                             // Consulta para ubicar registro repetidos
+
+                            item["cli_nombre"] = item["cli_nombre"].ToString().Replace('¥', 'Ñ');
+
 
                             aoexistregistro = (from t in aolistrpt_102.AsQueryable()
                                                where t.cli_cod.Trim() == item["cli_cod"].ToString().Trim()

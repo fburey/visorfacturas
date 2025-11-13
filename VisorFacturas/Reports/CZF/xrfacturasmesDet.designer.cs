@@ -1409,7 +1409,7 @@
             // 
             // calfld_Fecha
             // 
-            this.calfld_Fecha.Expression = "Iif(GetYear([pag_fecha])<2000, \'\', FormatString(\'{0:dd/MM/yyyy}\',[pag_fecha]))";
+            this.calfld_Fecha.Expression = "Iif(GetYear([pag_fecha])<2000, \'\', [pag_fecha_])";
             this.calfld_Fecha.Name = "calfld_Fecha";
             // 
             // calcfld_preciounit

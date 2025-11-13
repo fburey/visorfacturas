@@ -27,6 +27,7 @@ namespace VisorFacturas.Clases
         public double impuesto { get; set; }
         public string pag_numroc { get; set; }
         public DateTime? pag_fecha { get; set; }
+        public string pag_fecha_ { get; set; }
         public double fac_total { get; set; }
         public string tipo_regimen { get; set; }
     }

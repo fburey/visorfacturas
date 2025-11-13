@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using VisorFacturas.Datasets;
@@ -17,9 +14,6 @@ using VisorFacturas.Enums;
 using DevExpress.XtraGrid.Views.Grid;
 using System.IO;
 using System.Net;
-using DevExpress.XtraLayout;
-using DevExpress.Utils;
-using System.Net.Mime;
 using static VisorFacturas.Util.clsSendmail_richtext;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
@@ -39,9 +33,9 @@ namespace VisorFacturas.Forms
 
         /* Variables de Correo Electrónico */
         //String smtpCZF = "ns.czf.com.ni";
-        String smtpCZF = "186.1.30.111";//"smtp.czf.com.ni";
+        String smtpCZF = "clients.ibw.com.ni"; //"200.85.160.36"
         //String smtpCNZF = "mail.cnzf.gob.ni";
-        String smtpCNZF = "186.1.30.111";//"smtp.czf.com.ni";
+        String smtpCNZF = "clients.ibw.com.ni"; //"200.85.160.36"
         String smtpCORREO;
 
         string UserCorreo;
@@ -267,7 +261,7 @@ namespace VisorFacturas.Forms
                                                 select new viewFactura
                                                 {
                                                     cli_codig = fac.cli_codig,
-                                                    cli_nom = client.cli_nom,
+                                                    cli_nom = client.cli_nom.Replace('¥', 'Ñ'),
                                                     ord_numero = fac.ord_numero,
                                                     fecha = fac.fecha,
                                                     //fechaVence = rem.rem_fec_ve,
@@ -544,7 +538,7 @@ namespace VisorFacturas.Forms
 
 
                     mailSender.UseDefaultCredentials = false;
-                    mailSender.Port = 25;
+                    mailSender.Port = 587;
                     mailSender.Credentials = new System.Net.NetworkCredential(From, UserPass);
                     ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors) { return true; };
                     mailSender.DeliveryFormat = SmtpDeliveryFormat.International;
@@ -721,9 +715,12 @@ namespace VisorFacturas.Forms
             }
 
             txtNombreRem.Text = moCurrentUser.fullname;
+            ////txtCorreoRem.Text = "impresora@cnzf.gob.ni";
+            ////UserCorreo = "impresora@cnzf.gob.ni";
+            ////UserPass = "diSposal_770_dOUGHnUT";
             txtCorreoRem.Text = "aaviles@cnzf.gob.ni";// moCurrentUser.email; //"impresora@cnzf.gob.ni";//
             UserCorreo = "aaviles@cnzf.gob.ni";
-            UserPass = "@uCZNf_Avil3z";
+            UserPass = "A@viles/*789-+.";
             //if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
             //{
             //    txtNombreRem.Text = NombreRemitenteCZF;
@@ -1080,14 +1077,14 @@ namespace VisorFacturas.Forms
                     LstCorreosIndiv.Items.Clear();
                     if (cliente_selected != null)
                     {
-                        if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
-                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
+                        //if (!String.IsNullOrEmpty(cliente_selected.cli_email1))
+                        //    LstCorreosIndiv.Items.Add(cliente_selected.cli_email1.Trim());
 
-                        if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
-                            LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
+                        //if (!String.IsNullOrEmpty(cliente_selected.cli_email2))
+                        //    LstCorreosIndiv.Items.Add(cliente_selected.cli_email2.Trim());
 
                         // Correos de prueba
-                        //LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
+                        LstCorreosIndiv.Items.Add("wmejia@czf.com.ni");
                         //LstCorreosIndiv.Items.Add("davilaandres95@gmail.com");
                         //LstCorreosIndiv.Items.Add("restrada.czf.com.ni");
 
@@ -1545,6 +1542,7 @@ namespace VisorFacturas.Forms
                 int aonumfac = aonum_fact_ini_modal;
                 foreach (var item in ListFacturas)
                 {
+                    //item.cli_nom = item.cli_nom.Replace
                     item.fac_fac_nu = aonumfac;
                     item.fecha = aofecha_fact_modal;
                     aonumfac++;

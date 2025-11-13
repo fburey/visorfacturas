@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
-using VisorFacturas.Forms;
 using VisorFacturas.Clases;
 using VisorFacturas.Util;
 using VisorFacturas.Enums;
-using VisorFacturas.Forms;
 
 namespace VisorFacturas.Forms
 {
