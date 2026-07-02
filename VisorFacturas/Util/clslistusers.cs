@@ -56,6 +56,44 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerMtaAnuCli = true;
                     createcurrentuser.indVerFactxMes = true;
                     break;
+                case @"zfrancas\jmarcia":
+                    createcurrentuser.username = pausername;
+                    createcurrentuser.fullname = "Jimmy Marcia Galindo";
+                    createcurrentuser.codUser = 0;
+                    createcurrentuser.indVerFactura = true;
+                    createcurrentuser.indVerActFij = true;
+                    createcurrentuser.indVerSistInf = true;
+                    createcurrentuser.indVerNotas = true;
+                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
+                    createcurrentuser.indCambiarEmpresa = true;
+                    createcurrentuser.email = "jimmy.marcia@czf.com.ni";
+                    createcurrentuser.indVerAntxRegi = true;
+                    createcurrentuser.indVerEstCta = true;
+                    createcurrentuser.indVerRepotFact = true;
+                    createcurrentuser.indVerFactMes = true;
+                    createcurrentuser.indVerMtaAnuCli = true;
+                    createcurrentuser.indVerFactxMes = true;
+                    break;
+
+                case @"zfrancas\aurey":
+                    createcurrentuser.username = pausername;
+                    createcurrentuser.fullname = "Angel Urey Ruiz";
+                    createcurrentuser.codUser = 0;
+                    createcurrentuser.indVerFactura = true;
+                    createcurrentuser.indVerActFij = true;
+                    createcurrentuser.indVerSistInf = true;
+                    createcurrentuser.indVerNotas = true;
+                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
+                    createcurrentuser.indCambiarEmpresa = true;
+                    createcurrentuser.email = "angel.urey@czf.com.ni";
+                    createcurrentuser.indVerAntxRegi = true;
+                    createcurrentuser.indVerEstCta = true;
+                    createcurrentuser.indVerRepotFact = true;
+                    createcurrentuser.indVerFactMes = true;
+                    createcurrentuser.indVerMtaAnuCli = true;
+                    createcurrentuser.indVerFactxMes = true;
+                    break;
+
                 case @"zfrancas\rsblanco":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Ramona Blanco Lezama";
@@ -164,6 +202,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerMtaAnuCli = false;
                     createcurrentuser.indVerFactxMes = false;
                     break;
+
                 default:
                     createcurrentuser.username = "Usuario Inválido";
                     createcurrentuser.fullname = "Usuario No Autorizado";
