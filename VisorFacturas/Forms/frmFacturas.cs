@@ -405,8 +405,8 @@ namespace VisorFacturas.Forms
                                   rem_impues = rem.rem_impues,
                                   rem_fec_ve = rem.rem_fec_ve
                               };
-                remision = dataRem.Where(rem => rem.rem_numero == ord_numero).Where(s => s.rem_fec_ve.Month == (cmbMes.SelectedIndex + 1)).ToList();
-                //remision = dataRem.Where(rem => rem.rem_numero == ord_numero).ToList();
+                //remision = dataRem.Where(rem => rem.rem_numero == ord_numero).Where(s => s.rem_fec_ve.Month == (cmbMes.SelectedIndex + 1)).ToList();
+                remision = dataRem.Where(rem => rem.rem_numero == ord_numero).ToList();
             }
             else
             {
