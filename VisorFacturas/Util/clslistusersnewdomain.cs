@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using VisorFacturas.Clases;
 using VisorFacturas.Enums;
 
 namespace VisorFacturas.Util
 {
-    public class clslistusers
+    public class clslistusersnewdomain
     {
         public tblUser GetUserSystem(String pausername, Int16? paidempresaselect)
         {
             tblUser createcurrentuser = new tblUser();
             switch (pausername.ToLower())
             {
-                case @"zfrancas\adavila":
+                case @"czfrancas\adavila":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Ariel Dávila González";
                     createcurrentuser.codUser = 0;
@@ -24,7 +28,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.email = "adavila@czf.com.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= true;
+                    createcurrentuser.indVerRepotFact = true;
                     createcurrentuser.indVerFactMes = true;
                     createcurrentuser.indVerMtaAnuCli = true;
                     createcurrentuser.indVerFactxMes = true;
@@ -34,7 +38,7 @@ namespace VisorFacturas.Util
                     //createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CNZF;
                     //createcurrentuser.indCambiarEmpresa = false;
                     break;
-                case @"zfrancas\wmejia":
+                case @"czfrancas\wmejia":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "William Mejía Mendoza";
                     createcurrentuser.codUser = 0;
@@ -47,12 +51,12 @@ namespace VisorFacturas.Util
                     createcurrentuser.email = "wmejia@czf.com.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= true;
+                    createcurrentuser.indVerRepotFact = true;
                     createcurrentuser.indVerFactMes = true;
                     createcurrentuser.indVerMtaAnuCli = true;
                     createcurrentuser.indVerFactxMes = true;
                     break;
-                case @"zfrancas\jmarcia":
+                case @"czfrancas\jmarcia":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Jimmy Marcia Galindo";
                     createcurrentuser.codUser = 0;
@@ -71,7 +75,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactxMes = true;
                     break;
 
-                case @"zfrancas\aurey":
+                case @"czfrancas\aurey":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Angel Urey Ruiz";
                     createcurrentuser.codUser = 0;
@@ -90,7 +94,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.indVerFactxMes = true;
                     break;
 
-                case @"zfrancas\rsblanco":
+                case @"czfrancas\rsblanco":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Ramona Blanco Lezama";
                     createcurrentuser.codUser = 0;
@@ -103,12 +107,12 @@ namespace VisorFacturas.Util
                     createcurrentuser.email = "rblanco@czf.com.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= true;
+                    createcurrentuser.indVerRepotFact = true;
                     createcurrentuser.indVerFactMes = true;
                     createcurrentuser.indVerMtaAnuCli = true;
                     createcurrentuser.indVerFactxMes = true;
                     break;
-                case @"zfrancas\aaviles":
+                case @"czfrancas\aaviles":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Augusto Avilés";
                     createcurrentuser.codUser = 0;
@@ -121,12 +125,12 @@ namespace VisorFacturas.Util
                     createcurrentuser.email = "aaviles@cnzf.gob.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= true;
+                    createcurrentuser.indVerRepotFact = true;
                     createcurrentuser.indVerFactMes = true;
                     createcurrentuser.indVerMtaAnuCli = true;
                     createcurrentuser.indVerFactxMes = true;
                     break;
-                case @"zfrancas\dgonzalez":
+                case @"czfrancas\dgonzalez":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "David González Tiffer";
                     createcurrentuser.codUser = 252;
@@ -139,12 +143,12 @@ namespace VisorFacturas.Util
                     createcurrentuser.email = "dgonzalez@cnzf.gob.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= true;
+                    createcurrentuser.indVerRepotFact = true;
                     createcurrentuser.indVerFactMes = true;
                     createcurrentuser.indVerMtaAnuCli = true;
                     createcurrentuser.indVerFactxMes = true;
                     break;
-                case @"zfrancas\mpineda":
+                case @"czfrancas\mpineda":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Marjoury Pineda";
                     createcurrentuser.codUser = 342;
@@ -157,30 +161,30 @@ namespace VisorFacturas.Util
                     createcurrentuser.email = "mpineda@cnzf.gob.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= true;
+                    createcurrentuser.indVerRepotFact = true;
                     createcurrentuser.indVerFactMes = true;
                     createcurrentuser.indVerMtaAnuCli = true;
                     createcurrentuser.indVerFactxMes = true;
                     break;
-                case @"zfrancas\ldelgado":
-                    createcurrentuser.username      = pausername;
-                    createcurrentuser.fullname      = "Luis Delgado";
-                    createcurrentuser.codUser       = 72;
+                case @"czfrancas\ldelgado":
+                    createcurrentuser.username = pausername;
+                    createcurrentuser.fullname = "Luis Delgado";
+                    createcurrentuser.codUser = 72;
                     createcurrentuser.indVerFactura = true;
-                    createcurrentuser.indVerActFij  = false;
+                    createcurrentuser.indVerActFij = false;
                     createcurrentuser.indVerSistInf = true;
-                    createcurrentuser.indVerNotas   = true;
-                    createcurrentuser.idEmpresa     = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CZF;
+                    createcurrentuser.indVerNotas = true;
+                    createcurrentuser.idEmpresa = paidempresaselect != null ? (Int16)paidempresaselect : (Int16)clsAppEnum.MvxEmpresaSistema.CZF;
                     createcurrentuser.indCambiarEmpresa = false;
                     createcurrentuser.email = "ldelgado@czf.com.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= false;
+                    createcurrentuser.indVerRepotFact = false;
                     createcurrentuser.indVerFactMes = false;
                     createcurrentuser.indVerMtaAnuCli = false;
                     createcurrentuser.indVerFactxMes = false;
                     break;
-                case @"zfrancas\laguirre":
+                case @"czfrancas\laguirre":
                     createcurrentuser.username = pausername;
                     createcurrentuser.fullname = "Lisseth Aguirre";
                     createcurrentuser.codUser = 336;
@@ -193,7 +197,7 @@ namespace VisorFacturas.Util
                     createcurrentuser.email = "laguirre@czf.com.ni";
                     createcurrentuser.indVerAntxRegi = true;
                     createcurrentuser.indVerEstCta = true;
-                    createcurrentuser.indVerRepotFact= false;
+                    createcurrentuser.indVerRepotFact = false;
                     createcurrentuser.indVerFactMes = false;
                     createcurrentuser.indVerMtaAnuCli = false;
                     createcurrentuser.indVerFactxMes = false;
@@ -214,8 +218,7 @@ namespace VisorFacturas.Util
                     break;
             }
             return createcurrentuser;
-        }
 
+        }
     }
 }
-

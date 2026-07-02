@@ -6,6 +6,7 @@ using DevExpress.XtraBars;
 using VisorFacturas.Clases;
 using VisorFacturas.Util;
 using VisorFacturas.Enums;
+using VisorFacturas.Properties;
 
 namespace VisorFacturas.Forms
 {
@@ -16,6 +17,7 @@ namespace VisorFacturas.Forms
         /// </summary>
         tblUser moCurrentUser;// = new tblUser();
         clslistusers clsusuarios = new clslistusers();
+        clslistusersnewdomain clsusuariosnewdomain = new clslistusersnewdomain();
         clsCnfParameterLogin moClsCnfParameter = new clsCnfParameterLogin();
         String username = string.Empty;
         String PantTitle = "SISTEMA DE CONSULTAS DBF";
@@ -33,8 +35,14 @@ namespace VisorFacturas.Forms
             //XtraMessageBox.Show(System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\').Last());
             username = System.Security.Principal.WindowsIdentity.GetCurrent().Name;  // PARA SABER NOMBRE DE USUARIO CON DOMINIO
             //String username = Environment.UserName; // PARA SABER SOLO EL NOMBRE DE USUARIO
-
-            moCurrentUser = clsusuarios.GetUserSystem(username, null);
+            if (!Settings.Default.isNewDomain)
+            {
+                moCurrentUser = clsusuarios.GetUserSystem(username, null);
+            }
+            else
+            {
+                moCurrentUser = clsusuariosnewdomain.GetUserSystem(username, null);
+            }
 
             //if (moCurrentUser.indCambiarEmpresa)
             //{
@@ -224,8 +232,15 @@ namespace VisorFacturas.Forms
             aofrmchild = new frmEmpresaSelect(moClsCnfParameter);
             aofrmchild.ShowDialog();
             //// Verificamos en que empresa desea entrar, solo los que tienen el IndCambiarEmpresa en True
-            moCurrentUser = clsusuarios.GetUserSystem(username, moClsCnfParameter.mcIdEmpresa);
-            
+            if (!Settings.Default.isNewDomain)
+            {
+                moCurrentUser = clsusuarios.GetUserSystem(username, moClsCnfParameter.mcIdEmpresa);
+            }
+            else
+            {
+                moCurrentUser = clsusuariosnewdomain.GetUserSystem(username, moClsCnfParameter.mcIdEmpresa);
+            }
+
             if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CZF)
                 this.Text = PantTitle + " - CZF";
             else if (moCurrentUser.idEmpresa == (Int16)clsAppEnum.MvxEmpresaSistema.CNZF)

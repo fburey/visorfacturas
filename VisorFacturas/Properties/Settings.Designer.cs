@@ -12,7 +12,7 @@ namespace VisorFacturas.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\Contabilidad-CNZF\\Sisintfi\\CxC\\CZF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\Contabilidad-CNZF\\Sisintfi\\CxC\\CZF")]
         public string DirectorioTablasCNZF {
             get {
                 return ((string)(this["DirectorioTablasCNZF"]));
@@ -49,7 +49,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\Contabilidad-CNZF\\Sisintfi\\CxC\\CZF\\TempRemision")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\Contabilidad-CNZF\\Sisintfi\\CxC\\CZF\\TempRemision")]
         public string DirectorioTablasRemisionCNZF {
             get {
                 return ((string)(this["DirectorioTablasRemisionCNZF"]));
@@ -61,7 +61,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\Contabilidad-CNZF\\SISINTFI\\AF\\ZFM")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\Contabilidad-CNZF\\SISINTFI\\AF\\ZFM")]
         public string DirectorioActivosFijosCNZF {
             get {
                 return ((string)(this["DirectorioActivosFijosCNZF"]));
@@ -73,7 +73,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE\\INVENT\\CZF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\contabilidad\\APLIC\\SISINTFI\\PRICE\\INVENT\\CZF")]
         public string DirectorioTablasCZF {
             get {
                 return ((string)(this["DirectorioTablasCZF"]));
@@ -97,7 +97,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE\\INVENT\\CZF\\TempRemision")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\contabilidad\\APLIC\\SISINTFI\\PRICE\\INVENT\\CZF\\TempRemision")]
         public string DirectorioTablasRemisionCZF {
             get {
                 return ((string)(this["DirectorioTablasRemisionCZF"]));
@@ -109,7 +109,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE\\AF\\ZFM")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\contabilidad\\APLIC\\SISINTFI\\PRICE\\AF\\ZFM")]
         public string DirectorioActivosFijosCZF {
             get {
                 return ((string)(this["DirectorioActivosFijosCZF"]));
@@ -121,7 +121,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\Contabilidad-CNZF\\Sisintfi\\CxC\\CZ" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\172.16.30.16\\Contabilidad-CNZF\\Sisintfi\\CxC\\CZ" +
             "F;Extended Properties=dBASE IV;")]
         public string mCnxCNZF_TablasCXC {
             get {
@@ -141,7 +141,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\172.16.30.16\\contabilidad\\APLIC\\SISINTFI\\PRICE" +
             "\\INVENT\\CZF;Extended Properties=dBASE IV;")]
         public string mCnxCZF_TablasCXC {
             get {
@@ -151,7 +151,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\contabilidad-cnzf\\Sisintfi\\CONTAB" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\172.16.30.16\\contabilidad-cnzf\\Sisintfi\\CONTAB" +
             "\\CNZF;Extended Properties=dBASE IV;")]
         public string mCnxCNZF_TablasBANCO {
             get {
@@ -161,7 +161,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=VFPOLEDB.1;Data Source=\\\\172.16.30.16\\contabilidad\\APLIC\\SISINTFI\\PRICE" +
             "\\CONTAB\\CZF;Extended Properties=dBASE IV;")]
         public string mCnxCZF_TablasBANCO {
             get {
@@ -171,7 +171,7 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\contabilidad-cnzf\\Sisintfi\\CONTAB\\CNZF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\contabilidad-cnzf\\Sisintfi\\CONTAB\\CNZF")]
         public string DirectorioCNZF_TablasBANCO {
             get {
                 return ((string)(this["DirectorioCNZF_TablasBANCO"]));
@@ -183,13 +183,22 @@ namespace VisorFacturas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.25.23\\contabilidad\\APLIC\\SISINTFI\\PRICE\\CONTAB\\CZF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\172.16.30.16\\contabilidad\\APLIC\\SISINTFI\\PRICE\\CONTAB\\CZF")]
         public string DirectorioCZF_TablasBANCO {
             get {
                 return ((string)(this["DirectorioCZF_TablasBANCO"]));
             }
             set {
                 this["DirectorioCZF_TablasBANCO"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isNewDomain {
+            get {
+                return ((bool)(this["isNewDomain"]));
             }
         }
     }

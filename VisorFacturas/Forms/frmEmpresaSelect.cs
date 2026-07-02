@@ -1,23 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DevExpress.XtraBars.Ribbon;
 using VisorFacturas.Clases;
-using VisorFacturas.Util;
 
 namespace VisorFacturas.Forms
 {
     public partial class frmEmpresaSelect : DevExpress.XtraEditors.XtraForm
     {
         tblUser moCurrentUser = new tblUser();
-        clslistusers clsusuarios = new clslistusers();
+        //clslistusers clsusuarios = new clslistusers();
+        //clslistusersnewdomain clsusuariosnewdomain = new clslistusersnewdomain();
         clsCnfParameterLogin moClsCnfParameter = new clsCnfParameterLogin();
         clsMenuMDI moclsMenuMDI = new clsMenuMDI();
         //Variables de empresas

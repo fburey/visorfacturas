@@ -780,10 +780,21 @@ namespace VisorFacturas.Forms
             arrayAdjuntos[0] = pathFact + "\\" + Year + "\\" + Month + "\\" + "reporte_clientes_sin_facturas_" + DateTime.Now.ToString("yyyy_MM_dd") + "_" + DateTime.Now.ToString("HHmm") + ".pdf";
 
             String[] CorreosDestinos = new String[2];
-            CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
-            CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
-            CorreosDestinos[2] = new Util.clslistusers().GetUserSystem(@"zfrancas\aaviles", null).email;
-            CorreosDestinos[3] = new Util.clslistusers().GetUserSystem(@"zfrancas\wmejia", null).email;
+            if (!Settings.Default.isNewDomain)
+            {
+                CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\dgonzalez", null).email;
+                CorreosDestinos[1] = new Util.clslistusers().GetUserSystem(@"zfrancas\rsblanco", null).email;
+                CorreosDestinos[2] = new Util.clslistusers().GetUserSystem(@"zfrancas\aaviles", null).email;
+                CorreosDestinos[3] = new Util.clslistusers().GetUserSystem(@"zfrancas\wmejia", null).email;
+            }
+            else
+            {
+                CorreosDestinos[0] = new Util.clslistusersnewdomain().GetUserSystem(@"czfrancas\dgonzalez", null).email;
+                CorreosDestinos[1] = new Util.clslistusersnewdomain().GetUserSystem(@"czfrancas\rsblanco", null).email;
+                CorreosDestinos[2] = new Util.clslistusersnewdomain().GetUserSystem(@"czfrancas\aaviles", null).email;
+                CorreosDestinos[3] = new Util.clslistusersnewdomain().GetUserSystem(@"czfrancas\wmejia", null).email;
+            }
+
             //CorreosDestinos[0] = new Util.clslistusers().GetUserSystem(@"zfrancas\adavila", null).email;
 
             //Creamos el reporte, sin imprimirlo
