@@ -266,3 +266,4 @@ __pycache__/
 # Agregados Manualmente
 bin/Debug/
 obj/Debug/
+/Visual Studio 2022/Visualizers
